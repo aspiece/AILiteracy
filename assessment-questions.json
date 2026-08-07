@@ -1,0 +1,1226 @@
+[
+  {
+    "id": "3fe0502bedd4c1ee47cbaae8c2bc6ec3",
+    "title": "8.6.20 | Show What You Know: AI Skills Certification Assessment",
+    "type": "multiple_choice_question",
+    "prompt": "Scenario: A self-driving car AI correctly avoids a bicycle in a difficult test after its data is updated. What is the most responsible conclusion for the team to draw?",
+    "choices": [
+      {
+        "id": "37ae350f-3a33-4b8e-a032-c0a723d2be84",
+        "html": "The car is now proven to be completely safe and ready for real city driving."
+      },
+      {
+        "id": "0aa4b2f5-47b5-4860-88e9-dcf5c0154bfd",
+        "html": "The result is good, but the car still needs more testing and human oversight."
+      },
+      {
+        "id": "3b56a299-dc4d-452a-8f9d-28f84aca4dcb",
+        "html": "The car's AI no longer needs a separate test set because it learned the rule."
+      },
+      {
+        "id": "f07937c1-3940-4be8-897f-db73696a343c",
+        "html": "One correct test guarantees the car will always avoid bicycles in real life."
+      }
+    ],
+    "correct": [
+      "0aa4b2f5-47b5-4860-88e9-dcf5c0154bfd"
+    ],
+    "feedback": "",
+    "matching_rows": []
+  },
+  {
+    "id": "2255c58c033b438df1ee863119aeb65e",
+    "title": "8.6.19 | Show What You Know: AI Skills Certification Assessment",
+    "type": "multiple_choice_question",
+    "prompt": "Scenario: A team updates their weather prediction AI from Initial Model to Improved Model. What is the most accurate way to compare the two versions to see which is better?",
+    "choices": [
+      {
+        "id": "1feed8e7-512f-44cd-8ea7-98c0471c9c7c",
+        "html": "Test both versions on the exact same set of new data and compare the results."
+      },
+      {
+        "id": "e6f86507-fa3f-4f39-9b8e-908203f41291",
+        "html": "Give Improved Model easier weather patterns to predict so it gets a higher score."
+      },
+      {
+        "id": "9eb5d000-2de2-4a34-8d24-c5403efd2bf8",
+        "html": "Compare only one successful prediction from each version to save some time."
+      },
+      {
+        "id": "f855e115-5ec5-4c86-b85d-85d59355f5a5",
+        "html": "Assume Improved Model is better simply because it was trained much more recently."
+      }
+    ],
+    "correct": [
+      "1feed8e7-512f-44cd-8ea7-98c0471c9c7c"
+    ],
+    "feedback": "",
+    "matching_rows": []
+  },
+  {
+    "id": "0b5c59f448f297b537330d02d6786050",
+    "title": "L8-S6-ASM-18 | Target a Data Improvement",
+    "type": "multiple_choice_question",
+    "prompt": "Scenario: An AI tool that reads handwritten addresses keeps failing to read zip codes written in red ink. What is the most targeted way to improve the AI model?",
+    "choices": [
+      {
+        "id": "3149bcfd-e05c-4868-9855-7ffac785daa7",
+        "html": "Add correctly labeled training examples of zip codes written in red ink."
+      },
+      {
+        "id": "2127df8b-d904-4f76-a181-3c8cfa4be322",
+        "html": "Remove the test examples written in red ink so the AI's score increases."
+      },
+      {
+        "id": "97def72d-db86-4c8c-8add-e678e5af9228",
+        "html": "Duplicate the easy training examples of black ink that the AI handles well."
+      },
+      {
+        "id": "723b4757-9287-4eac-9003-3fcc3e6c404b",
+        "html": "Change the AI's reported accuracy score without changing the data or model."
+      }
+    ],
+    "correct": [
+      "3149bcfd-e05c-4868-9855-7ffac785daa7"
+    ],
+    "feedback": "",
+    "matching_rows": []
+  },
+  {
+    "id": "c608fbd620eaf609d63755037910c7a6",
+    "title": "L8-S6-ASM-17 | Separate Training and Testing",
+    "type": "multiple_choice_question",
+    "prompt": "Scenario: A team is training an AI to detect spam emails. They divide their emails into a \"training set\" and a \"test set.\" Why must they keep the test emails separate?",
+    "choices": [
+      {
+        "id": "cd7da7ff-7c30-41fc-aead-8a0f1e0015ed",
+        "html": "The test set shows how well the AI handles new emails it has never seen."
+      },
+      {
+        "id": "b557a4bf-349b-4ec1-8ab5-0f201c340081",
+        "html": "The test set prevents the AI from using any labeled examples for learning."
+      },
+      {
+        "id": "87498f28-53e6-40ee-be47-124c9386a1d9",
+        "html": "The test set ensures the training emails do not have any expected results."
+      },
+      {
+        "id": "714fa304-7ca1-4a66-b5f2-96d29f1ba0d5",
+        "html": "The test set updates the AI automatically every time it makes a prediction."
+      }
+    ],
+    "correct": [
+      "cd7da7ff-7c30-41fc-aead-8a0f1e0015ed"
+    ],
+    "feedback": "",
+    "matching_rows": []
+  },
+  {
+    "id": "0b5bf64d84c250cf492247f25ab2c835",
+    "title": "L8-S6-ASM-16 | Identify Classification",
+    "type": "multiple_choice_question",
+    "prompt": "Scenario: A music streaming service wants to use AI to organize its huge library of songs. Which of these tasks is the best fit for a classifier AI model?",
+    "choices": [
+      {
+        "id": "619f6a9d-f5e2-46e3-9387-09892a16e4bb",
+        "html": "Labeling a new song as \"Jazz,\" \"Rock,\" or \"Classical\" based on its sound."
+      },
+      {
+        "id": "988a5537-7e95-4d4d-afda-5daec5a3fcd1",
+        "html": "Estimating exactly how many times a new song will be played in next month."
+      },
+      {
+        "id": "e3a69c1b-8979-4a0f-8d1c-b5f28f940acd",
+        "html": "Suggesting a new playlist to a user based on the songs they liked earlier."
+      },
+      {
+        "id": "b77600d6-4f8c-4656-98d3-36eb6a17ffe3",
+        "html": "Writing a fictional biography for a new band using notes from their agent."
+      }
+    ],
+    "correct": [
+      "619f6a9d-f5e2-46e3-9387-09892a16e4bb"
+    ],
+    "feedback": "",
+    "matching_rows": []
+  },
+  {
+    "id": "e1a8169646236a6450438735f109d240",
+    "title": "L8-S6-ASM-15 | Evaluate Access Impacts",
+    "type": "multiple_answers_question",
+    "prompt": "Scenario: A school buys a new AI tutoring program, but it only works on expensive tablets and only speaks English. What impacts must the school leaders examine? Select all that apply.",
+    "choices": [
+      {
+        "id": "dba63e54-57f3-41d1-a568-1d40ea9fbc3a",
+        "html": "Which students might be left out because they cannot afford the new tablet."
+      },
+      {
+        "id": "e4359538-14f6-4156-993a-1d224529b8b0",
+        "html": "Whether the quality of the tutoring is worse for students learning English."
+      },
+      {
+        "id": "2d416d2a-5ff1-4307-bb75-d7557a543289",
+        "html": "Whether these barriers could affect students' chances to learn and succeed."
+      },
+      {
+        "id": "ebf5ea75-b663-4c84-a3f9-b8e0c6aefd47",
+        "html": "Whether the AI program's logo uses the school's preferred official colors."
+      }
+    ],
+    "correct": [
+      "dba63e54-57f3-41d1-a568-1d40ea9fbc3a",
+      "e4359538-14f6-4156-993a-1d224529b8b0",
+      "2d416d2a-5ff1-4307-bb75-d7557a543289"
+    ],
+    "feedback": "",
+    "matching_rows": []
+  },
+  {
+    "id": "d1c7f97c9f3b77b5bf473b47a4823eee",
+    "title": "L8-S6-ASM-14 | Choose the Appropriate Tool",
+    "type": "multiple_choice_question",
+    "prompt": "Scenario: A shipping company uses a simple, accurate math formula to calculate package weights. When would it make sense to replace this formula with a complex AI system?",
+    "choices": [
+      {
+        "id": "bc4f7a9a-2cb9-46b1-a615-c088d36aef51",
+        "html": "When the AI adds enough value to outweigh the extra risks and higher costs."
+      },
+      {
+        "id": "8de4591f-ea7e-42f6-8918-689992d05b95",
+        "html": "When the AI can write a longer explanation than the simple formula provides."
+      },
+      {
+        "id": "d1a75790-1db8-444f-9e58-1271f4929914",
+        "html": "When the AI system is newer and more popular with other shipping companies."
+      },
+      {
+        "id": "ceb0ad3e-1806-4ee7-a823-ffa3313acac9",
+        "html": "When using the AI allows the company to remove all human responsibility."
+      }
+    ],
+    "correct": [
+      "bc4f7a9a-2cb9-46b1-a615-c088d36aef51"
+    ],
+    "feedback": "",
+    "matching_rows": []
+  },
+  {
+    "id": "fcd17023bc03beb7675c93e77bb09ef6",
+    "title": "L8-S6-ASM-13 | Show Human Contribution",
+    "type": "multiple_answers_question",
+    "prompt": "Scenario: An architect uses AI to generate ideas for a new park. Which actions prove that the architect made a meaningful human contribution to the final design? Select all that apply.",
+    "choices": [
+      {
+        "id": "95ecc964-7b12-4abe-8947-3fc853b3313b",
+        "html": "Developing the main concept and making the most important design choices."
+      },
+      {
+        "id": "688ab747-e9ec-4c83-bd50-8dc8c84c5041",
+        "html": "Selecting, arranging, and carefully revising the elements the AI generated."
+      },
+      {
+        "id": "3f6401d2-48cc-4625-beb6-09c9b9bcaf76",
+        "html": "Checking the AI's ideas against safety rules and the city's requirements."
+      },
+      {
+        "id": "7ac4fe21-2c92-4b5b-b770-5a6dff2a4655",
+        "html": "Submitting the AI's first output to the city without reviewing it first."
+      }
+    ],
+    "correct": [
+      "95ecc964-7b12-4abe-8947-3fc853b3313b",
+      "688ab747-e9ec-4c83-bd50-8dc8c84c5041",
+      "3f6401d2-48cc-4625-beb6-09c9b9bcaf76"
+    ],
+    "feedback": "",
+    "matching_rows": []
+  },
+  {
+    "id": "2dfb90c9c8487131f62663239d595989",
+    "title": "L8-S6-ASM-12 | Match Creative Responsibilities",
+    "type": "matching_question",
+    "prompt": "Scenario: A student uses an AI tool to help design a poster for a science fair. Match each of the student's responsibilities with its correct purpose.",
+    "choices": [
+      {
+        "id": "distractor_0",
+        "html": "Determines whether the student is allowed to use certain images."
+      },
+      {
+        "id": "distractor_1",
+        "html": "Gives credit to the original creators of the images used."
+      },
+      {
+        "id": "distractor_2",
+        "html": "Explains exactly how the AI tool assisted the student's work."
+      },
+      {
+        "id": "distractor_0",
+        "html": "Determines whether the student is allowed to use certain images."
+      },
+      {
+        "id": "distractor_1",
+        "html": "Gives credit to the original creators of the images used."
+      },
+      {
+        "id": "distractor_2",
+        "html": "Explains exactly how the AI tool assisted the student's work."
+      },
+      {
+        "id": "distractor_0",
+        "html": "Determines whether the student is allowed to use certain images."
+      },
+      {
+        "id": "distractor_1",
+        "html": "Gives credit to the original creators of the images used."
+      },
+      {
+        "id": "distractor_2",
+        "html": "Explains exactly how the AI tool assisted the student's work."
+      }
+    ],
+    "correct": [
+      "b820729a-3b06-4910-9602-7e51a233e6ac",
+      "c7d94e92-cf51-4e63-b437-c382e42c9001",
+      "9c72af55-9240-489d-8e78-d4bfb1c38669"
+    ],
+    "feedback": "",
+    "matching_rows": [
+      {
+        "id": "response_b820729a-3b06-4910-9602-7e51a233e6ac",
+        "label": "Permission",
+        "choices": [
+          {
+            "id": "distractor_0",
+            "html": "Determines whether the student is allowed to use certain images."
+          },
+          {
+            "id": "distractor_1",
+            "html": "Gives credit to the original creators of the images used."
+          },
+          {
+            "id": "distractor_2",
+            "html": "Explains exactly how the AI tool assisted the student's work."
+          }
+        ],
+        "correct": "b820729a-3b06-4910-9602-7e51a233e6ac"
+      },
+      {
+        "id": "response_c7d94e92-cf51-4e63-b437-c382e42c9001",
+        "label": "Attribution",
+        "choices": [
+          {
+            "id": "distractor_0",
+            "html": "Determines whether the student is allowed to use certain images."
+          },
+          {
+            "id": "distractor_1",
+            "html": "Gives credit to the original creators of the images used."
+          },
+          {
+            "id": "distractor_2",
+            "html": "Explains exactly how the AI tool assisted the student's work."
+          }
+        ],
+        "correct": "c7d94e92-cf51-4e63-b437-c382e42c9001"
+      },
+      {
+        "id": "response_9c72af55-9240-489d-8e78-d4bfb1c38669",
+        "label": "AI-use disclosure",
+        "choices": [
+          {
+            "id": "distractor_0",
+            "html": "Determines whether the student is allowed to use certain images."
+          },
+          {
+            "id": "distractor_1",
+            "html": "Gives credit to the original creators of the images used."
+          },
+          {
+            "id": "distractor_2",
+            "html": "Explains exactly how the AI tool assisted the student's work."
+          }
+        ],
+        "correct": "9c72af55-9240-489d-8e78-d4bfb1c38669"
+      }
+    ]
+  },
+  {
+    "id": "49b1f847f14f9d6df47169bad8d78459",
+    "title": "L8-S6-ASM-11 | Identify Indirect Data",
+    "type": "multiple_answers_question",
+    "prompt": "Scenario: A clinic shares a dataset for research. They remove patient names. Which of these remaining details could be combined to figure out a patient's identity? Select all that apply.",
+    "choices": [
+      {
+        "id": "3594590b-1be1-4ada-811a-8d70ef53c111",
+        "html": "A record of a very rare medical condition that affects only a few people."
+      },
+      {
+        "id": "626cadbc-c23c-4650-ac20-153f94ac9445",
+        "html": "The exact date and time of the patient's last medical clinic appointment."
+      },
+      {
+        "id": "dc7382f9-769d-451e-b2f6-4550824c36b1",
+        "html": "The specific small town where the patient currently lives and also works."
+      },
+      {
+        "id": "4a03ee8b-54ad-48c8-a20b-b7449f23f6b8",
+        "html": "The general state where the patient lives, which has millions of citizens."
+      }
+    ],
+    "correct": [
+      "3594590b-1be1-4ada-811a-8d70ef53c111",
+      "626cadbc-c23c-4650-ac20-153f94ac9445",
+      "dc7382f9-769d-451e-b2f6-4550824c36b1"
+    ],
+    "feedback": "",
+    "matching_rows": []
+  },
+  {
+    "id": "6a90f6dc3f379fa16b882fa7a085863c",
+    "title": "L8-S6-ASM-10 | Distinguish Access and Authorization",
+    "type": "multiple_choice_question",
+    "prompt": "Scenario: A nurse logs into a hospital's approved AI system to help write patient notes. What does having access to this AI tool actually allow the nurse to do?",
+    "choices": [
+      {
+        "id": "6618d626-2095-4aaf-8a09-a81cd9052b33",
+        "html": "The nurse may only use the tool for approved purposes and with allowed data."
+      },
+      {
+        "id": "62e3652a-8e95-4857-b044-fb6167f01a57",
+        "html": "The nurse may enter any patient details to make the AI's notes more detailed."
+      },
+      {
+        "id": "b15ec527-2fc6-4657-a02c-01d37358cb5f",
+        "html": "The nurse may enter all patient records if their direct names are removed."
+      },
+      {
+        "id": "e2e18bda-2b4f-4bed-b23b-478fcc2720a0",
+        "html": "The nurse may use the tool for anything because the hospital approved it."
+      }
+    ],
+    "correct": [
+      "6618d626-2095-4aaf-8a09-a81cd9052b33"
+    ],
+    "feedback": "",
+    "matching_rows": []
+  },
+  {
+    "id": "55dfefb3bcbf20dfa6c42df3461e362a",
+    "title": "L8-S6-ASM-09 | Recognize a Proxy",
+    "type": "multiple_choice_question",
+    "prompt": "Scenario: A company's AI filters out resumes from people who live more than 10 miles away. Why might this rule create an unfair bias against certain applicants?",
+    "choices": [
+      {
+        "id": "d061f1e8-680c-46a5-bd88-32b96551329e",
+        "html": "Distance might act as a proxy that unfairly excludes people based on wealth."
+      },
+      {
+        "id": "81b7eb98-905b-4b1e-84e8-f1163ae30a9f",
+        "html": "Location data guarantees a more accurate measure of a person's job ability."
+      },
+      {
+        "id": "df2eedc4-f70f-4c09-8c89-6f1b984d2581",
+        "html": "A fixed rule cannot create bias because it does not use machine learning."
+      },
+      {
+        "id": "bb3b23a6-0ca8-40fc-9c66-6ddb0315f354",
+        "html": "Treating people differently is always fair if the rule is applied to everyone."
+      }
+    ],
+    "correct": [
+      "d061f1e8-680c-46a5-bd88-32b96551329e"
+    ],
+    "feedback": "",
+    "matching_rows": []
+  },
+  {
+    "id": "efac16e053a2e161f40375aea4cf496f",
+    "title": "L8-S6-ASM-08 | Evaluate Training Data",
+    "type": "multiple_answers_question",
+    "prompt": "Scenario: A farmer wants to train an AI to spot diseased apple trees. Which qualities will make the farmer's training photos the most useful? Select all that apply.",
+    "choices": [
+      {
+        "id": "4f0e4ead-927a-4d94-ba14-4893d8471073",
+        "html": "The photos show all the different conditions the trees might experience."
+      },
+      {
+        "id": "2f84fe20-a1e2-43f8-b78b-05a9f2ad84ae",
+        "html": "The photos are accurately labeled with the correct type of tree disease."
+      },
+      {
+        "id": "4807964f-2090-4c42-b0be-df772d1b7bf3",
+        "html": "The photos show complete features and the farmer has permission to use them."
+      },
+      {
+        "id": "809dbbc9-2916-4c27-b712-24938c5bb844",
+        "html": "The photos only show trees in perfect sunlight with one obvious disease."
+      }
+    ],
+    "correct": [
+      "4f0e4ead-927a-4d94-ba14-4893d8471073",
+      "2f84fe20-a1e2-43f8-b78b-05a9f2ad84ae",
+      "4807964f-2090-4c42-b0be-df772d1b7bf3"
+    ],
+    "feedback": "",
+    "matching_rows": []
+  },
+  {
+    "id": "2f92c1dcf30a6e98353aabd4c4691905",
+    "title": "L8-S6-ASM-07 | Respond to Uneven Outcomes",
+    "type": "multiple_answers_question",
+    "prompt": "Scenario: A bank's AI tool for approving loans rejects more applications from people in a certain neighborhood. What should the bank investigate? Select all that apply.",
+    "choices": [
+      {
+        "id": "2045bc7f-25bd-406d-902f-ccc68059846b",
+        "html": "The exact size of the difference and what might be causing the unfair outcome."
+      },
+      {
+        "id": "59bb684a-7566-4d0b-be72-a7d313137488",
+        "html": "How the people in the affected neighborhood experience the loan application."
+      },
+      {
+        "id": "37c6460e-1086-48eb-be45-fe6651980de4",
+        "html": "The data used to train the AI, its design choices, and its safety safeguards."
+      },
+      {
+        "id": "092d7fed-31ea-4b3a-8c8a-6c2529e833d0",
+        "html": "Whether the AI processes applications faster than human bank loan officers."
+      }
+    ],
+    "correct": [
+      "2045bc7f-25bd-406d-902f-ccc68059846b",
+      "59bb684a-7566-4d0b-be72-a7d313137488",
+      "37c6460e-1086-48eb-be45-fe6651980de4"
+    ],
+    "feedback": "",
+    "matching_rows": []
+  },
+  {
+    "id": "91d47e3d4f2a6e2bbd1465cccec8a783",
+    "title": "L8-S6-ASM-06 | Evaluate Misleading Context",
+    "type": "multiple_choice_question",
+    "prompt": "Scenario: A real photo of a 2010 earthquake is posted online in 2024 with a caption claiming it shows a new disaster. What is the most accurate conclusion about this post?",
+    "choices": [
+      {
+        "id": "952c4e97-ebb3-459b-8b9c-edb9e39d2fb8",
+        "html": "The photo itself is real, but the caption and the context are completely misleading."
+      },
+      {
+        "id": "f6945b4c-44c7-4f0c-b5c6-d80159579ac9",
+        "html": "The photo is entirely trustworthy because it was not created by an AI image generator."
+      },
+      {
+        "id": "3c8c0a63-25b3-4128-b580-7c692d195d40",
+        "html": "The caption can be trusted because there are no signs that the photo was edited."
+      },
+      {
+        "id": "8409331c-7519-4620-8b03-95653a092e05",
+        "html": "The source history does not matter because the photograph itself is a real image."
+      }
+    ],
+    "correct": [
+      "952c4e97-ebb3-459b-8b9c-edb9e39d2fb8"
+    ],
+    "feedback": "",
+    "matching_rows": []
+  },
+  {
+    "id": "f9fc5cb608de18975386d0cb7d6d93c1",
+    "title": "L8-S6-ASM-05 | Match Media Checks",
+    "type": "matching_question",
+    "prompt": "Scenario: A news editor receives a dramatic video of a flood from an unknown person online. Match each question the editor asks with the type of concern it addresses.",
+    "choices": [
+      {
+        "id": "distractor_0",
+        "html": "Who filmed this video and where was it first posted online?"
+      },
+      {
+        "id": "distractor_1",
+        "html": "Does this video show the actual town that is currently flooded?"
+      },
+      {
+        "id": "distractor_2",
+        "html": "Could this video cause unnecessary panic among the town's residents?"
+      },
+      {
+        "id": "distractor_3",
+        "html": "Does the video have captions so everyone can understand it?"
+      },
+      {
+        "id": "distractor_0",
+        "html": "Who filmed this video and where was it first posted online?"
+      },
+      {
+        "id": "distractor_1",
+        "html": "Does this video show the actual town that is currently flooded?"
+      },
+      {
+        "id": "distractor_2",
+        "html": "Could this video cause unnecessary panic among the town's residents?"
+      },
+      {
+        "id": "distractor_3",
+        "html": "Does the video have captions so everyone can understand it?"
+      },
+      {
+        "id": "distractor_0",
+        "html": "Who filmed this video and where was it first posted online?"
+      },
+      {
+        "id": "distractor_1",
+        "html": "Does this video show the actual town that is currently flooded?"
+      },
+      {
+        "id": "distractor_2",
+        "html": "Could this video cause unnecessary panic among the town's residents?"
+      },
+      {
+        "id": "distractor_3",
+        "html": "Does the video have captions so everyone can understand it?"
+      },
+      {
+        "id": "distractor_0",
+        "html": "Who filmed this video and where was it first posted online?"
+      },
+      {
+        "id": "distractor_1",
+        "html": "Does this video show the actual town that is currently flooded?"
+      },
+      {
+        "id": "distractor_2",
+        "html": "Could this video cause unnecessary panic among the town's residents?"
+      },
+      {
+        "id": "distractor_3",
+        "html": "Does the video have captions so everyone can understand it?"
+      }
+    ],
+    "correct": [
+      "245da494-6242-48ca-b304-05d7632e2381",
+      "7a89588d-a33d-4d18-b440-bfab2829ffbb",
+      "cd8cbae5-e589-4a30-9db7-e616d584223a",
+      "3dbc6b4c-0808-4f25-aa80-ff0c6c503eb7"
+    ],
+    "feedback": "",
+    "matching_rows": [
+      {
+        "id": "response_245da494-6242-48ca-b304-05d7632e2381",
+        "label": "Provenance",
+        "choices": [
+          {
+            "id": "distractor_0",
+            "html": "Who filmed this video and where was it first posted online?"
+          },
+          {
+            "id": "distractor_1",
+            "html": "Does this video show the actual town that is currently flooded?"
+          },
+          {
+            "id": "distractor_2",
+            "html": "Could this video cause unnecessary panic among the town's residents?"
+          },
+          {
+            "id": "distractor_3",
+            "html": "Does the video have captions so everyone can understand it?"
+          }
+        ],
+        "correct": "245da494-6242-48ca-b304-05d7632e2381"
+      },
+      {
+        "id": "response_7a89588d-a33d-4d18-b440-bfab2829ffbb",
+        "label": "Accuracy",
+        "choices": [
+          {
+            "id": "distractor_0",
+            "html": "Who filmed this video and where was it first posted online?"
+          },
+          {
+            "id": "distractor_1",
+            "html": "Does this video show the actual town that is currently flooded?"
+          },
+          {
+            "id": "distractor_2",
+            "html": "Could this video cause unnecessary panic among the town's residents?"
+          },
+          {
+            "id": "distractor_3",
+            "html": "Does the video have captions so everyone can understand it?"
+          }
+        ],
+        "correct": "7a89588d-a33d-4d18-b440-bfab2829ffbb"
+      },
+      {
+        "id": "response_cd8cbae5-e589-4a30-9db7-e616d584223a",
+        "label": "Impact",
+        "choices": [
+          {
+            "id": "distractor_0",
+            "html": "Who filmed this video and where was it first posted online?"
+          },
+          {
+            "id": "distractor_1",
+            "html": "Does this video show the actual town that is currently flooded?"
+          },
+          {
+            "id": "distractor_2",
+            "html": "Could this video cause unnecessary panic among the town's residents?"
+          },
+          {
+            "id": "distractor_3",
+            "html": "Does the video have captions so everyone can understand it?"
+          }
+        ],
+        "correct": "cd8cbae5-e589-4a30-9db7-e616d584223a"
+      },
+      {
+        "id": "response_3dbc6b4c-0808-4f25-aa80-ff0c6c503eb7",
+        "label": "Accessibility",
+        "choices": [
+          {
+            "id": "distractor_0",
+            "html": "Who filmed this video and where was it first posted online?"
+          },
+          {
+            "id": "distractor_1",
+            "html": "Does this video show the actual town that is currently flooded?"
+          },
+          {
+            "id": "distractor_2",
+            "html": "Could this video cause unnecessary panic among the town's residents?"
+          },
+          {
+            "id": "distractor_3",
+            "html": "Does the video have captions so everyone can understand it?"
+          }
+        ],
+        "correct": "3dbc6b4c-0808-4f25-aa80-ff0c6c503eb7"
+      }
+    ]
+  },
+  {
+    "id": "9b9f35c50053e7f161db59b39c13d05d",
+    "title": "L8-S6-ASM-04 | Verify a Code Requirement",
+    "type": "ordering_question",
+    "prompt": "Scenario: A builder asks an AI chatbot for the rules on wiring a new house. The chatbot gives an answer but no source. Put the builder's next steps in the correct order.",
+    "choices": [
+      {
+        "id": "44fc2af9-6c00-4c3c-980c-84cd64cbc63d",
+        "html": "Identify the exact rule the chatbot mentioned that affects the wiring job."
+      },
+      {
+        "id": "7b33d663-436e-452b-bf2c-4460edef6447",
+        "html": "Use only the verified, official rule when doing the final wiring project."
+      },
+      {
+        "id": "a9fa70d8-c775-4d47-b748-5f970970c015",
+        "html": "Ask a licensed electrician for help if the official rule is hard to read."
+      },
+      {
+        "id": "b897178c-8d58-490e-bf65-67ccfc3e1a0b",
+        "html": "Check the official city building code to see if the rule is actually true."
+      }
+    ],
+    "correct": [
+      "44fc2af9-6c00-4c3c-980c-84cd64cbc63d",
+      "b897178c-8d58-490e-bf65-67ccfc3e1a0b",
+      "a9fa70d8-c775-4d47-b748-5f970970c015",
+      "7b33d663-436e-452b-bf2c-4460edef6447"
+    ],
+    "feedback": "",
+    "matching_rows": []
+  },
+  {
+    "id": "22cb1be91783fdc1f7b80ac47cc2906a",
+    "title": "L8-S6-ASM-03 | Build an Effective Prompt",
+    "type": "multiple_answers_question",
+    "prompt": "Scenario: A chef is using an AI chatbot to write a daily cleaning checklist for the kitchen staff. Which details will help the chatbot create the most useful checklist? Select all that apply.",
+    "choices": [
+      {
+        "id": "064d8125-d361-4192-9226-cb9361123ccc",
+        "html": "Stating the specific cleaning tasks and who will be reading the checklist."
+      },
+      {
+        "id": "2dcea6ca-0999-40c3-9143-31e1c927a21b",
+        "html": "Asking the chatbot to organize the list by station and keep it to one page."
+      },
+      {
+        "id": "343f9fe2-64c4-4b6f-a0e7-af8334b790ed",
+        "html": "Including important safety rules about mixing different cleaning chemicals."
+      },
+      {
+        "id": "4c393be9-a342-45e1-8df2-83c9e6309b56",
+        "html": "Telling the chatbot to decide which cleaning tasks are the most important."
+      }
+    ],
+    "correct": [
+      "064d8125-d361-4192-9226-cb9361123ccc",
+      "2dcea6ca-0999-40c3-9143-31e1c927a21b",
+      "343f9fe2-64c4-4b6f-a0e7-af8334b790ed"
+    ],
+    "feedback": "",
+    "matching_rows": []
+  },
+  {
+    "id": "fa2ec662a1c375d072e8ef4c3320856d",
+    "title": "L8-S6-ASM-02 | Verify a Confident Prediction",
+    "type": "multiple_choice_question",
+    "prompt": "Scenario: An AI system checks airplane engines. It says with 99% confidence that an engine part is broken. What must the mechanics do before they replace the expensive part?",
+    "choices": [
+      {
+        "id": "631d21c6-ea92-4b57-bfa2-de26fc73e6ad",
+        "html": "A trained mechanic must inspect the engine part to verify the AI's claim."
+      },
+      {
+        "id": "44f408e6-aeb0-4403-8dd6-d14a6c865156",
+        "html": "The mechanic should replace the part immediately based on the high score."
+      },
+      {
+        "id": "86941c9e-4536-4361-a694-e16753157118",
+        "html": "The AI's high confidence should replace the airline's normal safety checks."
+      },
+      {
+        "id": "d6742b36-642d-4be8-a040-8d507e866bc6",
+        "html": "The airline should tell passengers the plane is broken without checking it."
+      }
+    ],
+    "correct": [
+      "631d21c6-ea92-4b57-bfa2-de26fc73e6ad"
+    ],
+    "feedback": "",
+    "matching_rows": []
+  },
+  {
+    "id": "3ca0d00642454e447b6fb744e904402d",
+    "title": "L8-S6-ASM-01 | Identify Human Decisions",
+    "type": "multiple_answers_question",
+    "prompt": "Scenario: A school builds an AI to flag students who might be falling behind. Even with the AI, which choices must still be made by the teachers and principals? Select all that apply.",
+    "choices": [
+      {
+        "id": "97bc6801-d077-4c6b-bdb2-9836759cb9f8",
+        "html": "Defining the main goal of the AI and how it should be used in the school."
+      },
+      {
+        "id": "e040985b-181f-429f-a99f-58c33435e0b3",
+        "html": "Choosing the right data to use and deciding what counts as a real success."
+      },
+      {
+        "id": "f9b3660f-b962-40a0-ac58-77b72974362b",
+        "html": "Setting rules to protect students and limiting how the AI can be utilized."
+      },
+      {
+        "id": "b16f2629-08c1-4c8d-b335-6e9e7360aa6b",
+        "html": "Letting the AI make the final decision about which students fail a class."
+      }
+    ],
+    "correct": [
+      "97bc6801-d077-4c6b-bdb2-9836759cb9f8",
+      "e040985b-181f-429f-a99f-58c33435e0b3",
+      "f9b3660f-b962-40a0-ac58-77b72974362b"
+    ],
+    "feedback": "",
+    "matching_rows": []
+  },
+  {
+    "id": "7dbcc560f15fe7de6256de3a63a321c2",
+    "title": "L8-S4-CFU-02 | Check Tool Fit",
+    "type": "multiple_choice_question",
+    "prompt": "Scenario: A grocery store uses cheap, accurate barcodes to track inventory. A manager wants to replace barcodes with an expensive AI camera system. What is the smartest first step?",
+    "choices": [
+      {
+        "id": "ee27a124-09dc-4f59-98ff-28d61c0251f6",
+        "html": "Keep using the barcodes unless the AI adds enough value to justify the extra cost and risk."
+      },
+      {
+        "id": "529be0af-150b-4082-9a7d-4d1d0f03a979",
+        "html": "Replace the barcodes right away because AI systems can provide much more detailed sales data."
+      },
+      {
+        "id": "dbd13578-b60f-4242-992c-a7e194ff130d",
+        "html": "Use the AI camera system because newer technology is always more accurate than older tools."
+      },
+      {
+        "id": "36442ee8-f80e-42d9-bd5d-b9cd520f18c6",
+        "html": "Remove all labels so the AI camera becomes the only way to identify the store's products."
+      }
+    ],
+    "correct": [
+      "ee27a124-09dc-4f59-98ff-28d61c0251f6"
+    ],
+    "feedback": "",
+    "matching_rows": []
+  },
+  {
+    "id": "f9d839c3cd6aec17b27a9305f3c0dd3d",
+    "title": "L8-S4-CFU-01 | Compare Model Types",
+    "type": "matching_question",
+    "prompt": "Scenario: A city government wants to use AI to help run the city better. Match each city task with the type of AI model that would be the best tool for the job.",
+    "choices": [
+      {
+        "id": "distractor_0",
+        "html": "Sort incoming emails into \"Urgent\" or \"Normal\" categories."
+      },
+      {
+        "id": "distractor_1",
+        "html": "Estimate how many people will ride the bus next month."
+      },
+      {
+        "id": "distractor_2",
+        "html": "Suggest library books to readers based on their past choices."
+      },
+      {
+        "id": "distractor_3",
+        "html": "Write a first draft of a newsletter for city residents."
+      },
+      {
+        "id": "distractor_0",
+        "html": "Sort incoming emails into \"Urgent\" or \"Normal\" categories."
+      },
+      {
+        "id": "distractor_1",
+        "html": "Estimate how many people will ride the bus next month."
+      },
+      {
+        "id": "distractor_2",
+        "html": "Suggest library books to readers based on their past choices."
+      },
+      {
+        "id": "distractor_3",
+        "html": "Write a first draft of a newsletter for city residents."
+      },
+      {
+        "id": "distractor_0",
+        "html": "Sort incoming emails into \"Urgent\" or \"Normal\" categories."
+      },
+      {
+        "id": "distractor_1",
+        "html": "Estimate how many people will ride the bus next month."
+      },
+      {
+        "id": "distractor_2",
+        "html": "Suggest library books to readers based on their past choices."
+      },
+      {
+        "id": "distractor_3",
+        "html": "Write a first draft of a newsletter for city residents."
+      },
+      {
+        "id": "distractor_0",
+        "html": "Sort incoming emails into \"Urgent\" or \"Normal\" categories."
+      },
+      {
+        "id": "distractor_1",
+        "html": "Estimate how many people will ride the bus next month."
+      },
+      {
+        "id": "distractor_2",
+        "html": "Suggest library books to readers based on their past choices."
+      },
+      {
+        "id": "distractor_3",
+        "html": "Write a first draft of a newsletter for city residents."
+      }
+    ],
+    "correct": [
+      "e8f06046-13d6-4231-86fe-11de8cb17edf",
+      "3b28dfe2-3ecf-420f-972e-0c075d0c82a6",
+      "c6687126-ef29-4c1c-89ef-b9df52331c4d",
+      "6fa2d0f9-73a7-47d0-bb61-89707c176b4c"
+    ],
+    "feedback": "",
+    "matching_rows": [
+      {
+        "id": "response_e8f06046-13d6-4231-86fe-11de8cb17edf",
+        "label": "Classifier",
+        "choices": [
+          {
+            "id": "distractor_0",
+            "html": "Sort incoming emails into \"Urgent\" or \"Normal\" categories."
+          },
+          {
+            "id": "distractor_1",
+            "html": "Estimate how many people will ride the bus next month."
+          },
+          {
+            "id": "distractor_2",
+            "html": "Suggest library books to readers based on their past choices."
+          },
+          {
+            "id": "distractor_3",
+            "html": "Write a first draft of a newsletter for city residents."
+          }
+        ],
+        "correct": "e8f06046-13d6-4231-86fe-11de8cb17edf"
+      },
+      {
+        "id": "response_3b28dfe2-3ecf-420f-972e-0c075d0c82a6",
+        "label": "Predictor",
+        "choices": [
+          {
+            "id": "distractor_0",
+            "html": "Sort incoming emails into \"Urgent\" or \"Normal\" categories."
+          },
+          {
+            "id": "distractor_1",
+            "html": "Estimate how many people will ride the bus next month."
+          },
+          {
+            "id": "distractor_2",
+            "html": "Suggest library books to readers based on their past choices."
+          },
+          {
+            "id": "distractor_3",
+            "html": "Write a first draft of a newsletter for city residents."
+          }
+        ],
+        "correct": "3b28dfe2-3ecf-420f-972e-0c075d0c82a6"
+      },
+      {
+        "id": "response_c6687126-ef29-4c1c-89ef-b9df52331c4d",
+        "label": "Recommender",
+        "choices": [
+          {
+            "id": "distractor_0",
+            "html": "Sort incoming emails into \"Urgent\" or \"Normal\" categories."
+          },
+          {
+            "id": "distractor_1",
+            "html": "Estimate how many people will ride the bus next month."
+          },
+          {
+            "id": "distractor_2",
+            "html": "Suggest library books to readers based on their past choices."
+          },
+          {
+            "id": "distractor_3",
+            "html": "Write a first draft of a newsletter for city residents."
+          }
+        ],
+        "correct": "c6687126-ef29-4c1c-89ef-b9df52331c4d"
+      },
+      {
+        "id": "response_6fa2d0f9-73a7-47d0-bb61-89707c176b4c",
+        "label": "Generative Model",
+        "choices": [
+          {
+            "id": "distractor_0",
+            "html": "Sort incoming emails into \"Urgent\" or \"Normal\" categories."
+          },
+          {
+            "id": "distractor_1",
+            "html": "Estimate how many people will ride the bus next month."
+          },
+          {
+            "id": "distractor_2",
+            "html": "Suggest library books to readers based on their past choices."
+          },
+          {
+            "id": "distractor_3",
+            "html": "Write a first draft of a newsletter for city residents."
+          }
+        ],
+        "correct": "6fa2d0f9-73a7-47d0-bb61-89707c176b4c"
+      }
+    ]
+  },
+  {
+    "id": "cd412d89ed9235987f5729c7712aee3c",
+    "title": "L8-S3-CFU-02 | Improve a Model",
+    "type": "ordering_question",
+    "prompt": "Scenario: A factory's AI robot keeps dropping fragile glass items. The team notices this pattern. Put the steps to fix this problem in the correct order, from first to last.",
+    "choices": [
+      {
+        "id": "03d79cbd-304d-4c09-b667-81b2245e5f0a",
+        "html": "Retrain the robot's model using the new data or the new robot settings."
+      },
+      {
+        "id": "1402ce29-1dcf-4dba-8bdf-785cdc80e03f",
+        "html": "lokkkGather evidence to clearly describe the pattern of dropped glass items."
+      },
+      {
+        "id": "2ecf7c11-3f15-4c79-b16d-68bb1fdac74c",
+        "html": "Choose a specific change to make to the robot's data or its settings."
+      },
+      {
+        "id": "5d5f008e-8fbf-4a84-8433-c334998cfdad",
+        "html": "Test the robot again and compare the new results with the older ones."
+      }
+    ],
+    "correct": [
+      "1402ce29-1dcf-4dba-8bdf-785cdc80e03f",
+      "2ecf7c11-3f15-4c79-b16d-68bb1fdac74c",
+      "03d79cbd-304d-4c09-b667-81b2245e5f0a",
+      "5d5f008e-8fbf-4a84-8433-c334998cfdad"
+    ],
+    "feedback": "",
+    "matching_rows": []
+  },
+  {
+    "id": "7659ac13cd61ba7da9cc68a95ae213f1",
+    "title": "L8-S3-CFU-01 | Match Model Data",
+    "type": "matching_question",
+    "prompt": "Scenario: A team is building an AI to recognize different types of birds. They have a large set of bird photos. Match each part of the data with its role in the project.",
+    "choices": [
+      {
+        "id": "distractor_0",
+        "html": "Teaches the AI to recognize the common patterns of different birds."
+      },
+      {
+        "id": "distractor_1",
+        "html": "Helps the team compare choices while they are building the AI."
+      },
+      {
+        "id": "distractor_2",
+        "html": "Checks how well the finished AI works on new bird photos."
+      },
+      {
+        "id": "distractor_0",
+        "html": "Teaches the AI to recognize the common patterns of different birds."
+      },
+      {
+        "id": "distractor_1",
+        "html": "Helps the team compare choices while they are building the AI."
+      },
+      {
+        "id": "distractor_2",
+        "html": "Checks how well the finished AI works on new bird photos."
+      },
+      {
+        "id": "distractor_0",
+        "html": "Teaches the AI to recognize the common patterns of different birds."
+      },
+      {
+        "id": "distractor_1",
+        "html": "Helps the team compare choices while they are building the AI."
+      },
+      {
+        "id": "distractor_2",
+        "html": "Checks how well the finished AI works on new bird photos."
+      }
+    ],
+    "correct": [
+      "8a09d54e-00b0-45fc-a298-b65a254e4b4b",
+      "8a39c033-ef88-4ea2-89a3-49c857e95b51",
+      "a2df9826-8526-4d49-a681-faacb9d8d318"
+    ],
+    "feedback": "",
+    "matching_rows": [
+      {
+        "id": "response_8a09d54e-00b0-45fc-a298-b65a254e4b4b",
+        "label": "Training data",
+        "choices": [
+          {
+            "id": "distractor_0",
+            "html": "Teaches the AI to recognize the common patterns of different birds."
+          },
+          {
+            "id": "distractor_1",
+            "html": "Helps the team compare choices while they are building the AI."
+          },
+          {
+            "id": "distractor_2",
+            "html": "Checks how well the finished AI works on new bird photos."
+          }
+        ],
+        "correct": "8a09d54e-00b0-45fc-a298-b65a254e4b4b"
+      },
+      {
+        "id": "response_8a39c033-ef88-4ea2-89a3-49c857e95b51",
+        "label": "Validation data",
+        "choices": [
+          {
+            "id": "distractor_0",
+            "html": "Teaches the AI to recognize the common patterns of different birds."
+          },
+          {
+            "id": "distractor_1",
+            "html": "Helps the team compare choices while they are building the AI."
+          },
+          {
+            "id": "distractor_2",
+            "html": "Checks how well the finished AI works on new bird photos."
+          }
+        ],
+        "correct": "8a39c033-ef88-4ea2-89a3-49c857e95b51"
+      },
+      {
+        "id": "response_a2df9826-8526-4d49-a681-faacb9d8d318",
+        "label": "Test data",
+        "choices": [
+          {
+            "id": "distractor_0",
+            "html": "Teaches the AI to recognize the common patterns of different birds."
+          },
+          {
+            "id": "distractor_1",
+            "html": "Helps the team compare choices while they are building the AI."
+          },
+          {
+            "id": "distractor_2",
+            "html": "Checks how well the finished AI works on new bird photos."
+          }
+        ],
+        "correct": "a2df9826-8526-4d49-a681-faacb9d8d318"
+      }
+    ]
+  },
+  {
+    "id": "d32a831da6e3b23b39b8078f8a12c38b",
+    "title": "L8-S2-CFU-02 | Analyze Error Patterns",
+    "type": "multiple_answers_question",
+    "prompt": "Scenario: A hospital uses an AI tool to predict patient recovery times. The tool is 90% accurate overall. Why must the doctors also look closely at the 10% of cases where the tool was wrong? Select all that apply.",
+    "choices": [
+      {
+        "id": "9d01129c-c366-4c20-9757-8c06283b7c67",
+        "html": "The overall average might hide repeated mistakes for a specific group of patients."
+      },
+      {
+        "id": "a77ea9f9-d02c-4cd2-9cd6-cd60702b60d1",
+        "html": "The tool might perform much worse for patients with certain rare health conditions."
+      },
+      {
+        "id": "db89069b-a9d5-4dec-8d9c-2b101dbfb444",
+        "html": "The errors might cause unequal treatment for different groups of hospital patients."
+      },
+      {
+        "id": "a1ec4603-9235-4d2a-a943-e4d90ebebdf8",
+        "html": "The overall success rate explains every single error made by the hospital AI tool."
+      }
+    ],
+    "correct": [
+      "9d01129c-c366-4c20-9757-8c06283b7c67",
+      "a77ea9f9-d02c-4cd2-9cd6-cd60702b60d1",
+      "db89069b-a9d5-4dec-8d9c-2b101dbfb444"
+    ],
+    "feedback": "",
+    "matching_rows": []
+  },
+  {
+    "id": "c792c613ff3ee3a4feb6e8ff0a3c9c51",
+    "title": "L8-S2-CFU-01 | Explain Uneven Performance",
+    "type": "multiple_choice_question",
+    "prompt": "Scenario: A school uses an AI tool to sort student essays. The tool keeps giving low scores to essays about sports. What is the most likely reason for this error, and how should the team fix it?",
+    "choices": [
+      {
+        "id": "11afc3aa-6609-4f78-86a5-1d45f3c7801d",
+        "html": "The training data lacked sports essays; the team should add more examples of sports essays."
+      },
+      {
+        "id": "95d6a11f-6ba5-484a-9694-7ea1345a5189",
+        "html": "The tool is designed to ignore sports; the team should tell the tool to stop ignoring sports."
+      },
+      {
+        "id": "20eb87c0-4f8c-4d7f-b89a-46a767a872a1",
+        "html": "The test data proves the tool is broken; the team should stop using the tool for all essays."
+      },
+      {
+        "id": "b244b64d-9839-4634-8abe-86ac93cd2177",
+        "html": "The team should delete the sports essays; the team should only grade essays about science."
+      }
+    ],
+    "correct": [
+      "11afc3aa-6609-4f78-86a5-1d45f3c7801d"
+    ],
+    "feedback": "",
+    "matching_rows": []
+  }
+]

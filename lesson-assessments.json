@@ -1,0 +1,3041 @@
+{
+  "1": {
+    "title": "1.6 🎓 Show What You Know: Humans, Models, and Responsibility",
+    "questions": [
+      {
+        "id": "1b96badbfbe4b1a172a280197f6ce773",
+        "title": "L1-S6-ASM-01 | Identify Human Roles",
+        "type": "multiple_answers_question",
+        "prompt": "<p>Which responsibilities should remain human-led across the life cycle of an AI system? Select all that apply.</p>",
+        "choices": [
+          {
+            "id": "bee32cf2-72d1-4e06-96f7-527c062ac96f",
+            "html": "Define the system’s purpose and intended use."
+          },
+          {
+            "id": "630e86ea-3cc1-4f87-80d1-69d073bed0e7",
+            "html": "Choose and review the data used for training."
+          },
+          {
+            "id": "9799477f-1ff5-4046-9c62-c873ee846d72",
+            "html": "Set success measures and test the results."
+          },
+          {
+            "id": "5c848670-ac10-4565-bb00-707088a49ed0",
+            "html": "Give the system final authority over decisions."
+          }
+        ],
+        "correct": [
+          "bee32cf2-72d1-4e06-96f7-527c062ac96f",
+          "630e86ea-3cc1-4f87-80d1-69d073bed0e7",
+          "9799477f-1ff5-4046-9c62-c873ee846d72"
+        ],
+        "feedback": "<p>People remain responsible for purpose, data, success measures, testing, oversight, and final decisions.</p>",
+        "matching_rows": []
+      },
+      {
+        "id": "ffee7c64a75236eb80251f833cffa138",
+        "title": "L1-S6-ASM-02 | Classify an Image",
+        "type": "multiple_choice_question",
+        "prompt": "<p>A veterinary image tool sorts a fictional animal image into one of several possible condition categories. Which model type best describes this task?</p>",
+        "choices": [
+          {
+            "id": "2c31bcd6-b9a5-46da-8866-a23e9aaf8705",
+            "html": "Classifier"
+          },
+          {
+            "id": "3cf7e2f8-c3fd-409e-be50-e44b89d3fa93",
+            "html": "Predictor"
+          },
+          {
+            "id": "0f41a358-9612-4c86-bd57-c7d43e05f67a",
+            "html": "Recommender"
+          },
+          {
+            "id": "74b42347-b640-4e97-8b95-ff3f0342822b",
+            "html": "Generative AI"
+          }
+        ],
+        "correct": [
+          "2c31bcd6-b9a5-46da-8866-a23e9aaf8705"
+        ],
+        "feedback": "<p>The tool is classifying an input into a category.</p>",
+        "matching_rows": []
+      },
+      {
+        "id": "69e224945bae2edc4f60fcf711844e2a",
+        "title": "L1-S6-ASM-03 | Predict Equipment Failure",
+        "type": "multiple_choice_question",
+        "prompt": "<p>A maintenance system estimates the chance that a motor will fail within 30 days. Which model type best describes this task?</p>",
+        "choices": [
+          {
+            "id": "88f4c605-2c26-4c84-b373-98db5c897c05",
+            "html": "Classifier"
+          },
+          {
+            "id": "2fc31206-61c7-46cb-b772-6fe4af3649ea",
+            "html": "Predictor"
+          },
+          {
+            "id": "84f68e84-434b-45ce-a46e-950f7d2fc199",
+            "html": "Recommender"
+          },
+          {
+            "id": "b0fd03e2-9c36-44a6-82f0-373d37069413",
+            "html": "Generative AI"
+          }
+        ],
+        "correct": [
+          "2fc31206-61c7-46cb-b772-6fe4af3649ea"
+        ],
+        "feedback": "<p>The system is predicting an unknown future outcome.</p>",
+        "matching_rows": []
+      },
+      {
+        "id": "9bef6b126e2b66e953776b639a600a99",
+        "title": "L1-S6-ASM-04 | Categorize Workplace AI",
+        "type": "categorization_question",
+        "prompt": "<p>Sort each workplace task into the AI model type that best describes its main purpose.</p>",
+        "choices": [
+          {
+            "id": "177a2947-d1bd-441d-b3d9-6acdd36e70af",
+            "html": "Generative AI"
+          },
+          {
+            "id": "8599fd3b-ef45-4eb6-8669-b85f5687149c",
+            "html": "Classifier"
+          },
+          {
+            "id": "a4c236c3-91f5-4f09-868a-658b5a72dd5b",
+            "html": "Recommender"
+          },
+          {
+            "id": "e81699e0-d589-4aa8-b1f9-52efb6a97017",
+            "html": "Predictor"
+          },
+          {
+            "id": "177a2947-d1bd-441d-b3d9-6acdd36e70af",
+            "html": "Generative AI"
+          },
+          {
+            "id": "8599fd3b-ef45-4eb6-8669-b85f5687149c",
+            "html": "Classifier"
+          },
+          {
+            "id": "a4c236c3-91f5-4f09-868a-658b5a72dd5b",
+            "html": "Recommender"
+          },
+          {
+            "id": "e81699e0-d589-4aa8-b1f9-52efb6a97017",
+            "html": "Predictor"
+          },
+          {
+            "id": "177a2947-d1bd-441d-b3d9-6acdd36e70af",
+            "html": "Generative AI"
+          },
+          {
+            "id": "8599fd3b-ef45-4eb6-8669-b85f5687149c",
+            "html": "Classifier"
+          },
+          {
+            "id": "a4c236c3-91f5-4f09-868a-658b5a72dd5b",
+            "html": "Recommender"
+          },
+          {
+            "id": "e81699e0-d589-4aa8-b1f9-52efb6a97017",
+            "html": "Predictor"
+          },
+          {
+            "id": "177a2947-d1bd-441d-b3d9-6acdd36e70af",
+            "html": "Generative AI"
+          },
+          {
+            "id": "8599fd3b-ef45-4eb6-8669-b85f5687149c",
+            "html": "Classifier"
+          },
+          {
+            "id": "a4c236c3-91f5-4f09-868a-658b5a72dd5b",
+            "html": "Recommender"
+          },
+          {
+            "id": "e81699e0-d589-4aa8-b1f9-52efb6a97017",
+            "html": "Predictor"
+          }
+        ],
+        "correct": [
+          "177a2947-d1bd-441d-b3d9-6acdd36e70af",
+          "e81699e0-d589-4aa8-b1f9-52efb6a97017",
+          "a4c236c3-91f5-4f09-868a-658b5a72dd5b",
+          "8599fd3b-ef45-4eb6-8669-b85f5687149c"
+        ],
+        "feedback": "<p>Each task matches a model’s main purpose: sorting, estimating, ranking, or creating.</p>",
+        "matching_rows": [
+          {
+            "id": "0a798734-5246-49f3-8bf4-0f9fe823abfb",
+            "label": "Sort animal images by possible condition",
+            "choices": [
+              {
+                "id": "177a2947-d1bd-441d-b3d9-6acdd36e70af",
+                "html": "Generative AI"
+              },
+              {
+                "id": "8599fd3b-ef45-4eb6-8669-b85f5687149c",
+                "html": "Classifier"
+              },
+              {
+                "id": "a4c236c3-91f5-4f09-868a-658b5a72dd5b",
+                "html": "Recommender"
+              },
+              {
+                "id": "e81699e0-d589-4aa8-b1f9-52efb6a97017",
+                "html": "Predictor"
+              }
+            ],
+            "correct": "8599fd3b-ef45-4eb6-8669-b85f5687149c"
+          },
+          {
+            "id": "8cb2652a-a32d-4e3f-8a0e-5efe6c27c046",
+            "label": "Rank menu options for a customer",
+            "choices": [
+              {
+                "id": "177a2947-d1bd-441d-b3d9-6acdd36e70af",
+                "html": "Generative AI"
+              },
+              {
+                "id": "8599fd3b-ef45-4eb6-8669-b85f5687149c",
+                "html": "Classifier"
+              },
+              {
+                "id": "a4c236c3-91f5-4f09-868a-658b5a72dd5b",
+                "html": "Recommender"
+              },
+              {
+                "id": "e81699e0-d589-4aa8-b1f9-52efb6a97017",
+                "html": "Predictor"
+              }
+            ],
+            "correct": "a4c236c3-91f5-4f09-868a-658b5a72dd5b"
+          },
+          {
+            "id": "ade1204a-60dd-42a2-a940-e54b5616faf1",
+            "label": "Draft a customer handout",
+            "choices": [
+              {
+                "id": "177a2947-d1bd-441d-b3d9-6acdd36e70af",
+                "html": "Generative AI"
+              },
+              {
+                "id": "8599fd3b-ef45-4eb6-8669-b85f5687149c",
+                "html": "Classifier"
+              },
+              {
+                "id": "a4c236c3-91f5-4f09-868a-658b5a72dd5b",
+                "html": "Recommender"
+              },
+              {
+                "id": "e81699e0-d589-4aa8-b1f9-52efb6a97017",
+                "html": "Predictor"
+              }
+            ],
+            "correct": "177a2947-d1bd-441d-b3d9-6acdd36e70af"
+          },
+          {
+            "id": "bde043a6-5e3f-4612-8eb4-acd8a4d05ad4",
+            "label": "Estimate whether a motor may fail soon",
+            "choices": [
+              {
+                "id": "177a2947-d1bd-441d-b3d9-6acdd36e70af",
+                "html": "Generative AI"
+              },
+              {
+                "id": "8599fd3b-ef45-4eb6-8669-b85f5687149c",
+                "html": "Classifier"
+              },
+              {
+                "id": "a4c236c3-91f5-4f09-868a-658b5a72dd5b",
+                "html": "Recommender"
+              },
+              {
+                "id": "e81699e0-d589-4aa8-b1f9-52efb6a97017",
+                "html": "Predictor"
+              }
+            ],
+            "correct": "e81699e0-d589-4aa8-b1f9-52efb6a97017"
+          }
+        ]
+      },
+      {
+        "id": "e5fba1e7b11528a9320f50658d90a413",
+        "title": "L1-S6-ASM-05 | Compare AI Model Roles",
+        "type": "multiple_choice_question",
+        "prompt": "<p>A repair shop wants to identify the type of damage in a part photo and draft possible repair steps for a technician to review. Why might the shop use both a classifier and generative AI?</p>",
+        "choices": [
+          {
+            "id": "ef2e5e71-b33e-46d0-90d2-e44458425114",
+            "html": "The classifier can label the damage, while generative AI can draft repair steps from the reviewed result."
+          },
+          {
+            "id": "73e9155c-52f5-4dbf-8fd8-320276552782",
+            "html": "The classifier can estimate repair time, while generative AI can approve the completed work."
+          },
+          {
+            "id": "2847c065-337d-4951-a83c-7364a2f4a80e",
+            "html": "The classifier can rank repair options, while generative AI can verify that each option is safe."
+          },
+          {
+            "id": "559932dd-3bf8-4ac5-9a26-93dadc46b6fb",
+            "html": "The classifier can create repair steps, while generative AI can sort the photo into a category."
+          }
+        ],
+        "correct": [
+          "ef2e5e71-b33e-46d0-90d2-e44458425114"
+        ],
+        "feedback": "<p>A classifier can sort the image into a damage category, while generative AI can draft new text based on the reviewed information.</p>",
+        "matching_rows": []
+      },
+      {
+        "id": "513dd793daf0df57224fdfc89945fb7e",
+        "title": "L1-S6-ASM-06 | Evaluate Training Data",
+        "type": "multiple_answers_question",
+        "prompt": "<p>A safety classifier was trained mostly on bright indoor images. Which concerns should reviewers investigate? Select all that apply.</p>",
+        "choices": [
+          {
+            "id": "d1ae5671-ae03-4d4c-a5aa-d636dc53172c",
+            "html": "Performance in darker workplace conditions"
+          },
+          {
+            "id": "324dfdff-b551-4180-bab8-5599311a7799",
+            "html": "Performance in outdoor workplace conditions"
+          },
+          {
+            "id": "43fb1dcf-4c15-4a67-93ad-5e855f1f8549",
+            "html": "Representation of equipment used in practice"
+          },
+          {
+            "id": "c0254a9b-f315-40cd-983b-7d6679581d7f",
+            "html": "Whether every prediction sounds confident"
+          }
+        ],
+        "correct": [
+          "d1ae5671-ae03-4d4c-a5aa-d636dc53172c",
+          "324dfdff-b551-4180-bab8-5599311a7799",
+          "43fb1dcf-4c15-4a67-93ad-5e855f1f8549"
+        ],
+        "feedback": "<p>Reviewers should test conditions and equipment that may be missing or underrepresented in the training data.</p>",
+        "matching_rows": []
+      },
+      {
+        "id": "06d22bc4f8d436eb5c7d6eeecff9a795",
+        "title": "L1-S6-ASM-07 | Set Success Measures",
+        "type": "multiple_choice_question",
+        "prompt": "<p>Why should a workplace team define success before approving an AI system?</p>",
+        "choices": [
+          {
+            "id": "39f1090e-3432-4e44-9126-c13b8b1883f9",
+            "html": "To specify the accuracy, safety, fairness, and usefulness required for its intended use."
+          },
+          {
+            "id": "8e5fa151-02ae-426a-a28d-9d948eb3fd8c",
+            "html": "To compare its speed, cost, appearance, and popularity with other workplace tools."
+          },
+          {
+            "id": "1ef67ddd-60ed-47c3-ae72-774286e60c0d",
+            "html": "To decide how often employees should use it and how detailed outputs should be."
+          },
+          {
+            "id": "6ad4ca52-25b6-4696-8130-30d0e533954e",
+            "html": "To confirm it performed well in testing and can be used without ongoing review."
+          }
+        ],
+        "correct": [
+          "39f1090e-3432-4e44-9126-c13b8b1883f9"
+        ],
+        "feedback": "<p>Success measures connect the system’s performance to the intended use, risks, and professional requirements.</p>",
+        "matching_rows": []
+      },
+      {
+        "id": "6db6da4976d0dc29b4ca80d42808f581",
+        "title": "L1-S6-ASM-08 | Authorize a Response",
+        "type": "multiple_choice_question",
+        "prompt": "<p>An AI system recommends which cybersecurity alert to inspect first. What responsibility must remain human-led?</p>",
+        "choices": [
+          {
+            "id": "325c9fce-1399-4fca-9d29-bc69c00a0ae4",
+            "html": "Verify the evidence, consider the risk, and authorize the final response."
+          },
+          {
+            "id": "eefd44ac-1e73-4923-9c51-f99c68c4af21",
+            "html": "Review the highest-ranked alert and follow the system’s suggested response."
+          },
+          {
+            "id": "aa57587c-c909-49e9-90c7-2f542cdaccdd",
+            "html": "Compare several alerts and select the response used most often in the past."
+          },
+          {
+            "id": "056e6f41-a669-4a5c-98f8-100556fff130",
+            "html": "Check whether the system is confident and approve its response when confidence is high."
+          }
+        ],
+        "correct": [
+          "325c9fce-1399-4fca-9d29-bc69c00a0ae4"
+        ],
+        "feedback": "<p>AI may organize attention, but qualified people remain responsible for evidence, context, risk, and action.</p>",
+        "matching_rows": []
+      },
+      {
+        "id": "a3a52314e1be53114f332a53ff2ba94b",
+        "title": "L1-S6-ASM-09 | Improve a Classifier",
+        "type": "multiple_choice_question",
+        "prompt": "<p>A classifier often marks unfamiliar equipment as safe instead of uncertain. Which improvement is most responsible?</p>",
+        "choices": [
+          {
+            "id": "d8a0d927-a3ed-49aa-a23d-417822335e3a",
+            "html": "Add representative examples, test difficult cases, and require review for uncertain results."
+          },
+          {
+            "id": "8ba97382-72aa-465e-9b68-c0dd4ef4b096",
+            "html": "Adjust the safe category, retest familiar cases, and review only low-confidence results."
+          },
+          {
+            "id": "c6872663-ab81-4aa1-8df0-274b01c072e7",
+            "html": "Remove unusual examples, simplify the categories, and accept results that repeat consistently."
+          },
+          {
+            "id": "b2084e88-a150-4ee2-843f-6648f5c2c358",
+            "html": "Raise the confidence threshold, keep the same data, and approve results above the threshold."
+          }
+        ],
+        "correct": [
+          "d8a0d927-a3ed-49aa-a23d-417822335e3a"
+        ],
+        "feedback": "<p>Better data, difficult test cases, and an uncertainty pathway can reduce risk while preserving human review.</p>",
+        "matching_rows": []
+      },
+      {
+        "id": "241279c275dd7c0987a29b3b614a92ed",
+        "title": "L1-S6-ASM-10 | Choose the Right Tool",
+        "type": "multiple_choice_question",
+        "prompt": "<p>A construction student must calculate material quantities from fixed measurements and show every formula for inspection. Which approach is most appropriate?</p>",
+        "choices": [
+          {
+            "id": "ee26ffa0-2a81-48af-9614-f7d1d7477ef1",
+            "html": "Use generative AI to calculate the totals, then ask it to explain each calculation."
+          },
+          {
+            "id": "ed4812c6-4570-4497-89c1-a9019c2be55c",
+            "html": "Use visible spreadsheet formulas, then have a qualified person verify the calculations."
+          },
+          {
+            "id": "a25e1a42-0e41-4f9e-ad69-0299d357e394",
+            "html": "Use an image-analysis tool to estimate quantities, then compare them with the measurements."
+          },
+          {
+            "id": "311f5099-43a2-4ad6-adf2-12e860a37d87",
+            "html": "Use a recommendation tool to select quantities, then review whether the totals seem reasonable."
+          }
+        ],
+        "correct": [
+          "ed4812c6-4570-4497-89c1-a9019c2be55c"
+        ],
+        "feedback": "<p>A spreadsheet or calculator with visible formulas is more appropriate for fixed, inspectable calculations.</p>",
+        "matching_rows": []
+      }
+    ]
+  },
+  "2": {
+    "title": "2.6 🎓 Show What You Know: Prompting and Response Evaluation",
+    "questions": [
+      {
+        "id": "67d5a4a51106d881214c3a32826d5f34",
+        "title": "2.6.1 | Show What You Know: Prompting and Response Evaluation",
+        "type": "multiple_choice_question",
+        "prompt": "<p>Which statement best describes how an AI chatbot generates a response?</p>",
+        "choices": [
+          {
+            "id": "de14941f-2124-4f77-b6ed-e661fa6f605c",
+            "html": "It independently verifies every statement before writing."
+          },
+          {
+            "id": "a4867e32-d82f-4808-9562-d191743da9e4",
+            "html": "It predicts likely words or tokens from learned language patterns."
+          },
+          {
+            "id": "d899aabf-7d10-44c9-a19d-a85d82f3b585",
+            "html": "It contacts a licensed professional for every answer."
+          },
+          {
+            "id": "de18d0c3-4d1f-4791-8ec5-1e06d877b26b",
+            "html": "It retrieves one unchanged paragraph from a single source."
+          }
+        ],
+        "correct": [
+          "a4867e32-d82f-4808-9562-d191743da9e4"
+        ],
+        "feedback": "<p>Correct! LLM-based chatbots generate text by predicting likely language patterns.</p>",
+        "matching_rows": []
+      },
+      {
+        "id": "fcd90975781b51a95c6ce279ec20b2e8",
+        "title": "2.6.2 | Show What You Know: Prompting and Response Evaluation",
+        "type": "multiple_choice_question",
+        "prompt": "<p>What makes a detailed career prompt more useful than a vague prompt?</p>",
+        "choices": [
+          {
+            "id": "a389998c-3c58-4659-b03f-fb8e80286511",
+            "html": "It guarantees a completely accurate output."
+          },
+          {
+            "id": "9569f536-2f38-4238-b290-1d7352c6f8ba",
+            "html": "It legally authorizes the chatbot to act as a professional."
+          },
+          {
+            "id": "76e20ca6-bf97-4d89-bef1-b87453fc2eed",
+            "html": "Relevant context, limits, audience, format, tone, and questions can reduce unnecessary assumptions."
+          },
+          {
+            "id": "79c00171-e516-485b-8043-97a732a820e5",
+            "html": "It permanently retrains the underlying model."
+          }
+        ],
+        "correct": [
+          "76e20ca6-bf97-4d89-bef1-b87453fc2eed"
+        ],
+        "feedback": "<p>Correct! Relevant prompt details can improve the draft while still requiring evaluation.</p>",
+        "matching_rows": []
+      },
+      {
+        "id": "2f136334648d8bdd0188aa2fe9319c78",
+        "title": "2.6.3 | Show What You Know: Prompting and Response Evaluation",
+        "type": "multiple_choice_question",
+        "prompt": "<p>A company proposes a customer-service chatbot mainly to reduce staffing costs. What is the strongest next step before approval?</p>",
+        "choices": [
+          {
+            "id": "449dd67f-df7a-41f6-a2b8-aa691918d4f5",
+            "html": "Evaluate the expected benefit, service quality, affected workers and customers, language and accessibility needs, task boundaries, and human support."
+          },
+          {
+            "id": "9965c0aa-582b-487d-b9b0-47506abcf1a8",
+            "html": "Approve it immediately because cost reduction is always an ethical benefit."
+          },
+          {
+            "id": "ae5eb8ff-1052-460d-b139-72d7b5101001",
+            "html": "Allow the chatbot to resolve every complaint without appeal."
+          },
+          {
+            "id": "51e6c37d-0c03-46ae-bfcd-d95f8defa921",
+            "html": "Evaluate only how quickly the chatbot replies."
+          }
+        ],
+        "correct": [
+          "449dd67f-df7a-41f6-a2b8-aa691918d4f5"
+        ],
+        "feedback": "<p>Correct! Motivation and expected benefits must be weighed with effects on workers, customers, access, quality, and human responsibility.</p>",
+        "matching_rows": []
+      },
+      {
+        "id": "43d87f0aab37936365c8eb9232570417",
+        "title": "2.6.4 | Show What You Know: Prompting and Response Evaluation",
+        "type": "multiple_choice_question",
+        "prompt": "<p>Which action best follows the Protect step?</p>",
+        "choices": [
+          {
+            "id": "e5663669-b52e-49fb-aa9f-0d5b8ee9ca53",
+            "html": "Enter real customer credit-card data to test a billing prompt."
+          },
+          {
+            "id": "e30b684e-e9db-41e2-ad98-bfd73a8c2c43",
+            "html": "Replace real patient records with a fictional training scenario before using an approved classroom tool."
+          },
+          {
+            "id": "40aad405-1d0f-46b7-91e7-0e305e2daa0e",
+            "html": "Paste workplace passwords into a public chatbot."
+          },
+          {
+            "id": "f4cdefb5-2b79-47b7-af5d-6fb8824e19aa",
+            "html": "Upload live employee evaluations for summarizing."
+          }
+        ],
+        "correct": [
+          "e30b684e-e9db-41e2-ad98-bfd73a8c2c43"
+        ],
+        "feedback": "<p>Correct! Use fictional or approved information and keep sensitive data out of unapproved tools.</p>",
+        "matching_rows": []
+      },
+      {
+        "id": "a12be25f3aa5d8b10a8dddfad7bb9fa0",
+        "title": "2.6.5 | Show What You Know: Prompting and Response Evaluation",
+        "type": "multiple_choice_question",
+        "prompt": "<p>A chatbot-supported service works well in English but poorly for users communicating in other languages. Which response is most responsible?</p>",
+        "choices": [
+          {
+            "id": "56bf134b-217f-4ac1-9bca-1512c5355b65",
+            "html": "Use the system unchanged because most users speak English."
+          },
+          {
+            "id": "9865b2b8-a175-41c9-8e13-5a55227738ea",
+            "html": "Hide the language limitation from users."
+          },
+          {
+            "id": "cc452d4b-26d2-454d-9a40-d42b70f5db7d",
+            "html": "Test performance across supported languages, provide accessible alternatives and human assistance, and revise or limit the system until outcomes improve."
+          },
+          {
+            "id": "c6cae3b7-5b2b-4ebb-b7ea-280724612b1a",
+            "html": "Require every user to accept the chatbot’s first answer."
+          }
+        ],
+        "correct": [
+          "cc452d4b-26d2-454d-9a40-d42b70f5db7d"
+        ],
+        "feedback": "<p>Correct! The organization should address unequal outcomes through testing, alternatives, clear limits, and human support.</p>",
+        "matching_rows": []
+      },
+      {
+        "id": "f19c82c54dc222478a3ceda18e01edbe",
+        "title": "2.6.6 | Show What You Know: Prompting and Response Evaluation",
+        "type": "multiple_choice_question",
+        "prompt": "<p>An AI-generated hiring checklist assumes applicants with employment gaps are less dependable. What should the reviewer identify?</p>",
+        "choices": [
+          {
+            "id": "f45e4018-49b9-44e6-b8c9-ee51f2fac407",
+            "html": "Proof that the checklist is accurate because it sounds professional."
+          },
+          {
+            "id": "b754f19e-3bff-49ac-9e53-1ef897c89f60",
+            "html": "A potentially biased assumption that could unfairly disadvantage qualified applicants."
+          },
+          {
+            "id": "c1d3e9ff-c761-4eae-9f12-371319491d28",
+            "html": "A spelling problem with no effect on people."
+          },
+          {
+            "id": "4705de8d-435d-4ab6-a3dd-97589960e906",
+            "html": "A reason to remove human review."
+          }
+        ],
+        "correct": [
+          "b754f19e-3bff-49ac-9e53-1ef897c89f60"
+        ],
+        "feedback": "<p>Correct! The statement makes an unsupported assumption that could create an unfair outcome.</p>",
+        "matching_rows": []
+      },
+      {
+        "id": "5abc4039bb17eedf66e4cf2dce6431d0",
+        "title": "2.6.7 | Show What You Know: Prompting and Response Evaluation",
+        "type": "multiple_choice_question",
+        "prompt": "<p>A chatbot provides a professional-looking material specification list for a welding project. What must happen before shop use?</p>",
+        "choices": [
+          {
+            "id": "44d2a942-bf22-4ff7-bd31-5168ae8b66ff",
+            "html": "Use it immediately because the tone is professional."
+          },
+          {
+            "id": "39c8c335-5b87-4e8f-b1b8-96a92aeb5f65",
+            "html": "Accept every measurement if the list is well formatted."
+          },
+          {
+            "id": "10196bd1-bc54-4601-b08c-dd6fc26c41e4",
+            "html": "Check the claims against approved standards, equipment limits, current documents, or qualified professional knowledge."
+          },
+          {
+            "id": "1fb9338d-7ebe-45f5-8236-1a47cdd66ec9",
+            "html": "Let the chatbot authorize the work."
+          }
+        ],
+        "correct": [
+          "10196bd1-bc54-4601-b08c-dd6fc26c41e4"
+        ],
+        "feedback": "<p>Correct! Technical and safety-related claims require current authoritative evidence and qualified review.</p>",
+        "matching_rows": []
+      },
+      {
+        "id": "7632383da81bfa40675842f330b70d69",
+        "title": "2.6.8 | Show What You Know: Prompting and Response Evaluation",
+        "type": "multiple_choice_question",
+        "prompt": "<p>A chatbot drafts useful safety reminders but sometimes invents technical requirements. Which revision best preserves the benefit while reducing harm?</p>",
+        "choices": [
+          {
+            "id": "4a03f6d4-35f8-4411-bb6b-ad8fd12a5388",
+            "html": "Use the chatbot only for drafts, require citations or source links, check every technical requirement against current standards, and require qualified approval."
+          },
+          {
+            "id": "a4374aa6-fc26-4340-a8e6-0b416c138d3a",
+            "html": "Ban all safety reminders and remove every human reviewer."
+          },
+          {
+            "id": "7f2695d2-a236-4f6e-ad85-448b40b7579b",
+            "html": "Publish the reminders if they sound confident."
+          },
+          {
+            "id": "ae9f5a04-53f5-40a9-8565-75279501e154",
+            "html": "Let the chatbot decide which requirements need checking."
+          }
+        ],
+        "correct": [
+          "4a03f6d4-35f8-4411-bb6b-ad8fd12a5388"
+        ],
+        "feedback": "<p>Correct! This approach preserves drafting benefits while adding evidence checks, boundaries, and meaningful human approval.</p>",
+        "matching_rows": []
+      },
+      {
+        "id": "983ebd70f79d9c843bc3e8cc24621897",
+        "title": "2.6.9 | Show What You Know: Prompting and Response Evaluation",
+        "type": "multiple_choice_question",
+        "prompt": "<p>A cosmetology intake form generated by a chatbot requests full Social Security numbers even though the service does not require them. What is the most responsible response?</p>",
+        "choices": [
+          {
+            "id": "f707456f-ce0c-45b6-a7a4-91759283e5a2",
+            "html": "Keep the field because collecting more data always improves AI."
+          },
+          {
+            "id": "f16953fe-ee7b-4fdf-8e5a-2a9632fba9ca",
+            "html": "Remove the unnecessary sensitive-data request and collect only information required for the service."
+          },
+          {
+            "id": "ff3bafb0-1aec-4f73-aebf-f5ece5e810b7",
+            "html": "Move the field to the bottom of the form."
+          },
+          {
+            "id": "af736077-a400-4f6a-a8a8-8997cf9f9af0",
+            "html": "Publish it and blame the chatbot."
+          }
+        ],
+        "correct": [
+          "f16953fe-ee7b-4fdf-8e5a-2a9632fba9ca"
+        ],
+        "feedback": "<p>Correct! Unnecessary sensitive-data collection creates a privacy risk and should be removed.</p>",
+        "matching_rows": []
+      },
+      {
+        "id": "1baf6150fa8ce13ef4b147a195109e66",
+        "title": "2.6.10 | Show What You Know: Prompting and Response Evaluation",
+        "type": "multiple_choice_question",
+        "prompt": "<p>Which workflow best represents responsible chatbot use for a fictional culinary prep-list task?</p>",
+        "choices": [
+          {
+            "id": "a1c5c798-f095-4efe-83bb-6ff5f6dedcd3",
+            "html": "Use a vague prompt and submit the first response."
+          },
+          {
+            "id": "a1f6abb2-3456-4b42-b3d8-3ecaf1bdf7ab",
+            "html": "Ignore food-safety requirements if the output is well organized."
+          },
+          {
+            "id": "eb0e2481-7f96-4b59-89d1-61697ec0567e",
+            "html": "Define the purpose and affected people, write a clear prompt, verify allergen and inventory claims, identify possible harms or access needs, improve the draft, apply a safeguard, and make a human final decision."
+          },
+          {
+            "id": "901fabbf-2b64-4bcb-94f7-3c11c5831780",
+            "html": "Let the chatbot make the final decision and accept responsibility."
+          }
+        ],
+        "correct": [
+          "eb0e2481-7f96-4b59-89d1-61697ec0567e"
+        ],
+        "feedback": "<p>Correct! Responsible use combines purpose, prompting, evidence, affected people, improvement, safeguards, and human authority.</p>",
+        "matching_rows": []
+      }
+    ]
+  },
+  "3": {
+    "title": "3.6 🎓 Show What You Know: AI Media Creation and Verification",
+    "questions": [
+      {
+        "id": "e420b098d361952b3bf5b6ad8e07a733",
+        "title": "3.6.1 | Show What You Know: AI Media Creation and Verification",
+        "type": "multiple_choice_question",
+        "prompt": "<p>A student wants the owl to be larger and the background less visible. Which prompt revision is most useful?</p>",
+        "choices": [
+          {
+            "id": "ceb26d57-f8bc-4854-a52e-9966c86043f8",
+            "html": "Make it better."
+          },
+          {
+            "id": "01c94773-e41c-42fd-86f6-50a40d5057ea",
+            "html": "Create the same scene, but zoom in on the white owl and soften the forest background."
+          },
+          {
+            "id": "9a152ebc-8e4d-4323-8d33-fd1d1ef3bcf3",
+            "html": "Use fewer words."
+          },
+          {
+            "id": "a3565293-741b-4013-b8fa-16c6006a8bf4",
+            "html": "Do not change anything."
+          }
+        ],
+        "correct": [
+          "01c94773-e41c-42fd-86f6-50a40d5057ea"
+        ],
+        "feedback": "<p>Correct! The revision clearly changes the focus and background while preserving the intended scene.</p>",
+        "matching_rows": []
+      },
+      {
+        "id": "6cea8ebac737bdbb42e9cec7c71f4491",
+        "title": "3.6.2 | Show What You Know: AI Media Creation and Verification",
+        "type": "multiple_choice_question",
+        "prompt": "<p>An AI-generated recruitment image for a skilled-trades program shows only young men and leaves out women, older learners, and people with disabilities. What should the reviewer identify?</p>",
+        "choices": [
+          {
+            "id": "99f83d51-105f-4648-944a-5a794afd35b3",
+            "html": "A harmless design choice because the image looks professional."
+          },
+          {
+            "id": "b8e2a3c5-9a96-4ac1-b537-752c8be393ad",
+            "html": "A representation concern that may communicate who is seen as belonging in the career."
+          },
+          {
+            "id": "59a30f58-2051-4648-b85a-baed74d0dc84",
+            "html": "Proof that the career is appropriate only for the people shown."
+          },
+          {
+            "id": "b7dff1b8-4556-427e-ab8c-d6f516471014",
+            "html": "A file-format problem that can be fixed by changing the image type."
+          }
+        ],
+        "correct": [
+          "b8e2a3c5-9a96-4ac1-b537-752c8be393ad"
+        ],
+        "feedback": "<p>Correct! Limited representation may reinforce stereotypes or exclude people from seeing themselves in the career.</p>",
+        "matching_rows": []
+      },
+      {
+        "id": "1fe24d99efcca7920b8b6f668dd320b0",
+        "title": "3.6.3 | Show What You Know: AI Media Creation and Verification",
+        "type": "multiple_choice_question",
+        "prompt": "<p>A realistic audio clip appears to feature a shop supervisor directing workers to bypass a safety shutdown. What is the most responsible response?</p>",
+        "choices": [
+          {
+            "id": "d6e74401-75c2-4221-95c3-9aadec83503d",
+            "html": "Follow the instruction because the voice sounds authentic."
+          },
+          {
+            "id": "3ac7ab47-1c81-4322-b5e7-ed0193c7c593",
+            "html": "Share the clip so other workers can vote on whether it is real."
+          },
+          {
+            "id": "be317f7f-e7fb-4c26-a925-f71b306372d1",
+            "html": "Pause the action, contact the supervisor through an established channel, check official procedures, and report the possible deepfake or manipulation."
+          },
+          {
+            "id": "bee51efa-1f2e-4ab0-9ca2-0e38072ea9bc",
+            "html": "Use an AI detector score as the only evidence and act immediately."
+          }
+        ],
+        "correct": [
+          "be317f7f-e7fb-4c26-a925-f71b306372d1"
+        ],
+        "feedback": "<p>Correct! A potentially manipulated voice recording involving safety requires independent verification and authorized human review.</p>",
+        "matching_rows": []
+      },
+      {
+        "id": "5514b0fde10a244eb6324803baed0777",
+        "title": "3.6.4 | Show What You Know: AI Media Creation and Verification",
+        "type": "multiple_choice_question",
+        "prompt": "<p>A realistic image claims to show an emergency at a local factory. What should a student do first?</p>",
+        "choices": [
+          {
+            "id": "a8129125-9c24-45f1-ba79-0063a1d38769",
+            "html": "Share it quickly so others can decide whether it is real."
+          },
+          {
+            "id": "7578402c-0ceb-4a4c-b24b-570473f10efd",
+            "html": "Pause, then trace the original source, date, caption, and official reports before sharing."
+          },
+          {
+            "id": "ce3e7603-b003-4dbf-a897-16d76fc5f43e",
+            "html": "Judge it only by the quality of the lighting."
+          },
+          {
+            "id": "699e49f7-4ea3-41a4-a125-ad9b9b730bb4",
+            "html": "Ask friends whether the image looks believable."
+          }
+        ],
+        "correct": [
+          "7578402c-0ceb-4a4c-b24b-570473f10efd"
+        ],
+        "feedback": "<p>Correct! High-impact media should be paused and traced before it is shared or treated as evidence.</p>",
+        "matching_rows": []
+      },
+      {
+        "id": "ea0dfeeaef05f60189e69f12d85f6446",
+        "title": "3.6.5 | Show What You Know: AI Media Creation and Verification",
+        "type": "multiple_choice_question",
+        "prompt": "<p>An AI-generated welding poster lists required protective equipment. Which source provides the strongest verification?</p>",
+        "choices": [
+          {
+            "id": "d7742262-8ed0-4620-b81c-6123973bd99a",
+            "html": "The image generator’s second answer."
+          },
+          {
+            "id": "fbbd03a1-510b-4d1e-87d0-9dd599af81a5",
+            "html": "A current approved safety standard, course resource, or qualified welding instructor."
+          },
+          {
+            "id": "10586c4e-0d4b-421c-b49a-e24f528e0d97",
+            "html": "A social media comment with many likes."
+          },
+          {
+            "id": "d6a0e7c5-9428-4c61-b526-44faeb501c8b",
+            "html": "The poster’s professional-looking design."
+          }
+        ],
+        "correct": [
+          "fbbd03a1-510b-4d1e-87d0-9dd599af81a5"
+        ],
+        "feedback": "<p>Correct! Technical safety claims require current authoritative guidance or qualified professional knowledge.</p>",
+        "matching_rows": []
+      },
+      {
+        "id": "38936764a3f9fda25ebb447a1abdba52",
+        "title": "3.6.6 | Show What You Know: AI Media Creation and Verification",
+        "type": "multiple_choice_question",
+        "prompt": "<p>An AI-generated menu lists a dish as nut-free. What should be checked before the menu is used?</p>",
+        "choices": [
+          {
+            "id": "7f3ecf6d-b742-4958-a33d-03fe7d121f5e",
+            "html": "The font size and background color only."
+          },
+          {
+            "id": "f22e561e-afd1-49ab-a11a-f56cbfef0930",
+            "html": "The actual recipe, ingredient labels, preparation process, and approved food-safety information."
+          },
+          {
+            "id": "5c720ab6-a3b1-43b4-9640-3ba6624dd95e",
+            "html": "Whether the image looks realistic."
+          },
+          {
+            "id": "8b257c2f-35d4-4fc7-80a4-fdec509f87e3",
+            "html": "How quickly the AI produced the menu."
+          }
+        ],
+        "correct": [
+          "f22e561e-afd1-49ab-a11a-f56cbfef0930"
+        ],
+        "feedback": "<p>Correct! Allergen claims require evidence from the ingredients, process, and approved food-safety information.</p>",
+        "matching_rows": []
+      },
+      {
+        "id": "d0ca62c081242ca7114ba2be4dcbd40e",
+        "title": "3.6.7 | Show What You Know: AI Media Creation and Verification",
+        "type": "multiple_choice_question",
+        "prompt": "<p>A misleading image claims that a neighborhood water system is unsafe. Why should reviewers consider different affected communities before sharing it?</p>",
+        "choices": [
+          {
+            "id": "2c5778b7-63a2-4a65-b322-b70a41415c13",
+            "html": "The image may create different risks for residents, workers, schools, emergency services, and people who need accessible or translated information."
+          },
+          {
+            "id": "1b4ce480-b2af-4325-bc5c-e40c35b6abf5",
+            "html": "Every community will interpret and experience the image in exactly the same way."
+          },
+          {
+            "id": "e58a14c3-fccd-4b82-a625-b0ae36e6e5b1",
+            "html": "Community effects do not matter when an image is visually convincing."
+          },
+          {
+            "id": "6f934e4e-9189-4cc8-8f78-35117f687bef",
+            "html": "Only the image creator can be affected by misinformation."
+          }
+        ],
+        "correct": [
+          "2c5778b7-63a2-4a65-b322-b70a41415c13"
+        ],
+        "feedback": "<p>Correct! The same misleading media can create different safety, access, trust, and communication effects across communities.</p>",
+        "matching_rows": []
+      },
+      {
+        "id": "d0d077ab80dd53e330424055c82b6a0e",
+        "title": "3.6.8 | Show What You Know: AI Media Creation and Verification",
+        "type": "multiple_choice_question",
+        "prompt": "<p>Which statement correctly distinguishes provenance from accuracy?</p>",
+        "choices": [
+          {
+            "id": "63f06d83-c5ea-4712-aef8-a9697c48a7d0",
+            "html": "Provenance asks where media came from and how it changed; accuracy asks whether its caption, claims, measurements, and context are correct."
+          },
+          {
+            "id": "74dd0d5e-9efa-4389-bee7-35d1178256cd",
+            "html": "Provenance and accuracy both mean deciding whether an image looks realistic."
+          },
+          {
+            "id": "e298b0c1-92ff-4e0e-947f-dae18a288432",
+            "html": "Accurate media never requires a source check."
+          },
+          {
+            "id": "08ff87a8-3dd4-40f0-9dfe-6b51e02cd45c",
+            "html": "Finding the original creator automatically proves every claim in the media."
+          }
+        ],
+        "correct": [
+          "63f06d83-c5ea-4712-aef8-a9697c48a7d0"
+        ],
+        "feedback": "<p>Correct! Source history and factual accuracy are related but separate questions.</p>",
+        "matching_rows": []
+      },
+      {
+        "id": "92ebc5a419b1f60376229681fd7eb0b2",
+        "title": "3.6.9 | Show What You Know: AI Media Creation and Verification",
+        "type": "multiple_choice_question",
+        "prompt": "<p>A construction diagram contains an unsafe measurement, and no reliable source can be found. What is the best decision?</p>",
+        "choices": [
+          {
+            "id": "7c237804-cec3-45c9-afef-8c42a0d5ae55",
+            "html": "Approve it because AI diagrams are usually accurate."
+          },
+          {
+            "id": "46ca414f-239f-445f-a040-f1dc198ed7b3",
+            "html": "Use it but add a decorative warning icon."
+          },
+          {
+            "id": "0eeed527-fffc-4ccf-8fe9-988477ebebbb",
+            "html": "Reject it for use until the measurement is verified and the diagram is corrected or replaced."
+          },
+          {
+            "id": "f4adb27c-6c5c-4318-bafb-695f3524915e",
+            "html": "Share it privately without checking."
+          }
+        ],
+        "correct": [
+          "0eeed527-fffc-4ccf-8fe9-988477ebebbb"
+        ],
+        "feedback": "<p>Correct! Unsafe, unverified technical media should not be used until it is verified and corrected or replaced.</p>",
+        "matching_rows": []
+      },
+      {
+        "id": "0acf1974928fafb29ee06a30ae6d3f39",
+        "title": "3.6.10 | Show What You Know: AI Media Creation and Verification",
+        "type": "multiple_choice_question",
+        "prompt": "<p>A training image is confirmed as AI-generated, accurately represents the procedure, contains no identifying information, is permitted for use, and has been checked by a qualified instructor. What is the best next step?</p>",
+        "choices": [
+          {
+            "id": "5bb76203-749f-497d-91ca-0b0c33804920",
+            "html": "Reject every AI-generated image automatically."
+          },
+          {
+            "id": "fce8672f-1b67-47be-ba8b-a8d1426459cd",
+            "html": "Approve it without checking any disclosure or workplace requirements."
+          },
+          {
+            "id": "0d462b68-795d-4bb0-9dce-f37bd214348e",
+            "html": "Approve it if remaining audience and policy requirements are met, and label or disclose the AI use when required."
+          },
+          {
+            "id": "5027cbe7-3ddd-46da-8cb4-74f3c4741443",
+            "html": "Remove the source and review information before presenting it."
+          }
+        ],
+        "correct": [
+          "0d462b68-795d-4bb0-9dce-f37bd214348e"
+        ],
+        "feedback": "<p>Correct! AI-generated media may be approved when it is accurate, permitted, appropriate, reviewed, and disclosed as required.</p>",
+        "matching_rows": []
+      }
+    ]
+  },
+  "4": {
+    "title": "4.6 🎓 Show What You Know: Bias, Fairness, and Human Oversight",
+    "questions": [
+      {
+        "id": "7f04c7581cb66ab8c7af57ac880f7e42",
+        "title": "4.6.1 | Show What You Know: Bias, Fairness, and Human Oversight",
+        "type": "multiple_choice_question",
+        "prompt": "<p>Which situation provides the strongest evidence of algorithmic bias?</p>",
+        "choices": [
+          {
+            "id": "9e30ea8e-db41-4892-8004-3ae13719d6f6",
+            "html": "One isolated typo in an AI response"
+          },
+          {
+            "id": "49714418-2c38-4eb2-993a-b949a4468059",
+            "html": "A repeated pattern in which similarly qualified applicants from one group receive lower rankings because of an unsupported scoring shortcut"
+          },
+          {
+            "id": "20e31fee-75dc-4ded-a4e0-afd359fb4c36",
+            "html": "A computer that briefly loses internet access"
+          },
+          {
+            "id": "a62aec34-3368-4bfd-82b6-0d61b5379116",
+            "html": "A diagram with one accidental formatting error"
+          }
+        ],
+        "correct": [
+          "49714418-2c38-4eb2-993a-b949a4468059"
+        ],
+        "feedback": "<p>Correct! Algorithmic bias is supported by a repeated unfair pattern connected to the system’s data, rules, or design.</p>",
+        "matching_rows": []
+      },
+      {
+        "id": "cede2d2e84369fef6e7ea321e13e47b1",
+        "title": "4.6.2 | Show What You Know: Bias, Fairness, and Human Oversight",
+        "type": "multiple_choice_question",
+        "prompt": "<p>A hiring tool lowers every applicant’s score when an employment gap appears, even when the applicant meets all job requirements. What is the strongest analysis?</p>",
+        "choices": [
+          {
+            "id": "cef89142-1515-4027-b8c6-c0fd5d5b598b",
+            "html": "The gap is a proxy for reliability, and the explicit scoring rule may create rule-based bias."
+          },
+          {
+            "id": "cfdce0dd-863a-4c5a-9aed-4e6b600d742c",
+            "html": "The gap proves the applicant cannot do the job."
+          },
+          {
+            "id": "17491eeb-0c87-4e19-bba0-4d24cc2f8fb7",
+            "html": "The concern is only a hardware failure."
+          },
+          {
+            "id": "64d0ff81-efe2-481f-b965-9fe4c73c2035",
+            "html": "The system is fair because everyone receives the same rule."
+          }
+        ],
+        "correct": [
+          "cef89142-1515-4027-b8c6-c0fd5d5b598b"
+        ],
+        "feedback": "<p>Correct! The tool uses an employment gap as an unsupported proxy and applies an explicit unfair scoring rule.</p>",
+        "matching_rows": []
+      },
+      {
+        "id": "7e035bd11910ba411151d76e616206c7",
+        "title": "4.6.3 | Show What You Know: Bias, Fairness, and Human Oversight",
+        "type": "multiple_choice_question",
+        "prompt": "<p>A veterinary model was trained on very few examples for a particular breed and age. It labels a serious condition as low risk. Which outcome and response are most accurate?</p>",
+        "choices": [
+          {
+            "id": "251b906f-bd24-47ff-8709-829f8e588ef8",
+            "html": "A false positive; follow the recommendation without review."
+          },
+          {
+            "id": "3344843b-f013-49ee-88ee-48d6e42db562",
+            "html": "A false negative; flag the result, show uncertainty, and require qualified veterinary review."
+          },
+          {
+            "id": "1db60cef-4df5-42cb-bfae-c632ada2952e",
+            "html": "A Green Light result because the tool gave an answer."
+          },
+          {
+            "id": "5bc1779b-8ce4-4f2f-b6a7-55155ea76048",
+            "html": "A privacy problem only."
+          }
+        ],
+        "correct": [
+          "3344843b-f013-49ee-88ee-48d6e42db562"
+        ],
+        "feedback": "<p>Correct! The tool may have missed a real risk because the relevant cases were underrepresented.</p>",
+        "matching_rows": []
+      },
+      {
+        "id": "4e1336319c816ffb051d5d92ef723458",
+        "title": "4.6.4 | Show What You Know: Bias, Fairness, and Human Oversight",
+        "type": "multiple_choice_question",
+        "prompt": "<p>A support chatbot has strong overall performance but consistently gives less useful responses to users with nonstandard English or second-language patterns. What should the organization do?</p>",
+        "choices": [
+          {
+            "id": "7511d7e1-8e5c-4471-b880-7a0689202bc9",
+            "html": "Use only the overall score."
+          },
+          {
+            "id": "f5f2a929-af95-4397-b3e8-b35d5a694e18",
+            "html": "Test response quality across language patterns, improve clarification, and provide human escalation."
+          },
+          {
+            "id": "d542a9b2-9785-4d87-a5b5-71e710296b94",
+            "html": "Require every user to write the same way."
+          },
+          {
+            "id": "0dbd3828-9207-467d-a6c8-74ff7de330df",
+            "html": "Hide the performance difference."
+          }
+        ],
+        "correct": [
+          "f5f2a929-af95-4397-b3e8-b35d5a694e18"
+        ],
+        "feedback": "<p>Correct! Group-specific testing and human escalation address the unequal quality of service.</p>",
+        "matching_rows": []
+      },
+      {
+        "id": "cdf225dc2abba9dbd53e17dc187adf5b",
+        "title": "4.6.5 | Show What You Know: Bias, Fairness, and Human Oversight",
+        "type": "multiple_choice_question",
+        "prompt": "<p>A repair assistant recommends the wrong part because one vehicle’s model year was entered incorrectly. There is no evidence of a repeated unfair pattern. Which conclusion is most responsible?</p>",
+        "choices": [
+          {
+            "id": "7a556851-5923-4e1e-a8d5-260d1d49b4f2",
+            "html": "The system is proven biased against older vehicles."
+          },
+          {
+            "id": "bdf7201e-cfcd-4705-8b86-42032533414d",
+            "html": "This is an input or reliability failure that must be corrected; more evidence is needed before calling it bias."
+          },
+          {
+            "id": "42e4f113-45e0-4a94-95db-7fa3c9430771",
+            "html": "The recommendation should be followed because the tool is automated."
+          },
+          {
+            "id": "7af195cf-ff78-4e5b-a3a6-5000fd236f49",
+            "html": "The failure is harmless because it affected one vehicle."
+          }
+        ],
+        "correct": [
+          "bdf7201e-cfcd-4705-8b86-42032533414d"
+        ],
+        "feedback": "<p>Correct! The system failed, but the available evidence does not establish a repeated unfair pattern.</p>",
+        "matching_rows": []
+      },
+      {
+        "id": "fdf2a592f8d7e1c34e907abbb4b96cc5",
+        "title": "4.6.6 | Show What You Know: Bias, Fairness, and Human Oversight",
+        "type": "multiple_choice_question",
+        "prompt": "<p>A construction design assistant repeatedly produces public entrances without accessible routes. Which safeguard best addresses the concern?</p>",
+        "choices": [
+          {
+            "id": "6bbfc6c0-e0d5-4f78-8522-31125ddedd6b",
+            "html": "Require accessibility data and code checks, test designs for varied users and sites, and require qualified review before use."
+          },
+          {
+            "id": "f9746857-5ca3-4506-9f04-ed80d57e1ed3",
+            "html": "Approve the plans because the drawings look professional."
+          },
+          {
+            "id": "e3840b13-d996-48cf-87f3-874c179b910f",
+            "html": "Use the same entrance design for every building."
+          },
+          {
+            "id": "1fa472d4-81aa-4c41-a38d-06127fdddfa2",
+            "html": "Remove information about intended users."
+          }
+        ],
+        "correct": [
+          "6bbfc6c0-e0d5-4f78-8522-31125ddedd6b"
+        ],
+        "feedback": "<p>Correct! The safeguard improves the data and rules, tests varied conditions, and preserves professional authority.</p>",
+        "matching_rows": []
+      },
+      {
+        "id": "42b11d95e4c5c245f68d2b107457bc0f",
+        "title": "4.6.7 | Show What You Know: Bias, Fairness, and Human Oversight",
+        "type": "multiple_choice_question",
+        "prompt": "<p>A fire-planning model predicts low risk because few incidents were recorded, but language and phone-access barriers caused underreporting. What is the most likely source?</p>",
+        "choices": [
+          {
+            "id": "9717e304-f96e-4430-bc2b-8e31cda4fa52",
+            "html": "Data-driven bias from incomplete historical records"
+          },
+          {
+            "id": "d820163a-ac44-4779-b889-5e6641618cff",
+            "html": "A harmless formatting issue"
+          },
+          {
+            "id": "3d54e19c-012d-4671-a32d-ddb8b45376e4",
+            "html": "A false positive caused by too many reports"
+          },
+          {
+            "id": "018811e0-2d84-4d7b-85a2-16dd930ea9b3",
+            "html": "No concern because the model used real records"
+          }
+        ],
+        "correct": [
+          "9717e304-f96e-4430-bc2b-8e31cda4fa52"
+        ],
+        "feedback": "<p>Correct! The recorded data does not represent the community’s actual needs because reporting barriers caused missing information.</p>",
+        "matching_rows": []
+      },
+      {
+        "id": "7b29c2871f4ba44102cf32788905f81c",
+        "title": "4.6.8 | Show What You Know: Bias, Fairness, and Human Oversight",
+        "type": "multiple_choice_question",
+        "prompt": "<p>A school notices that an AI support tool gives different recommendations to similar students, but it has not reviewed the data source, rules, repeated outcomes, or error rates. What should happen next?</p>",
+        "choices": [
+          {
+            "id": "b0f0b3a3-a57d-4f66-8e1d-f3caeccfb44b",
+            "html": "Declare the tool biased immediately."
+          },
+          {
+            "id": "ec822b34-42f3-4f42-bc71-39b3534811a9",
+            "html": "Declare the tool fair because no cause is known."
+          },
+          {
+            "id": "b91a1c65-087f-4449-89f4-98e0bc4d5290",
+            "html": "Classify the source as undetermined and request documentation, repeated-result analysis, group-specific testing, and contextual review."
+          },
+          {
+            "id": "679710d0-3680-4aa8-bb14-7030e1b3d38a",
+            "html": "Let the tool make final decisions until a complaint occurs."
+          }
+        ],
+        "correct": [
+          "b91a1c65-087f-4449-89f4-98e0bc4d5290"
+        ],
+        "feedback": "<p>Correct! The concern requires investigation, but the source cannot be responsibly classified without evidence.</p>",
+        "matching_rows": []
+      },
+      {
+        "id": "49d8074f411b6657bbad99ee8b9620c6",
+        "title": "4.6.9 | Show What You Know: Bias, Fairness, and Human Oversight",
+        "type": "multiple_choice_question",
+        "prompt": "<p>A scheduling assistant has been tested across relevant employee groups and shift conditions. It uses job-related inputs, shows uncertainty, allows corrections and appeals, is monitored for disparities, and a qualified manager approves final schedules. What verdict is best?</p>",
+        "choices": [
+          {
+            "id": "cc05f0f5-cfab-4a2b-ae44-323a40edec95",
+            "html": "Green Light, with the stated professional review and continued monitoring"
+          },
+          {
+            "id": "e259705d-4575-408f-be00-8413057d9735",
+            "html": "Yellow Light because every use of AI is automatically high risk"
+          },
+          {
+            "id": "4f357aa0-6713-4fe7-b008-bf2084f3ce30",
+            "html": "Red Light because humans should never use scheduling tools"
+          },
+          {
+            "id": "6b6dc5c2-c225-45e1-be2b-82f814967133",
+            "html": "Green Light with no further monitoring or human review"
+          }
+        ],
+        "correct": [
+          "cc05f0f5-cfab-4a2b-ae44-323a40edec95"
+        ],
+        "feedback": "<p>Correct! The system has appropriate boundaries, testing, correction, appeal, monitoring, and human authority.</p>",
+        "matching_rows": []
+      },
+      {
+        "id": "7632c6b0050a5b40870c029ba019e111",
+        "title": "4.6.10 | Show What You Know: Bias, Fairness, and Human Oversight",
+        "type": "multiple_choice_question",
+        "prompt": "<p>An AI recommendation includes a detailed and confident explanation. What should a qualified reviewer do?</p>",
+        "choices": [
+          {
+            "id": "b53b7a35-536c-4668-be33-e56f8a38bf13",
+            "html": "Approve it because confidence proves accuracy and fairness."
+          },
+          {
+            "id": "ea3d523e-0ae0-44ef-b7cb-b5a30d16b0b0",
+            "html": "Check the data, rules, evidence, affected groups, uncertainty, and professional requirements before deciding."
+          },
+          {
+            "id": "419510ce-1626-4438-9036-8b9d4076ec06",
+            "html": "Approve it if the response was generated quickly."
+          },
+          {
+            "id": "228d4e6d-ca52-45cb-92d9-c6d6a422a4a2",
+            "html": "Review only the spelling and grammar."
+          }
+        ],
+        "correct": [
+          "ea3d523e-0ae0-44ef-b7cb-b5a30d16b0b0"
+        ],
+        "feedback": "<p>Correct! Confidence does not replace evidence, fairness analysis, or accountable human judgment.</p>",
+        "matching_rows": []
+      }
+    ]
+  },
+  "5": {
+    "title": "5.6 🎓 Show What You Know: AI Privacy and Data Protection",
+    "questions": [
+      {
+        "id": "ca7b4438cc1dd55473507654eaacde6e",
+        "title": "5.6.1 | Show What You Know: AI Privacy and Data Protection",
+        "type": "multiple_choice_question",
+        "prompt": "<p>Which situation is the clearest example of a confidentiality duty?</p>",
+        "choices": [
+          {
+            "id": "4dc2afb9-b8a8-4915-b8e6-367cf3ca03a6",
+            "html": "A school employee is required to restrict access to a student’s protected records."
+          },
+          {
+            "id": "3c308803-9350-4fc2-b6bc-8d6f0029dc9e",
+            "html": "A student chooses a new wallpaper."
+          },
+          {
+            "id": "1787f9a4-cca0-43fd-86a6-b26f242b298f",
+            "html": "A technician turns up the screen brightness."
+          },
+          {
+            "id": "f8b4e2eb-d0ec-4fec-bbd4-29d21e22f589",
+            "html": "A chatbot produces a short response."
+          }
+        ],
+        "correct": [
+          "4dc2afb9-b8a8-4915-b8e6-367cf3ca03a6"
+        ],
+        "feedback": "<p>Correct! Confidentiality is a duty to restrict access under rules, policies, contracts, or professional expectations.</p>",
+        "matching_rows": []
+      },
+      {
+        "id": "cfd6cf2184d6969bc8fbdfe5b3d3bfe3",
+        "title": "5.6.2 | Show What You Know: AI Privacy and Data Protection",
+        "type": "multiple_choice_question",
+        "prompt": "<p>A school employee copies grades, disability accommodations, attendance, and family contact information into a public AI chatbot. Which choice creates the main risk?</p>",
+        "choices": [
+          {
+            "id": "29b823e0-223e-475d-8421-9b7136096a1d",
+            "html": "Writing a message instead of calling."
+          },
+          {
+            "id": "6c9b557d-9c7d-4a9d-8944-f6f1eb1838bf",
+            "html": "Using an unapproved public system with protected student information when a fictional template or approved process could preserve the task’s purpose."
+          },
+          {
+            "id": "36fb7d28-3359-46d7-bf2b-de7cbafa6c1a",
+            "html": "Asking for complete sentences."
+          },
+          {
+            "id": "a82453b5-fa7f-40cd-9f24-df53607c4487",
+            "html": "Reviewing the draft before sending it."
+          }
+        ],
+        "correct": [
+          "6c9b557d-9c7d-4a9d-8944-f6f1eb1838bf"
+        ],
+        "feedback": "<p>Correct! The human disclosure choice creates the risk.</p>",
+        "matching_rows": []
+      },
+      {
+        "id": "9775657be325a7daf324a17b094826e1",
+        "title": "5.6.3 | Show What You Know: AI Privacy and Data Protection",
+        "type": "multiple_choice_question",
+        "prompt": "<p>A medical receptionist has a patient’s name, diagnosis, phone number, and appointment time and wants AI help drafting a follow-up message. What is the correct decision about the original proposal?</p>",
+        "choices": [
+          {
+            "id": "e0ed3b37-f2f7-40a0-8825-92e8d10c0ecb",
+            "html": "Clear, because the message is useful."
+          },
+          {
+            "id": "ed9af8fa-7e93-4826-a91d-7c0d4cda3ab4",
+            "html": "Warning, because replacing only the phone number is enough."
+          },
+          {
+            "id": "8f9fc10e-d1ac-46bb-9fd5-a94ab49d501e",
+            "html": "Stop. Keep real patient details out of an unapproved tool and use an approved healthcare process or a separate fictional template."
+          },
+          {
+            "id": "f75df38a-f156-4812-a890-294b6284e9e9",
+            "html": "Clear, when temporary mode is enabled."
+          }
+        ],
+        "correct": [
+          "8f9fc10e-d1ac-46bb-9fd5-a94ab49d501e"
+        ],
+        "feedback": "<p>Correct! The original proposed use is Stop; a fictional template or approved healthcare process is a separate safe alternative.</p>",
+        "matching_rows": []
+      },
+      {
+        "id": "742fc1bb1e07909831293ce13f0bcc8c",
+        "title": "5.6.4 | Show What You Know: AI Privacy and Data Protection",
+        "type": "multiple_choice_question",
+        "prompt": "<p>Which set contains both a direct identifier and possible indirect identifiers?</p>",
+        "choices": [
+          {
+            "id": "e95db576-f53d-4439-9110-a72edce4715d",
+            "html": "A full name, plus an exact date, rare condition, location, and job title"
+          },
+          {
+            "id": "38aa9b3a-4a23-420a-a9f3-817028f03a77",
+            "html": "A general career interest and fictional budget"
+          },
+          {
+            "id": "c7bdf1d3-f32c-42bf-8c4a-47dcedebf760",
+            "html": "A public definition and common safety rule"
+          },
+          {
+            "id": "07f2943b-3e70-4766-90e7-cbd3a23e0241",
+            "html": "A blank template and invented scenario"
+          }
+        ],
+        "correct": [
+          "e95db576-f53d-4439-9110-a72edce4715d"
+        ],
+        "feedback": "<p>Correct! The full name is direct; the combined contextual details may indirectly identify the person.</p>",
+        "matching_rows": []
+      },
+      {
+        "id": "8c41e1ecd1bb5a093c4bbbf4df70bf0d",
+        "title": "5.6.5 | Show What You Know: AI Privacy and Data Protection",
+        "type": "multiple_choice_question",
+        "prompt": "<p>A graphic designer uploads an unreleased client logo, strategy, pricing, and contract details to a public generator. What is the best classification?</p>",
+        "choices": [
+          {
+            "id": "04f432dc-6504-442f-9d34-e9a48b1a0dbe",
+            "html": "Clear, because the designer created the file."
+          },
+          {
+            "id": "b3aef3f5-fd55-4e79-a034-4eccf242676d",
+            "html": "Warning, because removing the client name makes every file safe."
+          },
+          {
+            "id": "dedfb1b4-bb69-4ede-bdbf-0b42d623c8da",
+            "html": "Stop, because the original use involves confidential client work and may exceed the designer’s authorization."
+          },
+          {
+            "id": "73680cc0-2c98-47e3-aa74-234a27f498f6",
+            "html": "Clear, when the tool promises creative ideas."
+          }
+        ],
+        "correct": [
+          "dedfb1b4-bb69-4ede-bdbf-0b42d623c8da"
+        ],
+        "feedback": "<p>Correct! The original proposal involves confidential and contract-protected work.</p>",
+        "matching_rows": []
+      },
+      {
+        "id": "32ab1014dc2d9f67694b0c0f2d42eeac",
+        "title": "5.6.6 | Show What You Know: AI Privacy and Data Protection",
+        "type": "multiple_choice_question",
+        "prompt": "<p>Which example is a responsible Clear use?</p>",
+        "choices": [
+          {
+            "id": "05ed4c9e-1eef-4592-932a-f141b6d78d66",
+            "html": "An approved enterprise tool improves a general template using only permitted minimum-necessary information, and a qualified employee reviews the result."
+          },
+          {
+            "id": "c806b802-15cc-4eb3-bdcc-b82c59bc4963",
+            "html": "A public chatbot receives a complete customer record because the user has access."
+          },
+          {
+            "id": "f7ba2511-ba5b-4250-aaab-37d3cad13007",
+            "html": "A student uploads an incident report after deleting the victim’s last name."
+          },
+          {
+            "id": "b85b4315-3d48-42dc-8454-9853c0c33d89",
+            "html": "An employee uses private mode with an unreleased design."
+          }
+        ],
+        "correct": [
+          "05ed4c9e-1eef-4592-932a-f141b6d78d66"
+        ],
+        "feedback": "<p>Correct! Clear use combines an approved purpose, appropriate tool, permitted minimum data, and professional review.</p>",
+        "matching_rows": []
+      },
+      {
+        "id": "f3dadb4c512e2c1f8b2f8e6ecd8f2fa8",
+        "title": "5.6.7 | Show What You Know: AI Privacy and Data Protection",
+        "type": "multiple_choice_question",
+        "prompt": "<p>What is the strongest conclusion about de-identification?</p>",
+        "choices": [
+          {
+            "id": "34ef0c2b-671c-44f5-a77a-ee7ba292e7d0",
+            "html": "Removing a name always makes information anonymous and authorized."
+          },
+          {
+            "id": "2e3c8f7d-aeb5-4c79-8d19-f8341241a60a",
+            "html": "De-identification can reduce risk, but combined details may still allow re-identification and permission is still required."
+          },
+          {
+            "id": "385284ec-4707-4549-a314-9726a8fde895",
+            "html": "De-identification applies only to photographs."
+          },
+          {
+            "id": "af1915dc-3788-4e12-ba84-706440db115c",
+            "html": "Replacing a phone number makes every protected record safe for public AI."
+          }
+        ],
+        "correct": [
+          "2e3c8f7d-aeb5-4c79-8d19-f8341241a60a"
+        ],
+        "feedback": "<p>Correct! De-identification reduces risk but does not guarantee anonymity or authorization.</p>",
+        "matching_rows": []
+      },
+      {
+        "id": "3ce1cff7221644ebf086c5f64acb6d98",
+        "title": "5.6.8 | Show What You Know: AI Privacy and Data Protection",
+        "type": "multiple_choice_question",
+        "prompt": "<p>An approved workplace AI tool offers temporary mode and training opt-out controls. What should the employee still do?</p>",
+        "choices": [
+          {
+            "id": "ccef854d-acad-405a-9f67-b9244814d649",
+            "html": "Enter every available record because the settings remove all risk."
+          },
+          {
+            "id": "26083728-33f1-4c83-a321-97f8de82a79d",
+            "html": "Use only necessary authorized information, follow the organization’s agreement and procedures, and keep a responsible human in control."
+          },
+          {
+            "id": "a640beea-01fd-46c9-b97c-ea88afb0ae4c",
+            "html": "Ignore the employer’s policy."
+          },
+          {
+            "id": "434ad034-5e1f-40d8-b7f2-e1cd91030062",
+            "html": "Assume the tool cannot retain any information."
+          }
+        ],
+        "correct": [
+          "26083728-33f1-4c83-a321-97f8de82a79d"
+        ],
+        "feedback": "<p>Correct! Settings support safeguards but do not replace authorization, minimization, policy, or human accountability.</p>",
+        "matching_rows": []
+      },
+      {
+        "id": "8e39e77b5d78dfd55f674614dc586680",
+        "title": "5.6.9 | Show What You Know: AI Privacy and Data Protection",
+        "type": "multiple_choice_question",
+        "prompt": "<p>The source of a document and the user’s authority to disclose it are unclear. Which response is most responsible?</p>",
+        "choices": [
+          {
+            "id": "169d8f75-40c0-4a94-b103-f4d42f1a6490",
+            "html": "Classify it Clear because no violation is proven."
+          },
+          {
+            "id": "bdcec40b-3e7c-441b-8c5a-4d06b12ede2c",
+            "html": "Classify it Warning and upload it after removing one name."
+          },
+          {
+            "id": "22834686-ab00-42ae-872a-6f521a8e3e64",
+            "html": "Stop until a qualified person confirms the source, authorization, tool approval, and permitted use."
+          },
+          {
+            "id": "8248f1f7-235f-47d2-b57f-7b2300d6ebbb",
+            "html": "Upload it, then ask for permission afterward."
+          }
+        ],
+        "correct": [
+          "22834686-ab00-42ae-872a-6f521a8e3e64"
+        ],
+        "feedback": "<p>Correct! Unknown authorization requires a pause and qualified review.</p>",
+        "matching_rows": []
+      },
+      {
+        "id": "a8f36486868fe6cff3330eb8d7c5bb3c",
+        "title": "5.6.10 | Show What You Know: AI Privacy and Data Protection",
+        "type": "multiple_choice_question",
+        "prompt": "<p>A district wants the benefits of an AI tutoring tool while reducing long-term privacy risk. Which plan is strongest?</p>",
+        "choices": [
+          {
+            "id": "91d51cac-9c2f-4e95-9107-4c39f716a8a4",
+            "html": "Use personal social-media accounts and keep camera access active."
+          },
+          {
+            "id": "bfaa1bdf-5357-429d-ab0f-19373862f6eb",
+            "html": "Use district-approved accounts, collect only necessary information, contractually limit retention and training, filter personal information, use secure authentication, provide deletion and correction processes, and require ongoing human review."
+          },
+          {
+            "id": "ae767889-0410-4f57-83ed-41b397d3cba5",
+            "html": "Require students to upload ID-card photos."
+          },
+          {
+            "id": "911c658d-ae2b-40b9-a384-747d017e9e7a",
+            "html": "Rely only on student promises not to type personal information."
+          }
+        ],
+        "correct": [
+          "bfaa1bdf-5357-429d-ab0f-19373862f6eb"
+        ],
+        "feedback": "<p>Correct! Strong protection combines organizational, contractual, technical, and human safeguards across the data lifecycle.</p>",
+        "matching_rows": []
+      }
+    ]
+  },
+  "6": {
+    "title": "6.6 🎓 Show What You Know: Ethics, Copyright, and Original Work",
+    "questions": [
+      {
+        "id": "a7d48d7e4fc90837aee9c0eaf0df86d1",
+        "title": "6.6.1 | Show What You Know: Ethics, Copyright, and Original Work",
+        "type": "multiple_choice_question",
+        "prompt": "<p>An AI video app uses a real student’s face in an advertisement without permission. Which concern is most important?</p>",
+        "choices": [
+          {
+            "id": "981f2d27-55e1-44be-84ab-610423cf6c81",
+            "html": "File size and screen brightness"
+          },
+          {
+            "id": "297bb97b-fc5e-4952-a875-6c6f2b0c9d0a",
+            "html": "Permission, privacy, and the effect on the person shown"
+          },
+          {
+            "id": "1fb27a26-939c-4ed0-8f19-487a04cb8e14",
+            "html": "The speed of the video"
+          },
+          {
+            "id": "cca10e88-7376-4d82-b440-1838489a1487",
+            "html": "The number of words in the advertisement"
+          }
+        ],
+        "correct": [
+          "297bb97b-fc5e-4952-a875-6c6f2b0c9d0a"
+        ],
+        "feedback": "<p>Correct! Using a real person’s face without permission raises ethical concerns about consent, privacy, and possible harm.</p>",
+        "matching_rows": []
+      },
+      {
+        "id": "e2f2d959d2a307c9c2bfab6d32e336e3",
+        "title": "6.6.2 | Show What You Know: Ethics, Copyright, and Original Work",
+        "type": "multiple_choice_question",
+        "prompt": "<p>A student uploads pages from a paid workbook to a public AI tool to create a new assignment. What should the student do?</p>",
+        "choices": [
+          {
+            "id": "d67c2a1c-350b-40e5-848b-78967a92ec03",
+            "html": "Continue because educational materials are always free to upload."
+          },
+          {
+            "id": "42fb10d9-c420-4353-bcd1-1dff43b251ec",
+            "html": "Stop and use original notes, authorized material, or another approved source."
+          },
+          {
+            "id": "9d2ec08f-00bf-47ab-afa8-c6e1e26e2473",
+            "html": "Remove the page numbers but keep all of the workbook text."
+          },
+          {
+            "id": "1db302b9-9b2b-4323-9db9-876803aff6fc",
+            "html": "Upload more pages so the AI has better context."
+          }
+        ],
+        "correct": [
+          "42fb10d9-c420-4353-bcd1-1dff43b251ec"
+        ],
+        "feedback": "<p>Correct! Paid or protected material should not be uploaded without permission. The student should use original or authorized sources.</p>",
+        "matching_rows": []
+      },
+      {
+        "id": "0c27901ee3ffe6660997f44644009250",
+        "title": "6.6.3 | Show What You Know: Ethics, Copyright, and Original Work",
+        "type": "multiple_choice_question",
+        "prompt": "<p>Which example gives the strongest evidence of meaningful human contribution?</p>",
+        "choices": [
+          {
+            "id": "722ae0d9-c853-4686-b262-4ab0974c9443",
+            "html": "The student submits the first AI output without reading it."
+          },
+          {
+            "id": "ec2243d2-aacb-4e1d-8b33-8427fc58755a",
+            "html": "The student chooses the goal, develops the main ideas, rewrites the draft, checks sources, and can explain each choice."
+          },
+          {
+            "id": "06cb5e81-13ff-413b-9bd5-45a67307de27",
+            "html": "The student changes one word in a full AI-generated report."
+          },
+          {
+            "id": "4ec0640d-e301-4d9e-a067-610440d4ed0c",
+            "html": "The student hides the prompt so no one can review the process."
+          }
+        ],
+        "correct": [
+          "ec2243d2-aacb-4e1d-8b33-8427fc58755a"
+        ],
+        "feedback": "<p>Correct! Meaningful human contribution includes important creative choices, revision, verification, and the ability to explain the final work.</p>",
+        "matching_rows": []
+      },
+      {
+        "id": "23dae52672feb88e79df5762e85597be",
+        "title": "6.6.4 | Show What You Know: Ethics, Copyright, and Original Work",
+        "type": "multiple_choice_question",
+        "prompt": "<p>A designer wants a poster “in the exact style” of a living artist. Which revision is most responsible?</p>",
+        "choices": [
+          {
+            "id": "a961aa46-a02f-4f5b-ab48-8273fb9db714",
+            "html": "Keep the request because styles never raise ethical concerns."
+          },
+          {
+            "id": "4130eb32-c8bc-4ee3-bc50-c21ce8d475ba",
+            "html": "Describe the needed features, such as a bold layout and high contrast, without naming or copying the artist."
+          },
+          {
+            "id": "d2f53c9c-4c74-4b90-afb6-52e247f74640",
+            "html": "Ask AI to hide the artist’s influence."
+          },
+          {
+            "id": "18131e92-e9c7-4c0b-89d4-e0f305508de8",
+            "html": "Copy one of the artist’s posters and remove the signature."
+          }
+        ],
+        "correct": [
+          "4130eb32-c8bc-4ee3-bc50-c21ce8d475ba"
+        ],
+        "feedback": "<p>Correct! Describing needed features supports the design goal without asking AI to imitate a specific creator.</p>",
+        "matching_rows": []
+      },
+      {
+        "id": "d34185ba634eb15e3037810c560ed404",
+        "title": "6.6.5 | Show What You Know: Ethics, Copyright, and Original Work",
+        "type": "multiple_choice_question",
+        "prompt": "<p>Which statement correctly distinguishes permission or licensing, source attribution, and AI-use disclosure?</p>",
+        "choices": [
+          {
+            "id": "273bdf11-59af-464a-86e0-fab42d52ea52",
+            "html": "Permission or licensing determines whether material may be used; attribution credits the creator and source; AI-use disclosure explains how AI assisted."
+          },
+          {
+            "id": "32f6036f-c02b-447e-ad62-549aaa1a59d4",
+            "html": "Attribution grants permission, and AI-use disclosure replaces source credit."
+          },
+          {
+            "id": "0bac7ee2-6249-4d8c-900e-6c5e8970ea42",
+            "html": "Permission is needed only when no credit is given."
+          },
+          {
+            "id": "64dac091-5165-4ee1-b8ca-0ae68f09fa3b",
+            "html": "An AI-use disclosure makes every source legal to use."
+          }
+        ],
+        "correct": [
+          "273bdf11-59af-464a-86e0-fab42d52ea52"
+        ],
+        "feedback": "<p>Correct! These are three separate responsibilities that may all apply to the same project.</p>",
+        "matching_rows": []
+      },
+      {
+        "id": "c65aa35736d971b0b012acc0a06a4874",
+        "title": "6.6.6 | Show What You Know: Ethics, Copyright, and Original Work",
+        "type": "multiple_choice_question",
+        "prompt": "<p>A student wants to use an open-source code library whose license requires a copyright notice and license text in redistributed software. What is the responsible action?</p>",
+        "choices": [
+          {
+            "id": "9576a26e-5960-4079-ae93-c243469f139a",
+            "html": "Use the library, remove the notice, and list only the AI tool."
+          },
+          {
+            "id": "a3d8dcb8-8d1c-48c3-9cd7-0f43fa35843e",
+            "html": "Follow the license, preserve the required notice and license text, and document the library’s creator and source."
+          },
+          {
+            "id": "4d0f5a55-bf39-4098-9e90-f0bd648e057a",
+            "html": "Claim the library as original because the student changed one function."
+          },
+          {
+            "id": "04593a03-d546-442e-9f67-b11a70bf2900",
+            "html": "Avoid reading the license because open source means no conditions."
+          }
+        ],
+        "correct": [
+          "a3d8dcb8-8d1c-48c3-9cd7-0f43fa35843e"
+        ],
+        "feedback": "<p>Correct! Open-source reuse requires following the license and providing the required source and attribution information.</p>",
+        "matching_rows": []
+      },
+      {
+        "id": "55e3498948f5fa0dc28c347bd20868bb",
+        "title": "6.6.7 | Show What You Know: Ethics, Copyright, and Original Work",
+        "type": "multiple_choice_question",
+        "prompt": "<p>AI produces working code, but the source and software license are unknown. What should the student do before publishing it?</p>",
+        "choices": [
+          {
+            "id": "57f58485-2bb1-4fae-8e63-aa84da0c981c",
+            "html": "Publish it as original because the code runs."
+          },
+          {
+            "id": "66032625-6d8e-4018-8a7c-0958dceb2761",
+            "html": "Check for matching sources and license terms, test the code, and replace or credit parts as required."
+          },
+          {
+            "id": "ed2b5195-a395-48b2-b99e-933811350ea0",
+            "html": "Delete all comments so the source cannot be identified."
+          },
+          {
+            "id": "d6b3cbf3-4171-4d12-9768-9844ebbd20cf",
+            "html": "Ask AI to promise that the code is safe to publish."
+          }
+        ],
+        "correct": [
+          "66032625-6d8e-4018-8a7c-0958dceb2761"
+        ],
+        "feedback": "<p>Correct! Working code may still have source, license, safety, or ownership concerns. Those issues must be checked before use.</p>",
+        "matching_rows": []
+      },
+      {
+        "id": "c3c4681b833ab2b1f2e1cfbacab99ec6",
+        "title": "6.6.8 | Show What You Know: Ethics, Copyright, and Original Work",
+        "type": "multiple_choice_question",
+        "prompt": "<p>An AI-generated logo strongly resembles a real brand. No one checked for possible trademark confusion, and the creator plans to hide the use of AI. What is the best verdict?</p>",
+        "choices": [
+          {
+            "id": "5862a3e3-e432-42e9-a779-11bb639716a5",
+            "html": "Approve, because the logo looks professional."
+          },
+          {
+            "id": "7dc88300-5c57-442e-9327-8bc09d2c232e",
+            "html": "Revise, because the team must check the brand concern, create a more original design, and disclose AI use as required."
+          },
+          {
+            "id": "73ea4f96-0bd1-4da8-b9a8-a2d13ba01370",
+            "html": "Approve, because AI outputs never involve copyright or brand concerns."
+          },
+          {
+            "id": "a5173c12-0502-46f0-9efc-52371354b0c6",
+            "html": "Reject every future use of AI in graphic design."
+          }
+        ],
+        "correct": [
+          "7dc88300-5c57-442e-9327-8bc09d2c232e"
+        ],
+        "feedback": "<p>Correct! The process may be corrected, but the logo should not be used until the team checks the brand concern, improves originality, and follows disclosure rules.</p>",
+        "matching_rows": []
+      },
+      {
+        "id": "17fb1d41659071b25191490eb7ebfab5",
+        "title": "6.6.9 | Show What You Know: Ethics, Copyright, and Original Work",
+        "type": "multiple_choice_question",
+        "prompt": "<p>A company trains an image model using large collections of artists’ work and personal photos gathered online without clear permission. What concern should a responsible reviewer identify?</p>",
+        "choices": [
+          {
+            "id": "3114249f-4f27-4d50-b2b4-0817741700f8",
+            "html": "Unauthorized data collection may affect creators’ rights, consent, compensation, trust, and the future practices used to train AI systems."
+          },
+          {
+            "id": "60c1a921-e203-4278-a896-012fee94cc43",
+            "html": "The model will automatically delete all collected images after training."
+          },
+          {
+            "id": "a1cc2451-73e9-4171-8090-828a98fafee1",
+            "html": "Publicly accessible material always has no ownership or consent concerns."
+          },
+          {
+            "id": "7acf8bbd-22fc-4c91-9fbb-932c7cc79c55",
+            "html": "The only issue is whether the model generates images quickly."
+          }
+        ],
+        "correct": [
+          "3114249f-4f27-4d50-b2b4-0817741700f8"
+        ],
+        "feedback": "<p>Correct! Unauthorized collection raises concerns about creators’ rights, consent, compensation, trust, and responsible training practices.</p>",
+        "matching_rows": []
+      },
+      {
+        "id": "4edc1499292a13ab30acd0e0a14050a2",
+        "title": "6.6.10 | Show What You Know: Ethics, Copyright, and Original Work",
+        "type": "multiple_choice_question",
+        "prompt": "<p>A student creates an original training handout using their own writing, a properly licensed icon with the required attribution, and AI brainstorming that was substantially revised, checked, and disclosed. What is the best verdict?</p>",
+        "choices": [
+          {
+            "id": "38a5c6ee-f444-4a40-93ab-5b148eb3b0c4",
+            "html": "Approve, if the license conditions, attribution, accuracy checks, and school or workplace rules are satisfied."
+          },
+          {
+            "id": "50a1f363-248a-4613-8483-6d90cd46156f",
+            "html": "Reject, because any AI assistance makes the work unethical."
+          },
+          {
+            "id": "83946073-93d2-4f2d-a2ac-56bce7ea7769",
+            "html": "Revise only by removing the attribution."
+          },
+          {
+            "id": "af0c00d9-c1e2-46b0-9605-91509e0279b6",
+            "html": "Approve without checking because the student wrote most of the text."
+          }
+        ],
+        "correct": [
+          "38a5c6ee-f444-4a40-93ab-5b148eb3b0c4"
+        ],
+        "feedback": "<p>Correct! This process can be approved when permission or licensing, attribution, verification, meaningful human work, and disclosure are all handled responsibly.</p>",
+        "matching_rows": []
+      }
+    ]
+  },
+  "7": {
+    "title": "7.6 🎓 Show What You Know: AI, Careers, and Responsible Change",
+    "questions": [
+      {
+        "id": "766984aed920eb164e9e103c17f79b72",
+        "title": "7.6.1 | Show What You Know: AI, Careers, and Responsible Change",
+        "type": "multiple_choice_question",
+        "prompt": "<p>A veterinary assistant uses AI to draft a client handout from fictional information. Which module skill is most important before the handout is used?</p>",
+        "choices": [
+          {
+            "id": "98359842-5c05-4f31-82e1-ba021727ffc6",
+            "html": "Verification: compare the instructions with approved veterinary guidance and require qualified professional review."
+          },
+          {
+            "id": "1d04a6ac-1fc5-4bfd-96e8-2b672de3c294",
+            "html": "Prompting: accept the first response because the prompt included a career role."
+          },
+          {
+            "id": "9133fa97-6979-488e-bf4c-36500c522e98",
+            "html": "Attribution: list the AI tool as the medical authority."
+          },
+          {
+            "id": "0957a4d6-affd-4e74-8e58-12a25c1fe5de",
+            "html": "Automation: allow the tool to make the final care decision."
+          }
+        ],
+        "correct": [
+          "98359842-5c05-4f31-82e1-ba021727ffc6"
+        ],
+        "feedback": "<p>Correct! Verification and qualified human review connect the module’s evaluation skills to a real career task.</p>",
+        "matching_rows": []
+      },
+      {
+        "id": "1b04d54092fe1ff373eb97a4aed1cebd",
+        "title": "7.6.2 | Show What You Know: AI, Careers, and Responsible Change",
+        "type": "multiple_choice_question",
+        "prompt": "<p>A school introduces an AI career-coaching tool that works only on newer devices and provides guidance only in English. Which broader impact should be evaluated?</p>",
+        "choices": [
+          {
+            "id": "e45ec7fd-fba7-44e3-9036-a98ab224ad98",
+            "html": "Whether every response uses the same font."
+          },
+          {
+            "id": "c0f953c5-f846-4fcb-bef5-12059a1e4b2a",
+            "html": "Whether unequal device and language access could create unequal opportunities or outcomes."
+          },
+          {
+            "id": "3d21342d-e9d4-48f8-94c4-4a80d516476a",
+            "html": "Whether the tool can remove the need for counselors."
+          },
+          {
+            "id": "7eb0b116-ed93-4d7f-afad-2190ead317d6",
+            "html": "Whether longer responses appear more professional."
+          }
+        ],
+        "correct": [
+          "c0f953c5-f846-4fcb-bef5-12059a1e4b2a"
+        ],
+        "feedback": "<p>Correct! Access requirements can distribute the benefits of an AI system unevenly and create unequal outcomes.</p>",
+        "matching_rows": []
+      },
+      {
+        "id": "f67b1c392e6be83fcc32bf346c43583c",
+        "title": "7.6.3 | Show What You Know: AI, Careers, and Responsible Change",
+        "type": "multiple_choice_question",
+        "prompt": "<p>Which statement about AI and jobs is most accurate?</p>",
+        "choices": [
+          {
+            "id": "6d11575e-15b1-48cc-b8b2-d69fb60012d3",
+            "html": "AI will affect every job in exactly the same way."
+          },
+          {
+            "id": "f0cc12bc-1a71-46d4-96a5-5ca0534ee166",
+            "html": "AI has no effect outside technology careers."
+          },
+          {
+            "id": "1898189a-e79b-4551-8ad9-65b73f0e8810",
+            "html": "AI may automate or assist some tasks, change job expectations, and create new roles."
+          },
+          {
+            "id": "894515c9-0754-4eec-a7d1-67a4c20ff8e2",
+            "html": "Technical and human skills will no longer matter."
+          }
+        ],
+        "correct": [
+          "1898189a-e79b-4551-8ad9-65b73f0e8810"
+        ],
+        "feedback": "<p>Correct! AI’s effects vary by task and career and may transform work rather than eliminate every job.</p>",
+        "matching_rows": []
+      },
+      {
+        "id": "2a9ae73c083a0ff2a95f26e1d9f38634",
+        "title": "7.6.4 | Show What You Know: AI, Careers, and Responsible Change",
+        "type": "multiple_choice_question",
+        "prompt": "<p>Which group contains human skills that remain important in AI-supported work?</p>",
+        "choices": [
+          {
+            "id": "94168b82-7bcb-419e-9da1-31c9e62d7fbe",
+            "html": "Creativity, empathy, communication, judgment, and adaptability"
+          },
+          {
+            "id": "058972f2-7e5b-45bd-adfa-719ef22bfe7b",
+            "html": "Copying, hiding errors, and avoiding responsibility"
+          },
+          {
+            "id": "42012046-2660-4432-9470-f4f2ec29b79f",
+            "html": "Memorizing one tool and never changing"
+          },
+          {
+            "id": "b34c1641-542c-47ae-9944-6d37c2455147",
+            "html": "Speed alone"
+          }
+        ],
+        "correct": [
+          "94168b82-7bcb-419e-9da1-31c9e62d7fbe"
+        ],
+        "feedback": "<p>Correct! Human-centered work continues to require creativity, empathy, communication, judgment, and adaptability.</p>",
+        "matching_rows": []
+      },
+      {
+        "id": "351af26b37b47650e3ffbc15a553c366",
+        "title": "7.6.5 | Show What You Know: AI, Careers, and Responsible Change",
+        "type": "multiple_choice_question",
+        "prompt": "<p>An AI system ranks possible causes of an electrical equipment failure. Which Future-Ready Task Map is most responsible?</p>",
+        "choices": [
+          {
+            "id": "ef4a3f23-ad87-482a-a2e0-224d0aaf6b4b",
+            "html": "AI makes the final safety decision, and the electrician follows it without inspection."
+          },
+          {
+            "id": "6a1f1071-6b6d-4b75-8ee3-938d53623a28",
+            "html": "AI assists with pattern analysis, while a qualified electrician leads inspection, code compliance, safety decisions, and final authorization."
+          },
+          {
+            "id": "1cb5d45b-07c8-4631-8cfb-fb8f3b1e75e5",
+            "html": "AI replaces all testing because ranking possible causes is the same as proving the fault."
+          },
+          {
+            "id": "96007bde-9504-4c7b-bdf2-28513240e2ce",
+            "html": "Humans ignore the evidence and choose the fastest repair."
+          }
+        ],
+        "correct": [
+          "6a1f1071-6b6d-4b75-8ee3-938d53623a28"
+        ],
+        "feedback": "<p>Correct! AI may assist with pattern analysis, but qualified people must lead inspection, safety, compliance, and authorization.</p>",
+        "matching_rows": []
+      },
+      {
+        "id": "f0ba0ef27dd11f55cc1ceb4b8cbfb94a",
+        "title": "7.6.6 | Show What You Know: AI, Careers, and Responsible Change",
+        "type": "multiple_choice_question",
+        "prompt": "<p>Two AI tools perform the same task. One uses a smaller approved model and the other uses a much larger system. What should a responsible reviewer consider?</p>",
+        "choices": [
+          {
+            "id": "cea36068-6703-439d-9a72-7cdd175992af",
+            "html": "Whether the smaller system meets the need accurately with fewer resource costs and acceptable safeguards."
+          },
+          {
+            "id": "0ab476a2-aaa5-4cfa-8b20-3d269b7cd606",
+            "html": "Whether the larger system gives longer answers."
+          },
+          {
+            "id": "597625dd-5904-4717-8bf4-c46f64f95a42",
+            "html": "Whether either system can remove all human responsibility."
+          },
+          {
+            "id": "5a6756ad-7738-4cac-b6c1-8532723c8289",
+            "html": "Only which tool is more popular."
+          }
+        ],
+        "correct": [
+          "cea36068-6703-439d-9a72-7cdd175992af"
+        ],
+        "feedback": "<p>Correct! Environmental and operational costs should be compared with task value, accuracy, and safeguards.</p>",
+        "matching_rows": []
+      },
+      {
+        "id": "0998e8f291fe0be1aed4d012e6b8aa87",
+        "title": "7.6.7 | Show What You Know: AI, Careers, and Responsible Change",
+        "type": "multiple_choice_question",
+        "prompt": "<p>An AI hiring tool improves speed but performs worse for applicants from one community. What is the strongest conclusion?</p>",
+        "choices": [
+          {
+            "id": "8ecf3aab-d154-453b-b126-49440a644485",
+            "html": "The speed benefit automatically outweighs the unequal outcome."
+          },
+          {
+            "id": "51129ec4-7d76-4add-a75c-4d6dfeb0492a",
+            "html": "The workplace should evaluate the disparity, affected people, data and process, safeguards, and whether the tool should be paused or changed."
+          },
+          {
+            "id": "3ced51c5-11d9-4190-aa8e-cc7b62e27106",
+            "html": "The applicants should adapt to the tool."
+          },
+          {
+            "id": "b7aae387-be93-442a-a5f8-4c5c43dcb457",
+            "html": "Overall accuracy is the only evidence that matters."
+          }
+        ],
+        "correct": [
+          "51129ec4-7d76-4add-a75c-4d6dfeb0492a"
+        ],
+        "feedback": "<p>Correct! Benefits and harms may be distributed differently, so disparities and safeguards must be evaluated.</p>",
+        "matching_rows": []
+      },
+      {
+        "id": "07963aa7966ddfe094757d5b2e4d20a1",
+        "title": "7.6.8 | Show What You Know: AI, Careers, and Responsible Change",
+        "type": "multiple_choice_question",
+        "prompt": "<p>A workplace wants to use a large AI system for a task an approved calculator or template completes accurately. What should it consider first?</p>",
+        "choices": [
+          {
+            "id": "877c5307-a154-4256-9666-43fcbedea59c",
+            "html": "Whether the AI has more features"
+          },
+          {
+            "id": "716088a3-ed05-4386-a959-71635f9f67c0",
+            "html": "Whether the simpler method meets the need with fewer risks and resource costs"
+          },
+          {
+            "id": "da0ed74d-b95a-4e68-ac63-ea5e08ee7ee7",
+            "html": "Whether AI can remove all human responsibility"
+          },
+          {
+            "id": "5c7efff5-81a6-4f78-b788-f64d9e135b81",
+            "html": "Whether the output can be made longer"
+          }
+        ],
+        "correct": [
+          "716088a3-ed05-4386-a959-71635f9f67c0"
+        ],
+        "feedback": "<p>Correct! A simpler approved method may be more responsible when it meets the need with fewer risks and resource costs.</p>",
+        "matching_rows": []
+      },
+      {
+        "id": "41d929991095d64e184f0e3a4658eb46",
+        "title": "7.6.9 | Show What You Know: AI, Careers, and Responsible Change",
+        "type": "multiple_choice_question",
+        "prompt": "<p>A student predicts that AI will change a chosen career. Which response is the most future-ready?</p>",
+        "choices": [
+          {
+            "id": "476e2aa2-d294-4379-b397-c845f6393f71",
+            "html": "Stop learning technical skills because AI will perform everything."
+          },
+          {
+            "id": "f0e6a613-4ec0-4ded-9a45-78bf936f7e05",
+            "html": "Ignore AI because the career will never change."
+          },
+          {
+            "id": "682dbd75-d8ae-4d65-8da0-75ad9684edb7",
+            "html": "Analyze changing tasks, strengthen technical and human skills, and learn how to verify AI-supported work."
+          },
+          {
+            "id": "f351818b-f4e2-4912-a346-8845cc4dc8f1",
+            "html": "Depend on AI to make every professional decision."
+          }
+        ],
+        "correct": [
+          "682dbd75-d8ae-4d65-8da0-75ad9684edb7"
+        ],
+        "feedback": "<p>Correct! Future-ready workers analyze changing tasks and strengthen both technical and human skills.</p>",
+        "matching_rows": []
+      },
+      {
+        "id": "92707e573d014f45efbbb24817a297f1",
+        "title": "7.6.10 | Show What You Know: AI, Careers, and Responsible Change",
+        "type": "multiple_choice_question",
+        "prompt": "<p>What is the strongest evidence that a proposed workplace AI use is responsible?</p>",
+        "choices": [
+          {
+            "id": "3fdbee1f-94af-47ba-bf23-930324d0cad1",
+            "html": "It is new and popular."
+          },
+          {
+            "id": "382281c9-3ae4-4ad7-a896-ccc9d34d6e71",
+            "html": "It saves time, so no other factor matters."
+          },
+          {
+            "id": "69c37f9e-0ebb-4ce9-84b6-59a4d68f0023",
+            "html": "It provides meaningful value, protects people and information, addresses tradeoffs, and keeps qualified humans responsible."
+          },
+          {
+            "id": "988a2c1f-c9b5-46c8-85c5-b036aa2b4f03",
+            "html": "It produces a confident response."
+          }
+        ],
+        "correct": [
+          "69c37f9e-0ebb-4ce9-84b6-59a4d68f0023"
+        ],
+        "feedback": "<p>Correct! Responsible implementation combines meaningful value, protections, tradeoff analysis, and qualified human accountability.</p>",
+        "matching_rows": []
+      }
+    ]
+  },
+  "8": {
+    "title": "8.6 🎓 Show What You Know: AI Skills Certification Assessment",
+    "questions": [
+      {
+        "id": "3fe0502bedd4c1ee47cbaae8c2bc6ec3",
+        "title": "8.6.20 | Show What You Know: AI Skills Certification Assessment",
+        "type": "multiple_choice_question",
+        "prompt": "Scenario: A self-driving car AI correctly avoids a bicycle in a difficult test after its data is updated. What is the most responsible conclusion for the team to draw?",
+        "choices": [
+          {
+            "id": "37ae350f-3a33-4b8e-a032-c0a723d2be84",
+            "html": "The car is now proven to be completely safe and ready for real city driving."
+          },
+          {
+            "id": "0aa4b2f5-47b5-4860-88e9-dcf5c0154bfd",
+            "html": "The result is good, but the car still needs more testing and human oversight."
+          },
+          {
+            "id": "3b56a299-dc4d-452a-8f9d-28f84aca4dcb",
+            "html": "The car's AI no longer needs a separate test set because it learned the rule."
+          },
+          {
+            "id": "f07937c1-3940-4be8-897f-db73696a343c",
+            "html": "One correct test guarantees the car will always avoid bicycles in real life."
+          }
+        ],
+        "correct": [
+          "0aa4b2f5-47b5-4860-88e9-dcf5c0154bfd"
+        ],
+        "feedback": "",
+        "matching_rows": []
+      },
+      {
+        "id": "2255c58c033b438df1ee863119aeb65e",
+        "title": "8.6.19 | Show What You Know: AI Skills Certification Assessment",
+        "type": "multiple_choice_question",
+        "prompt": "Scenario: A team updates their weather prediction AI from Initial Model to Improved Model. What is the most accurate way to compare the two versions to see which is better?",
+        "choices": [
+          {
+            "id": "1feed8e7-512f-44cd-8ea7-98c0471c9c7c",
+            "html": "Test both versions on the exact same set of new data and compare the results."
+          },
+          {
+            "id": "e6f86507-fa3f-4f39-9b8e-908203f41291",
+            "html": "Give Improved Model easier weather patterns to predict so it gets a higher score."
+          },
+          {
+            "id": "9eb5d000-2de2-4a34-8d24-c5403efd2bf8",
+            "html": "Compare only one successful prediction from each version to save some time."
+          },
+          {
+            "id": "f855e115-5ec5-4c86-b85d-85d59355f5a5",
+            "html": "Assume Improved Model is better simply because it was trained much more recently."
+          }
+        ],
+        "correct": [
+          "1feed8e7-512f-44cd-8ea7-98c0471c9c7c"
+        ],
+        "feedback": "",
+        "matching_rows": []
+      },
+      {
+        "id": "0b5c59f448f297b537330d02d6786050",
+        "title": "L8-S6-ASM-18 | Target a Data Improvement",
+        "type": "multiple_choice_question",
+        "prompt": "Scenario: An AI tool that reads handwritten addresses keeps failing to read zip codes written in red ink. What is the most targeted way to improve the AI model?",
+        "choices": [
+          {
+            "id": "3149bcfd-e05c-4868-9855-7ffac785daa7",
+            "html": "Add correctly labeled training examples of zip codes written in red ink."
+          },
+          {
+            "id": "2127df8b-d904-4f76-a181-3c8cfa4be322",
+            "html": "Remove the test examples written in red ink so the AI's score increases."
+          },
+          {
+            "id": "97def72d-db86-4c8c-8add-e678e5af9228",
+            "html": "Duplicate the easy training examples of black ink that the AI handles well."
+          },
+          {
+            "id": "723b4757-9287-4eac-9003-3fcc3e6c404b",
+            "html": "Change the AI's reported accuracy score without changing the data or model."
+          }
+        ],
+        "correct": [
+          "3149bcfd-e05c-4868-9855-7ffac785daa7"
+        ],
+        "feedback": "",
+        "matching_rows": []
+      },
+      {
+        "id": "c608fbd620eaf609d63755037910c7a6",
+        "title": "L8-S6-ASM-17 | Separate Training and Testing",
+        "type": "multiple_choice_question",
+        "prompt": "Scenario: A team is training an AI to detect spam emails. They divide their emails into a \"training set\" and a \"test set.\" Why must they keep the test emails separate?",
+        "choices": [
+          {
+            "id": "cd7da7ff-7c30-41fc-aead-8a0f1e0015ed",
+            "html": "The test set shows how well the AI handles new emails it has never seen."
+          },
+          {
+            "id": "b557a4bf-349b-4ec1-8ab5-0f201c340081",
+            "html": "The test set prevents the AI from using any labeled examples for learning."
+          },
+          {
+            "id": "87498f28-53e6-40ee-be47-124c9386a1d9",
+            "html": "The test set ensures the training emails do not have any expected results."
+          },
+          {
+            "id": "714fa304-7ca1-4a66-b5f2-96d29f1ba0d5",
+            "html": "The test set updates the AI automatically every time it makes a prediction."
+          }
+        ],
+        "correct": [
+          "cd7da7ff-7c30-41fc-aead-8a0f1e0015ed"
+        ],
+        "feedback": "",
+        "matching_rows": []
+      },
+      {
+        "id": "0b5bf64d84c250cf492247f25ab2c835",
+        "title": "L8-S6-ASM-16 | Identify Classification",
+        "type": "multiple_choice_question",
+        "prompt": "Scenario: A music streaming service wants to use AI to organize its huge library of songs. Which of these tasks is the best fit for a classifier AI model?",
+        "choices": [
+          {
+            "id": "619f6a9d-f5e2-46e3-9387-09892a16e4bb",
+            "html": "Labeling a new song as \"Jazz,\" \"Rock,\" or \"Classical\" based on its sound."
+          },
+          {
+            "id": "988a5537-7e95-4d4d-afda-5daec5a3fcd1",
+            "html": "Estimating exactly how many times a new song will be played in next month."
+          },
+          {
+            "id": "e3a69c1b-8979-4a0f-8d1c-b5f28f940acd",
+            "html": "Suggesting a new playlist to a user based on the songs they liked earlier."
+          },
+          {
+            "id": "b77600d6-4f8c-4656-98d3-36eb6a17ffe3",
+            "html": "Writing a fictional biography for a new band using notes from their agent."
+          }
+        ],
+        "correct": [
+          "619f6a9d-f5e2-46e3-9387-09892a16e4bb"
+        ],
+        "feedback": "",
+        "matching_rows": []
+      },
+      {
+        "id": "e1a8169646236a6450438735f109d240",
+        "title": "L8-S6-ASM-15 | Evaluate Access Impacts",
+        "type": "multiple_answers_question",
+        "prompt": "Scenario: A school buys a new AI tutoring program, but it only works on expensive tablets and only speaks English. What impacts must the school leaders examine? Select all that apply.",
+        "choices": [
+          {
+            "id": "dba63e54-57f3-41d1-a568-1d40ea9fbc3a",
+            "html": "Which students might be left out because they cannot afford the new tablet."
+          },
+          {
+            "id": "e4359538-14f6-4156-993a-1d224529b8b0",
+            "html": "Whether the quality of the tutoring is worse for students learning English."
+          },
+          {
+            "id": "2d416d2a-5ff1-4307-bb75-d7557a543289",
+            "html": "Whether these barriers could affect students' chances to learn and succeed."
+          },
+          {
+            "id": "ebf5ea75-b663-4c84-a3f9-b8e0c6aefd47",
+            "html": "Whether the AI program's logo uses the school's preferred official colors."
+          }
+        ],
+        "correct": [
+          "dba63e54-57f3-41d1-a568-1d40ea9fbc3a",
+          "e4359538-14f6-4156-993a-1d224529b8b0",
+          "2d416d2a-5ff1-4307-bb75-d7557a543289"
+        ],
+        "feedback": "",
+        "matching_rows": []
+      },
+      {
+        "id": "d1c7f97c9f3b77b5bf473b47a4823eee",
+        "title": "L8-S6-ASM-14 | Choose the Appropriate Tool",
+        "type": "multiple_choice_question",
+        "prompt": "Scenario: A shipping company uses a simple, accurate math formula to calculate package weights. When would it make sense to replace this formula with a complex AI system?",
+        "choices": [
+          {
+            "id": "bc4f7a9a-2cb9-46b1-a615-c088d36aef51",
+            "html": "When the AI adds enough value to outweigh the extra risks and higher costs."
+          },
+          {
+            "id": "8de4591f-ea7e-42f6-8918-689992d05b95",
+            "html": "When the AI can write a longer explanation than the simple formula provides."
+          },
+          {
+            "id": "d1a75790-1db8-444f-9e58-1271f4929914",
+            "html": "When the AI system is newer and more popular with other shipping companies."
+          },
+          {
+            "id": "ceb0ad3e-1806-4ee7-a823-ffa3313acac9",
+            "html": "When using the AI allows the company to remove all human responsibility."
+          }
+        ],
+        "correct": [
+          "bc4f7a9a-2cb9-46b1-a615-c088d36aef51"
+        ],
+        "feedback": "",
+        "matching_rows": []
+      },
+      {
+        "id": "fcd17023bc03beb7675c93e77bb09ef6",
+        "title": "L8-S6-ASM-13 | Show Human Contribution",
+        "type": "multiple_answers_question",
+        "prompt": "Scenario: An architect uses AI to generate ideas for a new park. Which actions prove that the architect made a meaningful human contribution to the final design? Select all that apply.",
+        "choices": [
+          {
+            "id": "95ecc964-7b12-4abe-8947-3fc853b3313b",
+            "html": "Developing the main concept and making the most important design choices."
+          },
+          {
+            "id": "688ab747-e9ec-4c83-bd50-8dc8c84c5041",
+            "html": "Selecting, arranging, and carefully revising the elements the AI generated."
+          },
+          {
+            "id": "3f6401d2-48cc-4625-beb6-09c9b9bcaf76",
+            "html": "Checking the AI's ideas against safety rules and the city's requirements."
+          },
+          {
+            "id": "7ac4fe21-2c92-4b5b-b770-5a6dff2a4655",
+            "html": "Submitting the AI's first output to the city without reviewing it first."
+          }
+        ],
+        "correct": [
+          "95ecc964-7b12-4abe-8947-3fc853b3313b",
+          "688ab747-e9ec-4c83-bd50-8dc8c84c5041",
+          "3f6401d2-48cc-4625-beb6-09c9b9bcaf76"
+        ],
+        "feedback": "",
+        "matching_rows": []
+      },
+      {
+        "id": "2dfb90c9c8487131f62663239d595989",
+        "title": "L8-S6-ASM-12 | Match Creative Responsibilities",
+        "type": "matching_question",
+        "prompt": "Scenario: A student uses an AI tool to help design a poster for a science fair. Match each of the student's responsibilities with its correct purpose.",
+        "choices": [
+          {
+            "id": "distractor_0",
+            "html": "Determines whether the student is allowed to use certain images."
+          },
+          {
+            "id": "distractor_1",
+            "html": "Gives credit to the original creators of the images used."
+          },
+          {
+            "id": "distractor_2",
+            "html": "Explains exactly how the AI tool assisted the student's work."
+          },
+          {
+            "id": "distractor_0",
+            "html": "Determines whether the student is allowed to use certain images."
+          },
+          {
+            "id": "distractor_1",
+            "html": "Gives credit to the original creators of the images used."
+          },
+          {
+            "id": "distractor_2",
+            "html": "Explains exactly how the AI tool assisted the student's work."
+          },
+          {
+            "id": "distractor_0",
+            "html": "Determines whether the student is allowed to use certain images."
+          },
+          {
+            "id": "distractor_1",
+            "html": "Gives credit to the original creators of the images used."
+          },
+          {
+            "id": "distractor_2",
+            "html": "Explains exactly how the AI tool assisted the student's work."
+          }
+        ],
+        "correct": [
+          "b820729a-3b06-4910-9602-7e51a233e6ac",
+          "c7d94e92-cf51-4e63-b437-c382e42c9001",
+          "9c72af55-9240-489d-8e78-d4bfb1c38669"
+        ],
+        "feedback": "",
+        "matching_rows": [
+          {
+            "id": "response_b820729a-3b06-4910-9602-7e51a233e6ac",
+            "label": "Permission",
+            "choices": [
+              {
+                "id": "distractor_0",
+                "html": "Determines whether the student is allowed to use certain images."
+              },
+              {
+                "id": "distractor_1",
+                "html": "Gives credit to the original creators of the images used."
+              },
+              {
+                "id": "distractor_2",
+                "html": "Explains exactly how the AI tool assisted the student's work."
+              }
+            ],
+            "correct": "b820729a-3b06-4910-9602-7e51a233e6ac"
+          },
+          {
+            "id": "response_c7d94e92-cf51-4e63-b437-c382e42c9001",
+            "label": "Attribution",
+            "choices": [
+              {
+                "id": "distractor_0",
+                "html": "Determines whether the student is allowed to use certain images."
+              },
+              {
+                "id": "distractor_1",
+                "html": "Gives credit to the original creators of the images used."
+              },
+              {
+                "id": "distractor_2",
+                "html": "Explains exactly how the AI tool assisted the student's work."
+              }
+            ],
+            "correct": "c7d94e92-cf51-4e63-b437-c382e42c9001"
+          },
+          {
+            "id": "response_9c72af55-9240-489d-8e78-d4bfb1c38669",
+            "label": "AI-use disclosure",
+            "choices": [
+              {
+                "id": "distractor_0",
+                "html": "Determines whether the student is allowed to use certain images."
+              },
+              {
+                "id": "distractor_1",
+                "html": "Gives credit to the original creators of the images used."
+              },
+              {
+                "id": "distractor_2",
+                "html": "Explains exactly how the AI tool assisted the student's work."
+              }
+            ],
+            "correct": "9c72af55-9240-489d-8e78-d4bfb1c38669"
+          }
+        ]
+      },
+      {
+        "id": "49b1f847f14f9d6df47169bad8d78459",
+        "title": "L8-S6-ASM-11 | Identify Indirect Data",
+        "type": "multiple_answers_question",
+        "prompt": "Scenario: A clinic shares a dataset for research. They remove patient names. Which of these remaining details could be combined to figure out a patient's identity? Select all that apply.",
+        "choices": [
+          {
+            "id": "3594590b-1be1-4ada-811a-8d70ef53c111",
+            "html": "A record of a very rare medical condition that affects only a few people."
+          },
+          {
+            "id": "626cadbc-c23c-4650-ac20-153f94ac9445",
+            "html": "The exact date and time of the patient's last medical clinic appointment."
+          },
+          {
+            "id": "dc7382f9-769d-451e-b2f6-4550824c36b1",
+            "html": "The specific small town where the patient currently lives and also works."
+          },
+          {
+            "id": "4a03ee8b-54ad-48c8-a20b-b7449f23f6b8",
+            "html": "The general state where the patient lives, which has millions of citizens."
+          }
+        ],
+        "correct": [
+          "3594590b-1be1-4ada-811a-8d70ef53c111",
+          "626cadbc-c23c-4650-ac20-153f94ac9445",
+          "dc7382f9-769d-451e-b2f6-4550824c36b1"
+        ],
+        "feedback": "",
+        "matching_rows": []
+      },
+      {
+        "id": "6a90f6dc3f379fa16b882fa7a085863c",
+        "title": "L8-S6-ASM-10 | Distinguish Access and Authorization",
+        "type": "multiple_choice_question",
+        "prompt": "Scenario: A nurse logs into a hospital's approved AI system to help write patient notes. What does having access to this AI tool actually allow the nurse to do?",
+        "choices": [
+          {
+            "id": "6618d626-2095-4aaf-8a09-a81cd9052b33",
+            "html": "The nurse may only use the tool for approved purposes and with allowed data."
+          },
+          {
+            "id": "62e3652a-8e95-4857-b044-fb6167f01a57",
+            "html": "The nurse may enter any patient details to make the AI's notes more detailed."
+          },
+          {
+            "id": "b15ec527-2fc6-4657-a02c-01d37358cb5f",
+            "html": "The nurse may enter all patient records if their direct names are removed."
+          },
+          {
+            "id": "e2e18bda-2b4f-4bed-b23b-478fcc2720a0",
+            "html": "The nurse may use the tool for anything because the hospital approved it."
+          }
+        ],
+        "correct": [
+          "6618d626-2095-4aaf-8a09-a81cd9052b33"
+        ],
+        "feedback": "",
+        "matching_rows": []
+      },
+      {
+        "id": "55dfefb3bcbf20dfa6c42df3461e362a",
+        "title": "L8-S6-ASM-09 | Recognize a Proxy",
+        "type": "multiple_choice_question",
+        "prompt": "Scenario: A company's AI filters out resumes from people who live more than 10 miles away. Why might this rule create an unfair bias against certain applicants?",
+        "choices": [
+          {
+            "id": "d061f1e8-680c-46a5-bd88-32b96551329e",
+            "html": "Distance might act as a proxy that unfairly excludes people based on wealth."
+          },
+          {
+            "id": "81b7eb98-905b-4b1e-84e8-f1163ae30a9f",
+            "html": "Location data guarantees a more accurate measure of a person's job ability."
+          },
+          {
+            "id": "df2eedc4-f70f-4c09-8c89-6f1b984d2581",
+            "html": "A fixed rule cannot create bias because it does not use machine learning."
+          },
+          {
+            "id": "bb3b23a6-0ca8-40fc-9c66-6ddb0315f354",
+            "html": "Treating people differently is always fair if the rule is applied to everyone."
+          }
+        ],
+        "correct": [
+          "d061f1e8-680c-46a5-bd88-32b96551329e"
+        ],
+        "feedback": "",
+        "matching_rows": []
+      },
+      {
+        "id": "efac16e053a2e161f40375aea4cf496f",
+        "title": "L8-S6-ASM-08 | Evaluate Training Data",
+        "type": "multiple_answers_question",
+        "prompt": "Scenario: A farmer wants to train an AI to spot diseased apple trees. Which qualities will make the farmer's training photos the most useful? Select all that apply.",
+        "choices": [
+          {
+            "id": "4f0e4ead-927a-4d94-ba14-4893d8471073",
+            "html": "The photos show all the different conditions the trees might experience."
+          },
+          {
+            "id": "2f84fe20-a1e2-43f8-b78b-05a9f2ad84ae",
+            "html": "The photos are accurately labeled with the correct type of tree disease."
+          },
+          {
+            "id": "4807964f-2090-4c42-b0be-df772d1b7bf3",
+            "html": "The photos show complete features and the farmer has permission to use them."
+          },
+          {
+            "id": "809dbbc9-2916-4c27-b712-24938c5bb844",
+            "html": "The photos only show trees in perfect sunlight with one obvious disease."
+          }
+        ],
+        "correct": [
+          "4f0e4ead-927a-4d94-ba14-4893d8471073",
+          "2f84fe20-a1e2-43f8-b78b-05a9f2ad84ae",
+          "4807964f-2090-4c42-b0be-df772d1b7bf3"
+        ],
+        "feedback": "",
+        "matching_rows": []
+      },
+      {
+        "id": "2f92c1dcf30a6e98353aabd4c4691905",
+        "title": "L8-S6-ASM-07 | Respond to Uneven Outcomes",
+        "type": "multiple_answers_question",
+        "prompt": "Scenario: A bank's AI tool for approving loans rejects more applications from people in a certain neighborhood. What should the bank investigate? Select all that apply.",
+        "choices": [
+          {
+            "id": "2045bc7f-25bd-406d-902f-ccc68059846b",
+            "html": "The exact size of the difference and what might be causing the unfair outcome."
+          },
+          {
+            "id": "59bb684a-7566-4d0b-be72-a7d313137488",
+            "html": "How the people in the affected neighborhood experience the loan application."
+          },
+          {
+            "id": "37c6460e-1086-48eb-be45-fe6651980de4",
+            "html": "The data used to train the AI, its design choices, and its safety safeguards."
+          },
+          {
+            "id": "092d7fed-31ea-4b3a-8c8a-6c2529e833d0",
+            "html": "Whether the AI processes applications faster than human bank loan officers."
+          }
+        ],
+        "correct": [
+          "2045bc7f-25bd-406d-902f-ccc68059846b",
+          "59bb684a-7566-4d0b-be72-a7d313137488",
+          "37c6460e-1086-48eb-be45-fe6651980de4"
+        ],
+        "feedback": "",
+        "matching_rows": []
+      },
+      {
+        "id": "91d47e3d4f2a6e2bbd1465cccec8a783",
+        "title": "L8-S6-ASM-06 | Evaluate Misleading Context",
+        "type": "multiple_choice_question",
+        "prompt": "Scenario: A real photo of a 2010 earthquake is posted online in 2024 with a caption claiming it shows a new disaster. What is the most accurate conclusion about this post?",
+        "choices": [
+          {
+            "id": "952c4e97-ebb3-459b-8b9c-edb9e39d2fb8",
+            "html": "The photo itself is real, but the caption and the context are completely misleading."
+          },
+          {
+            "id": "f6945b4c-44c7-4f0c-b5c6-d80159579ac9",
+            "html": "The photo is entirely trustworthy because it was not created by an AI image generator."
+          },
+          {
+            "id": "3c8c0a63-25b3-4128-b580-7c692d195d40",
+            "html": "The caption can be trusted because there are no signs that the photo was edited."
+          },
+          {
+            "id": "8409331c-7519-4620-8b03-95653a092e05",
+            "html": "The source history does not matter because the photograph itself is a real image."
+          }
+        ],
+        "correct": [
+          "952c4e97-ebb3-459b-8b9c-edb9e39d2fb8"
+        ],
+        "feedback": "",
+        "matching_rows": []
+      },
+      {
+        "id": "f9fc5cb608de18975386d0cb7d6d93c1",
+        "title": "L8-S6-ASM-05 | Match Media Checks",
+        "type": "matching_question",
+        "prompt": "Scenario: A news editor receives a dramatic video of a flood from an unknown person online. Match each question the editor asks with the type of concern it addresses.",
+        "choices": [
+          {
+            "id": "distractor_0",
+            "html": "Who filmed this video and where was it first posted online?"
+          },
+          {
+            "id": "distractor_1",
+            "html": "Does this video show the actual town that is currently flooded?"
+          },
+          {
+            "id": "distractor_2",
+            "html": "Could this video cause unnecessary panic among the town's residents?"
+          },
+          {
+            "id": "distractor_3",
+            "html": "Does the video have captions so everyone can understand it?"
+          },
+          {
+            "id": "distractor_0",
+            "html": "Who filmed this video and where was it first posted online?"
+          },
+          {
+            "id": "distractor_1",
+            "html": "Does this video show the actual town that is currently flooded?"
+          },
+          {
+            "id": "distractor_2",
+            "html": "Could this video cause unnecessary panic among the town's residents?"
+          },
+          {
+            "id": "distractor_3",
+            "html": "Does the video have captions so everyone can understand it?"
+          },
+          {
+            "id": "distractor_0",
+            "html": "Who filmed this video and where was it first posted online?"
+          },
+          {
+            "id": "distractor_1",
+            "html": "Does this video show the actual town that is currently flooded?"
+          },
+          {
+            "id": "distractor_2",
+            "html": "Could this video cause unnecessary panic among the town's residents?"
+          },
+          {
+            "id": "distractor_3",
+            "html": "Does the video have captions so everyone can understand it?"
+          },
+          {
+            "id": "distractor_0",
+            "html": "Who filmed this video and where was it first posted online?"
+          },
+          {
+            "id": "distractor_1",
+            "html": "Does this video show the actual town that is currently flooded?"
+          },
+          {
+            "id": "distractor_2",
+            "html": "Could this video cause unnecessary panic among the town's residents?"
+          },
+          {
+            "id": "distractor_3",
+            "html": "Does the video have captions so everyone can understand it?"
+          }
+        ],
+        "correct": [
+          "245da494-6242-48ca-b304-05d7632e2381",
+          "7a89588d-a33d-4d18-b440-bfab2829ffbb",
+          "cd8cbae5-e589-4a30-9db7-e616d584223a",
+          "3dbc6b4c-0808-4f25-aa80-ff0c6c503eb7"
+        ],
+        "feedback": "",
+        "matching_rows": [
+          {
+            "id": "response_245da494-6242-48ca-b304-05d7632e2381",
+            "label": "Provenance",
+            "choices": [
+              {
+                "id": "distractor_0",
+                "html": "Who filmed this video and where was it first posted online?"
+              },
+              {
+                "id": "distractor_1",
+                "html": "Does this video show the actual town that is currently flooded?"
+              },
+              {
+                "id": "distractor_2",
+                "html": "Could this video cause unnecessary panic among the town's residents?"
+              },
+              {
+                "id": "distractor_3",
+                "html": "Does the video have captions so everyone can understand it?"
+              }
+            ],
+            "correct": "245da494-6242-48ca-b304-05d7632e2381"
+          },
+          {
+            "id": "response_7a89588d-a33d-4d18-b440-bfab2829ffbb",
+            "label": "Accuracy",
+            "choices": [
+              {
+                "id": "distractor_0",
+                "html": "Who filmed this video and where was it first posted online?"
+              },
+              {
+                "id": "distractor_1",
+                "html": "Does this video show the actual town that is currently flooded?"
+              },
+              {
+                "id": "distractor_2",
+                "html": "Could this video cause unnecessary panic among the town's residents?"
+              },
+              {
+                "id": "distractor_3",
+                "html": "Does the video have captions so everyone can understand it?"
+              }
+            ],
+            "correct": "7a89588d-a33d-4d18-b440-bfab2829ffbb"
+          },
+          {
+            "id": "response_cd8cbae5-e589-4a30-9db7-e616d584223a",
+            "label": "Impact",
+            "choices": [
+              {
+                "id": "distractor_0",
+                "html": "Who filmed this video and where was it first posted online?"
+              },
+              {
+                "id": "distractor_1",
+                "html": "Does this video show the actual town that is currently flooded?"
+              },
+              {
+                "id": "distractor_2",
+                "html": "Could this video cause unnecessary panic among the town's residents?"
+              },
+              {
+                "id": "distractor_3",
+                "html": "Does the video have captions so everyone can understand it?"
+              }
+            ],
+            "correct": "cd8cbae5-e589-4a30-9db7-e616d584223a"
+          },
+          {
+            "id": "response_3dbc6b4c-0808-4f25-aa80-ff0c6c503eb7",
+            "label": "Accessibility",
+            "choices": [
+              {
+                "id": "distractor_0",
+                "html": "Who filmed this video and where was it first posted online?"
+              },
+              {
+                "id": "distractor_1",
+                "html": "Does this video show the actual town that is currently flooded?"
+              },
+              {
+                "id": "distractor_2",
+                "html": "Could this video cause unnecessary panic among the town's residents?"
+              },
+              {
+                "id": "distractor_3",
+                "html": "Does the video have captions so everyone can understand it?"
+              }
+            ],
+            "correct": "3dbc6b4c-0808-4f25-aa80-ff0c6c503eb7"
+          }
+        ]
+      },
+      {
+        "id": "9b9f35c50053e7f161db59b39c13d05d",
+        "title": "L8-S6-ASM-04 | Verify a Code Requirement",
+        "type": "ordering_question",
+        "prompt": "Scenario: A builder asks an AI chatbot for the rules on wiring a new house. The chatbot gives an answer but no source. Put the builder's next steps in the correct order.",
+        "choices": [
+          {
+            "id": "44fc2af9-6c00-4c3c-980c-84cd64cbc63d",
+            "html": "Identify the exact rule the chatbot mentioned that affects the wiring job."
+          },
+          {
+            "id": "7b33d663-436e-452b-bf2c-4460edef6447",
+            "html": "Use only the verified, official rule when doing the final wiring project."
+          },
+          {
+            "id": "a9fa70d8-c775-4d47-b748-5f970970c015",
+            "html": "Ask a licensed electrician for help if the official rule is hard to read."
+          },
+          {
+            "id": "b897178c-8d58-490e-bf65-67ccfc3e1a0b",
+            "html": "Check the official city building code to see if the rule is actually true."
+          }
+        ],
+        "correct": [
+          "44fc2af9-6c00-4c3c-980c-84cd64cbc63d",
+          "b897178c-8d58-490e-bf65-67ccfc3e1a0b",
+          "a9fa70d8-c775-4d47-b748-5f970970c015",
+          "7b33d663-436e-452b-bf2c-4460edef6447"
+        ],
+        "feedback": "",
+        "matching_rows": []
+      },
+      {
+        "id": "22cb1be91783fdc1f7b80ac47cc2906a",
+        "title": "L8-S6-ASM-03 | Build an Effective Prompt",
+        "type": "multiple_answers_question",
+        "prompt": "Scenario: A chef is using an AI chatbot to write a daily cleaning checklist for the kitchen staff. Which details will help the chatbot create the most useful checklist? Select all that apply.",
+        "choices": [
+          {
+            "id": "064d8125-d361-4192-9226-cb9361123ccc",
+            "html": "Stating the specific cleaning tasks and who will be reading the checklist."
+          },
+          {
+            "id": "2dcea6ca-0999-40c3-9143-31e1c927a21b",
+            "html": "Asking the chatbot to organize the list by station and keep it to one page."
+          },
+          {
+            "id": "343f9fe2-64c4-4b6f-a0e7-af8334b790ed",
+            "html": "Including important safety rules about mixing different cleaning chemicals."
+          },
+          {
+            "id": "4c393be9-a342-45e1-8df2-83c9e6309b56",
+            "html": "Telling the chatbot to decide which cleaning tasks are the most important."
+          }
+        ],
+        "correct": [
+          "064d8125-d361-4192-9226-cb9361123ccc",
+          "2dcea6ca-0999-40c3-9143-31e1c927a21b",
+          "343f9fe2-64c4-4b6f-a0e7-af8334b790ed"
+        ],
+        "feedback": "",
+        "matching_rows": []
+      },
+      {
+        "id": "fa2ec662a1c375d072e8ef4c3320856d",
+        "title": "L8-S6-ASM-02 | Verify a Confident Prediction",
+        "type": "multiple_choice_question",
+        "prompt": "Scenario: An AI system checks airplane engines. It says with 99% confidence that an engine part is broken. What must the mechanics do before they replace the expensive part?",
+        "choices": [
+          {
+            "id": "631d21c6-ea92-4b57-bfa2-de26fc73e6ad",
+            "html": "A trained mechanic must inspect the engine part to verify the AI's claim."
+          },
+          {
+            "id": "44f408e6-aeb0-4403-8dd6-d14a6c865156",
+            "html": "The mechanic should replace the part immediately based on the high score."
+          },
+          {
+            "id": "86941c9e-4536-4361-a694-e16753157118",
+            "html": "The AI's high confidence should replace the airline's normal safety checks."
+          },
+          {
+            "id": "d6742b36-642d-4be8-a040-8d507e866bc6",
+            "html": "The airline should tell passengers the plane is broken without checking it."
+          }
+        ],
+        "correct": [
+          "631d21c6-ea92-4b57-bfa2-de26fc73e6ad"
+        ],
+        "feedback": "",
+        "matching_rows": []
+      },
+      {
+        "id": "3ca0d00642454e447b6fb744e904402d",
+        "title": "L8-S6-ASM-01 | Identify Human Decisions",
+        "type": "multiple_answers_question",
+        "prompt": "Scenario: A school builds an AI to flag students who might be falling behind. Even with the AI, which choices must still be made by the teachers and principals? Select all that apply.",
+        "choices": [
+          {
+            "id": "97bc6801-d077-4c6b-bdb2-9836759cb9f8",
+            "html": "Defining the main goal of the AI and how it should be used in the school."
+          },
+          {
+            "id": "e040985b-181f-429f-a99f-58c33435e0b3",
+            "html": "Choosing the right data to use and deciding what counts as a real success."
+          },
+          {
+            "id": "f9b3660f-b962-40a0-ac58-77b72974362b",
+            "html": "Setting rules to protect students and limiting how the AI can be utilized."
+          },
+          {
+            "id": "b16f2629-08c1-4c8d-b335-6e9e7360aa6b",
+            "html": "Letting the AI make the final decision about which students fail a class."
+          }
+        ],
+        "correct": [
+          "97bc6801-d077-4c6b-bdb2-9836759cb9f8",
+          "e040985b-181f-429f-a99f-58c33435e0b3",
+          "f9b3660f-b962-40a0-ac58-77b72974362b"
+        ],
+        "feedback": "",
+        "matching_rows": []
+      }
+    ]
+  }
+}
