@@ -1,0 +1,300 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Lesson 8: Build, Test, Improve — Model Rescue and Certification | AI Literacy</title><link rel="stylesheet" href="../assets/styles.css"></head>
+<body data-lesson="8"><a class="skip-link" href="#main">Skip to lesson content</a>
+<header class="site-header classroom-header"><span class="brand">AI Literacy</span><span class="classroom-label">Course lesson</span></header>
+<main id="main"><div class="lesson-hero"><p class="eyebrow">Lesson 8</p><h1>Build, Test, Improve — Model Rescue and Certification</h1>
+<div class="step-progress" aria-label="Lesson progress"><div class="progress-text"><span id="step-status">Step 8.1</span><span id="step-count">1 of 6</span></div><div class="progress" role="progressbar" aria-labelledby="step-status" aria-valuemin="1" aria-valuemax="6" aria-valuenow="1"><span style="width:16.67%"></span></div></div></div>
+<div class="stepper" data-total-steps="6"><section class="lesson-step overview" id="step-8-1" data-step-label="8.1"><p class="eyebrow">Step 8.1 · Start here</p>
+<div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; line-height: 1.6; color: #222222; max-width: 100%;">
+<div style="background-color: #005a70; color: #ffffff; padding: 24px 26px; border-radius: 8px; margin-bottom: 24px;">
+<p style="margin: 0 0 12px 0; color: #ffffff; font-size: 1.12em;">In the first seven lessons, you learned how to guide AI, check its answers, look for bias, protect private information, and use AI responsibly. In Lesson 8, you will build, test, and improve a simple AI model. Then you will complete the final assessment.</p>
+<p style="margin: 0; color: #ffffff; font-size: 1.04em;">In this lesson, you will choose your GCI program and work with one of six made-up workplace examples. You will build, test, and improve a simple AI model. You will find errors, suggest safety steps, and complete the final assessment.</p>
+</div>
+
+<div style="background-color: #f2f9fd; border-left: 6px solid #2980B9; padding: 19px 20px; border-radius: 6px; margin-bottom: 24px;">
+<h2 style="color: #005a70; margin: 0 0 12px 0; font-size: 1.3em;">💡 Big Question and Core Rule</h2>
+<p style="margin: 0 0 9px 0;"><strong>Big Question:</strong> How can people train, test, improve, and oversee an AI classification model? How can they help it make accurate and fair choices at work?</p>
+<p style="margin: 0 0 12px 0;"><strong>Main Rule:</strong> Better data can improve a model, but people must remain in control. Do not use or trust a model until people test it, study its errors, and take responsibility for its use.</p>
+<div style="background-color: #ffffff; border-radius: 4px; padding: 10px 13px; border: 1px dashed #2980b9;"><strong style="color: #005a70;">🧠 Memory Phrase:</strong> Quality data in, human oversight throughout.</div>
+</div>
+
+<div style="border-width: 4px 1px 1px; border-style: solid; border-color: #00a3a6 #dddddd #dddddd; padding: 20px; border-radius: 6px; margin-bottom: 24px; background-color: #ffffff;">
+<h2 style="color: #005a70; margin: 0 0 10px 0; font-size: 1.3em;">🛡️ Use the Responsible AI Routine</h2>
+<p style="margin: 0 0 12px 0;">Use this pathway whenever AI may support a task.</p>
+<div style="background-color: #f2f9fd; padding: 14px 16px; border-radius: 8px; margin: 16px 0px; border: 2px solid #2980b9;">
+<p style="margin: 0; color: #222222;"><strong style="color: #005a70;">👀 Your next move:</strong> Study the Responsible AI Routine below. When building an AI model, check the training data and test where the model makes mistakes. A person must remain responsible for how the model is used.</p>
+</div>
+<div style="text-align: center; margin: 18px 0 18px 0;"><img style="width: 100%; max-width: 1400px; height: auto; display: block; margin: 0 auto; border-radius: 6px;" src="../assets/media/M01_ResponsibleAIRoutine_v1.png" alt="AI Decision Pathway with Goal, Protect, Use, Check, and Own." loading="lazy"></div>
+<p style="margin: 0 0 12px 0;"><strong>Goal → Protect → Use → Check → Own</strong></p>
+<ul style="margin: 0 0 0 0; padding-left: 22px;">
+<li><strong>Goal:</strong> What workplace classification problem or task is the model trying to solve?</li>
+<li><strong>Protect:</strong> How do we protect system integrity, prevent harmful biases, and maintain data safety?</li>
+<li><strong>Use:</strong> Is the model trained on representative data, tested across diverse inputs, and used for its intended purpose?</li>
+<li><strong>Check:</strong> Have false positives, false negatives, and confidence scores been audited for accuracy and fairness?</li>
+<li><strong>Own:</strong> Who retains final responsibility for approving model deployment, monitoring errors, and making end-point decisions?</li>
+</ul>
+</div>
+
+<div style="background-color: #f4fbf7; border-left: 6px solid #4CAF50; padding: 20px; border-radius: 6px; margin-bottom: 24px;">
+<h2 style="color: #005a70; margin: 0 0 12px 0; font-size: 1.3em;">🎯 Learning Goals</h2>
+<p style="margin: 0 0 9px 0;">By the end of this lesson, students can:</p>
+<ul style="margin: 0 0 15px 0; padding-left: 22px;">
+<li>Choose a workplace example linked to your program. Then use training data to build a simple AI classification model.</li>
+<li>Test the model, calculate how often it is correct, and study its mistakes, including false positives and false negatives.</li>
+<li>Improve the model by training it again with better examples that target its weak areas.</li>
+<li>Propose human-in-the-loop safeguards and operational guidelines for deployed AI classification tools.</li>
+<li>Show what you learned about responsible AI by completing the final assessment.</li>
+</ul>
+<div style="background-color: #ffffff; padding: 12px 14px; border-radius: 4px; border: 1px solid #4caf50;"><strong style="color: #005a70;">✅ You will show success by:</strong> selecting your GCI pathway, training and iteratively improving a classification model, diagnosing model failure points, recommending human oversight procedures, and passing the final certification exam.</div>
+</div>
+
+<h2 style="color: #005a70; border-bottom: 2px solid #00A3A6; padding-bottom: 6px; margin: 26px 0 14px 0; font-size: 1.35em;">⏱️ Pacing at a Glance</h2>
+<div style="overflow-x: auto; margin-bottom: 24px;">
+<table style="width: 100%; border-collapse: collapse; min-width: 520px;"><caption style="text-align: left; margin-bottom: 8px; color: #444444;">Lesson 8 required activities and estimated time</caption>
+<thead>
+<tr style="background-color: #005a70; color: #ffffff;">
+<th style="padding: 10px 12px; text-align: left; border: 1px solid #005a70;" scope="col">Lesson Step</th>
+<th style="padding: 10px 12px; text-align: left; width: 130px; border: 1px solid #005a70;" scope="col">Time</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="padding: 10px 12px; border: 1px solid #cccccc;">8.2 Connect & Learn: How Machine Learning Models Classify Data</td>
+<td style="padding: 10px 12px; border: 1px solid #cccccc;">8 minutes</td>
+</tr>
+<tr style="background-color: #f9f9f9;">
+<td style="padding: 10px 12px; border: 1px solid #cccccc;">8.3 Learn: Model Rescue & Error Analysis (Build, Test, Improve)</td>
+<td style="padding: 10px 12px; border: 1px solid #cccccc;">12 minutes</td>
+</tr>
+<tr>
+<td style="padding: 10px 12px; border: 1px solid #cccccc;">8.4 Apply Your Learning: GCI Model Rescue Performance Challenge</td>
+<td style="padding: 10px 12px; border: 1px solid #cccccc;">15 minutes</td>
+</tr>
+<tr style="background-color: #f9f9f9;">
+<td style="padding: 10px 12px; border: 1px solid #cccccc;">8.5 Show What You Know: Cumulative AI Literacy & Ethics Certification Exam</td>
+<td style="padding: 10px 12px; border: 1px solid #cccccc;">15 minutes</td>
+</tr>
+<tr style="background-color: #f2f9fd;">
+<td style="padding: 10px 12px; border: 1px solid #cccccc;"><strong>Total</strong></td>
+<td style="padding: 10px 12px; border: 1px solid #cccccc;"><strong>50 minutes</strong></td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<h2 style="color: #005a70; border-bottom: 2px solid #00A3A6; padding-bottom: 6px; margin: 26px 0 14px 0; font-size: 1.35em;">📚 Key Words to Know</h2>
+<div style="background-color: #f2f9fd; border-left: 6px solid #2980B9; padding: 14px 16px; border-radius: 6px; margin: 0 0 12px 0;"><strong style="color: #005a70;">Model Training & Performance</strong></div>
+<div style="display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 20px;">
+<div style="flex: 1 1 250px; border-width: 1px 1px 1px 6px; border-style: solid; border-color: #dddddd #dddddd #dddddd #005a70; padding: 13px 15px; border-radius: 4px;"><strong>Classification Model:</strong> An AI system trained to sort inputs into specific categories or labels based on patterns in data.</div>
+<div style="flex: 1 1 250px; border-width: 1px 1px 1px 6px; border-style: solid; border-color: #dddddd #dddddd #dddddd #005a70; padding: 13px 15px; border-radius: 4px;"><strong>Training Data:</strong> The initial set of labeled examples provided to an AI model so it can learn to recognize patterns.</div>
+<div style="flex: 1 1 250px; border-width: 1px 1px 1px 6px; border-style: solid; border-color: #dddddd #dddddd #dddddd #005a70; padding: 13px 15px; border-radius: 4px;"><strong>Confidence Score:</strong> A probability or percentage metric generated by an AI model indicating how certain it is about a specific prediction.</div>
+</div>
+<div style="background-color: #f4fbf7; border-left: 6px solid #4CAF50; padding: 14px 16px; border-radius: 6px; margin: 0 0 12px 0;"><strong style="color: #005a70;">Error Analysis & Governance</strong></div>
+<div style="display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 22px;">
+<div style="flex: 1 1 250px; border-width: 1px 1px 1px 6px; border-style: solid; border-color: #dddddd #dddddd #dddddd #005a70; padding: 13px 15px; border-radius: 4px;"><strong>False Positive / False Negative:</strong> Errors where a model incorrectly flags something as positive when it is not (false positive) or fails to detect a target condition (false negative).</div>
+<div style="flex: 1 1 250px; border-width: 1px 1px 1px 6px; border-style: solid; border-color: #dddddd #dddddd #dddddd #005a70; padding: 13px 15px; border-radius: 4px;"><strong>Iterative Retraining:</strong> Improving a model by analyzing failure cases, adding targeted new data, and testing again.</div>
+<div style="flex: 1 1 250px; border-width: 1px 1px 1px 6px; border-style: solid; border-color: #dddddd #dddddd #dddddd #005a70; padding: 13px 15px; border-radius: 4px;"><strong>Human-in-the-Loop:</strong> A system design where humans actively review, verify, or override automated AI outputs before final action is taken.</div>
+</div>
+
+<div style="margin-top: 30px; margin-bottom: 20px;"><details style="background-color: #f9f9f9; border: 1px solid #dddddd; border-radius: 6px; padding: 12px 16px; cursor: pointer;">
+<summary style=" color: #005a70;  font-size: 1em;">📄 Acknowledgments & Source Foundations</summary>
+<div style="margin-top: 12px; padding-top: 12px; border-top: 1px solid #e5e5e5; font-size: 0.95em; color: #333333;">
+<p style="margin: 0 0 12px 0; font-style: italic;"><strong>Acknowledgment:</strong> This lesson was informed by Michigan Virtual AI literacy resources and adapted by the Genesee Career Institute team.</p>
+<p style="margin: 0 0 6px 0;"><strong>Source Foundation:</strong></p>
+<ul style="margin: 0; padding-left: 20px; line-height: 1.5;">
+<li style="margin-bottom: 6px;"><a style="color: #005a70; text-decoration: underline;" href="https://michiganvirtual.org/ai/literacy" target="_blank">Michigan Virtual AI Literacy Resources</a> — Includes lessons, activities, and guides about machine learning and testing AI models.</li>
+<li style="margin-bottom: 6px;"><a style="color: #005a70; text-decoration: underline;" href="https://www.michigan.gov/mde/services/academic-standards/educational-technology/artificial-intelligence" target="_blank">Michigan K–12 AI Learning Alignment Framework</a> — Grades 9–12 focus on Data in Machine Learning, Ethical Evaluation of AI Systems, Human Agency, and Model Assessment.</li>
+<li><a style="color: #005a70; text-decoration: underline;" href="https://teachablemachine.withgoogle.com/" target="_blank">Google Teachable Machine & ML Concepts</a> — Instructional concepts for web-based machine learning model creation, error analysis, and iterative improvement.</li>
+</ul>
+</div>
+</details></div>
+</div>
+</section><section class="lesson-step" id="step-8-2" data-step-label="8.2" hidden><p class="eyebrow">Step 8.2 · Learn and check</p><h2>Connect &amp; Learn: When a Model Works Unevenly</h2><div style="line-height: 1.6; color: #222222;">
+<div style="background-color: #005a70; color: #ffffff; padding: 22px 25px; border-radius: 6px; margin-bottom: 25px;">
+<p style="margin: 0; color: #ffffff; line-height: 1.5;"><strong>Connect & Learn: When a Model Works Unevenly (5 minutes)</strong></p>
+<p style="margin: 6px 0 0 0; color: #ffffff; font-style: italic;">Estimated time: 5 minutes</p>
+</div>
+<div style="border: 1px solid #00A3A6; border-left: 8px solid #005A70; padding: 14px 16px; margin-bottom: 20px; border-radius: 4px; background-color: #f9f9f9;"><strong style="color: #005a70;">Responsible AI Routine:</strong> <span> Goal → Protect → Use → Check → Own</span></div>
+<h3 id="hook-scenario-2" style="color: #005a70; margin-top: 22px;">Scenario</h3>
+<p style="line-height: 1.6; margin: 0 0 12px 0;">A classifier gets four of six test records correct. Both mistakes happen under the same type of condition. A team member says, “Four out of six is good enough. We should use it.”</p>
+<p style="line-height: 1.6; margin: 0 0 12px 0;">Reflect to yourself:</p>
+<ul>
+<li style="line-height: 1.6;">Is the model completely unsuccessful?</li>
+<li style="line-height: 1.6;">What does the overall result tell the team?</li>
+<li style="line-height: 1.6;">What does the repeated error pattern show that the total score hides?</li>
+<li style="line-height: 1.6;">What change to the training data could address this weakness? Who could be affected if the model is used too soon?</li>
+</ul>
+<div style="border: 2px solid #4CAF50; background-color: #f4fbf7; padding: 15px; border-radius: 8px; margin: 16px 0;">
+<h3 id="key-idea" style="color: #005a70; margin-top: 22px;">Key Idea</h3>
+<p style="line-height: 1.6; margin: 0 0 12px 0;">A total score can hide repeated failures under certain conditions or for certain groups. A responsible review checks both the total result and where the mistakes happen.</p>
+</div>
+<h3 id="check-for-understanding-21" style="color: #005a70; margin-top: 22px;">Check for Understanding</h3>
+<p style="line-height: 1.6; margin: 0 0 12px 0;">Complete the questions that appear below.</p>
+<p style="margin-top: 24px; color: #444444; font-style: italic;">Last Updated: August 6, 2026</p>
+</div><div class="question-set"><article class="question" data-question-type="multiple_choice_question" data-correct="[&quot;6b3b7e19-ece8-46ab-a17f-45c71c4eb5e4&quot;]"><h3>Check 1</h3><p>A classifier works well on common Initial Model records but often fails when one condition is underrepresented. What is the strongest explanation?</p><div class="choices"><label><input type="radio" name="87c4543d6326f48a6fe4699787840a13" value="9c577caf-203f-4f3e-867e-8356af48a7f1"> <span>The model is choosing to ignore those records.</span></label><label><input type="radio" name="87c4543d6326f48a6fe4699787840a13" value="6b3b7e19-ece8-46ab-a17f-45c71c4eb5e4"> <span>The training data may not represent enough examples of that condition.</span></label><label><input type="radio" name="87c4543d6326f48a6fe4699787840a13" value="f6a49fc3-cd48-417e-944e-14165985ec09"> <span>Every classifier must fail outside a classroom.</span></label><label><input type="radio" name="87c4543d6326f48a6fe4699787840a13" value="10ee700a-29a2-4e59-85ce-54bab92f8b59"> <span>The test records should be deleted.</span></label></div><button class="check-answer" type="button">Check answer</button><div class="feedback" role="status" hidden><p>Correct! Repeated errors under one condition suggest that the training data does not represent that condition well enough.</p></div></article><article class="question" data-question-type="multiple_choice_question" data-correct="[&quot;dfc8a510-e9a0-4e6a-924f-871bf43d94fd&quot;]"><h3>Check 2</h3><p>Why should a reviewer examine patterns in model errors instead of relying only on one overall success rate?</p><div class="choices"><label><input type="radio" name="2dddf4d20dfdbf9b21925bc162d4327e" value="dfc8a510-e9a0-4e6a-924f-871bf43d94fd"> <span>An overall rate may hide repeated failures for particular examples or conditions.</span></label><label><input type="radio" name="2dddf4d20dfdbf9b21925bc162d4327e" value="c9a08887-5b91-4f54-bc0b-0a1454a04795"> <span>Overall rates are never useful.</span></label><label><input type="radio" name="2dddf4d20dfdbf9b21925bc162d4327e" value="0e9c9ec5-3584-49cd-be2b-8d9dad50d7f2"> <span>Every model must produce the same result on every device.</span></label><label><input type="radio" name="2dddf4d20dfdbf9b21925bc162d4327e" value="12a12265-d00a-4cf1-adf3-8cd15b30f353"> <span>Error patterns matter only when a model creates text.</span></label></div><button class="check-answer" type="button">Check answer</button><div class="feedback" role="status" hidden><p>Correct! A single overall result can conceal uneven performance for particular categories, settings, or groups.</p></div></article></div></section><section class="lesson-step" id="step-8-3" data-step-label="8.3" hidden><p class="eyebrow">Step 8.3 · Learn and check</p><h2>Learn: The Six-Step Model-Building Cycle</h2><div style="line-height: 1.6; color: #222222;">
+<div style="background-color: #005a70; color: #ffffff; padding: 22px 25px; border-radius: 6px; margin-bottom: 25px;">
+<p style="margin: 6px 0 0 0; color: #ffffff; font-style: italic;">Estimated time: 5 minutes</p>
+</div>
+<div style="border: 1px solid #00A3A6; border-left: 8px solid #005A70; padding: 14px 16px; margin-bottom: 20px; border-radius: 4px; background-color: #f9f9f9;"><strong style="color: #005a70;">Responsible AI Routine:</strong> <span> Goal → Protect → Use → Check → Own</span></div>
+<p style="line-height: 1.6; margin: 0 0 12px 0;">Building an AI model is a cycle that repeats. Review the five steps below to see how a model learns, is tested, and improves:</p>
+<div style="text-align: center; margin: 20px 0;"><img style="max-width: 100%; height: auto; display: block; margin: 18px auto; border-radius: 4px;" src="../assets/media/M01_ModelImprovementCycle_v1.png" alt="AI model improvement cycle from training examples through testing and refinement."></div>
+<div style="background-color: #f0f7f9; border: 1px solid #005a70; padding: 18px 20px; border-radius: 6px; margin-top: 20px;">
+<h3 style="margin-top: 0; color: #005a70;">The 5-Step Model Improvement Cycle</h3>
+<ol style="margin-bottom: 0; padding-left: 20px; line-height: 1.7;">
+<li><strong>Training Examples:</strong> Collect clear examples (like text or images) to teach the AI what to look for.</li>
+<li><strong>Train Process (Initial Model):</strong> The computer studies these examples to find patterns and build its first version.</li>
+<li><strong>Model Makes Predictions (Initial Model):</strong> Test the AI with new, unseen examples to see how well it recognizes patterns.</li>
+<li><strong>Training and Human Feedback:</strong> Review where the model got things right and where it made mistakes.</li>
+<li><strong>Model Refinement (Improved Model):</strong> Fix labels that are wrong or add better examples. Then train the model again and check whether it improved.</li>
+</ol>
+</div>
+<p style="margin-top: 20px; line-height: 1.6;">As you answer the reflection questions below, think about how each step in this cycle helps make an AI system more accurate and reliable.</p>
+</div><div class="question-set"><article class="question" data-question-type="multiple_choice_question" data-correct="[&quot;803b0afe-8332-47a2-89bb-d758cdf6f8e2&quot;]"><h3>Check 1</h3><p>Which statement correctly distinguishes training data from test data?</p><div class="choices"><label><input type="radio" name="0fa64de9c027d1ebdea7bc590c6454ca" value="80c9ebe3-78fd-4187-a0b5-fc70b638cfae"> <span>Training data checks the final model, while test data teaches the model.</span></label><label><input type="radio" name="0fa64de9c027d1ebdea7bc590c6454ca" value="7998d609-e558-4f8a-a640-00faea43bba4"> <span>Training data and test data should always contain the same files.</span></label><label><input type="radio" name="0fa64de9c027d1ebdea7bc590c6454ca" value="803b0afe-8332-47a2-89bb-d758cdf6f8e2"> <span>Training data helps the model learn patterns; test data evaluates the model with new examples.</span></label><label><input type="radio" name="0fa64de9c027d1ebdea7bc590c6454ca" value="fbdba590-7352-4b53-8c09-eac7a20e3d6b"> <span>Test data is used only after a model is deployed at work.</span></label></div><button class="check-answer" type="button">Check answer</button><div class="feedback" role="status" hidden><p>Correct! Training examples help the model learn, while separate test examples provide evidence about performance on new inputs.</p></div></article><article class="question" data-question-type="multiple_choice_question" data-correct="[&quot;a7b7e8ae-7277-435d-a791-a57068f12920&quot;]"><h3>Check 2</h3><p>After testing the Initial Model and finding repeated errors, what should the team do next?</p><div class="choices"><label><input type="radio" name="66950b81c7ec55ffc3fa62bd87d0ed36" value="0fb211c9-594f-4b97-8601-3de649348a1c"> <span>Publish the model because training is complete.</span></label><label><input type="radio" name="66950b81c7ec55ffc3fa62bd87d0ed36" value="a7b7e8ae-7277-435d-a791-a57068f12920"> <span>Change the data, labels, categories, or process; retrain; and compare results.</span></label><label><input type="radio" name="66950b81c7ec55ffc3fa62bd87d0ed36" value="af8b2d8b-fe25-4162-a2e3-b9191027be95"> <span>Delete the test set so the errors disappear.</span></label><label><input type="radio" name="66950b81c7ec55ffc3fa62bd87d0ed36" value="4076e8a6-e1b3-47e2-8cf0-51dea6c52c5d"> <span>Use only the confidence score from the easiest example.</span></label></div><button class="check-answer" type="button">Check answer</button><div class="feedback" role="status" hidden><p>Correct! Improvement requires a justified change, retraining, and comparison with the earlier version.</p></div></article></div></section><section class="lesson-step" id="step-8-4" data-step-label="8.4" hidden><p class="eyebrow">Step 8.4 · Learn and check</p><h2>Learn: Compare Model Types and Check Tool Fit</h2><div style="line-height: 1.6; color: #222222;">
+<div style="background-color: #005a70; color: #ffffff; padding: 22px 25px; border-radius: 6px; margin-bottom: 25px;">
+<p style="margin: 6px 0 0 0; color: #ffffff; font-style: italic; font-size: 0.95em;">Estimated time: 5 minutes</p>
+</div>
+<div style="border: 1px solid #00A3A6; border-left: 8px solid #005A70; padding: 12px 16px; margin-bottom: 25px; border-radius: 4px; background-color: #f9f9f9;"><strong style="color: #005a70;">Responsible AI Routine:</strong> <span> Goal → Protect → Use → Check → Own</span></div>
+<p style="line-height: 1.6; margin-bottom: 20px;">Not all AI tools do the same job. When you face a task in your field, choosing the right tool, or deciding not to use AI at all, helps you work safely and efficiently. Review the model types below before answering the reflection questions.</p>
+<h3 style="color: #005a70; border-bottom: 2px solid #00A3A6; padding-bottom: 6px; margin-top: 25px; margin-bottom: 15px;">Model-Type Reference</h3>
+<table style="width: 100%; border-collapse: collapse; border: 1px solid #dddddd; margin-bottom: 25px; float: left;"><caption>Table comparing classifier, predictor, recommender, generative, and rule-based tool types, including their ideal applications and potential drawbacks.</caption>
+<thead style="background-color: #005a70; color: #ffffff;">
+<tr>
+<th style="padding: 12px; text-align: left; width: 25%;" scope="row">Model / Tool Type</th>
+<th style="padding: 12px; text-align: left; width: 40%;" scope="row">Best Used For</th>
+<th style="padding: 12px; text-align: left; width: 35%;" scope="row">Main Limitation</th>
+</tr>
+</thead>
+<tbody>
+<tr style="border-bottom: 1px solid #ddd;">
+<td style="padding: 10px; font-weight: bold; background-color: #f9f9f9;">Classifier</td>
+<td style="padding: 10px;">Sorting an item into a set group or category.</td>
+<td style="padding: 10px;">May place tricky or unusual items into the wrong group.</td>
+</tr>
+<tr style="border-bottom: 1px solid #ddd;">
+<td style="padding: 10px; font-weight: bold; background-color: #ffffff;">Predictor</td>
+<td style="padding: 10px;">Estimating a future result or unknown number.</td>
+<td style="padding: 10px;">Guesses can be wrong when real-world conditions change.</td>
+</tr>
+<tr style="border-bottom: 1px solid #ddd;">
+<td style="padding: 10px; font-weight: bold; background-color: #f9f9f9;">Recommender</td>
+<td style="padding: 10px;">Ranking options or suggesting choices based on data.</td>
+<td style="padding: 10px;">May repeat narrow choices or old habits over time.</td>
+</tr>
+<tr style="border-bottom: 1px solid #ddd;">
+<td style="padding: 10px; font-weight: bold; background-color: #ffffff;">Generative Model</td>
+<td style="padding: 10px;">Creating new text, images, code, or ideas.</td>
+<td style="padding: 10px;">Can sound confident but still give wrong, unsafe, or copied details.</td>
+</tr>
+<tr>
+<td style="padding: 10px; font-weight: bold; background-color: #f9f9f9;">Rule-Based / Non-AI</td>
+<td style="padding: 10px;">Using simple rules, barcodes, checklists, or human checks.</td>
+<td style="padding: 10px;">Does not learn on its own, but offers lower risk and higher accuracy for simple tasks.</td>
+</tr>
+</tbody>
+</table>
+<div style="border-top: 4px solid #005A70; padding: 20px; background-color: #f9f9f9; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); margin-bottom: 25px;">
+<h3 style="color: #005a70; margin-top: 0; margin-bottom: 10px;">The Tool-Fit Question</h3>
+<p style="margin-bottom: 10px; font-weight: bold; color: #333333;">Which approach best fits your task: a classifier, predictor, recommender, generative model, rule-based tool, or non-AI process?</p>
+<p style="margin-bottom: 0;">To decide, ask: What result do I need? How accurate must it be? What could happen if the tool is wrong? Also check privacy, energy use, and whether a simpler method can do the job safely.</p>
+</div>
+<h3 style="color: #005a70; border-bottom: 2px solid #00A3A6; padding-bottom: 6px; margin-top: 25px; margin-bottom: 15px;">Check for Understanding</h3>
+<p style="margin-bottom: 15px;">Reflect on the reference guide above and answer the questions below to test your understanding.</p>
+<p style="font-size: 0.85em; color: #666666; font-style: italic; margin-top: 25px;">Last Updated: August 6, 2026</p>
+</div><div class="question-set"><article class="question" data-question-type="multiple_choice_question" data-correct="[&quot;41ee93f6-3a5a-480b-a58b-14b49a934096&quot;]"><h3>Check 1</h3><p>Which model type best fits a task that assigns each fictional workplace record to one of two defined review categories?</p><div class="choices"><label><input type="radio" name="351c97bcc809f5777c80f1bfb3b1a24e" value="41ee93f6-3a5a-480b-a58b-14b49a934096"> <span>Classifier</span></label><label><input type="radio" name="351c97bcc809f5777c80f1bfb3b1a24e" value="ce1beb3c-672d-4f50-9e13-026fe99e133c"> <span>Predictor</span></label><label><input type="radio" name="351c97bcc809f5777c80f1bfb3b1a24e" value="90322f6e-cd09-413d-90f4-dbc400e0f644"> <span>Recommender</span></label><label><input type="radio" name="351c97bcc809f5777c80f1bfb3b1a24e" value="5b9e4010-27aa-4ba2-96a8-4478c1b8986b"> <span>Generative model</span></label></div><button class="check-answer" type="button">Check answer</button><div class="feedback" role="status" hidden><p>Correct! A classifier assigns each input record to a defined category.</p></div></article><article class="question" data-question-type="multiple_choice_question" data-correct="[&quot;867f0536-c0ec-44ce-a1a1-21beea756a9b&quot;]"><h3>Check 2</h3><p>A barcode already identifies each sealed equipment package accurately and at low cost. What is the strongest first decision?</p><div class="choices"><label><input type="radio" name="1e3c44369f2903b0553fe7018ccd6dba" value="208fa480-22c0-4597-8c17-808df5f90250"> <span>Replace the barcode with AI because AI is newer.</span></label><label><input type="radio" name="1e3c44369f2903b0553fe7018ccd6dba" value="ac43ac2d-b8e7-47fb-812d-b63225880d07"> <span>Use a generative model to describe the package.</span></label><label><input type="radio" name="1e3c44369f2903b0553fe7018ccd6dba" value="867f0536-c0ec-44ce-a1a1-21beea756a9b"> <span>Keep the simpler barcode process unless AI adds meaningful value that justifies additional risk and resources.</span></label><label><input type="radio" name="1e3c44369f2903b0553fe7018ccd6dba" value="97f8b6c0-fd3f-49ce-91bd-bcfd89b57a5b"> <span>Remove all labels and rely on a model score.</span></label></div><button class="check-answer" type="button">Check answer</button><div class="feedback" role="status" hidden><p>Correct! Responsible tool fit begins with whether a simpler approved process already meets the need.</p></div></article></div></section><section class="lesson-step classroom-activity" id="step-8-5" data-step-label="8.5" hidden><p class="eyebrow">Step 8.5 · Practical application</p><h2>Apply Your Learning: Model Rescue Challenge</h2>
+<div style="line-height: 1.6; color: #222222; font-family: Arial, sans-serif;"><header style="background-color: #005a70; color: #ffffff; padding: 22px 25px; border-radius: 6px; margin-bottom: 25px;">
+<p style="margin: 6px 0 0 0; color: #ffffff; font-style: italic; font-size: 0.95em;">Estimated time: 20 minutes | Grading: Complete / Incomplete</p>
+</header>
+<aside style="border-width: 1px 1px 1px 8px; border-style: solid; border-color: #00a3a6 #00a3a6 #00a3a6 #005a70; padding: 12px 16px; margin-bottom: 25px; border-radius: 4px; background-color: #f9f9f9;" aria-label="Routine Reference"><strong style="color: #005a70;">Responsible AI Routine:</strong> <span> Goal → Protect → Use → Check → Own</span></aside>
+<section style="border-top: 4px solid #005A70; padding: 20px; background-color: #f9f9f9; border-radius: 4px; margin-bottom: 25px;">
+<h2 style="color: #005a70; margin-top: 0; margin-bottom: 10px; font-size: 1.25em;">Purpose</h2>
+<p style="margin-bottom: 0;">In this challenge, you will train, test, and fix a simple AI classifier inside a web simulation. After completing the simulation, you will reflect on what you learned and connect it to your GCI program area in a short document.</p>
+</section>
+<section style="background-color: #fff9f3; padding: 15px; border-radius: 8px; margin-bottom: 25px; border: 2px solid #d35400;" aria-label="Safety and Privacy Rules">
+<h2 style="color: #a04000; margin-top: 0; margin-bottom: 8px; font-size: 1.15em;"><span aria-hidden="true">⚠️ </span>Safety & Privacy Rules</h2>
+<ul style="margin-bottom: 0; padding-left: 20px; color: #111111;">
+<li>Use <strong>only</strong> the fictional data provided inside the challenge.</li>
+<li>Never type real student, patient, customer, or employee names into the tool.</li>
+<li>Treat all AI results as clues to double-check—never as final proof.</li>
+</ul>
+</section>
+<section style="margin-bottom: 25px;">
+<h2 style="color: #005a70; border-bottom: 2px solid #00A3A6; padding-bottom: 6px; margin-top: 25px; margin-bottom: 15px; font-size: 1.25em;">1. Select Your Program</h2>
+<p style="margin-bottom: 15px;">Find your career program below to see which simulation path you will follow.</p>
+<table style="width: 100%; border-collapse: collapse; margin-bottom: 25px; border: 1px solid #767676;"><caption style="padding: 8px; text-align: left; color: #005a70;">Program and Challenge Topics</caption>
+<thead style="background-color: #005a70; color: #ffffff;">
+<tr>
+<th style="padding: 10px; text-align: left; width: 20%; border: 1px solid #005a70;" scope="col">Version</th>
+<th style="padding: 10px; text-align: left; width: 45%; border: 1px solid #005a70;" scope="col">Career Programs</th>
+<th style="padding: 10px; text-align: left; width: 35%; border: 1px solid #005a70;" scope="col">Challenge Topic</th>
+</tr>
+</thead>
+<tbody>
+<tr style="border-bottom: 1px solid #767676;">
+<th style="padding: 10px; background-color: #f9f9f9; text-align: left; border: 1px solid #767676;" scope="row">Program Group 1</th>
+<td style="padding: 10px; border: 1px solid #767676;">Health Sciences, AgriScience, Criminal Justice</td>
+<td style="padding: 10px; border: 1px solid #767676;">Case and Evidence Review</td>
+</tr>
+<tr style="border-bottom: 1px solid #767676;">
+<th style="padding: 10px; background-color: #ffffff; text-align: left; border: 1px solid #767676;" scope="row">Program Group 2</th>
+<td style="padding: 10px; border: 1px solid #767676;">Automotive, Mechatronics</td>
+<td style="padding: 10px; border: 1px solid #767676;">Equipment Inspection</td>
+</tr>
+<tr style="border-bottom: 1px solid #767676;">
+<th style="padding: 10px; background-color: #f9f9f9; text-align: left; border: 1px solid #767676;" scope="row">Program Group 3</th>
+<td style="padding: 10px; border: 1px solid #767676;">Construction Trades, Welding</td>
+<td style="padding: 10px; border: 1px solid #767676;">Worksite Readiness</td>
+</tr>
+<tr style="border-bottom: 1px solid #767676;">
+<th style="padding: 10px; background-color: #ffffff; text-align: left; border: 1px solid #767676;" scope="row">Version 4</th>
+<td style="padding: 10px; border: 1px solid #767676;">Computer Science, Graphic Design, Marketing</td>
+<td style="padding: 10px; border: 1px solid #767676;">Digital Project Review</td>
+</tr>
+<tr style="border-bottom: 1px solid #767676;">
+<th style="padding: 10px; background-color: #f9f9f9; text-align: left; border: 1px solid #767676;" scope="row">Version 5</th>
+<td style="padding: 10px; border: 1px solid #767676;">Education, Public Service</td>
+<td style="padding: 10px; border: 1px solid #767676;">Support and Response</td>
+</tr>
+<tr>
+<th style="padding: 10px; background-color: #ffffff; text-align: left; border: 1px solid #767676;" scope="row">Version 6</th>
+<td style="padding: 10px; border: 1px solid #767676;">Cosmetology, Culinary, Hospitality</td>
+<td style="padding: 10px; border: 1px solid #767676;">Client and Service Safety</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section style="margin-bottom: 25px;">
+<h2 style="color: #005a70; border-bottom: 2px solid #00A3A6; padding-bottom: 6px; margin-top: 25px; margin-bottom: 15px; font-size: 1.25em;">2. Simulation Instructions</h2>
+<ol style="list-style: none; padding-left: 0; margin-bottom: 0;">
+<li style="display: block; width: 100%; border-width: 1px 1px 1px 8px; border-style: solid; border-color: #cccccc #cccccc #cccccc #005a70; padding: 15px; margin-bottom: 10px; border-radius: 4px; background-color: #ffffff;"><strong style="color: #005a70;">Step 1: Open & Train Initial Model</strong>
+<p style="margin-top: 5px; margin-bottom: 0;">Launch the simulation, select your program, and review your initial training data. Run the Initial Model and notice where it makes mistakes.</p>
+</li>
+<li style="display: block; width: 100%; border-width: 1px 1px 1px 8px; border-style: solid; border-color: #cccccc #cccccc #cccccc #005a70; padding: 15px; margin-bottom: 10px; border-radius: 4px; background-color: #ffffff;"><strong style="color: #005a70;">Step 2: Improve & Retrain (Improved Model)</strong>
+<p style="margin-top: 5px; margin-bottom: 0;">Add three new data points from the Improvement Bank to fix the missing details or bias. Retrain the Improved Model and check your new accuracy score.</p>
+</li>
+</ol>
+</section>
+<section style="background-color: #f2f9fd; padding: 20px; border-radius: 8px; margin-top: 25px; margin-bottom: 25px; border: 2px solid #1b4f72;" aria-label="Simulation Link">
+<h2 style="color: #1b4f72; margin-top: 0; margin-bottom: 10px; font-size: 1.2em;"><span aria-hidden="true">🚀 </span>Launch the Web Simulation</h2>
+<p style="margin-bottom: 15px;">Click below to open the simulation in a new tab. Work through the steps for your program, then return to this lesson to answer the reflection questions below.</p>
+<p style="margin-bottom: 0; text-align: center;"><a style="background-color: #005a70; color: #ffffff; padding: 12px 24px; text-decoration: underline; border-radius: 4px; display: inline-block; outline-offset: 2px;" href="https://geneseelearninglab.com/Model_Rescue_Simulation.html" target="_blank"> Open GCI Model Rescue Challenge <span style="font-size: 0.85em;">(opens in a new tab)</span> </a></p>
+</section>
+<section style="margin-bottom: 25px;">
+<h2 style="color: #005a70; border-bottom: 2px solid #00A3A6; padding-bottom: 6px; margin-top: 25px; margin-bottom: 15px; font-size: 1.25em;">3. Reflection & Submission</h2>
+<div style="border-top: 4px solid #005A70; padding: 20px; background-color: #f9f9f9; border-radius: 4px; margin-bottom: 25px;">
+<p style="margin-top: 0; margin-bottom: 15px;">Create a document and answer the following 4 reflection questions. Submit your completed document to your course:</p>
+<ol style="margin-bottom: 15px; padding-left: 20px;">
+<li style="margin-bottom: 10px;"><strong>Program Track:</strong> Which career program did you choose, and what was the main flaw or missing data in the Initial Model?</li>
+<li style="margin-bottom: 10px;"><strong>Data Improvement:</strong> How did adding better training data in the Improved Model change the model's performance?</li>
+<li style="margin-bottom: 10px;"><strong>Connecting Prior Knowledge:</strong> How does this connect to real-world work in your career area? Give one example of a bad decision that could happen if someone blindly trusted an uncorrected AI model in your field.</li>
+<li style="margin-bottom: 0;"><strong>Human Responsibility:</strong> According to the Responsible AI Routine (<em>Goal → Protect → Use → Check → Own</em>), who holds ultimate responsibility for a decision made with the help of an AI tool, and why?</li>
+</ol>
+<aside style="background-color: #eef7f8; border-left: 4px solid #00A3A6; padding: 10px 15px; font-size: 0.95em;" aria-label="Grading Criteria"><strong>Grading Criteria:</strong> Complete / Incomplete. You will receive full credit by answering all 4 questions thoroughly with complete sentences.</aside>
+</div>
+</section>
+<footer style="font-size: 0.85em; color: #4a4a4a; font-style: italic; margin-top: 25px;">Last Updated: August 6, 2026</footer></div>
+</section><section class="lesson-step assessment-callout" id="step-8-6" data-step-label="8.6" hidden><p class="eyebrow">Step 8.6 · Lesson assessment · Google Form</p><h2>Show What You Know: AI Skills Certification Assessment</h2><p>Complete the assessment to show what you know from Lesson 8. Follow your instructor’s directions for the mastery score and attempts.</p><a class="button" href="https://docs.google.com/forms/d/12MaFLfa1MK-e--fO7B9Tm8vEPDDJwK9va2RMRPl3yFA/viewform" target="_blank" rel="noopener">Open Lesson 8 assessment <span aria-hidden="true">↗</span></a></section>
+<p class="sr-only" id="step-announcement" aria-live="polite"></p>
+<nav class="step-controls" aria-label="Lesson step navigation"><button class="step-button secondary" id="previous-step" type="button">← Previous step</button><button class="step-button" id="next-step" type="button">Next step →</button></nav>
+<p class="step-help">Your place in this lesson is saved automatically on this device.</p></div></main>
+<footer><p>Artificial Intelligence Literacy · Genesee Career Institute</p></footer><script src="../assets/app.js"></script></body></html>

@@ -1,0 +1,618 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Lesson 4: The Bias Trap — Is AI Really Fair? | AI Literacy</title><link rel="stylesheet" href="../assets/styles.css"></head>
+<body data-lesson="4"><a class="skip-link" href="#main">Skip to lesson content</a>
+<header class="site-header classroom-header"><span class="brand">AI Literacy</span><span class="classroom-label">Course lesson</span></header>
+<main id="main"><div class="lesson-hero"><p class="eyebrow">Lesson 4</p><h1>The Bias Trap — Is AI Really Fair?</h1>
+<div class="step-progress" aria-label="Lesson progress"><div class="progress-text"><span id="step-status">Step 4.1</span><span id="step-count">1 of 6</span></div><div class="progress" role="progressbar" aria-labelledby="step-status" aria-valuemin="1" aria-valuemax="6" aria-valuenow="1"><span style="width:16.67%"></span></div></div></div>
+<div class="stepper" data-total-steps="6"><section class="lesson-step overview" id="step-4-1" data-step-label="4.1"><p class="eyebrow">Step 4.1 · Start here</p>
+<div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; line-height: 1.6; color: #222222; max-width: 100%;">
+<div style="background-color: #005a70; color: #ffffff; padding: 24px 26px; border-radius: 8px; margin-bottom: 24px;">
+<p style="margin: 0 0 12px 0; color: #ffffff; font-size: 1.12em;">AI systems may use past records, examples, labels, measurements, and rules to make predictions or suggestions. If this information is missing, wrong, or unfair, the system may repeat unfair patterns or give some groups worse results. A troubling result should be checked, but one mistake does not always prove the system is biased.</p>
+<p style="margin: 0; color: #ffffff; font-size: 1.04em;">In this lesson, you will look at how data, rules, and human choices shape workplace AI systems. You will learn the difference between a single mistake, a warning sign of bias, and a pattern of unfair results. You will also study errors that affect groups in different ways. Finally, you will suggest ways to make AI systems safer and fairer through testing, review, appeals, and human decision making.</p>
+</div>
+<div style="background-color: #f2f9fd; border-left: 6px solid #2980B9; padding: 19px 20px; border-radius: 6px; margin-bottom: 24px;">
+<h2 style="color: #005a70; margin: 0 0 12px 0; font-size: 1.3em;">💡 Big Question and Core Rule</h2>
+<p style="margin: 0 0 9px 0;"><strong>Big Question:</strong> How can data, rules, and testing lead to unfair AI results? What proof and safety steps are needed before the system affects people?</p>
+<p style="margin: 0 0 12px 0;"><strong>Main Rule:</strong> Do not call every AI mistake bias. Check whether the problem happened once or many times. Review the data and rules, compare results, and keep trained people in charge of decisions and appeals.</p>
+<div style="background-color: #ffffff; border-radius: 4px; padding: 10px 13px; border: 1px dashed #2980b9;"><strong style="color: #005a70;">🧠 Memory Phrase:</strong> Check the data. Compare the outcomes. Protect the person. Own the decision.</div>
+</div>
+<div style="border-width: 4px 1px 1px; border-style: solid; border-color: #00a3a6 #dddddd #dddddd; padding: 20px; border-radius: 6px; margin-bottom: 24px; background-color: #ffffff;">
+<h2 style="color: #005a70; margin: 0 0 10px 0; font-size: 1.3em;">🛡️ Use the Responsible AI Routine</h2>
+<p style="margin: 0 0 12px 0;">Use this pathway whenever AI may support a task.</p>
+<div style="background-color: #f2f9fd; padding: 14px 16px; border-radius: 8px; margin: 16px 0px; border: 2px solid #2980b9;">
+<p style="margin: 0; color: #222222;"><strong style="color: #005a70;">👀 Your next move:</strong> Study the Responsible AI Routine below. To check fairness, review the training data and compare results for different groups. Make sure people can question a result and ask a trained person to review it before the system is used.</p>
+</div>
+<div style="text-align: center; margin: 18px 0 18px 0;"><img style="width: 100%; max-width: 1400px; height: auto; display: block; margin: 0 auto; border-radius: 6px;" src="../assets/media/M01_ResponsibleAIRoutine_v1.png" alt="AI Decision Pathway with Goal, Protect, Use, Check, and Own." loading="lazy"></div>
+<p style="margin: 0 0 12px 0;"><strong>Goal → Protect → Use → Check → Own</strong></p>
+<ul style="margin: 0 0 0 0; padding-left: 22px;">
+<li><strong>Goal:</strong> What specific workplace decision or ranking is the AI supporting?</li>
+<li><strong>Protect:</strong> What sensitive traits, private data, or protected attributes must be safeguarded?</li>
+<li><strong>Use:</strong> What data, scoring rules, proxies, and thresholds guide the AI model?</li>
+<li><strong>Check:</strong> Are there unequal outcomes, false positives/negatives, or missing representative data across groups?</li>
+<li><strong>Own:</strong> Who retains authority to oversee the system, handle appeals, and make the final decision?</li>
+</ul>
+</div>
+<div style="background-color: #f4fbf7; border-left: 6px solid #4CAF50; padding: 20px; border-radius: 6px; margin-bottom: 24px;">
+<h2 style="color: #005a70; margin: 0 0 12px 0; font-size: 1.3em;">🎯 Learning Goals</h2>
+<p style="margin: 0 0 9px 0;">By the end of this lesson, you can:</p>
+<ul style="margin: 0 0 15px 0; padding-left: 22px;">
+<li>Explain the difference between an isolated error, a possible bias warning sign, and a repeated or systematic unfair pattern.</li>
+<li>Review the data used in a made-up AI task. Check where the data came from, how good it is, who it represents, and what may be missing. Also check for privacy risks and limits in the data.</li>
+<li>Identify how labels, thresholds, scoring rules, or proxy information may create unfair outcomes or lower-quality service.</li>
+<li>Compare results for different people, groups, equipment, places, or conditions. Look for unfair patterns. These may include false alerts, missed problems, lower scores, or people being left out.</li>
+<li>Decide what may have caused the problem. It may come from rules, data, both, or another system error. Then suggest ways to improve the data, rules, testing, work steps, appeals, tracking, or human review. Use your evidence to choose a Green, Yellow, or Red Light rating.</li>
+</ul>
+<div style="background-color: #ffffff; padding: 12px 14px; border-radius: 4px; border: 1px solid #4caf50;"><strong style="color: #005a70;">✅ You will show success by:</strong> identifying the decision an AI output may influence; evaluating data, rules, labels, thresholds, proxies, and missing evidence; distinguishing general failure from repeated bias patterns; comparing outcomes and error types; recommending safeguards and appeal pathways; and defending a Green, Yellow, or Red Light verdict.</div>
+</div>
+<h2 style="color: #005a70; border-bottom: 2px solid #00A3A6; padding-bottom: 6px; margin: 26px 0 14px 0; font-size: 1.35em;">⏱️ Pacing at a Glance</h2>
+<div style="overflow-x: auto; margin-bottom: 24px;">
+<table style="width: 100%; border-collapse: collapse; min-width: 520px;"><caption style="text-align: left; margin-bottom: 8px; color: #444444;">Lesson 4 required activities and estimated time</caption>
+<thead>
+<tr style="background-color: #005a70; color: #ffffff;">
+<th style="padding: 10px 12px; text-align: left; border: 1px solid #005a70;" scope="col">Lesson Step</th>
+<th style="padding: 10px 12px; text-align: left; width: 130px; border: 1px solid #005a70;" scope="col">Time</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="padding: 10px 12px; border: 1px solid #cccccc;">4.2 Connect & Learn: Is This AI Result Fair? How Bias Begins</td>
+<td style="padding: 10px 12px; border: 1px solid #cccccc;">9 minutes</td>
+</tr>
+<tr style="background-color: #f9f9f9;">
+<td style="padding: 10px 12px; border: 1px solid #cccccc;">4.3 Learn: Investigate Data, Rules, and Unequal Outcomes</td>
+<td style="padding: 10px 12px; border: 1px solid #cccccc;">7 minutes</td>
+</tr>
+<tr>
+<td style="padding: 10px 12px; border: 1px solid #cccccc;">4.4 Learn: Reduce Bias and Respond Responsibly</td>
+<td style="padding: 10px 12px; border: 1px solid #cccccc;">7 minutes</td>
+</tr>
+<tr style="background-color: #f9f9f9;">
+<td style="padding: 10px 12px; border: 1px solid #cccccc;">4.5 Apply Your Learning: Workplace AI Review Board</td>
+<td style="padding: 10px 12px; border: 1px solid #cccccc;">15 minutes</td>
+</tr>
+<tr>
+<td style="padding: 10px 12px; border: 1px solid #cccccc;">4.6 Show What You Know: Bias, Fairness, and Human Oversight</td>
+<td style="padding: 10px 12px; border: 1px solid #cccccc;">12 minutes</td>
+</tr>
+<tr style="background-color: #f2f9fd;">
+<td style="padding: 10px 12px; border: 1px solid #cccccc;"><strong>Total</strong></td>
+<td style="padding: 10px 12px; border: 1px solid #cccccc;"><strong>50 minutes</strong></td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 style="color: #005a70; border-bottom: 2px solid #00A3A6; padding-bottom: 6px; margin: 26px 0 14px 0; font-size: 1.35em;">📚 Key Words to Know</h2>
+<div style="background-color: #f2f9fd; border-left: 6px solid #2980B9; padding: 14px 16px; border-radius: 6px; margin: 0 0 12px 0;"><strong style="color: #005a70;">Bias & Data Quality</strong></div>
+<div style="display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 20px;">
+<div style="flex: 1 1 250px; border-width: 1px 1px 1px 6px; border-style: solid; border-color: #dddddd #dddddd #dddddd #005a70; padding: 13px 15px; border-radius: 4px;"><strong>Algorithmic Bias:</strong> An unfair pattern that appears repeatedly in an algorithm or process that uses AI.</div>
+<div style="flex: 1 1 250px; border-width: 1px 1px 1px 6px; border-style: solid; border-color: #dddddd #dddddd #dddddd #005a70; padding: 13px 15px; border-radius: 4px;"><strong>Representation:</strong> How well the data includes the people, equipment, environments, languages, and situations the system will encounter.</div>
+<div style="flex: 1 1 250px; border-width: 1px 1px 1px 6px; border-style: solid; border-color: #dddddd #dddddd #dddddd #005a70; padding: 13px 15px; border-radius: 4px;"><strong>Proxy:</strong> Information used as a shortcut for another trait. It may create an unfair result when it is not a valid or job-related measure.</div>
+</div>
+<div style="background-color: #f4fbf7; border-left: 6px solid #4CAF50; padding: 14px 16px; border-radius: 6px; margin: 0 0 12px 0;"><strong style="color: #005a70;">Outcomes & Human Governance</strong></div>
+<div style="display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 22px;">
+<div style="flex: 1 1 250px; border-width: 1px 1px 1px 6px; border-style: solid; border-color: #dddddd #dddddd #dddddd #005a70; padding: 13px 15px; border-radius: 4px;"><strong>False Positive / False Negative:</strong> A false positive incorrectly identifies something as present, risky, or eligible. A false negative incorrectly misses something that is present or important.</div>
+<div style="flex: 1 1 250px; border-width: 1px 1px 1px 6px; border-style: solid; border-color: #dddddd #dddddd #dddddd #005a70; padding: 13px 15px; border-radius: 4px;"><strong>Disparity:</strong> An important difference in results or service between groups or conditions.</div>
+<div style="flex: 1 1 250px; border-width: 1px 1px 1px 6px; border-style: solid; border-color: #dddddd #dddddd #dddddd #005a70; padding: 13px 15px; border-radius: 4px;"><strong>Human Oversight:</strong> Review by a qualified person who has enough information and authority to change, override, stop, or approve a decision.</div>
+</div>
+
+<div style="margin-top: 30px; margin-bottom: 20px;"><details style="background-color: #f9f9f9; border: 1px solid #dddddd; border-radius: 6px; padding: 12px 16px; cursor: pointer;">
+<summary style=" color: #005a70;  font-size: 1em;">📄 Acknowledgments & Source Foundations</summary>
+<div style="margin-top: 12px; padding-top: 12px; border-top: 1px solid #e5e5e5; font-size: 0.95em; color: #333333;">
+<p style="margin: 0 0 12px 0; font-style: italic;"><strong>Acknowledgment:</strong> This lesson was informed by Michigan Virtual AI literacy resources and adapted by the Genesee Career Institute team.</p>
+<p style="margin: 0 0 6px 0;"><strong>Source Foundation:</strong></p>
+<ul style="margin: 0; padding-left: 20px; line-height: 1.5;">
+<li style="margin-bottom: 6px;"><a style="color: #005a70; text-decoration: underline;" href="https://michiganvirtual.org/ai/literacy" target="_blank">Michigan Virtual AI Literacy Resources</a> — Includes three student videos and teacher materials for this lesson.</li>
+<li style="margin-bottom: 6px;"><a style="color: #005a70; text-decoration: underline;" href="https://www.michigan.gov/mde/services/academic-standards/educational-technology/artificial-intelligence" target="_blank">Michigan K–12 AI Learning Alignment Framework</a> — Grades 9–12 priorities for Ethical Evaluation of AI Systems, Data in Machine Learning, The Human Role in Creating AI, and Societal Impacts.</li>
+<li><a style="color: #005a70; text-decoration: underline;" href="https://doi.org/10.6028/NIST.CSWP.10" target="_blank">NIST Privacy Framework 1.0</a> — A U.S. government guide for managing privacy risks when people use data and technology.</li>
+</ul>
+</div>
+</details></div>
+</div>
+</section><section class="lesson-step" id="step-4-2" data-step-label="4.2" hidden><p class="eyebrow">Step 4.2 · Learn and check</p><h2>Connect &amp; Learn: Is This AI Result Fair? How Bias Begins</h2><div style="line-height: 1.6; color: #222222; font-family: sans-serif;">
+<p style="margin: 0 0 12px 0; color: #005a70; font-style: italic; font-size: 0.95em;">Estimated time: 9 minutes</p>
+
+<div style="border: 1px solid #00A3A6; border-left: 8px solid #005A70; padding: 12px 16px; margin-bottom: 20px; border-radius: 4px; background-color: #f9f9f9;"><strong style="color: #005a70;">Responsible AI Routine:</strong> Goal → Protect → Use → Check → Own</div>
+
+<div style="border: 2px solid #2980B9; background-color: #f2f9fd; padding: 12px 16px; border-radius: 8px; margin-bottom: 16px;">
+<p style="margin: 0; color: #08283eff;"><strong>▶️ Your next move:</strong> Read the scenario below and silently reflect on the questions.</p>
+</div>
+
+<div style="border-top: 4px solid #005A70; padding: 18px; background-color: #f9f9f9; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); margin-bottom: 25px;">
+<h3 style="color: #005a70; margin-top: 0; margin-bottom: 10px; font-size: 1.15em;">Connect: The Smart Mirror</h3>
+<p style="margin: 0 0 12px 0; font-size: 0.95em; color: #222222;">An AI model is like a <strong>smart mirror</strong>. It can only reflect the examples, pictures, and words that people feed into it. If you only show the mirror one type of image, that is the only outcome it learns to show back!</p>
+<div style="background-color: #ffffff; border-left: 4px solid #00A3A6; padding: 12px 16px; margin-bottom: 12px; border-radius: 2px;">
+<p style="margin: 0; font-size: 0.95em; color: #005a70;"><strong>Imagine this:</strong> You ask AI to make a picture of a "successful team." It shows only young people in suits inside a tall office building.</p>
+</div>
+<p style="margin: 0 0 6px 0; font-size: 0.95em; font-weight: bold; color: #005a70;">Silently think to yourself:</p>
+<ul style="margin: 0; padding-left: 20px; font-size: 0.95em; color: #222222;">
+<li style="margin-bottom: 6px;">What kinds of jobs, ages, or hard-working people are missing from this picture?</li>
+<li style="margin-bottom: 0;">Why do you think the AI showed success in only one way?</li>
+</ul>
+</div>
+<hr style="border: 0; border-top: 1px solid #d1d5db; margin: 30px 0;">
+<div style="background-color: #005a70; color: #ffffff; padding: 14px 18px; border-radius: 6px 6px 0 0; margin-bottom: 0;">
+<h2 style="font-size: 1.2em; display: block; margin: 0; color: #ffffff;">Learn: How Algorithmic Bias Begins</h2>
+<span style="font-size: 0.85em; font-style: italic;">Time: 7 minutes</span></div>
+<div style="border: 2px solid #2980B9; border-top: none; background-color: #f2f9fd; padding: 12px 16px; border-radius: 0 0 8px 8px; margin-bottom: 20px;">
+<p style="margin: 0; color: #041c2bff;"><strong>▶️ Your next move:</strong> Watch the video below and learn how training data and human rules shape AI results.</p>
+</div>
+
+<div style="border-top: 4px solid #005A70; padding: 16px; background-color: #f9f9f9; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); margin-bottom: 20px;">
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; background: #000; border-radius: 4px; margin-bottom: 12px;"><iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;" title="AI Literacy: Recognizing Algorithmic Bias" src="https://www.youtube-nocookie.com/embed/_WpTWizRGys?cc_load_policy=1" allowfullscreen="allowfullscreen"></iframe></div>
+<p style="margin: 0; font-size: 0.9em; color: #005a70; text-align: center;"><a href="https://docs.google.com/document/d/1svKP5hv_xVMULKPtoQN8vv_QsjFOH8gIkoOgGpnD7vA/edit" target="_blank" rel="noopener">English transcript</a> | <a href="https://www.youtube-nocookie.com/embed/oLeV1eQWNNU?rel=0" target="_blank" rel="noopener">Watch in Spanish</a> | <a href="https://www.youtube-nocookie.com/embed/q9Lkx0h87Aw?rel=0" target="_blank" rel="noopener">Watch in Arabic</a></p>
+</div>
+
+<div style="background-color: #f4f8f9; border-left: 4px solid #00A3A6; padding: 14px 16px; margin-bottom: 20px; border-radius: 0 4px 4px 0;"><strong style="color: #005a70; display: block; margin-bottom: 6px;">Viewing & Reading Focus:</strong>
+<ul style="margin: 0; padding-left: 20px; font-size: 0.95em;">
+<li style="margin-bottom: 4px;">Where bias starts in an AI tool.</li>
+<li style="margin-bottom: 4px;">How training data and human choices affect outcomes.</li>
+<li style="margin-bottom: 0;">Why AI tools can work better for some groups than others.</li>
+</ul>
+</div>
+
+<div style="margin-bottom: 20px; font-size: 0.95em;">
+<p style="margin: 0 0 10px 0;"><strong>Bias happens before AI gives a single response:</strong></p>
+<ul style="margin: 0 0 16px 0; padding-left: 20px;">
+<li style="margin-bottom: 6px;"><strong>Training Data:</strong> If key information is missing or one group appears most often, the AI may repeat unfair patterns.</li>
+<li style="margin-bottom: 0;"><strong>Human Design Choices:</strong> Developers decide what information to collect, what rules to set, and how to score answers.</li>
+</ul>
+<p style="margin: 0 0 10px 0; font-style: italic; color: #4b5563; background-color: #f9f9f9; padding: 10px 14px; border-radius: 4px; border-left: 3px solid #00A3A6;"><strong>Key Takeaway:</strong> AI does not have feelings or personal ideas. It simply copies the examples and rules given by humans.</p>
+</div>
+<details style="border: 1px solid #d1d5db; border-radius: 6px; padding: 12px 16px; margin-bottom: 20px; background-color: #ffffff; cursor: pointer;">
+<summary style="font-weight: bold; color: #005a70; font-size: 1em;">📖 Reference Keys (Risk Framework & Bias Types)</summary>
+<div style="margin-top: 14px; cursor: default; font-size: 0.95em;"><strong style="color: #005a70; display: block; margin-bottom: 6px;">Risk Levels:</strong>
+<ul style="margin: 0 0 12px 0; padding-left: 20px;">
+<li style="margin-bottom: 4px;"><strong style="color: #2e7d32;">Green Light:</strong> Fair, helpful, and safe to use.</li>
+<li style="margin-bottom: 4px;"><strong style="color: #1a1303ff;">Yellow Light:</strong> Helpful, but needs a human to check for mistakes.</li>
+<li style="margin-bottom: 0;"><strong style="color: #c62828;">Red Light:</strong> Unfair, unsafe, or improper to use.</li>
+</ul>
+<div style="text-align: center; margin: 12px 0;"><img style="max-width: 55%; width: 420px; height: auto; display: inline-block; border-radius: 4px;" src="../assets/media/M01_AIDecisionGuide_v1.png" alt="Green, yellow, and red AI decision guide for judging risk and required human oversight."></div>
+<strong style="color: #005a70; display: block; margin-bottom: 6px;">Types of Bias:</strong>
+<ul style="margin: 0; padding-left: 20px;">
+<li style="margin-bottom: 4px;"><strong>Rule-Based:</strong> Flawed rules or strict scoring lead to unfair results.</li>
+<li style="margin-bottom: 4px;"><strong>Data-Driven:</strong> The system learns from incomplete or unbalanced examples.</li>
+<li style="margin-bottom: 4px;"><strong>Both:</strong> Unfair data and bad scoring rules combine to make the issue worse.</li>
+<li style="margin-bottom: 0;"><strong>Undetermined:</strong> Needs more testing and info before deciding.</li>
+</ul>
+</div>
+</details>
+<h3 style="color: #005a70; font-size: 1.05em; display: block; margin-bottom: 10px;">Main Causes of Algorithmic Bias</h3>
+<table style="width: 100%; border-collapse: collapse; border: 1px solid #ddd; margin-bottom: 24px; font-size: 0.9em;"><caption>Main Causes of Algorithmic Bias</caption>
+<thead style="background-color: #005a70; color: #ffffff;">
+<tr>
+<th style="padding: 10px; text-align: left; width: 30%;" scope="row">Source</th>
+<th style="padding: 10px; text-align: left; width: 70%;" scope="row">What It Means</th>
+</tr>
+</thead>
+<tbody>
+<tr style="border-bottom: 1px solid #ddd; background-color: #ffffff;">
+<td style="padding: 10px;"><strong>Unbalanced Data</strong></td>
+<td style="padding: 10px;">Does not have enough examples of different people, places, or events.</td>
+</tr>
+<tr style="border-bottom: 1px solid #ddd; background-color: #f9f9f9;">
+<td style="padding: 10px;"><strong>Historical Patterns</strong></td>
+<td style="padding: 10px;">Old records contain past unfair choices that the AI assumes are correct.</td>
+</tr>
+<tr style="border-bottom: 1px solid #ddd; background-color: #ffffff;">
+<td style="padding: 10px;"><strong>Missing Data</strong></td>
+<td style="padding: 10px;">Important facts or entire groups of people are left out completely.</td>
+</tr>
+<tr style="border-bottom: 1px solid #ddd; background-color: #f9f9f9;">
+<td style="padding: 10px;"><strong>Labels & Rules</strong></td>
+<td style="padding: 10px;">Human definitions rely on unproven assumptions.</td>
+</tr>
+<tr style="border-bottom: 1px solid #ddd; background-color: #ffffff;">
+<td style="padding: 10px;"><strong>Design Choices</strong></td>
+<td style="padding: 10px;">Choosing speed or lower costs instead of checking for fairness.</td>
+</tr>
+<tr style="background-color: #f9f9f9;">
+<td style="padding: 10px;"><strong>Weak Testing</strong></td>
+<td style="padding: 10px;">Forgetting to test software with diverse groups or real-life situations.</td>
+</tr>
+</tbody>
+</table>
+
+<div style="border: 2px solid #2980B9; background-color: #f2f9fd; padding: 14px 16px; border-radius: 8px; margin-bottom: 20px;">
+<p style="margin: 0; color: #08283eff; font-size: 0.95em;"><strong>▶️ Your next move:</strong> Complete the <strong>Check for Understanding</strong> questions below to test what you have learned.</p>
+</div>
+<details style="border: 1px solid #e5e7eb; border-radius: 4px; padding: 10px 14px; margin-bottom: 20px; background-color: #f9f9f9; cursor: pointer; font-size: 0.9em;">
+<summary style="font-weight: bold; color: #005a70;">📚 Sources & Attribution</summary>
+<div style="margin-top: 10px; cursor: default; color: #4b5563;">
+<p style="margin: 0 0 6px 0;"><strong>Michigan Virtual:</strong> “What Is Algorithmic Bias?” — Student video introducing training data and design choices in AI bias.</p>
+<p style="margin: 0;"><strong>NIST:</strong> <em>Towards a Standard for Identifying and Managing Bias in Artificial Intelligence</em> — Guidelines on how bias enters throughout the AI lifecycle.</p>
+</div>
+</details>
+<p style="font-size: 0.85em; color: #6b7280; text-align: right; margin-top: 20px;">Last Updated: August 5, 2026</p>
+</div><div class="question-set"><article class="question" data-question-type="multiple_choice_question" data-correct="[&quot;22bde6ce-0367-4bf4-a553-754f8219496e&quot;]"><h3>Check 1</h3><p>An AI scheduling tool gives a higher-priority interview slot to a student from School A over a student from School B. The school counselor assumes the system is biased against School B. What is the most responsible next step?</p><div class="choices"><label><input type="radio" name="e6eb61a18a9541c88944faa21068024b" value="5addc0e9-fae4-4da7-9151-493845951a74"> <span><p>Ban the tool immediately because a single unfair result proves the algorithm is completely broken.</p></span></label><label><input type="radio" name="e6eb61a18a9541c88944faa21068024b" value="ead5ab0c-5919-42a5-a984-150095cc1103"> <span><p>Ignore the result because automated software programs make fair choices based purely on math.</p></span></label><label><input type="radio" name="e6eb61a18a9541c88944faa21068024b" value="22bde6ce-0367-4bf4-a553-754f8219496e"> <span><p>Review multiple scheduling outputs and check the underlying rules before making a conclusion.</p></span></label><label><input type="radio" name="e6eb61a18a9541c88944faa21068024b" value="5b222dd2-0edb-4fe3-ac73-cbed0c3bf14b"> <span><p>Automatically move all students from School B to top priority slots to equalize the results.</p></span></label></div><button class="check-answer" type="button">Check answer</button><div class="feedback" role="status" hidden><p>Correct! One concerning output is a reason to investigate, not automatic proof that the entire system is biased.</p></div></article><article class="question" data-question-type="multiple_choice_question" data-correct="[&quot;40774978-4700-4fb8-8729-8d56c4d1daff&quot;]"><h3>Check 2</h3><p>A city uses an AI system to decide where to install new bike lanes. The system recommends building most lanes in wealthy neighborhoods. The report does not explain what historical data was uploaded or what scoring rules were programmed into the tool. How should this bias be classified?</p><div class="choices"><label><input type="radio" name="e19ec90e1043e42d93a377c1c93a4610" value="33f83b24-0973-435b-862a-2549edfc4259"> <span><p>Rule-based bias, because software developers frequently create unfair scoring rules during testing.</p></span></label><label><input type="radio" name="e19ec90e1043e42d93a377c1c93a4610" value="44384507-3e60-4599-99b5-52fd961b1b8b"> <span><p>Data-driven bias, because the algorithm likely relied on income records from past city maps.</p></span></label><label><input type="radio" name="e19ec90e1043e42d93a377c1c93a4610" value="31866aa8-6331-49ac-a022-dbd73b11fc9c"> <span><p>Both rule-based and data-driven bias, because every AI mistake combines both sources equally.</p></span></label><label><input type="radio" name="e19ec90e1043e42d93a377c1c93a4610" value="40774978-4700-4fb8-8729-8d56c4d1daff"> <span><p>Undetermined, because more facts are needed to see if the issue stems from data, rules, or both.</p></span></label></div><button class="check-answer" type="button">Check answer</button><div class="feedback" role="status" hidden><p>Correct! The source is undetermined because the needed data, rules, and repeated-result evidence are missing.</p></div></article><article class="question" data-question-type="multiple_choice_question" data-correct="[&quot;1fe2f66b-7b6f-46dc-81ae-09e0223522b1&quot;]"><h3>Check 3</h3><p>A computer program helps a restaurant hire new staff. Instead of checking how well applicants work with customers, the program automatically rejects anyone who lived in more than two houses in the last three years, assuming that means they are unreliable. In this situation, what is the number of past addresses acting as?</p><div class="choices"><label><input type="radio" name="8495808eefcd1628bc89e75c3c28a776" value="f92e794e-6811-47f4-ae10-875dce99d4f6"> <span><p>A direct measurement of an applicant's work ethic and customer service abilities.</p></span></label><label><input type="radio" name="8495808eefcd1628bc89e75c3c28a776" value="1fe2f66b-7b6f-46dc-81ae-09e0223522b1"> <span><p>A proxy - a shortcut used to represent a trait that may not accurately measure skill.</p></span></label><label><input type="radio" name="8495808eefcd1628bc89e75c3c28a776" value="7709c698-cfb6-47d1-8f34-279d815bc6a5"> <span><p>A system glitched variable that only appears when an AI algorithm completely crashes.</p></span></label><label><input type="radio" name="8495808eefcd1628bc89e75c3c28a776" value="b7205894-e91f-4946-a1ef-e8c732f36f47"> <span><p>A red-flag rule that guarantees the software will make an objective hiring decision.</p></span></label></div><button class="check-answer" type="button">Check answer</button><div class="feedback" role="status" hidden><p>Correct! The employment gap is being used as a proxy for reliability without enough job-related evidence.</p></div></article></div></section><section class="lesson-step" id="step-4-3" data-step-label="4.3" hidden><p class="eyebrow">Step 4.3 · Learn and check</p><h2>Learn: Investigate Data, Rules, and Unequal Outcomes</h2><div style="font-family: Arial, sans-serif; line-height: 1.6; color: #111111; max-width: 100%;">
+<div style="background-color: #005a70; color: #ffffff; padding: 20px 24px; border-radius: 6px; margin-bottom: 20px;">
+<h2 style="margin: 0; color: #ffffff; font-size: 1.3rem; font-weight: bold; line-height: 1.3;">Learn: Investigate Data, Rules, and Unequal Outcomes</h2>
+<p style="margin: 6px 0 0 0; color: #ffffff; font-size: 0.95rem; font-style: italic;"><span>⏱️ </span>Estimated time: 7 minutes</p>
+</div>
+
+<div style="border: 1px solid #00A3A6; border-left: 8px solid #005A70; padding: 12px 16px; margin-bottom: 20px; border-radius: 4px; background-color: #f9f9f9;" role="region"><strong style="color: #005a70; font-size: 1rem;">Responsible AI Routine:</strong> <span style="color: #111111; font-size: 1rem;"> Goal → Protect → Use → Check → Own</span></div>
+
+<div style="border-top: 4px solid #005A70; padding: 18px 20px; background-color: #f9f9f9; border-radius: 4px; border: 1px solid #e0e0e0; margin-bottom: 20px;">
+<h3 style="color: #005a70; margin: 0 0 10px 0; font-size: 1.1rem; font-weight: bold;"><span>🎧 </span>Viewing Focus</h3>
+<p style="margin: 0 0 8px 0; font-weight: bold;">As you watch the video below, listen for:</p>
+<ol style="margin: 0; padding-left: 20px; line-height: 1.6;">
+<li style="margin-bottom: 6px;">Questions that can help you identify bias in an AI output.</li>
+<li style="margin-bottom: 6px;">Why your own assumptions may affect how you review a result.</li>
+<li style="margin-bottom: 6px;">What to do when you are unsure whether bias is present.</li>
+</ol>
+</div>
+
+<div style="border: 2px solid #2980B9; background-color: #f2f9fd; padding: 16px; border-radius: 8px; margin-bottom: 16px;">
+<h3 style="color: #005a70; margin: 0 0 6px 0; font-size: 1.1rem; font-weight: bold;"><span>▶️ </span>Your Next Move</h3>
+<p style="margin: 0; color: #111111; font-size: 1rem;">Watch the video below. Focus on the key ideas you will use in this step.</p>
+</div>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; border-radius: 6px; border: 1px solid #dddddd; background-color: #000000; margin-bottom: 10px;"><iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;" title="AI Literacy: Recognizing Algorithmic Bias" src="https://www.youtube-nocookie.com/embed/_WpTWizRGys?cc_load_policy=1" allowfullscreen="allowfullscreen" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe></div>
+<nav style="margin-bottom: 24px; font-size: 0.95rem; padding: 8px 12px; background-color: #f4f4f4; border-radius: 4px;"><a style="color: #004d61; text-decoration: underline; font-weight: bold;" href="https://docs.google.com/document/d/1svKP5hv_xVMULKPtoQN8vv_QsjFOH8gIkoOgGpnD7vA/edit" target="_blank" rel="noopener">English Transcript</a> <span style="margin: 0 8px; color: #666666;">|</span> <a style="color: #004d61; text-decoration: underline; font-weight: bold;" href="https://www.youtube-nocookie.com/embed/oLeV1eQWNNU?rel=0" target="_blank" rel="noopener">Watch in Spanish</a> <span style="margin: 0 8px; color: #666666;">|</span> <a style="color: #004d61; text-decoration: underline; font-weight: bold;" href="https://www.youtube-nocookie.com/embed/q9Lkx0h87Aw?rel=0" target="_blank" rel="noopener">Watch in Arabic</a></nav>
+<div style="border: 2px solid #2980B9; background-color: #f2f9fd; padding: 16px; border-radius: 8px; margin-bottom: 20px;">
+<h3 style="color: #005a70; margin: 0 0 6px 0; font-size: 1.1rem; font-weight: bold;"><span>📖 </span>Your Next Move</h3>
+<p style="margin: 0; color: #111111; font-size: 1rem;">Continue with the short reading and examples below.</p>
+</div>
+
+<div style="margin-bottom: 24px; line-height: 1.6;">
+<p style="margin-bottom: 12px;"><strong>Algorithmic bias</strong> is an unfair pattern that appears again and again in an AI system’s results. One unusual answer or random mistake does not prove bias.</p>
+<p style="margin-bottom: 12px;">To recognize possible bias, look closely at the result. Ask who is included, who is missing, what assumptions were made, and how people could be affected.</p>
+<p style="margin-bottom: 12px;">Start by checking your own thinking. Your experiences and assumptions may affect what you notice or miss. Being aware of your point of view can help you review AI results more fairly.</p>
+</div>
+
+<h3 id="bias-recognition-questions" style="color: #005a70; margin-top: 28px; margin-bottom: 12px; font-size: 1.2rem; font-weight: bold;">Bias Recognition Questions</h3>
+<table style="width: 100%; border-collapse: collapse; border: 1px solid #dddddd; margin-bottom: 24px;">
+<thead>
+<tr style="background-color: #005a70; color: #ffffff;">
+<th style="padding: 12px; text-align: left; width: 25%; border: 1px solid #dddddd; font-size: 1rem;" scope="col">Recognition Area</th>
+<th style="padding: 12px; text-align: left; width: 75%; border: 1px solid #dddddd; font-size: 1rem;" scope="col">Question to Ask</th>
+</tr>
+</thead>
+<tbody>
+<tr style="background-color: #ffffff;">
+<td style="padding: 10px 12px; border: 1px solid #dddddd; font-weight: bold;">Representation</td>
+<td style="padding: 10px 12px; border: 1px solid #dddddd;">Does the data or result include the people, cultures, languages, equipment, places, and situations affected by the decision?</td>
+</tr>
+<tr style="background-color: #f9f9f9;">
+<td style="padding: 10px 12px; border: 1px solid #dddddd; font-weight: bold;">Missing information</td>
+<td style="padding: 10px 12px; border: 1px solid #dddddd;">What important facts, perspectives, or conditions are absent?</td>
+</tr>
+<tr style="background-color: #ffffff;">
+<td style="padding: 10px 12px; border: 1px solid #dddddd; font-weight: bold;">Assumptions</td>
+<td style="padding: 10px 12px; border: 1px solid #dddddd;">Does the output make an unsupported assumption about a person or group?</td>
+</tr>
+<tr style="background-color: #f9f9f9;">
+<td style="padding: 10px 12px; border: 1px solid #dddddd; font-weight: bold;">Consistency</td>
+<td style="padding: 10px 12px; border: 1px solid #dddddd;">Are similar people or situations treated differently without a relevant reason?</td>
+</tr>
+<tr style="background-color: #ffffff;">
+<td style="padding: 10px 12px; border: 1px solid #dddddd; font-weight: bold;">Patterns</td>
+<td style="padding: 10px 12px; border: 1px solid #dddddd;">Does the issue appear repeatedly, or is it one isolated error?</td>
+</tr>
+<tr style="background-color: #f9f9f9;">
+<td style="padding: 10px 12px; border: 1px solid #dddddd; font-weight: bold;">Evidence</td>
+<td style="padding: 10px 12px; border: 1px solid #dddddd;">What evidence supports the result?</td>
+</tr>
+<tr style="background-color: #ffffff;">
+<td style="padding: 10px 12px; border: 1px solid #dddddd; font-weight: bold;">Uncertainty</td>
+<td style="padding: 10px 12px; border: 1px solid #dddddd;">Does the result clearly show its limits, missing information, or other possible explanations?</td>
+</tr>
+<tr style="background-color: #f9f9f9;">
+<td style="padding: 10px 12px; border: 1px solid #dddddd; font-weight: bold;">Impact</td>
+<td style="padding: 10px 12px; border: 1px solid #dddddd;">Could the result affect someone’s safety, health, rights, education, money, reputation, employment, or future?</td>
+</tr>
+</tbody>
+</table>
+
+<h3 style="color: #005a70; margin-top: 24px; margin-bottom: 12px; font-size: 1.15rem; font-weight: bold;">Where Bias May Appear</h3>
+<p style="margin-bottom: 12px;">Bias can surface in many formats and system types:</p>
+<div style="display: flex; flex-wrap: wrap;  margin-bottom: 24px;"><span style="background-color: #e0f2f1; color: #004d61; padding: 6px 12px; border-radius: 16px; font-weight: bold; font-size: 0.9rem;">Text & Images</span> <span style="background-color: #e0f2f1; color: #004d61; padding: 6px 12px; border-radius: 16px; font-weight: bold; font-size: 0.9rem;">Recommendations & Rankings</span> <span style="background-color: #e0f2f1; color: #004d61; padding: 6px 12px; border-radius: 16px; font-weight: bold; font-size: 0.9rem;">Scores & Predictions</span> <span style="background-color: #e0f2f1; color: #004d61; padding: 6px 12px; border-radius: 16px; font-weight: bold; font-size: 0.9rem;">Classifications & Search Results</span> <span style="background-color: #e0f2f1; color: #004d61; padding: 6px 12px; border-radius: 16px; font-weight: bold; font-size: 0.9rem;">Scheduling & Hiring Tools</span> <span style="background-color: #e0f2f1; color: #004d61; padding: 6px 12px; border-radius: 16px; font-weight: bold; font-size: 0.9rem;">Healthcare & Risk Assessments</span></div>
+<details style="border: 1px solid #005A70; border-radius: 6px; margin-bottom: 24px; background-color: #f9f9f9; padding: 12px 16px;">
+<summary style="font-weight: bold; color: #005a70; cursor: pointer; font-size: 1.1rem;">🔍 What to Do When You Are Unsure (Investigation Strategies)</summary>
+<div style="margin-top: 12px; padding-top: 12px; border-top: 1px solid #e0e0e0;">
+<p style="margin-bottom: 12px;">When you are unsure whether bias exists, do not quickly call the system fair or unfair. <strong>Investigate first:</strong></p>
+<ul style="padding-left: 20px; margin-bottom: 0; line-height: 1.6;">
+<li style="margin-bottom: 6px;">Ask another person for a different perspective.</li>
+<li style="margin-bottom: 6px;">Compare results from more than one prompt or tool.</li>
+<li style="margin-bottom: 6px;">Look for repeated patterns across multiple outputs.</li>
+<li style="margin-bottom: 6px;">Add missing context to your prompts.</li>
+<li style="margin-bottom: 6px;">Review the source and intended audience.</li>
+<li style="margin-bottom: 6px;">Ask whether the same standard is being applied consistently.</li>
+<li style="margin-bottom: 0;">Consult a qualified professional or trusted standard.</li>
+</ul>
+</div>
+</details>
+<div style="border: 2px solid #E67E22; background-color: #fff9f3; padding: 20px; border-radius: 8px; margin-bottom: 24px;">
+<h3 id="quick-bias-red-flags" style="color: #d35400; margin: 0 0 10px 0; font-size: 1.2rem; font-weight: bold;"><span>⚠️ </span>Quick Bias Red Flags</h3>
+<p style="margin: 0 0 12px 0; color: #111111;">Use this checklist for a quick review before you reach a conclusion. An AI output requires closer review when it:</p>
+<ol style="margin: 0; padding-left: 20px; color: #111111; line-height: 1.6;">
+<li style="margin-bottom: 6px;">Stereotypes a career field or group.</li>
+<li style="margin-bottom: 6px;">Leaves out people, conditions, languages, equipment, or situations that matter.</li>
+<li style="margin-bottom: 6px;">Makes unsupported assumptions about someone.</li>
+<li style="margin-bottom: 6px;">Treats similar people differently without a relevant reason.</li>
+<li style="margin-bottom: 6px;">Hides uncertainty, missing evidence, or alternative explanations.</li>
+<li style="margin-bottom: 6px;">Could affect someone’s health, safety, rights, money, education, reputation, employment, or future.</li>
+</ol>
+<p style="margin: 12px 0 0 0; font-style: italic; font-weight: bold; color: #d35400;">Note: A red flag does not prove that a system is biased. It means you should pause and investigate.</p>
+</div>
+
+<div style="margin: 24px 0; text-align: center;"><img style="width: 100%; max-width: 350px; height: auto; border-radius: 6px; border: 1px solid #dddddd;" src="../assets/media/M01_BiasRedFlags_v1.png" alt="Quick bias red flags checklist covering stereotypes, missing groups, assumptions, and unequal treatment."></div>
+<details style="border: 1px solid #cccccc; border-radius: 6px; margin-bottom: 28px; background-color: #fafafa; padding: 12px 16px; font-size: 0.95rem; color: #444444;">
+<summary style="font-weight: bold; color: #005a70; cursor: pointer; font-size: 1rem;">📚 Sources & Attribution</summary>
+<div style="margin-top: 12px; padding-top: 12px; border-top: 1px solid #e0e0e0;">
+<p style="margin-bottom: 8px;">Michigan Virtual, “Recognizing Algorithmic Bias” — Student video supporting questions about representation, assumptions, patterns, and harm. <a style="color: #004d61; text-decoration: underline;" href="https://www.youtube.com/watch?v=_WpTWizRGys" target="_blank" rel="noopener">Source video</a></p>
+<p style="margin-bottom: 8px;">NIST, <em>Towards a Standard for Identifying and Managing Bias in Artificial Intelligence</em> — Describes human, systemic, and data-related sources of bias. <a style="color: #004d61; text-decoration: underline;" href="https://doi.org/10.6028/NIST.SP.1270" target="_blank" rel="noopener">View NIST report</a></p>
+<p style="margin-bottom: 0;">U.S. Department of Justice, <em>Algorithms, Artificial Intelligence, and Disability Discrimination in Hiring</em> — Federal guidance on automated hiring tools and discrimination. <a style="color: #004d61; text-decoration: underline;" href="https://www.ada.gov/resources/ai-guidance/" target="_blank" rel="noopener">View federal AI guidance</a></p>
+</div>
+</details>
+<div style="border-top: 2px solid #005A70; padding-top: 16px; margin-bottom: 20px;">
+<h3 id="check-for-understanding-10" style="color: #005a70; margin: 0 0 8px 0; font-size: 1.2rem; font-weight: bold;"><span>✏️ </span>Check for Understanding</h3>
+<p style="margin: 0; font-size: 1rem;">Complete the questions that appear below to demonstrate your understanding.</p>
+</div>
+
+<p style="margin-top: 24px; color: #666666; font-size: 0.85rem; font-style: italic;">Last Updated: August 4, 2026</p>
+</div><div class="question-set"><article class="question" data-question-type="multiple_choice_question" data-correct="[&quot;df28d70a-46f8-4ec5-b6c6-0e3ba1321378&quot;]"><h3>Check 1</h3><p>A safety alert incorrectly flags normal equipment behavior as dangerous. What type of error is this?</p><div class="choices"><label><input type="radio" name="86e4e7212a4d93c8bf9a40d9ce4e1508" value="df28d70a-46f8-4ec5-b6c6-0e3ba1321378"> <span>False positive</span></label><label><input type="radio" name="86e4e7212a4d93c8bf9a40d9ce4e1508" value="d9f5fdf2-306e-464e-a754-c9600f7dc036"> <span>False negative</span></label><label><input type="radio" name="86e4e7212a4d93c8bf9a40d9ce4e1508" value="770713e3-2db7-418f-8e05-0fd2fc2bd98d"> <span>Representative sampling</span></label><label><input type="radio" name="86e4e7212a4d93c8bf9a40d9ce4e1508" value="75fe317d-64e2-484d-9987-92c2fa9804e9"> <span>Human oversight</span></label></div><button class="check-answer" type="button">Check answer</button><div class="feedback" role="status" hidden><p>Correct! A false positive incorrectly identifies a risk or condition as present.</p></div></article><article class="question" data-question-type="multiple_choice_question" data-correct="[&quot;818c9ed3-87b7-47c2-a249-50a8951fb73c&quot;]"><h3>Check 2</h3><p>A medical support tool fails to flag an urgent condition that is actually present. What type of error is this?</p><div class="choices"><label><input type="radio" name="caa5a5887c2b21730a9b16c43f3b91a6" value="65e4c212-fd38-45af-8cf1-dde83e0dbe3d"> <span>False positive</span></label><label><input type="radio" name="caa5a5887c2b21730a9b16c43f3b91a6" value="818c9ed3-87b7-47c2-a249-50a8951fb73c"> <span>False negative</span></label><label><input type="radio" name="caa5a5887c2b21730a9b16c43f3b91a6" value="49f2eaca-837f-494b-8d40-d4da67cdd90e"> <span>Proxy variable</span></label><label><input type="radio" name="caa5a5887c2b21730a9b16c43f3b91a6" value="8247c4de-cf6c-431d-87e8-e042abc60858"> <span>Green Light decision</span></label></div><button class="check-answer" type="button">Check answer</button><div class="feedback" role="status" hidden><p>Correct! A false negative incorrectly misses something important that is actually present.</p></div></article><article class="question" data-question-type="multiple_choice_question" data-correct="[&quot;33756908-c0fa-4053-b3b5-39481bb2266c&quot;]"><h3>Check 3</h3><p>An AI system is 94% accurate overall but is only 70% accurate for users who communicate with second-language patterns. What should reviewers conclude?</p><div class="choices"><label><input type="radio" name="78077eb02db132dd14c411945d047603" value="959e9227-8d82-4cc1-80f0-2de3dac9b8d9"> <span>The overall score proves the system is fair.</span></label><label><input type="radio" name="78077eb02db132dd14c411945d047603" value="33756908-c0fa-4053-b3b5-39481bb2266c"> <span>The system should be evaluated for a quality-of-service disparity across user groups.</span></label><label><input type="radio" name="78077eb02db132dd14c411945d047603" value="d14033bd-3b99-47de-b5a3-5b81be812895"> <span>The lower score does not matter because the group is smaller.</span></label><label><input type="radio" name="78077eb02db132dd14c411945d047603" value="59edfdda-4414-4092-bd99-dbda9555bc8b"> <span>Every user should receive shorter answers.</span></label></div><button class="check-answer" type="button">Check answer</button><div class="feedback" role="status" hidden><p>Correct! High overall accuracy can hide substantially poorer performance for a particular group.</p></div></article></div></section><section class="lesson-step" id="step-4-4" data-step-label="4.4" hidden><p class="eyebrow">Step 4.4 · Learn and check</p><h2>Learn: Reduce Bias and Respond Responsibly</h2><div style="font-family: Arial, sans-serif; line-height: 1.6; color: #111111; max-width: 100%;">
+<div style="background-color: #005a70; color: #ffffff; padding: 12px 20px; border-radius: 6px; margin-bottom: 20px;">
+<p style="margin: 0; color: #ffffff; font-size: 0.95rem; font-style: italic;"><span>⏱️ </span>Estimated time: 7 minutes</p>
+</div>
+
+<div style="border: 1px solid #00A3A6; border-left: 8px solid #005A70; padding: 12px 16px; margin-bottom: 20px; border-radius: 4px; background-color: #f9f9f9;" role="region"><strong style="color: #005a70; font-size: 1rem;">Responsible AI Routine:</strong> <span style="color: #111111; font-size: 1rem;"> Goal → Protect → Use → Check → Own</span></div>
+
+<div style="border-top: 4px solid #005A70; padding: 18px 20px; background-color: #f9f9f9; border-radius: 4px; border: 1px solid #e0e0e0; margin-bottom: 20px;">
+<h3 style="color: #005a70; margin: 0 0 10px 0; font-size: 1.1rem; font-weight: bold;"><span>🎧 </span>Viewing Focus</h3>
+<p style="margin: 0 0 8px 0; font-weight: bold;">As you watch the video below, listen for:</p>
+<ol style="margin: 0; padding-left: 20px; line-height: 1.6;">
+<li style="margin-bottom: 6px;">Types of sensitive information that should not be entered into public AI tools.</li>
+<li style="margin-bottom: 6px;">How data entered into an AI tool can be stored, shared, or used to train models.</li>
+<li style="margin-bottom: 6px;">Steps users can take to maintain privacy, confidentiality, and security.</li>
+</ol>
+</div>
+
+<div style="border: 2px solid #2980B9; background-color: #f2f9fd; padding: 16px; border-radius: 8px; margin-bottom: 16px;">
+<h3 style="color: #005a70; margin: 0 0 6px 0; font-size: 1.1rem; font-weight: bold;"><span>▶️ </span>Your Next Move</h3>
+<p style="margin: 0; color: #111111; font-size: 1rem;">Watch the video below. Focus on the key ideas you will use in this step.</p>
+</div>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; border-radius: 6px; border: 1px solid #dddddd; background-color: #000000; margin-bottom: 10px;"><iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;" title="AI Literacy: How to Minimize Algorithmic Bias" src="https://www.youtube-nocookie.com/embed/vyTqZQ7VArE?cc_load_policy=1" allowfullscreen="allowfullscreen" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe></div>
+<nav style="margin-bottom: 24px; font-size: 0.95rem; padding: 8px 12px; background-color: #f4f4f4; border-radius: 4px;"><a style="color: #004d61; text-decoration: underline; font-weight: bold;" href="https://docs.google.com/document/d/1EATbkhtmBiu3GhvA41N7WarFK2LdGn8-yRbBDM2EEZ4/edit" target="_blank" rel="noopener">English Transcript</a> <span style="margin: 0 8px; color: #666666;">|</span> <a style="color: #004d61; text-decoration: underline; font-weight: bold;" href="https://www.youtube-nocookie.com/embed/vz6Mrya_XlQ?rel=0" target="_blank" rel="noopener">Watch in Spanish</a> <span style="margin: 0 8px; color: #666666;">|</span> <a style="color: #004d61; text-decoration: underline; font-weight: bold;" href="url?id=45" target="_blank" rel="noopener">Watch in Arabic</a></nav>
+<div style="border: 2px solid #2980B9; background-color: #f2f9fd; padding: 16px; border-radius: 8px; margin-bottom: 20px;">
+<h3 style="color: #005a70; margin: 0 0 6px 0; font-size: 1.1rem; font-weight: bold;"><span>📖 </span>Your Next Move</h3>
+<p style="margin: 0; color: #111111; font-size: 1rem;">Continue with the short reading and practical guidance below.</p>
+</div>
+
+<div style="margin-bottom: 24px; line-height: 1.6;">
+<p style="margin-bottom: 12px;">You are responsible for protecting information and keeping it secure when you use AI.</p>
+<p style="margin-bottom: 12px;">Information entered into an AI tool may be saved, used to train the system, or exposed by mistake. What happens depends on the tool's settings and agreements.</p>
+</div>
+<details style="border: 1px solid #005A70; border-radius: 6px; margin-bottom: 20px; background-color: #f9f9f9; padding: 12px 16px;">
+<summary style="font-weight: bold; color: #005a70; cursor: pointer; font-size: 1.1rem;">🛡️ Key Strategies to Protect Information & Maintain Security</summary>
+<div style="margin-top: 12px; padding-top: 12px; border-top: 1px solid #e0e0e0;"><strong style="color: #005a70; font-size: 1.05rem;">1. Identify Sensitive Information Before Prompting</strong>
+<p style="margin: 4px 0 8px 0;">Do not share identifying details, private records, or an organization's protected data unless you have permission and use a secure tool.</p>
+<strong style="color: #005a70; font-size: 1.05rem;">2. Understand Tool Privacy Terms & Settings</strong>
+<p style="margin: 4px 0 8px 0;">Verify whether your tool stores search histories, opts inputs into model training, or shares context with external services.</p>
+<strong style="color: #005a70; font-size: 1.05rem;">3. Practice Anonymization & Data Minimization</strong>
+<p style="margin: 4px 0 8px 0;">Before using AI, remove names, exact dates, ID numbers, and details that belong to an organization.</p>
+<strong style="color: #005a70; font-size: 1.05rem;">4. Adhere to Institutional Policies</strong>
+<p style="margin: 4px 0 8px 0;">Follow your organization's rules for data, privacy, and approved AI tools.</p>
+</div>
+</details>
+<h3 style="color: #005a70; margin-top: 24px; margin-bottom: 12px; font-size: 1.15rem; font-weight: bold;">Data Privacy & Handling Reference</h3>
+<table style="width: 100%; border-collapse: collapse; border: 1px solid #dddddd; margin-bottom: 24px;">
+<thead>
+<tr style="background-color: #005a70; color: #ffffff;">
+<th style="padding: 12px; text-align: left; width: 25%; border: 1px solid #dddddd; font-size: 1rem;" scope="col">Information Type</th>
+<th style="padding: 12px; text-align: left; width: 75%; border: 1px solid #dddddd; font-size: 1rem;" scope="col">Handling Requirement</th>
+</tr>
+</thead>
+<tbody>
+<tr style="background-color: #ffffff;">
+<td style="padding: 10px 12px; border: 1px solid #dddddd; font-weight: bold;">Personally Identifiable Info (PII)</td>
+<td style="padding: 10px 12px; border: 1px solid #dddddd;">Names, ID numbers, addresses, contact details — strictly exclude from unapproved tools.</td>
+</tr>
+<tr style="background-color: #f9f9f9;">
+<td style="padding: 10px 12px; border: 1px solid #dddddd; font-weight: bold;">Confidential/Internal Records</td>
+<td style="padding: 10px 12px; border: 1px solid #dddddd;">Private documents, internal communications, financial reports — use only within enterprise-secured platforms.</td>
+</tr>
+<tr style="background-color: #ffffff;">
+<td style="padding: 10px 12px; border: 1px solid #dddddd; font-weight: bold;">Public Knowledge</td>
+<td style="padding: 10px 12px; border: 1px solid #dddddd;">Published research, public news, general concepts — safe to use for general drafting and synthesis.</td>
+</tr>
+</tbody>
+</table>
+
+<div style="margin: 24px 0; text-align: center;"><img style="width: 100%; max-width: 350px; height: auto; border-radius: 6px; border: 1px solid #dddddd;" src="../assets/media/M01_HumanOversightFlowchart_v1.png" alt="Data security flowchart for assessing prompt safety and privacy compliance."></div>
+
+<h3 style="color: #005a70; margin-top: 24px; margin-bottom: 12px; font-size: 1.15rem; font-weight: bold;">Responsible AI Routine Checklist</h3>
+<table style="width: 100%; border-collapse: collapse; border: 1px solid #dddddd; margin-bottom: 24px;">
+<thead>
+<tr style="background-color: #005a70; color: #ffffff;">
+<th style="padding: 12px; text-align: left; width: 20%; border: 1px solid #dddddd; font-size: 1rem;" scope="col">Step</th>
+<th style="padding: 12px; text-align: left; width: 80%; border: 1px solid #dddddd; font-size: 1rem;" scope="col">Security & Privacy Question</th>
+</tr>
+</thead>
+<tbody>
+<tr style="background-color: #ffffff;">
+<td style="padding: 10px 12px; border: 1px solid #dddddd; font-weight: bold;">Goal</td>
+<td style="padding: 10px 12px; border: 1px solid #dddddd;">What task am I completing, and is AI appropriate for handling this information?</td>
+</tr>
+<tr style="background-color: #f9f9f9;">
+<td style="padding: 10px 12px; border: 1px solid #dddddd; font-weight: bold;">Protect</td>
+<td style="padding: 10px 12px; border: 1px solid #dddddd;">Have I removed all sensitive, private, or confidential data from my prompt?</td>
+</tr>
+<tr style="background-color: #ffffff;">
+<td style="padding: 10px 12px; border: 1px solid #dddddd; font-weight: bold;">Use</td>
+<td style="padding: 10px 12px; border: 1px solid #dddddd;">Is the platform approved, and do privacy settings restrict training on my input?</td>
+</tr>
+<tr style="background-color: #f9f9f9;">
+<td style="padding: 10px 12px; border: 1px solid #dddddd; font-weight: bold;">Check</td>
+<td style="padding: 10px 12px; border: 1px solid #dddddd;">Did the output preserve data privacy without leaking unneeded context?</td>
+</tr>
+<tr style="background-color: #ffffff;">
+<td style="padding: 10px 12px; border: 1px solid #dddddd; font-weight: bold;">Own</td>
+<td style="padding: 10px 12px; border: 1px solid #dddddd;">Am I taking personal responsibility for keeping organizational data secure?</td>
+</tr>
+</tbody>
+</table>
+<details style="border: 1px solid #cccccc; border-radius: 6px; margin-bottom: 28px; background-color: #fafafa; padding: 12px 16px; font-size: 0.95rem; color: #444444;">
+<summary style="font-weight: bold; color: #005a70; cursor: pointer; font-size: 1rem;">📚 Sources & Attribution</summary>
+<div style="margin-top: 12px; padding-top: 12px; border-top: 1px solid #e0e0e0;">
+<p style="margin-bottom: 8px;">Michigan Virtual, “Protecting Data Privacy in AI Tools” — Student guidance on maintaining confidentiality and safety. <a style="color: #004d61; text-decoration: underline;" href="https://www.youtube.com/watch?v=fv2e58rgI9k" target="_blank" rel="noopener">Source video</a></p>
+<p style="margin-bottom: 0;">NIST, <em>AI Risk Management Framework 1.0</em> — Guidelines on managing security, privacy risks, and trustworthiness in automated systems. <a style="color: #004d61; text-decoration: underline;" href="https://doi.org/10.6028/NIST.AI.100-1" target="_blank" rel="noopener">View NIST AI Risk Management Framework</a></p>
+</div>
+</details>
+<div style="border-top: 2px solid #005A70; padding-top: 16px; margin-bottom: 20px;">
+<h3 id="check-for-understanding-12" style="color: #005a70; margin: 0 0 8px 0; font-size: 1.2rem; font-weight: bold;"><span>✏️ </span>Check for Understanding</h3>
+<p style="margin: 0; font-size: 1rem;">Complete the questions that appear below to demonstrate your understanding.</p>
+</div>
+
+<p style="margin-top: 24px; color: #666666; font-size: 0.85rem; font-style: italic;">Last Updated: August 5, 2026</p>
+</div><div class="question-set"><article class="question" data-question-type="multiple_choice_question" data-correct="[&quot;ac2036d9-95d7-45e5-aac0-6bf6bfa95e32&quot;]"><h3>Check 1</h3><p>A diagnostic tool uses the wrong vehicle model year in one case and recommends the wrong part. No repeated group pattern is known. Which classification is best supported?</p><div class="choices"><label><input type="radio" name="4de470915c7f1748b76fe5acb3851cd6" value="b76552e0-39f8-4319-b989-ee9366249885"> <span>Data-driven bias is proven.</span></label><label><input type="radio" name="4de470915c7f1748b76fe5acb3851cd6" value="2281e7b3-79b7-444f-a99b-5daf924dfa16"> <span>Rule-based bias is proven.</span></label><label><input type="radio" name="4de470915c7f1748b76fe5acb3851cd6" value="ac2036d9-95d7-45e5-aac0-6bf6bfa95e32"> <span>Another system or input-context failure that must be corrected, but bias is not yet established.</span></label><label><input type="radio" name="4de470915c7f1748b76fe5acb3851cd6" value="ff424964-a797-4097-935f-9615df80a743"> <span>The result is safe because it happened only once.</span></label></div><button class="check-answer" type="button">Check answer</button><div class="feedback" role="status" hidden><p>Correct! The case shows a serious reliability and context failure, but it does not yet establish a repeated unfair pattern.</p></div></article><article class="question" data-question-type="multiple_choice_question" data-correct="[&quot;e427d9b9-9f32-4044-887b-0b750e782419&quot;]"><h3>Check 2</h3><p>Which safeguard gives people a meaningful way to challenge an AI-supported decision?</p><div class="choices"><label><input type="radio" name="b0e2e7384cc0679ff7a142dbbfa8d5d9" value="e427d9b9-9f32-4044-887b-0b750e782419"> <span>An appeal or escalation process with a qualified reviewer</span></label><label><input type="radio" name="b0e2e7384cc0679ff7a142dbbfa8d5d9" value="ac69de36-0807-49d0-b041-d20165bf8915"> <span>A hidden confidence score</span></label><label><input type="radio" name="b0e2e7384cc0679ff7a142dbbfa8d5d9" value="a58ba9a8-9729-4bd3-a155-db03b5321a9c"> <span>Automatic approval of the highest score</span></label><label><input type="radio" name="b0e2e7384cc0679ff7a142dbbfa8d5d9" value="6b72d5a7-1cf4-496c-9300-9ce65daf6952"> <span>Deleting the decision record</span></label></div><button class="check-answer" type="button">Check answer</button><div class="feedback" role="status" hidden><p>Correct! An appeal or escalation process allows affected people to request correction and human review.</p></div></article><article class="question" data-question-type="multiple_choice_question" data-correct="[&quot;38dfc33d-e308-4378-99a5-423f7d5dcd04&quot;]"><h3>Check 3</h3><p>Which example shows meaningful human oversight?</p><div class="choices"><label><input type="radio" name="a32d7ba29dfd1547adee8a5dd36c5b23" value="6958bcc9-10f6-44ad-babe-6e1f4c2a5ac0"> <span>A reviewer clicks Approve without seeing the evidence.</span></label><label><input type="radio" name="a32d7ba29dfd1547adee8a5dd36c5b23" value="38dfc33d-e308-4378-99a5-423f7d5dcd04"> <span>A trained reviewer checks the evidence and full situation. The reviewer can stop the system, records the decision, and takes responsibility.</span></label><label><input type="radio" name="a32d7ba29dfd1547adee8a5dd36c5b23" value="565531ee-61c5-46f8-bd59-f970aa37a8c0"> <span>The AI tool approves its own recommendation.</span></label><label><input type="radio" name="a32d7ba29dfd1547adee8a5dd36c5b23" value="8c8e173e-00fd-48f7-bab9-33319312745c"> <span>A supervisor checks only whether the screen is working.</span></label></div><button class="check-answer" type="button">Check answer</button><div class="feedback" role="status" hidden><p>Correct! Meaningful oversight requires information, authority, documentation, and responsibility.</p></div></article></div></section><section class="lesson-step classroom-activity" id="step-4-5" data-step-label="4.5" hidden><p class="eyebrow">Step 4.5 · Practical application</p><h2>Apply Your Learning: Workplace AI Review Board</h2>
+<div style="padding: 20px; background-color: #ffffff; border-width: 4px 1px 1px; border-style: solid; border-color: #c7d1d6; border-radius: 4px; font-family: Arial, sans-serif; color: #2d2d2d; line-height: 1.6;">
+<div style="display: inline-block; background-color: #005a70; color: #ffffff; font-size: 14px; padding: 6px 12px; border-radius: 4px; margin-bottom: 12px;">Lesson 4 — Practical Application</div>
+<p style="margin-top: 0; margin-bottom: 20px; color: #2d2d2d;">AI can pick up unfair habits from old data or bad rules. Find the bias in a program, check for missing information, and decide when a human must step in.</p>
+<details style="background: #ffffff; border-radius: 4px; margin-bottom: 12px; padding: 12px; border: 1px solid #c7d1d6;">
+<summary style="cursor: pointer; color: #005a70; font-size: 16px; outline-offset: 4px;">1. Core Concepts: The H.E.A.R. Fairness Routine</summary>
+<div style="padding-top: 12px;">
+<div style="background-color: #fdf2f2; padding: 15px; border-radius: 6px; margin-bottom: 16px; border: 2px solid #c0392b;">
+<h4 style="color: #900c3f; margin-top: 0; margin-bottom: 8px;">Critical Thinking Check: How AI Gets Biased</h4>
+<p style="margin: 0; font-size: 14px; color: #2d2d2d;">AI tools do not have feelings or opinions. They copy patterns from the data humans give them. If old records leave out facts or favor one group, the AI will keep repeating those same mistakes.</p>
+</div>
+<h4 style="color: #005a70; font-size: 15px; margin-top: 16px; margin-bottom: 12px;">Use the H.E.A.R. Checklist on Every AI Output</h4>
+<div style="border-width: 1px 1px 1px 8px; border-style: solid; border-color: #c7d1d6 #c7d1d6 #c7d1d6 #005a70; padding: 12px; margin-bottom: 8px; border-radius: 4px;">
+<p style="margin: 0; font-size: 14px;"><strong style="color: #005a70;">H — Harmed:</strong> Who could be hurt, left out, or graded unfairly by this AI result?</p>
+</div>
+<div style="border-width: 1px 1px 1px 8px; border-style: solid; border-color: #c7d1d6 #c7d1d6 #c7d1d6 #005a70; padding: 12px; margin-bottom: 8px; border-radius: 4px;">
+<p style="margin: 0; font-size: 14px;"><strong style="color: #005a70;">E — Evidence:</strong> What key details, facts, or instructions did the AI leave out?</p>
+</div>
+<div style="border-width: 1px 1px 1px 8px; border-style: solid; border-color: #c7d1d6 #c7d1d6 #c7d1d6 #005a70; padding: 12px; margin-bottom: 8px; border-radius: 4px;">
+<p style="margin: 0; font-size: 14px;"><strong style="color: #005a70;">A — Affected:</strong> Is the AI treating certain people or items differently without a good reason?</p>
+</div>
+<div style="border-width: 1px 1px 1px 8px; border-style: solid; border-color: #c7d1d6 #c7d1d6 #c7d1d6 #005a70; padding: 12px; margin-bottom: 0px; border-radius: 4px;">
+<p style="margin: 0; font-size: 14px;"><strong style="color: #005a70;">R — Review:</strong> Does a trained human need to double-check and fix the work before using it?</p>
+</div>
+</div>
+</details><details style="background: #ffffff; border-radius: 4px; margin-bottom: 12px; padding: 12px; border: 1px solid #c7d1d6;">
+<summary style="cursor: pointer; color: #005a70; font-size: 16px; outline-offset: 4px;">2. Program Case File Matrix</summary>
+<div style="padding-top: 12px;">
+<table style="width: 100%; border-collapse: collapse; font-size: 14px; border: 1px solid #c7d1d6;"><caption style="text-align: left; margin-bottom: 8px; color: #005a70; font-size: 14px;">Pathways, AI Scenarios, and Actions Required</caption>
+<thead style="background-color: #005a70; color: #ffffff;">
+<tr>
+<th style="padding: 10px; text-align: left; color: #ffffff; border: 1px solid #c7d1d6;" scope="col">Program Pathway</th>
+<th style="padding: 10px; text-align: left; color: #ffffff; border: 1px solid #c7d1d6;" scope="col">AI Case Scenario</th>
+<th style="padding: 10px; text-align: left; color: #ffffff; border: 1px solid #c7d1d6;" scope="col">Source of Bias</th>
+<th style="padding: 10px; text-align: left; color: #ffffff; border: 1px solid #c7d1d6;" scope="col">Required Action</th>
+</tr>
+</thead>
+<tbody>
+<tr style="border-bottom: 1px solid #c7d1d6;">
+<th style="padding: 10px; text-align: left; background-color: #ffffff; border: 1px solid #c7d1d6;" scope="row">Agriscience & Vet Med</th>
+<td style="padding: 10px; border: 1px solid #c7d1d6;">An AI tool suggests pet medicine based only on dog breed, ignoring the animal's weight, age, and symptoms.</td>
+<td style="padding: 10px; border: 1px solid #c7d1d6;">Missing Patient Data</td>
+<td style="padding: 10px; color: #900c3f; border: 1px solid #c7d1d6;">Stop & Re-evaluate (Red)</td>
+</tr>
+<tr style="border-bottom: 1px solid #c7d1d6; background-color: #f8f9fa;">
+<th style="padding: 10px; text-align: left; background-color: #f8f9fa; border: 1px solid #c7d1d6;" scope="row">Automotive Technology</th>
+<td style="padding: 10px; border: 1px solid #c7d1d6;">An engine tool gives repair steps using general car data, skipping factory safety alerts for that model.</td>
+<td style="padding: 10px; border: 1px solid #c7d1d6;">Outdated Specs</td>
+<td style="padding: 10px; color: #8a3b00; border: 1px solid #c7d1d6;">Needs Review (Yellow)</td>
+</tr>
+<tr style="border-bottom: 1px solid #c7d1d6;">
+<th style="padding: 10px; text-align: left; background-color: #ffffff; border: 1px solid #c7d1d6;" scope="row">Business & Marketing</th>
+<td style="padding: 10px; border: 1px solid #c7d1d6;">A hiring tool screens job applications and drops qualified candidates because they have gaps in their work history.</td>
+<td style="padding: 10px; border: 1px solid #c7d1d6;">Rigid Filter Rules</td>
+<td style="padding: 10px; color: #900c3f; border: 1px solid #c7d1d6;">Stop & Re-evaluate (Red)</td>
+</tr>
+<tr style="border-bottom: 1px solid #c7d1d6; background-color: #f8f9fa;">
+<th style="padding: 10px; text-align: left; background-color: #f8f9fa; border: 1px solid #c7d1d6;" scope="row">Computer Science & Cybersecurity</th>
+<td style="padding: 10px; border: 1px solid #c7d1d6;">A security AI flags normal student network activity as a cyber threat because it was sent after school hours.</td>
+<td style="padding: 10px; border: 1px solid #c7d1d6;">Flawed Rule Pattern</td>
+<td style="padding: 10px; color: #8a3b00; border: 1px solid #c7d1d6;">Needs Review (Yellow)</td>
+</tr>
+<tr style="border-bottom: 1px solid #c7d1d6;">
+<th style="padding: 10px; text-align: left; background-color: #ffffff; border: 1px solid #c7d1d6;" scope="row">Construction Trades</th>
+<td style="padding: 10px; border: 1px solid #c7d1d6;">An AI cost calculator estimates building supplies using national prices instead of local store prices.</td>
+<td style="padding: 10px; border: 1px solid #c7d1d6;">Wrong Location Data</td>
+<td style="padding: 10px; color: #8a3b00; border: 1px solid #c7d1d6;">Needs Review (Yellow)</td>
+</tr>
+<tr style="border-bottom: 1px solid #c7d1d6; background-color: #f8f9fa;">
+<th style="padding: 10px; text-align: left; background-color: #f8f9fa; border: 1px solid #c7d1d6;" scope="row">Criminal Justice & Public Safety</th>
+<td style="padding: 10px; border: 1px solid #c7d1d6;">A risk-scoring tool marks neighborhood zip codes as high crime regardless of individual case facts.</td>
+<td style="padding: 10px; border: 1px solid #c7d1d6;">Unfair Historical Data</td>
+<td style="padding: 10px; color: #900c3f; border: 1px solid #c7d1d6;">Stop & Re-evaluate (Red)</td>
+</tr>
+<tr style="border-bottom: 1px solid #c7d1d6;">
+<th style="padding: 10px; text-align: left; background-color: #ffffff; border: 1px solid #c7d1d6;" scope="row">Education & Early Childhood</th>
+<td style="padding: 10px; border: 1px solid #c7d1d6;">An AI lesson creator suggests activities that require expensive supplies that not all schools can afford.</td>
+<td style="padding: 10px; border: 1px solid #c7d1d6;">Income Bias</td>
+<td style="padding: 10px; color: #8a3b00; border: 1px solid #c7d1d6;">Needs Review (Yellow)</td>
+</tr>
+<tr style="border-bottom: 1px solid #c7d1d6; background-color: #f8f9fa;">
+<th style="padding: 10px; text-align: left; background-color: #f8f9fa; border: 1px solid #c7d1d6;" scope="row">Graphic Design & Digital Media</th>
+<td style="padding: 10px; border: 1px solid #c7d1d6;">An AI image generator creates team pictures that only show one race or age group unless specifically forced.</td>
+<td style="padding: 10px; border: 1px solid #c7d1d6;">Stereotyped Training Data</td>
+<td style="padding: 10px; color: #900c3f; border: 1px solid #c7d1d6;">Stop & Re-evaluate (Red)</td>
+</tr>
+<tr style="border-bottom: 1px solid #c7d1d6;">
+<th style="padding: 10px; text-align: left; background-color: #ffffff; border: 1px solid #c7d1d6;" scope="row">Health Sciences & Nursing</th>
+<td style="padding: 10px; border: 1px solid #c7d1d6;">An AI triage app rates chest pain as low risk for young adults, missing key family medical background.</td>
+<td style="padding: 10px; border: 1px solid #c7d1d6;">Incomplete Symptom Rules</td>
+<td style="padding: 10px; color: #900c3f; border: 1px solid #c7d1d6;">Stop & Re-evaluate (Red)</td>
+</tr>
+<tr style="border-bottom: 1px solid #c7d1d6; background-color: #f8f9fa;">
+<th style="padding: 10px; text-align: left; background-color: #f8f9fa; border: 1px solid #c7d1d6;" scope="row">Hospitality & Culinary Arts</th>
+<td style="padding: 10px; border: 1px solid #c7d1d6;">A menu planning tool plans a full dinner set without flagging common food allergies like peanuts or gluten.</td>
+<td style="padding: 10px; border: 1px solid #c7d1d6;">Missing Safety Guardrails</td>
+<td style="padding: 10px; color: #8a3b00; border: 1px solid #c7d1d6;">Needs Review (Yellow)</td>
+</tr>
+<tr style="border-bottom: 1px solid #c7d1d6;">
+<th style="padding: 10px; text-align: left; background-color: #ffffff; border: 1px solid #c7d1d6;" scope="row">Manufacturing & Robotics</th>
+<td style="padding: 10px; border: 1px solid #c7d1d6;">An AI inspection camera rejects metal parts with tiny cosmetic marks that do not change part strength.</td>
+<td style="padding: 10px; border: 1px solid #c7d1d6;">Overly Strict Filter</td>
+<td style="padding: 10px; color: #8a3b00; border: 1px solid #c7d1d6;">Needs Review (Yellow)</td>
+</tr>
+<tr style="border-bottom: 1px solid #c7d1d6; background-color: #f8f9fa;">
+<th style="padding: 10px; text-align: left; background-color: #f8f9fa; border: 1px solid #c7d1d6;" scope="row">Welding Technology</th>
+<td style="padding: 10px; border: 1px solid #c7d1d6;">An AI machine guide recommends heat settings for indoor work while ignoring cold outdoor weather conditions.</td>
+<td style="padding: 10px; border: 1px solid #c7d1d6;">Missing Environmental Data</td>
+<td style="padding: 10px; color: #8a3b00; border: 1px solid #c7d1d6;">Needs Review (Yellow)</td>
+</tr>
+</tbody>
+</table>
+</div>
+</details><details style="background: #ffffff; border-radius: 4px; margin-bottom: 12px; padding: 12px; border: 1px solid #c7d1d6;">
+<summary style="cursor: pointer; color: #005a70; font-size: 16px; outline-offset: 4px;">3. Your Assignment Instructions</summary>
+<div style="padding-top: 12px;">
+<div style="background-color: #f0f7f9; padding: 15px; border-radius: 6px; margin-bottom: 16px; border: 2px solid #005a70;">
+<h4 style="color: #005a70; margin-top: 0; margin-bottom: 8px;">AI Fairness Review Board</h4>
+<p style="margin-top: 0; margin-bottom: 12px; font-size: 14px; color: #2d2d2d;"><strong>Step 1: Choose Your Scenario.</strong> You may choose the scenario for your main program <em>OR</em> pick any other GCI program from the chart above that you find interesting.</p>
+<p style="margin-top: 0; margin-bottom: 12px; font-size: 14px; color: #2d2d2d;"><strong>Step 2: Submit Your Answers.</strong> Answer these 5 questions and submit your answers in the course:</p>
+<ol style="margin-bottom: 0; padding-left: 20px; font-size: 14px; color: #2d2d2d;">
+<li style="margin-bottom: 8px;"><strong>Selected Pathway & Target Task:</strong> Which program did you pick, and what job was the AI trying to do?</li>
+<li style="margin-bottom: 8px;"><strong>Source of Bias:</strong> What went wrong with the data or system rules?</li>
+<li style="margin-bottom: 8px;"><strong>Impacted Stakeholders:</strong> Who could be hurt, left out, or treated unfairly by this mistake?</li>
+<li style="margin-bottom: 8px;"><strong>Human Safeguard:</strong> What exact step must a human worker take to fix or verify the answer?</li>
+<li style="margin-bottom: 0;"><strong>Final Verdict:</strong> Give it a Green Light (Safe to use after check), Yellow Light (Needs human edits), or Red Light (Stop using immediately).</li>
+</ol>
+</div>
+<div style="background-color: #ffffff; padding: 15px; border-radius: 6px; border: 2px dashed #005a70;">
+<h4 style="color: #005a70; margin-top: 0; margin-bottom: 8px;">Need an Example? Check This Out:</h4>
+<p style="font-size: 14px; color: #2d2d2d; margin-top: 0; margin-bottom: 10px;">Here is how a 100% completed response looks for a sample program:</p>
+<div style="font-size: 14px; background-color: #f8f9fa; padding: 12px; border-left: 4px solid #005A70; border-radius: 4px; color: #2d2d2d;">
+<ol start="1" type="1">
+<li><strong>Selected Pathway & Target Task:</strong> Culinary Science — The AI was trying to create a 3-course dinner menu for a school event.</li>
+<li><strong>Source of Bias:</strong> Missing Safety Guardrails. The AI ignored student dietary needs and allergies in its search rules.</li>
+<li><strong>Impacted Stakeholders:</strong> Students with peanut or gluten allergies could get sick if the food is served without checking.</li>
+<li><strong>Human Safeguard:</strong> A chef must review the menu against student allergy lists and swap out unsafe ingredients before cooking.</li>
+<li><strong>Final Verdict:</strong> Yellow Light (Needs human edits before serving).</li>
+</ol>
+</div>
+</div>
+</div>
+</details>
+<p style="font-size: 12px; color: #5f5e5a; margin-top: 15px; margin-bottom: 0; text-align: right;">Last Updated: August 2026</p>
+</div>
+</section><section class="lesson-step assessment-callout" id="step-4-6" data-step-label="4.6" hidden><p class="eyebrow">Step 4.6 · Lesson assessment · Google Form</p><h2>Show What You Know: Bias, Fairness, and Human Oversight</h2><p>Complete the assessment to show what you know from Lesson 4. Follow your instructor’s directions for the mastery score and attempts.</p><a class="button" href="https://docs.google.com/forms/d/1xEHpZQSfvtUiRUyKPtLR1MDnbVdfjNOXkZbyGbbLFec/viewform" target="_blank" rel="noopener">Open Lesson 4 assessment <span aria-hidden="true">↗</span></a></section>
+<p class="sr-only" id="step-announcement" aria-live="polite"></p>
+<nav class="step-controls" aria-label="Lesson step navigation"><button class="step-button secondary" id="previous-step" type="button">← Previous step</button><button class="step-button" id="next-step" type="button">Next step →</button></nav>
+<p class="step-help">Your place in this lesson is saved automatically on this device.</p></div></main>
+<footer><p>Artificial Intelligence Literacy · Genesee Career Institute</p></footer><script src="../assets/app.js"></script></body></html>
