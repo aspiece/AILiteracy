@@ -730,7 +730,23 @@ def clean_fragment(value: str) -> str:
     value = re.sub(r'(href="https://www\.youtube\.com/watch\?v=(?:BQosMFvT0aU|fv2e58rgI9k)&(?:amp;)?cc_load_policy=1"[^>]*>)English transcript(</a>)', r'\1Watch with English captions\2', value)
     value = value.replace("$IMS-CC-FILEBASE$/Uploaded%20Media/", "../assets/media/")
     value = value.replace("$IMS-CC-FILEBASE$/Uploaded Media/", "../assets/media/")
-    value = value.replace('src="url?id=17/159962/preview"', 'src="../assets/media/M01_ResponsibleAIRoutine_v1.png"')
+    value = value.replace('src="url?id=17/159962/preview"', 'src="../assets/media/Responsible_AI_Routine_Web_Mobile_1200px.png"')
+    value = value.replace(
+        'src="../assets/media/M01_ResponsibleAIRoutine_v1.png"',
+        'src="../assets/media/Responsible_AI_Routine_Web_Mobile_1200px.png"',
+    )
+    value = value.replace(
+        'alt="AI Decision Pathway with Goal, Protect, Use, Check, and Own."',
+        f'alt="{html.escape(ROUTINE_ALT, quote=True)}"',
+    )
+    value = value.replace(
+        'alt="AI Decision Pathway showing Goal, Protect, Use, Check, and Own."',
+        f'alt="{html.escape(ROUTINE_ALT, quote=True)}"',
+    )
+    value = value.replace(
+        'alt="Data security flowchart for assessing prompt safety and privacy compliance."',
+        'alt="Human oversight flowchart for deciding when an AI output needs review, more information, safeguards, or a stop."',
+    )
     value = value.replace('href="url?id=38"', 'href="https://www.iea.org/reports/key-questions-on-energy-and-ai"')
     value = re.sub(r"\sdata-api-(?:endpoint|returntype)=\"[^\"]*\"", "", value)
     value = re.sub(r'<div[^>]*>\s*<p[^>]*>[^<]*Need Help Submitting in Canvas.*?</div>', '', value, flags=re.I | re.S)
@@ -819,7 +835,7 @@ def clean_fragment(value: str) -> str:
         value,
         flags=re.I,
     )
-    return accessibility_fragment(set_video_focus(value))
+    return make_images_zoomable(accessibility_fragment(set_video_focus(value)))
 
 
 def accessibility_fragment(value: str) -> str:
@@ -845,6 +861,27 @@ def accessibility_fragment(value: str) -> str:
         )
 
     value = re.sub(r"<table\b[^>]*>.*?</table>", wrap_table, value, flags=re.I | re.S)
+    return value
+
+
+def make_images_zoomable(value: str) -> str:
+    """Make imported lesson images operable at full size with mouse or keyboard."""
+    matches = list(re.finditer(r"<img\b[^>]*>", value, flags=re.I))
+    for match in reversed(matches):
+        prefix = value[:match.start()]
+        if prefix.rfind('<button class="image-zoom"') > prefix.rfind("</button>"):
+            continue
+        image = match.group(0)
+        alt_match = re.search(r'alt="([^"]*)"', image, flags=re.I)
+        label = "Enlarge instructional image"
+        if alt_match and alt_match.group(1).strip():
+            short_alt = re.sub(r"\s+", " ", html.unescape(alt_match.group(1))).strip()
+            label = f"Enlarge image: {short_alt[:120]}"
+        replacement = (
+            f'<button class="image-zoom" type="button" aria-label="{html.escape(label, quote=True)}">'
+            f"{image}</button>"
+        )
+        value = value[:match.start()] + replacement + value[match.end():]
     return value
 
 
@@ -1057,6 +1094,54 @@ def add_check_next_move(value: str) -> str:
     return value.rstrip() + box
 
 
+ROUTINE_ALT = (
+    "Responsible AI Routine: 1 Goal—What am I trying to do? "
+    "2 Protect—What should stay private? 3 Use—How can AI help? "
+    "4 Check—Is it accurate and safe? 5 Own—Who is responsible in the end?"
+)
+ASSET_VERSION = "20260808-graphics-refinements"
+ROUTINE_WEB_URL = "https://drive.google.com/file/d/1ZU5oKUOuZtzy2pleGarrKHy60p8J_RS2/view?usp=drivesdk"
+ROUTINE_PRINT_URL = "https://drive.google.com/file/d/1P82VigGCzn5qVHIDCmn2E0EmWflxOZiR/view?usp=drivesdk"
+
+
+def routine_figure(caption: str) -> str:
+    """Return the shared routine visual with an accessible enlargement control."""
+    return (
+        '<figure class="routine-figure">'
+        '<button class="image-zoom" type="button" aria-label="Enlarge the Responsible AI Routine image">'
+        f'<img src="../assets/media/Responsible_AI_Routine_Web_Mobile_1200px.png" alt="{html.escape(ROUTINE_ALT, quote=True)}" loading="lazy">'
+        '</button>'
+        f'<figcaption>{html.escape(caption)} Select the image to enlarge it. '
+        '<span class="routine-links">'
+        f'<a href="{ROUTINE_WEB_URL}" target="_blank" rel="noopener">Open web/mobile version</a>'
+        '<span aria-hidden="true"> · </span>'
+        f'<a href="{ROUTINE_PRINT_URL}" target="_blank" rel="noopener">Open print-quality version</a>'
+        '</span></figcaption>'
+        '</figure>'
+    )
+
+
+def instructional_figure(src: str, alt: str, caption: str) -> str:
+    """Return a step-specific instructional image with context and enlargement."""
+    return (
+        '<figure class="instructional-figure">'
+        f'<button class="image-zoom" type="button" aria-label="Enlarge image: {html.escape(alt[:120], quote=True)}">'
+        f'<img src="../assets/media/{html.escape(src, quote=True)}" alt="{html.escape(alt, quote=True)}" loading="lazy">'
+        '</button>'
+        f'<figcaption>{html.escape(caption)} Select the image to enlarge it.</figcaption>'
+        '</figure>'
+    )
+
+
+def graphic_resource_links(*links: tuple[str, str]) -> str:
+    """Return links to alternate graphic formats stored with the course."""
+    items = " · ".join(
+        f'<a href="../assets/media/exports/{html.escape(filename, quote=True)}" target="_blank" rel="noopener">{html.escape(label)}</a>'
+        for label, filename in links
+    )
+    return f'<p class="graphic-resource-links"><strong>Graphic formats:</strong> {items}</p>'
+
+
 def step_html(step: dict, number: int, index: int) -> str:
     title = re.sub(r"^\d+\.\d+\s*[^A-Za-z0-9]*\s*", "", step["title"]).strip()
     step_label = step_number(step, number, index)
@@ -1070,6 +1155,27 @@ def step_html(step: dict, number: int, index: int) -> str:
         # Assignment pages begin with the generated step h2, so imported
         # subsection headings belong at h3 rather than skipping to h4.
         content = re.sub(r"<(/?)h4\b", r"<\1h3", content, flags=re.I)
+        assignment_routine_captions = {
+            "6.5": "Use the routine to check permission, accuracy, credit, and responsibility before sharing AI-assisted work.",
+            "8.5": "Use the routine to guide your final model decisions and reflection.",
+        }
+        if step_label in assignment_routine_captions:
+            content = routine_figure(assignment_routine_captions[step_label]) + content
+        if step_label == "5.5":
+            content = instructional_figure(
+                "Minimum_Necessary_Data_1600x1000.png",
+                "Minimum necessary data example. A prompt with a fictional full name, phone number, account number, employer file detail, and exact incident date is changed into a safer prompt using only a general role, fictional situation, and task goal. The safer version confirms permission, removes identifying details, and uses an approved tool.",
+                "Compare the two fictional prompts. Remove details that the task does not require before entering information into an approved tool.",
+            ) + content
+        if step_label == "4.5":
+            content = instructional_figure(
+                "M01_AIReviewBoard_v1.png",
+                "Five-step AI Review Board investigation: identify the AI role, find possible harm, require a human check, create a safer rule, and give a verdict.",
+                "Use these five steps to investigate the workplace AI case before giving your verdict.",
+            ) + graphic_resource_links(
+                ("Open mobile version", "AI_Review_Board_Mobile_1200x900.png"),
+                ("Open print version", "AI_Review_Board_Print_8.5x11.png"),
+            ) + content
         if step_label == "4.5":
             content = re.sub(
                 r"<strong>Step 2: Submit Your Answers\.</strong>\s*Answer these 5 questions(?: in the text box below| and submit your answers in the course)?:",
@@ -1091,6 +1197,103 @@ def step_html(step: dict, number: int, index: int) -> str:
     qti = SOURCE / "non_cc_assessments" / f'{step["ref"]}.xml.qti'
     questions = extract_questions(qti) if qti.exists() else []
     desc = quiz_description(step["ref"])
+    lesson_two_graphics = {
+        "2.3": (
+            "M01_5TipPromptFormula_v1.png",
+            "Five-tip prompting formula: Specificity, Role, Format, Interactive Questions, and Tone.",
+            "Use this formula to choose the prompt details that fit your goal; every prompt does not need all five tips.",
+        ),
+        "2.4": (
+            "M01_3StepAuditProcess_v1.png",
+            "Three-step AI response audit: Check Facts, Find Gaps, and Ask Again.",
+            "Use this three-step process to check an AI response and improve what is missing or incorrect.",
+        ),
+    }
+    if step_label in lesson_two_graphics:
+        desc += instructional_figure(*lesson_two_graphics[step_label])
+        lesson_two_exports = {
+            "2.3": (
+                ("Open mobile version", "Five_Tip_Prompting_Formula_Mobile_1200x675.png"),
+                ("Open print version", "Five_Tip_Prompting_Formula_Print_8.5x11.png"),
+            ),
+            "2.4": (
+                ("Open mobile version", "Three_Step_Audit_Process_Mobile_1200x675.png"),
+                ("Open print version", "Three_Step_Audit_Process_Print_8.5x11.png"),
+            ),
+        }
+        desc += graphic_resource_links(*lesson_two_exports[step_label])
+    phase_two_graphics = {
+        "6.3": (
+            "Copyright_Permission_Decision_Path_1400x1100.png",
+            "Copyright and permission decision path: identify whether every part is your own; if not, confirm permission or a license; include required credit; disclose AI help; and stop to get permission, replace material, or ask for help when permission is missing.",
+            "Follow each decision before you use or share work. Finding something online does not give you permission to use it.",
+        ),
+        "7.3": (
+            "AI_Task_Change_Continuum_1600x900.png",
+            "AI task change continuum from an automated step, where AI handles a narrow repeated action, to augmented work, where AI supports a person, to a human-led decision, where a trained person reviews evidence, context, and consequences.",
+            "Use the continuum to decide how much human judgment and review a task needs.",
+        ),
+        "7.4": (
+            "Career_Impact_Balance_Map_1600x1200.png",
+            "Full-impact map connecting a proposed AI use to Work and Skills, People and Fairness, Access, and Resources and Environment, followed by the question: What safeguards would improve the outcome?",
+            "Consider all four areas before judging the effect of an AI use on a career or workplace.",
+        ),
+    }
+    if step_label in phase_two_graphics:
+        desc += instructional_figure(*phase_two_graphics[step_label])
+    if step_label == "3.3":
+        desc += instructional_figure(
+            "Verify_Before_You_Trust_1600x700.png",
+            "Verify Before You Trust process: 1 Pause and identify what makes you uncertain; 2 Trace where the media came from; 3 Check what reliable evidence shows; 4 Decide whether it is accurate, safe, and appropriate to use; 5 Disclose what others should know about its source or AI use. No single clue or detector score is final proof.",
+            "Use the five steps whenever you investigate media. Follow the process instead of treating one clue or detector score as final proof.",
+        )
+    if step_label == "7.3":
+        desc += instructional_figure(
+            "Career_Task_AI_Role_1600x1000.png",
+            "Fictional maintenance-request comparison. Before AI support, people sort requests, draft summaries, review evidence, and decide. With responsible AI support, AI groups requests and drafts a summary, while a trained supervisor checks evidence and decides. People remain responsible for correcting errors, considering safety and context, and approving the final action.",
+            "Compare the same task before and after AI support. Identify what became faster and what responsibility remained with trained people.",
+        )
+    phase_three_graphics = {
+        "6.4": (
+            "AI_Use_Disclosure_Anatomy_1600x900.png",
+            "Annotated AI-use disclosure: I used an approved AI tool to brainstorm three headings. I chose one heading, wrote the full draft, checked the facts, and revised the final work. Callouts identify the tool or type of help, the specific task AI performed, the student's work, and the checking and revision.",
+            "Use the four callouts to identify what a clear AI-use disclosure should explain. Follow your course or workplace rules.",
+        ),
+        "8.2": (
+            "Uneven_Outcomes_Comparison_1600x900.png",
+            "Fictional practice data showing 90 percent overall model accuracy while Test Group A scores 96 percent, Test Group B scores 91 percent, and Test Group C scores 68 percent. Review questions ask whether each group is represented, which errors matter most, and what must improve before use.",
+            "Compare the group results with the overall score. Notice what the 90 percent summary hides and decide what must be reviewed before use.",
+        ),
+    }
+    if step_label in phase_three_graphics:
+        desc += instructional_figure(*phase_three_graphics[step_label])
+    if step_label == "8.3":
+        desc = re.sub(
+            r'<p[^>]*>Building an AI model is a cycle that repeats\. Review the five steps below.*?</div>\s*<p[^>]*>As you answer the reflection questions below, think about how each step in this cycle helps make an AI system more accurate and reliable\.</p>',
+            (
+                '<p>Building an AI model is a cycle that repeats. People define the goal, prepare data, train and test the model, improve it, and monitor how it is used.</p>'
+                + instructional_figure(
+                    "Six_Step_Model_Building_Cycle_1600x1200.png",
+                    "Six-step model-building cycle: 1 Define the goal and success criteria; 2 Collect and prepare appropriate data; 3 Train the model; 4 Test results and compare groups; 5 Improve data, rules, or training; 6 Monitor use and keep human responsibility. The cycle returns to step 1, and people make choices at every step.",
+                    "Trace the cycle from Define through Monitor. Notice that human choices and responsibility continue at every step.",
+                )
+                + graphic_resource_links(
+                    ("Open mobile version", "Six_Step_Model_Building_Cycle_Mobile_1200x1800.png"),
+                    ("Open print version", "Six_Step_Model_Building_Cycle_Print_8.5x11.png"),
+                )
+                + '<ol class="graphic-text-equivalent"><li><strong>Define:</strong> Set the goal and success criteria.</li><li><strong>Collect:</strong> Gather and prepare appropriate data.</li><li><strong>Train:</strong> Build the model from the prepared examples.</li><li><strong>Test:</strong> Check results and compare performance across groups or conditions.</li><li><strong>Improve:</strong> Change the data, rules, or training when evidence shows a problem.</li><li><strong>Monitor:</strong> Review real use and keep people responsible for decisions.</li></ol>'
+                + '<p>As you answer the questions below, think about how each step helps people find problems and improve the system.</p>'
+            ),
+            desc,
+            count=1,
+            flags=re.I | re.S,
+        )
+    if step_label == "5.2":
+        desc += (
+            '<div class="routine-text-cue"><p><strong>Responsible AI Routine reminder:</strong> '
+            'Goal → Protect → Use → Check → Own</p><p>For this step, focus on <strong>Protect</strong>: '
+            'confirm permission and use only the information the task requires.</p></div>'
+        )
     if step_label == "1.5":
         desc = re.sub(
             r'(<strong[^>]*>How this works:</strong>).*?(</p>)',
@@ -1098,6 +1301,11 @@ def step_html(step: dict, number: int, index: int) -> str:
             desc,
             count=1,
             flags=re.I | re.S,
+        )
+        desc += instructional_figure(
+            "Human_Decisions_Map_1600x1000.png",
+            "Human Decisions Map: AI may help sort information, find patterns, draft options, or make a recommendation. A trained person must check evidence, consider the full situation, make high-impact decisions, and take responsibility. More human review is needed as effects on health, safety, rights, money, education, reputation, or the future increase.",
+            "Use this map to decide what AI may help with and what a trained person must review or decide in each case.",
         )
         return f'<section class="lesson-step classroom-activity" id="step-1-5" data-step-label="1.5" hidden><p class="eyebrow">Step 1.5 · Practical application</p><h2>{html.escape(title)}</h2>{desc}{human_decisions_simulation()}</section>'
     if step_label == "3.5" and qti.exists():
@@ -1114,11 +1322,16 @@ def step_html(step: dict, number: int, index: int) -> str:
             '<p style="margin: 0; color: #222222;"><strong style="color: #005A70;">✅ Your next move:</strong> '
             'Compare each pair of images and choose the responsible decision. Check the feedback before moving to the next pair.</p></div>'
         )
+        fictional_notice = (
+            '<div class="fictional-material-notice"><p><strong>Fictional practice materials:</strong> '
+            'All comparison examples in this activity are fictional. Some intentionally include unsafe, inaccurate, '
+            'misleading, private, or incomplete content so you can practice identifying problems. Do not treat them as real records or approved guidance.</p></div>'
+        )
         practice_note = '<p class="save-note">This is a practice activity and does not need to be submitted.</p>'
         return (
             f'<section class="lesson-step classroom-activity" id="step-3-5" data-step-label="3.5" hidden>'
             f'<p class="eyebrow">Step 3.5 · Practical application</p><h2>{html.escape(title)}</h2>'
-            f'{desc}{next_move}{media_audit_simulation(bank_questions)}{practice_note}</section>'
+            f'{desc}{fictional_notice}{next_move}{media_audit_simulation(bank_questions)}{practice_note}</section>'
         )
     if step_label == "2.4":
         desc = desc.replace("IFoEcetEdVQ", "lKsuxtGJSKA")
@@ -1192,6 +1405,22 @@ def classroom_handoff() -> str:
 
 def lesson_page(number: int, steps: list[dict]) -> str:
     overview = body_from_html(SOURCE / "wiki_content" / f"{number}-dot-1-lesson-overview.html")
+    if number == 1:
+        overview = overview.replace(
+            "../assets/media/M01_ResponsibleAIRoutine_v1.png",
+            "../assets/media/Responsible_AI_Routine_Web_Mobile_1200px.png",
+        )
+        overview = overview.replace(
+            'alt="AI Decision Pathway with Goal, Protect, Use, Check, and Own."',
+            f'alt="{html.escape(ROUTINE_ALT, quote=True)}"',
+        )
+        overview = re.sub(
+            r'<div[^>]*>\s*(?:<button class="image-zoom"[^>]*>)?<img[^>]+src="\.\./assets/media/Responsible_AI_Routine_Web_Mobile_1200px\.png"[^>]*>(?:</button>)?\s*</div>',
+            routine_figure("Learn these five questions now. You will use them throughout the course."),
+            overview,
+            count=1,
+            flags=re.I,
+        )
     content_steps = [f'<section class="lesson-step overview" id="step-{number}-1" data-step-label="{number}.1"><p class="eyebrow">Step {number}.1 · Start here</p>{overview}</section>']
     for index, step in enumerate(steps, 1):
         if re.search(rf"\b{number}\.6\b", step["title"]):
@@ -1209,7 +1438,7 @@ def lesson_page(number: int, steps: list[dict]) -> str:
     step_count = len(content_steps)
     return f'''<!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Lesson {number}: {html.escape(LESSON_TITLES[number])} | AI Literacy</title><link rel="stylesheet" href="../assets/styles.css"></head>
+<title>Lesson {number}: {html.escape(LESSON_TITLES[number])} | AI Literacy</title><link rel="stylesheet" href="../assets/styles.css?v={ASSET_VERSION}"></head>
 <body data-lesson="{number}"><a class="skip-link" href="#main">Skip to lesson content</a>
 <header class="site-header classroom-header"><span class="brand">AI Literacy</span><span class="classroom-label">Course lesson</span></header>
 <main id="main"><div class="lesson-hero"><p class="eyebrow">Lesson {number}</p><h1>{html.escape(LESSON_TITLES[number])}</h1>
@@ -1218,7 +1447,7 @@ def lesson_page(number: int, steps: list[dict]) -> str:
 <p class="sr-only" id="step-announcement" aria-live="polite"></p>
 <nav class="step-controls" aria-label="Lesson step navigation"><button class="step-button secondary" id="previous-step" type="button">← Previous step</button><button class="step-button" id="next-step" type="button">Next step →</button></nav>
 <p class="step-help">Your place in this lesson is saved automatically on this device.</p></div></main>
-<footer><p>Artificial Intelligence Literacy · Genesee Career Institute</p></footer><script src="../assets/app.js"></script></body></html>'''
+<footer><p>Artificial Intelligence Literacy · Genesee Career Institute</p></footer><script src="../assets/app.js?v={ASSET_VERSION}"></script></body></html>'''
 
 
 def nav_links(active: int | None = None, prefix="lessons/") -> str:
@@ -1234,10 +1463,10 @@ def index_page() -> str:
         for n in range(1, 9)
     )
     return f'''<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" content="Eight student-facing lessons for responsible, practical AI literacy."><title>AI Literacy | Student Course</title><link rel="stylesheet" href="assets/styles.css"></head>
+<meta name="description" content="Eight student-facing lessons for responsible, practical AI literacy."><title>AI Literacy | Student Course</title><link rel="stylesheet" href="assets/styles.css?v={ASSET_VERSION}"></head>
 <body><a class="skip-link" href="#main">Skip to course</a><header class="site-header"><a class="brand" href="index.html">AI Literacy</a><button class="menu-button" aria-expanded="false" aria-controls="course-nav">Lessons</button><nav id="course-nav">{nav_links()}</nav></header>
 <main id="main"><section class="home-hero"><div><p class="eyebrow">Career-ready learning</p><h1>Use AI with skill, judgment, and responsibility.</h1><p class="lede">Eight practical lessons help you understand how AI works, improve its output, protect people and information, and keep humans accountable.</p><a class="button" href="lessons/lesson-1.html">Start lesson 1</a></div><div class="routine" aria-label="Responsible AI Routine"><span>Goal</span><span>Protect</span><span>Use</span><span>Check</span><span>Own</span></div></section>
-<section class="course-map"><p class="eyebrow">Course map</p><h2>Eight lessons. One responsible routine.</h2><div class="lesson-grid">{cards}</div></section></main><footer><p>Artificial Intelligence Literacy · Genesee Career Institute</p></footer><script src="assets/app.js"></script></body></html>'''
+<section class="course-map"><p class="eyebrow">Course map</p><h2>Eight lessons. One responsible routine.</h2><div class="lesson-grid">{cards}</div></section></main><footer><p>Artificial Intelligence Literacy · Genesee Career Institute</p></footer><script src="assets/app.js?v={ASSET_VERSION}"></script></body></html>'''
 
 
 def assessment_export():

@@ -114,6 +114,34 @@ document.querySelectorAll('a[href^="http"]').forEach(link => {
   }
 });
 
+const zoomButtons = [...document.querySelectorAll('.image-zoom')];
+if (zoomButtons.length) {
+  const dialog = document.createElement('dialog');
+  dialog.className = 'image-dialog';
+  dialog.setAttribute('aria-label', 'Enlarged lesson image');
+  dialog.innerHTML = '<button class="image-dialog-close" type="button">Close</button><img alt="">';
+  document.body.append(dialog);
+  const dialogImage = dialog.querySelector('img');
+  const closeButton = dialog.querySelector('.image-dialog-close');
+  let returnFocus;
+
+  zoomButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      const sourceImage = button.querySelector('img');
+      dialogImage.src = sourceImage.currentSrc || sourceImage.src;
+      dialogImage.alt = sourceImage.alt;
+      returnFocus = button;
+      dialog.showModal();
+      closeButton.focus();
+    });
+  });
+  closeButton.addEventListener('click', () => dialog.close());
+  dialog.addEventListener('click', event => {
+    if (event.target === dialog) dialog.close();
+  });
+  dialog.addEventListener('close', () => returnFocus?.focus());
+}
+
 document.querySelectorAll('.scenario-simulation').forEach(simulation => {
   const allCards = [...simulation.querySelectorAll('.scenario-card')];
   const selectedCards = [];
