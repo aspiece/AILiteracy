@@ -10,7 +10,7 @@
 body { margin: 0; }
 a { color: var(--teal); }
 button, a { touch-action: manipulation; }
-a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible { outline: 3px solid var(--amber); outline-offset: 3px; }
+a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible, [tabindex]:focus-visible { outline: 3px solid var(--amber); outline-offset: 3px; }
 .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
 img { max-width: 100%; height: auto; border-radius: 8px; }
 .skip-link { position: absolute; left: -9999px; top: 0; }
@@ -50,6 +50,8 @@ main { width: min(1120px,calc(100% - 2rem)); margin: auto; }
 .lesson-step h2 { color: var(--teal)!important; font-size: clamp(1.65rem,3vw,2.3rem)!important; border: 0!important; }
 .overview>div>div:first-child { border-radius: 8px!important; }
 .lesson-step [style*="max-width: 100%"] { max-width: none!important; }
+.table-scroll { max-width: 100%; overflow-x: auto; margin: 1rem 0; }
+.table-scroll table { margin-top: 0!important; margin-bottom: 0!important; }
 .question-set { display: grid; gap: 1rem; margin-top: 1.5rem; }
 .question { border: 1px solid var(--line); background: var(--sky); border-radius: 8px; padding: 1.25rem; }
 .question h3 { margin-top: 0; color: var(--teal); }
@@ -111,4 +113,8 @@ footer { text-align: center; color: var(--muted); padding: 2rem; border-top: 1px
 }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto!important; transition-duration: .01ms!important; animation-duration: .01ms!important; animation-iteration-count: 1!important; }
+}
+@media (forced-colors: active) {
+  .progress { border: 1px solid CanvasText; }
+  .lesson-step, .question, .classroom-handoff, .assessment-callout { border-color: CanvasText; }
 }

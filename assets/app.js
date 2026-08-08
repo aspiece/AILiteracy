@@ -75,6 +75,7 @@ if (stepper) {
     status.textContent = `Step ${label}`;
     count.textContent = `${current + 1} of ${steps.length}`;
     progress.setAttribute('aria-valuenow', String(current + 1));
+    progress.setAttribute('aria-valuetext', `Step ${current + 1} of ${steps.length}`);
     progressFill.style.width = `${percent}%`;
     previous.disabled = current === 0;
     next.disabled = false;

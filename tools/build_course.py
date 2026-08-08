@@ -819,7 +819,33 @@ def clean_fragment(value: str) -> str:
         value,
         flags=re.I,
     )
-    return set_video_focus(value)
+    return accessibility_fragment(set_video_focus(value))
+
+
+def accessibility_fragment(value: str) -> str:
+    """Apply shared WCAG-oriented semantics to imported course HTML."""
+    # Header cells inside a table head describe columns, not rows.
+    value = re.sub(
+        r"<thead\b[^>]*>.*?</thead>",
+        lambda match: re.sub(r'scope=["\']row["\']', 'scope="col"', match.group(0), flags=re.I),
+        value,
+        flags=re.I | re.S,
+    )
+
+    # Wide imported tables need a keyboard-scrollable region at high zoom and
+    # on small screens. Use the caption as the region name when one exists.
+    def wrap_table(match: re.Match) -> str:
+        table = match.group(0)
+        caption = re.search(r"<caption\b[^>]*>(.*?)</caption>", table, flags=re.I | re.S)
+        label = re.sub(r"<[^>]+>", " ", caption.group(1)) if caption else "Lesson information table"
+        label = re.sub(r"\s+", " ", html.unescape(label)).strip()
+        return (
+            f'<div class="table-scroll" role="region" aria-label="{html.escape(label, quote=True)}" tabindex="0">'
+            f"{table}</div>"
+        )
+
+    value = re.sub(r"<table\b[^>]*>.*?</table>", wrap_table, value, flags=re.I | re.S)
+    return value
 
 
 def body_from_html(path: Path) -> str:
@@ -1041,6 +1067,22 @@ def step_html(step: dict, number: int, index: int) -> str:
         folder = SOURCE / step["ref"]
         candidates = list(folder.glob("*.html"))
         content = body_from_html(candidates[0]) if candidates else "<p>Complete the applied learning task described by your instructor.</p>"
+        # Assignment pages begin with the generated step h2, so imported
+        # subsection headings belong at h3 rather than skipping to h4.
+        content = re.sub(r"<(/?)h4\b", r"<\1h3", content, flags=re.I)
+        if step_label == "4.5":
+            content = re.sub(
+                r"<strong>Step 2: Submit Your Answers\.</strong>\s*Answer these 5 questions(?: in the text box below| and submit your answers in the course)?:",
+                "<strong>Step 2: Prepare Your Reflection.</strong> Use the five questions below to plan a complete response:",
+                content,
+                flags=re.I,
+            )
+            content += (
+                '<div class="check-next-move" style="border: 2px solid #2980B9; background-color: #F2F9FD; '
+                'padding: 14px 16px; border-radius: 8px; margin: 18px 0 12px 0;">'
+                '<p style="margin: 0; color: #222222;"><strong style="color: #005A70;">✅ Your next move:</strong> '
+                'Return to your course and complete the Step 4.5 reflection question assignment. Include answers to all five reflection questions.</p></div>'
+            )
         if '<div class="question-set">' in content:
             before, after = content.split('<div class="question-set">', 1)
             content = add_check_next_move(before) + '<div class="question-set">' + after
@@ -1171,7 +1213,7 @@ def lesson_page(number: int, steps: list[dict]) -> str:
 <body data-lesson="{number}"><a class="skip-link" href="#main">Skip to lesson content</a>
 <header class="site-header classroom-header"><span class="brand">AI Literacy</span><span class="classroom-label">Course lesson</span></header>
 <main id="main"><div class="lesson-hero"><p class="eyebrow">Lesson {number}</p><h1>{html.escape(LESSON_TITLES[number])}</h1>
-<div class="step-progress" aria-label="Lesson progress"><div class="progress-text"><span id="step-status">Step {number}.1</span><span id="step-count">1 of {step_count}</span></div><div class="progress" role="progressbar" aria-labelledby="step-status" aria-valuemin="1" aria-valuemax="{step_count}" aria-valuenow="1"><span style="width:{100 / step_count:.2f}%"></span></div></div></div>
+<div class="step-progress" aria-label="Lesson progress"><div class="progress-text"><span id="step-status">Step {number}.1</span><span id="step-count">1 of {step_count}</span></div><div class="progress" role="progressbar" aria-labelledby="step-status" aria-valuemin="1" aria-valuemax="{step_count}" aria-valuenow="1" aria-valuetext="Step 1 of {step_count}"><span style="width:{100 / step_count:.2f}%"></span></div></div></div>
 <div class="stepper" data-total-steps="{step_count}">{''.join(content_steps)}
 <p class="sr-only" id="step-announcement" aria-live="polite"></p>
 <nav class="step-controls" aria-label="Lesson step navigation"><button class="step-button secondary" id="previous-step" type="button">← Previous step</button><button class="step-button" id="next-step" type="button">Next step →</button></nav>
