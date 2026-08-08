@@ -1042,14 +1042,14 @@ def link_lesson_vocabulary(value: str, vocabulary: list[tuple[str, str]]) -> str
 
     def unlink_question(match: re.Match) -> str:
         return re.sub(
-            r'<button class="vocab-link"\b[^>]*>(.*?)</button>',
+            r'<button class="vocab-link"[^>]*>(.*?)</button>',
             r"\1",
             match.group(0),
             flags=re.I | re.S,
         )
 
     return re.sub(
-        r'<article class="question"\b[^>]*>.*?</article>',
+        r'<article class="question"[^>]*>.*?</article>',
         unlink_question,
         linked,
         flags=re.I | re.S,
