@@ -218,14 +218,14 @@ def set_video_focus(value: str) -> str:
     return value
 
 LESSON_TITLES = {
-    1: "Humans Behind AI — How People Shape What AI Does",
-    2: "Prompt Like a Pro — The AI Test Lab",
-    3: "Verify Before You Trust — Auditing AI Media",
-    4: "The Bias Trap — Is AI Really Fair?",
-    5: "Privacy Shield — What NOT to Share with AI",
-    6: "Create with Integrity — Ethics, Copyright, and Original Work",
-    7: "Level Up — AI Skills for Your Future Career",
-    8: "Build, Test, Improve — Model Rescue and Certification",
+    1: "Humans Behind AI: How People Shape What AI Does",
+    2: "Prompt Like a Pro: The AI Test Lab",
+    3: "Verify Before You Trust: Auditing AI Media",
+    4: "The Bias Trap: Is AI Really Fair?",
+    5: "Privacy Shield: What NOT to Share with AI",
+    6: "Create with Integrity: Ethics, Copyright, and Original Work",
+    7: "Level Up: AI Skills for Your Future Career",
+    8: "Build, Test, Improve: Model Rescue and Certification",
 }
 
 
@@ -697,7 +697,7 @@ def clean_fragment(value: str) -> str:
         "Click <strong>Submit Assignment</strong> at the top of this page and type your answers to the following 4 reflection questions in the Text Entry box:",
         "Create a document and answer the following 4 reflection questions. Submit your completed document to your course:",
     )
-    for group_number in (1, 2, 3):
+    for group_number in range(1, 7):
         value = value.replace(
             f'scope="row">Version {group_number}</th>',
             f'scope="row">Program Group {group_number}</th>',
@@ -835,7 +835,50 @@ def clean_fragment(value: str) -> str:
         value,
         flags=re.I,
     )
-    return make_images_zoomable(accessibility_fragment(set_video_focus(value)))
+    # Reflection prompts are working content and must remain visible. Source
+    # material stays collapsible so it does not interrupt the learning flow.
+    def unwrap_reflection(match: re.Match) -> str:
+        block = match.group(0)
+        summary = re.search(r"<summary[^>]*>(.*?)</summary>", block, flags=re.I | re.S)
+        heading = re.sub(r"<[^>]+>", "", summary.group(1)).strip() if summary else "Reflection Questions"
+        body = re.sub(r"<summary[^>]*>.*?</summary>", "", block, count=1, flags=re.I | re.S)
+        body = re.sub(r"^<details[^>]*>|</details>$", "", body.strip(), flags=re.I | re.S)
+        return f'<section class="reflection-questions"><h3>{heading}</h3>{body}</section>'
+
+    value = re.sub(
+        r"<details\b[^>]*>\s*<summary[^>]*>.*?(?:Reflection Questions|Reflect Before You Continue).*?</summary>.*?</details>",
+        unwrap_reflection,
+        value,
+        flags=re.I | re.S,
+    )
+    value = re.sub(
+        r'<(?:p|h[2-4]|blockquote)\b[^>]*>\s*(?:<[^>]+>\s*)*Complete the questions that appear below(?: to demonstrate your understanding)?\.?\s*(?:</[^>]+>\s*)*</(?:p|h[2-4]|blockquote)>',
+        "",
+        value,
+        flags=re.I,
+    )
+    value = re.sub(
+        r"<h([1-4])([^>]*)>(.*?)</h\1>",
+        lambda match: f'<h{match.group(1)}{match.group(2)}>{match.group(3).replace(" — ", ": ")}</h{match.group(1)}>',
+        value,
+        flags=re.I | re.S,
+    )
+    value = re.sub(
+        r'<h2([^>]*)>([^<]*Pacing at a Glance[^<]*)</h2>',
+        lambda match: f'<h2 class="pacing-heading"{match.group(1)}>{match.group(2)}</h2>',
+        value,
+        flags=re.I,
+    )
+    value = set_video_focus(value)
+    value = accessibility_fragment(value)
+    value = make_images_zoomable(value)
+    value = re.sub(
+        r'<div[^>]*>\s*(<button class="image-zoom"[^>]*>\s*<img[^>]+Responsible_AI_Routine_Web_Mobile_1200px\.png.*?</button>)\s*</div>',
+        r'<div class="routine-intro-visual">\1</div>',
+        value,
+        flags=re.I | re.S,
+    )
+    return value
 
 
 def accessibility_fragment(value: str) -> str:
@@ -1099,7 +1142,7 @@ ROUTINE_ALT = (
     "2 Protect—What should stay private? 3 Use—How can AI help? "
     "4 Check—Is it accurate and safe? 5 Own—Who is responsible in the end?"
 )
-ASSET_VERSION = "20260808-graphics-refinements"
+ASSET_VERSION = "20260808-layout-instruction-update"
 ROUTINE_WEB_URL = "https://drive.google.com/file/d/1ZU5oKUOuZtzy2pleGarrKHy60p8J_RS2/view?usp=drivesdk"
 ROUTINE_PRINT_URL = "https://drive.google.com/file/d/1P82VigGCzn5qVHIDCmn2E0EmWflxOZiR/view?usp=drivesdk"
 
@@ -1109,7 +1152,7 @@ def routine_figure(caption: str) -> str:
     return (
         '<figure class="routine-figure">'
         '<button class="image-zoom" type="button" aria-label="Enlarge the Responsible AI Routine image">'
-        f'<img src="../assets/media/Responsible_AI_Routine_Web_Mobile_1200px.png" alt="{html.escape(ROUTINE_ALT, quote=True)}" loading="lazy">'
+        f'<img src="../assets/media/Responsible_AI_Routine_Web_Mobile_1200px.png" alt="{html.escape(ROUTINE_ALT, quote=True)}" loading="eager" decoding="async">'
         '</button>'
         f'<figcaption>{html.escape(caption)} Select the image to enlarge it. '
         '<span class="routine-links">'
@@ -1126,7 +1169,7 @@ def instructional_figure(src: str, alt: str, caption: str) -> str:
     return (
         '<figure class="instructional-figure">'
         f'<button class="image-zoom" type="button" aria-label="Enlarge image: {html.escape(alt[:120], quote=True)}">'
-        f'<img src="../assets/media/{html.escape(src, quote=True)}" alt="{html.escape(alt, quote=True)}" loading="lazy">'
+        f'<img src="../assets/media/{html.escape(src, quote=True)}" alt="{html.escape(alt, quote=True)}" loading="eager" decoding="async">'
         '</button>'
         f'<figcaption>{html.escape(caption)} Select the image to enlarge it.</figcaption>'
         '</figure>'
@@ -1142,10 +1185,31 @@ def graphic_resource_links(*links: tuple[str, str]) -> str:
     return f'<p class="graphic-resource-links"><strong>Graphic formats:</strong> {items}</p>'
 
 
+def lesson_7_4_content() -> str:
+    """Return a concise, learner-centered sequence for Step 7.4."""
+    return '''<div class="impact-lesson">
+<div class="step-intro"><p><strong>Estimated time:</strong> 11 minutes</p><p>AI can create benefits and costs at the same time. Your job is to examine the full impact before deciding whether a use is responsible.</p></div>
+<div class="check-next-move"><p><strong>▶️ Your next move:</strong> While viewing, identify one AI benefit and one challenge that could affect groups of people differently.</p></div>
+<div class="video-wrap"><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen src="https://www.youtube-nocookie.com/embed/olf-MrpLZCY?cc_load_policy=1" title="AI Literacy: AI and the Future of Society"></iframe></div>
+<p class="video-access"><a href="https://www.youtube.com/watch?v=olf-MrpLZCY" target="_blank" rel="noopener">Watch directly on YouTube</a></p>
+<h3>Use four impact questions</h3>
+<div class="impact-grid">
+<section><h4>1. Work and skills</h4><p>What time could be saved? What skills could grow, weaken, or change?</p></section>
+<section><h4>2. People and fairness</h4><p>Who benefits? Who could be harmed or excluded? Who can question a result?</p></section>
+<section><h4>3. Access</h4><p>Can people use the tool across devices, languages, disabilities, costs, and training levels?</p></section>
+<section><h4>4. Resources and environment</h4><p>What energy, cooling water, equipment, and replacement waste may be required?</p></section>
+</div>
+<p class="impact-context"><strong>Important:</strong> Impact estimates change with the model, task, hardware, data center, power source, and amount of use. Use estimates for comparison, not as exact measurements.</p>
+<div class="calculator-task"><h3>Try the Everyday AI Impact calculator</h3><ol><li><a href="https://geneseelearninglab.com/AIImpact.html" target="_blank" rel="noopener">Open the calculator</a>.</li><li>Choose one AI activity and record the estimate for one use.</li><li>Change the amount to 2,000 uses and compare the energy, phone-battery, and water estimates.</li><li>Name one safeguard that could reduce unnecessary use or improve access.</li></ol></div>
+<div class="decision-check"><h3>Make a responsible recommendation</h3><p>State the <strong>benefit</strong>, the most important <strong>cost or risk</strong>, one <strong>safeguard</strong>, and the <strong>trained person</strong> who should review the result.</p></div>
+<details class="source-foundation"><summary>Sources and Source Foundation</summary><div><ul><li><a href="https://www.youtube.com/watch?v=olf-MrpLZCY" target="_blank" rel="noopener">Michigan Virtual: AI and the Future of Society</a></li><li><a href="https://www.iea.org/reports/key-questions-on-energy-and-ai" target="_blank" rel="noopener">International Energy Agency: Key Questions on Energy and AI</a></li><li><a href="https://www.itu.int/en/ITU-D/Environment/Pages/Publications/The-Global-E-waste-Monitor-2024.aspx" target="_blank" rel="noopener">ITU: Global E-waste Monitor 2024</a></li><li><a href="https://doi.org/10.6028/NIST.AI.100-1" target="_blank" rel="noopener">NIST AI Risk Management Framework</a></li><li><a href="https://doi.org/10.54394/QFBQ1907" target="_blank" rel="noopener">International Labour Organization: Generative AI and Jobs</a></li></ul></div></details>
+</div>'''
+
+
 def step_html(step: dict, number: int, index: int) -> str:
     title = re.sub(r"^\d+\.\d+\s*[^A-Za-z0-9]*\s*", "", step["title"]).strip()
     step_label = step_number(step, number, index)
-    title = STEP_TITLES.get(step_label, title)
+    title = STEP_TITLES.get(step_label, title).replace(" — ", ": ")
     if step["type"] == "WikiPage":
         return ""
     if step["type"] == "Assignment":
@@ -1176,6 +1240,25 @@ def step_html(step: dict, number: int, index: int) -> str:
                 ("Open mobile version", "AI_Review_Board_Mobile_1200x900.png"),
                 ("Open print version", "AI_Review_Board_Print_8.5x11.png"),
             ) + content
+        if step_label == "8.5":
+            content = content.replace("1. Select Your Program", "1. Choose Your Program Group")
+            content = content.replace(
+                "Find your career program below to see which simulation path you will follow.",
+                "Choose the program group that best matches your current program or career interest. You make this choice. In the simulation, select the same group number shown in the table.",
+            )
+            content = content.replace("Program Track:", "Program Choice:")
+            content = content.replace(
+                "Which career program did you choose, and what was the main flaw or missing data in the Initial Model?",
+                "Which program group did you choose? Name the career area and explain the main flaw or missing data you found in the Initial Model.",
+            )
+            content = content.replace(
+                "Launch the simulation, select your program, and review your initial training data.",
+                "Launch the simulation, select the program group you chose from the table, and review its initial training data.",
+            )
+            content = content.replace(
+                "Work through the steps for your program, then return to this lesson to answer the reflection questions below.",
+                "Complete the simulation using your chosen program group. Then return to this lesson and answer the four visible reflection questions.",
+            )
         if step_label == "4.5":
             content = re.sub(
                 r"<strong>Step 2: Submit Your Answers\.</strong>\s*Answer these 5 questions(?: in the text box below| and submit your answers in the course)?:",
@@ -1197,6 +1280,8 @@ def step_html(step: dict, number: int, index: int) -> str:
     qti = SOURCE / "non_cc_assessments" / f'{step["ref"]}.xml.qti'
     questions = extract_questions(qti) if qti.exists() else []
     desc = quiz_description(step["ref"])
+    if step_label == "7.4":
+        desc = lesson_7_4_content()
     lesson_two_graphics = {
         "2.3": (
             "M01_5TipPromptFormula_v1.png",
@@ -1224,7 +1309,7 @@ def step_html(step: dict, number: int, index: int) -> str:
         desc += graphic_resource_links(*lesson_two_exports[step_label])
     phase_two_graphics = {
         "6.3": (
-            "Copyright_Permission_Decision_Path_1400x1100.png",
+            "Copyright_Permission_Decision_Path_1100x1726.png",
             "Copyright and permission decision path: identify whether every part is your own; if not, confirm permission or a license; include required credit; disclose AI help; and stop to get permission, replace material, or ask for help when permission is missing.",
             "Follow each decision before you use or share work. Finding something online does not give you permission to use it.",
         ),
@@ -1267,6 +1352,28 @@ def step_html(step: dict, number: int, index: int) -> str:
     }
     if step_label in phase_three_graphics:
         desc += instructional_figure(*phase_three_graphics[step_label])
+    lesson_four_graphics = {
+        "4.3": (
+            "M01_BiasRedFlags_v1.png",
+            "Quick bias red flags: stereotypes, missing groups or situations, unsupported assumptions, unequal treatment, hidden uncertainty, and possible effects on health, safety, rights, money, education, reputation, employment, or the future.",
+            "Use these red flags to decide when an AI result needs a closer investigation. A red flag is a reason to check evidence, not proof of bias by itself.",
+        ),
+        "4.4": (
+            "M01_HumanOversightFlowchart_v1.png",
+            "Human oversight flowchart for deciding when an AI output needs review, more information, safeguards, correction, or a stop before use.",
+            "Follow the flowchart before a result affects a person. Use it to identify who must review the evidence and who has authority to correct, stop, or approve the decision.",
+        ),
+    }
+    if step_label in lesson_four_graphics:
+        filename = lesson_four_graphics[step_label][0]
+        desc = re.sub(
+            rf'<div[^>]*>\s*<button class="image-zoom"[^>]*>\s*<img[^>]+{re.escape(filename)}[^>]*>\s*</button>\s*</div>',
+            "",
+            desc,
+            count=1,
+            flags=re.I | re.S,
+        )
+        desc += instructional_figure(*lesson_four_graphics[step_label])
     if step_label == "8.3":
         desc = re.sub(
             r'<p[^>]*>Building an AI model is a cycle that repeats\. Review the five steps below.*?</div>\s*<p[^>]*>As you answer the reflection questions below, think about how each step in this cycle helps make an AI system more accurate and reliable\.</p>',
@@ -1427,7 +1534,7 @@ def lesson_page(number: int, steps: list[dict]) -> str:
             label = step_number(step, number, len(content_steps) + 1)
             content_steps.append(
                 f'<section class="lesson-step assessment-callout" id="step-{label.replace(".", "-")}" data-step-label="{label}" hidden><p class="eyebrow">Step {label} · Lesson assessment</p>'
-                f'<h2>{html.escape(re.sub(r"^\d+\.\d+\s*[^A-Za-z0-9]*\s*", "", step["title"]).strip())}</h2>'
+                f'<h2>{html.escape(re.sub(r"^\d+\.\d+\s*[^A-Za-z0-9]*\s*", "", step["title"]).strip().replace(" — ", ": "))}</h2>'
                 f'<div class="check-next-move"><p><strong>✅ Your next move:</strong> Return to your course and complete the Lesson {number} assessment. Follow your instructor’s directions for attempts and the required score.</p></div></section>'
             )
         else:
@@ -1436,18 +1543,25 @@ def lesson_page(number: int, steps: list[dict]) -> str:
                 rendered = align_video_to_step(rendered, step_number(step, number, index))
                 content_steps.append(rendered)
     step_count = len(content_steps)
-    return f'''<!doctype html>
+    page = f'''<!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Lesson {number}: {html.escape(LESSON_TITLES[number])} | AI Literacy</title><link rel="stylesheet" href="../assets/styles.css?v={ASSET_VERSION}"></head>
 <body data-lesson="{number}"><a class="skip-link" href="#main">Skip to lesson content</a>
 <header class="site-header classroom-header"><span class="brand">AI Literacy</span><span class="classroom-label">Course lesson</span></header>
-<main id="main"><div class="lesson-hero"><p class="eyebrow">Lesson {number}</p><h1>{html.escape(LESSON_TITLES[number])}</h1>
+<main id="main"><div class="lesson-hero"><p class="lesson-identity">Lesson {number}: {html.escape(LESSON_TITLES[number])}</p><h1>{html.escape(LESSON_TITLES[number])}</h1>
 <div class="step-progress" aria-label="Lesson progress"><div class="progress-text"><span id="step-status">Step {number}.1</span><span id="step-count">1 of {step_count}</span></div><div class="progress" role="progressbar" aria-labelledby="step-status" aria-valuemin="1" aria-valuemax="{step_count}" aria-valuenow="1" aria-valuetext="Step 1 of {step_count}"><span style="width:{100 / step_count:.2f}%"></span></div></div></div>
 <div class="stepper" data-total-steps="{step_count}">{''.join(content_steps)}
 <p class="sr-only" id="step-announcement" aria-live="polite"></p>
 <nav class="step-controls" aria-label="Lesson step navigation"><button class="step-button secondary" id="previous-step" type="button">← Previous step</button><button class="step-button" id="next-step" type="button">Next step →</button></nav>
 <p class="step-help">Your place in this lesson is saved automatically on this device.</p></div></main>
 <footer><p>Artificial Intelligence Literacy · Genesee Career Institute</p></footer><script src="../assets/app.js?v={ASSET_VERSION}"></script></body></html>'''
+    page = page.replace('loading="lazy"', 'loading="eager" decoding="async"')
+    image_sources = list(dict.fromkeys(re.findall(r'<img[^>]+src="([^"]+)"', page, flags=re.I)))
+    preloads = "".join(
+        f'<link rel="preload" as="image" href="{html.escape(source, quote=True)}" fetchpriority="low">'
+        for source in image_sources
+    )
+    return page.replace("</head>", preloads + "</head>")
 
 
 def nav_links(active: int | None = None, prefix="lessons/") -> str:
