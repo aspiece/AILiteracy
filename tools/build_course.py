@@ -891,13 +891,6 @@ def clean_fragment(value: str) -> str:
         value,
         flags=re.I | re.S,
     )
-    value = re.sub(
-        r'(<div class="routine-intro-visual">.*?</div>)\s*(<p[^>]*>\s*<strong[^>]*>\s*Goal.*?</p>\s*<ul[^>]*>.*?</ul>)',
-        r'<div class="routine-overview-grid">\1<div class="routine-overview-steps">\2</div></div>',
-        value,
-        count=1,
-        flags=re.I | re.S,
-    )
     return value
 
 
@@ -921,9 +914,7 @@ def extract_lesson_vocabulary(overview: str) -> list[tuple[str, str]]:
 
 
 def structure_routine_overview(overview: str) -> str:
-    """Place the overview Routine image and explanation in a bounded grid."""
-    if "routine-overview-grid" in overview:
-        return overview
+    """Place the overview Routine image and application guidance in a bounded grid."""
     visual = re.search(
         r'(<figure class="routine-figure">.*?</figure>|<div class="routine-intro-visual">.*?</div>)',
         overview,
@@ -931,31 +922,54 @@ def structure_routine_overview(overview: str) -> str:
     )
     if not visual:
         return overview
-    explanation = re.search(
+    repeated_steps = re.search(
         r'(<p[^>]*>\s*(?:<strong[^>]*>)?\s*Goal\s*(?:→|â†’).*?</p>\s*<ul[^>]*>.*?</ul>)',
         overview[:visual.start()],
         flags=re.I | re.S,
     )
-    if explanation:
-        explanation_html = explanation.group(1)
-        overview = overview[:explanation.start()] + overview[explanation.end():]
+    if repeated_steps:
+        overview = overview[:repeated_steps.start()] + overview[repeated_steps.end():]
         visual = re.search(
             r'(<figure class="routine-figure">.*?</figure>|<div class="routine-intro-visual">.*?</div>)',
             overview,
             flags=re.I | re.S,
         )
-    else:
-        explanation_html = (
-            '<p><strong>Use these five questions:</strong></p><ul>'
-            '<li><strong>Goal:</strong> What am I trying to do?</li>'
-            '<li><strong>Protect:</strong> What should stay private?</li>'
-            '<li><strong>Use:</strong> How can AI help?</li>'
-            '<li><strong>Check:</strong> Is it accurate and safe?</li>'
-            '<li><strong>Own:</strong> Who is responsible in the end?</li></ul>'
+
+    routine_heading = list(re.finditer(r"<h2\b[^>]*>.*?Responsible AI Routine.*?</h2>", overview[:visual.start()], flags=re.I | re.S))
+    if routine_heading:
+        section_start = routine_heading[-1].end()
+        before_visual = overview[section_start:visual.start()]
+        before_visual = re.sub(
+            r'<div\b[^>]*>\s*<p\b[^>]*>\s*<strong[^>]*>.*?Your next move:.*?</p>\s*</div>',
+            "",
+            before_visual,
+            count=1,
+            flags=re.I | re.S,
         )
+        overview = overview[:section_start] + before_visual + overview[visual.start():]
+        visual = re.search(
+            r'(<figure class="routine-figure">.*?</figure>|<div class="routine-intro-visual">.*?</div>)',
+            overview,
+            flags=re.I | re.S,
+        )
+
+    visual_html = visual.group(1)
+    if visual_html.lower().startswith("<figure"):
+        button = re.search(r'<button class="image-zoom".*?</button>', visual_html, flags=re.I | re.S)
+        visual_html = f'<div class="routine-intro-visual">{button.group(0)}</div>' if button else visual_html
+    guidance_html = (
+        '<div class="routine-overview-guidance">'
+        '<h3>When to use this routine</h3>'
+        '<p>Use it before AI supports a school, workplace, or personal task, especially when information, safety, fairness, or other people may be affected.</p>'
+        '<h3>Your next move</h3>'
+        '<p>Study the five steps in the image. Choose one step you think is easiest to forget and explain why it matters.</p>'
+        '<div class="routine-resource-buttons">'
+        '<a href="https://drive.google.com/file/d/1ZU5oKUOuZtzy2pleGarrKHy60p8J_RS2/view?usp=drivesdk" target="_blank" rel="noopener">View accessible web version</a>'
+        '<a href="https://drive.google.com/file/d/1P82VigGCzn5qVHIDCmn2E0EmWflxOZiR/view?usp=drivesdk" target="_blank" rel="noopener">Download print version</a>'
+        '</div></div>'
+    )
     replacement = (
-        f'<div class="routine-overview-grid">{visual.group(1)}'
-        f'<div class="routine-overview-steps">{explanation_html}</div></div>'
+        f'<div class="routine-overview-grid">{guidance_html}{visual_html}</div>'
     )
     return overview[:visual.start()] + replacement + overview[visual.end():]
 
@@ -1303,7 +1317,7 @@ ROUTINE_ALT = (
     "2 Protect—What should stay private? 3 Use—How can AI help? "
     "4 Check—Is it accurate and safe? 5 Own—Who is responsible in the end?"
 )
-ASSET_VERSION = "20260808-vocabulary-overview-update"
+ASSET_VERSION = "20260808-routine-overview-redesign"
 ROUTINE_WEB_URL = "https://drive.google.com/file/d/1ZU5oKUOuZtzy2pleGarrKHy60p8J_RS2/view?usp=drivesdk"
 ROUTINE_PRINT_URL = "https://drive.google.com/file/d/1P82VigGCzn5qVHIDCmn2E0EmWflxOZiR/view?usp=drivesdk"
 

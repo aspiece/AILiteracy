@@ -79,10 +79,16 @@ textarea { width: 100%; border: 1px solid var(--line); border-radius: 4px; paddi
 .video-access { margin: .5rem 0 1.5rem; font-weight: 700; }
 .routine-figure { max-width: 520px; margin: 1.5rem auto; }
 .instructional-figure { max-width: 760px; margin: 1.5rem auto; }
-.routine-overview-grid { display: grid; grid-template-columns: minmax(220px, .8fr) minmax(280px, 1.2fr); gap: 1.5rem; align-items: start; margin-top: 1rem; }
-.overview .routine-figure, .overview .routine-intro-visual { width: 100%; max-width: 410px; margin: 0; }
+.routine-overview-grid { display: grid; grid-template-columns: minmax(280px, 1fr) minmax(280px, 380px); gap: 1.75rem; align-items: start; margin-top: 1.25rem; }
+.overview .routine-figure, .overview .routine-intro-visual { width: 100%; max-width: 380px; margin: 0; }
 .overview .routine-intro-visual .image-zoom { width: 100%; }
-.routine-overview-steps > p:first-child { margin-top: 0!important; }
+.routine-overview-guidance { padding: 1.15rem 1.25rem; border: 1px solid #a9c8d2; border-left: .4rem solid var(--teal); border-radius: 8px; background: var(--sky); }
+.routine-overview-guidance h3 { margin: 0 0 .35rem; color: var(--teal); font-size: 1.12rem; }
+.routine-overview-guidance h3:not(:first-child) { margin-top: 1.25rem; }
+.routine-overview-guidance p { margin: 0; }
+.routine-resource-buttons { display: flex; flex-wrap: wrap; gap: .7rem; margin-top: 1.25rem; }
+.routine-resource-buttons a { display: inline-flex; align-items: center; min-height: 44px; padding: .65rem .85rem; border: 2px solid var(--teal); border-radius: 8px; background: #fff; color: var(--teal); font-weight: 800; line-height: 1.2; text-decoration: none; }
+.routine-resource-buttons a:hover { background: var(--teal); color: #fff; }
 .objective-cards { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: .85rem; padding: 0!important; margin: 1rem 0!important; list-style: none; counter-reset: objective; }
 .objective-cards li { position: relative; min-height: 100%; padding: 1rem 1rem 1rem 3.4rem; border: 1px solid #b8d8cc; border-radius: 8px; background: #fff; counter-increment: objective; }
 .objective-cards li::before { content: counter(objective); position: absolute; left: 1rem; top: 1rem; display: grid; place-items: center; width: 1.7rem; height: 1.7rem; border-radius: 50%; background: var(--green); color: #fff; font-weight: 900; }
