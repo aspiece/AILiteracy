@@ -24,6 +24,7 @@ VIDEO_TITLES = {
     "42pF4FP152Y": "AI Literacy: Creating AI-Generated Images",
     "UYplvFrfR9I": "AI Literacy: How Do AI Image Generators Work?",
     "G3YHo2vsXZk": "AI Literacy: Recognizing AI-Generated Images",
+    "VwAlOUE4K7M": "AI Literacy: What is Algorithmic Bias?",
     "_WpTWizRGys": "AI Literacy: Recognizing Algorithmic Bias",
     "vyTqZQ7VArE": "AI Literacy: How to Minimize Algorithmic Bias",
     "MIHz5bji-aI": "AI Literacy: What Should I Share with AI?",
@@ -36,6 +37,185 @@ VIDEO_TITLES = {
     "kgeLvlCCFRo": "AI Literacy: AI and the Future of Work",
     "olf-MrpLZCY": "AI Literacy: AI and the Future of Society",
 }
+
+VIDEO_FOCUSES = {
+    "DC8Bpa1UWek": "Watch for one example of a task that people designed AI to do.",
+    "VL3WIlrWd5o": "Watch for one way people help train a generative AI model.",
+    "dpRK9y7fuJA": "Watch for how generative AI uses patterns to create new content.",
+    "BQosMFvT0aU": "Watch for how a chatbot uses a prompt to produce a response.",
+    "IFoEcetEdVQ": "Watch for one prompt detail that makes an AI response more useful.",
+    "lKsuxtGJSKA": "Watch for one way to improve a chatbot response after its first answer.",
+    "42pF4FP152Y": "Watch for how details in a prompt change an AI-generated image.",
+    "UYplvFrfR9I": "Watch for how training examples help an image generator learn patterns.",
+    "G3YHo2vsXZk": "Watch for one way to verify an image when visual clues are not enough.",
+    "VwAlOUE4K7M": "Watch for one way training data can create an unfair AI result.",
+    "_WpTWizRGys": "Watch for one question that can reveal bias in an AI result.",
+    "vyTqZQ7VArE": "Watch for one step people can take to reduce unfair AI results.",
+    "MIHz5bji-aI": "Watch for one type of information that should not be entered into an AI tool.",
+    "wbtX_iATxwQ": "Watch for what may happen to information after it enters an AI tool.",
+    "v4KgddiHSIM": "Watch for one action that can reduce a privacy risk.",
+    "fv2e58rgI9k": "Watch for one ethical question to ask before using AI-created work.",
+    "Oyw3xt_IeXg": "Watch for one reason to check permission before using AI-assisted content.",
+    "Q9CHETXIagI": "Watch for one way a creator should explain how AI helped with a project.",
+    "g_FeQh9oYuY": "Watch for one reason your own knowledge still matters when you use AI.",
+    "kgeLvlCCFRo": "Watch for one human skill that may become more valuable as AI changes work.",
+    "olf-MrpLZCY": "Watch for one AI challenge that may affect groups of people differently.",
+}
+
+# Source of truth: "AI Literacy Videos" alignment spreadsheet supplied by the
+# course author. Each instructional step receives one unique Michigan Virtual
+# video and its matching language alternatives.
+STEP_VIDEOS = {
+    "1.2": ("dpRK9y7fuJA", "E1S7b1TFUDA", "V03T4s4p9Eg"),
+    "1.3": ("VL3WIlrWd5o", "nbZkVY0vMmg", "Fk67dmrhHRk"),
+    "1.4": ("DC8Bpa1UWek", "SxvVF5W0zMI", "0Vs6avs5eL8"),
+    "2.2": ("BQosMFvT0aU", "lnde8dANViY", "FXYe6CHTRLk"),
+    "2.3": ("IFoEcetEdVQ", "kPZzaguQWUo", "SnNfHBjdfn0"),
+    "2.4": ("lKsuxtGJSKA", "kir2InOp_mA", "VOvIY_9S1LY"),
+    "3.2": ("42pF4FP152Y", "v6GR-MxtH6w", "-kJqEG-Pwpw"),
+    "3.3": ("UYplvFrfR9I", "xt6g2eW-kuA", "IFGONKoeUR8"),
+    "3.4": ("G3YHo2vsXZk", "z78Qm5HZTa8", "Sy0uubytJmY"),
+    "4.2": ("VwAlOUE4K7M", "gXl0ud9talY", "detnBXmY0E0"),
+    "4.3": ("_WpTWizRGys", "oLeV1eQWNNU", "q9Lkx0h87Aw"),
+    "4.4": ("vyTqZQ7VArE", "vz6Mrya_XlQ", "WilqtfYlI_8"),
+    "5.2": ("MIHz5bji-aI", "ZmF-ECcEtrA", "qK0MGPVnwgk"),
+    "5.3": ("wbtX_iATxwQ", "wNLJuaserYo", "KvUtJNfB75I"),
+    "5.4": ("v4KgddiHSIM", "2y4096oxQB0", "wQsSr1mjTTQ"),
+    "6.2": ("fv2e58rgI9k", "yxqRty_6aaw", "Yxn3bhYwBII"),
+    "6.3": ("Oyw3xt_IeXg", "0cqQ6eCOsc4", "Lv80Hkkq0EA"),
+    "6.4": ("Q9CHETXIagI", "AZ81cSrFPFw", "-DBXdvct6l8"),
+    "7.2": ("g_FeQh9oYuY", "eq90NsLxP0A", "EcZ6rFFw3pw"),
+    "7.3": ("kgeLvlCCFRo", "QAUB-lN47hg", "TnRsNw4Gkcw"),
+    "7.4": ("olf-MrpLZCY", "5uxmBz0Lcy8", "G61viZr5a3U"),
+}
+
+STEP_TITLES = {
+    "1.2": "Connect & Learn: What Generative AI Can and Cannot Do",
+    "1.3": "Learn: How Generative AI Learns from Data",
+    "1.4": "Learn: AI Types and Human Responsibility",
+    "2.2": "Connect & Learn: How AI Chatbots Create Responses",
+    "2.3": "Learn: Write Stronger AI Prompts",
+    "2.4": "Learn: Check and Improve AI Responses",
+    "3.2": "Connect & Learn: Creating and Questioning AI-Generated Images",
+    "3.3": "Learn: How AI Image Generators Create Images",
+    "3.4": "Learn: Verify AI-Generated Media",
+    "4.2": "Connect & Learn: Is This AI Result Fair? How Bias Begins",
+    "4.3": "Learn: Recognize Algorithmic Bias",
+    "4.4": "Learn: Reduce Bias and Respond Responsibly",
+    "5.2": "Connect & Learn: What Information Is Safe to Share with AI?",
+    "5.3": "Learn: What Happens to Data Entered into AI",
+    "5.4": "Learn: Control Your Data and Reduce Privacy Risks",
+    "6.2": "Connect & Learn: Ethics and Human Responsibility",
+    "6.3": "Learn: Copyright and Permission in AI-Created Work",
+    "6.4": "Learn: Create Responsibly with AI",
+    "7.2": "Connect & Learn: Knowledge, Learning, and Future Possibilities",
+    "7.3": "Learn: Task Change, Augmentation, and Human-Led Work",
+    "7.4": "Learn: Societal, Access, and Environmental Impacts",
+}
+
+VIDEO_TRANSCRIPTS = {
+    "DC8Bpa1UWek": "https://docs.google.com/document/d/1bJu24L53SVnFYWGdJ9EyUS69uW_dMMAxeQr3iZf8rgI/edit",
+    "dpRK9y7fuJA": "https://docs.google.com/document/d/1veh2GBHT8hUwhf26V3sDMQMalKur3cAkbS3hdLtOj5Q/edit",
+    "VL3WIlrWd5o": "https://docs.google.com/document/d/14uXuzVANLbcFazOOoyXBesAP3Bvm23fQ8I1se1jMRqw/edit",
+    "IFoEcetEdVQ": "https://docs.google.com/document/d/10OeD9GDiUXZtuEfeYVUFC_5-XFvJ_MUmaDmbyfwbVg8/edit",
+    "UYplvFrfR9I": "https://docs.google.com/document/d/1c39kGzCvVcNHqoX0YG3l7jwByRBCKLhXTe6zCi4-ze8/edit",
+    "G3YHo2vsXZk": "https://docs.google.com/document/d/1SpztDGHw9h7CdNZ0j4qyv0FEh39uFcFTcBrmlIaMz8k/edit",
+    "_WpTWizRGys": "https://docs.google.com/document/d/1svKP5hv_xVMULKPtoQN8vv_QsjFOH8gIkoOgGpnD7vA/edit",
+    "vyTqZQ7VArE": "https://docs.google.com/document/d/1EATbkhtmBiu3GhvA41N7WarFK2LdGn8-yRbBDM2EEZ4/edit",
+    "MIHz5bji-aI": "https://docs.google.com/document/d/1hJM9vL8FkDUeVSaOZcDe8eGMYhqbQXei90Fr3IRI8AQ/edit",
+    "wbtX_iATxwQ": "https://docs.google.com/document/d/1WCa-c649fnm9kIa1lAXPSvPEm7p3Y74js5Y06FGRjX8/edit",
+    "v4KgddiHSIM": "https://docs.google.com/document/d/1mT47vgksqkFXahYYWBMgQyJooY0pKpsXEFqOgcV_nNM/edit",
+    "fv2e58rgI9k": "https://docs.google.com/document/d/1-tsrZQlpzLNjY3QJXAZ71lOM9ovbZFJc2tHS6ejdng4/edit",
+    "Oyw3xt_IeXg": "https://docs.google.com/document/d/1sHKDQcMXVrM0_T6bsCdKTNwhlReqctvNoEuxurNO6v0/edit",
+    "Q9CHETXIagI": "https://docs.google.com/document/d/14HdtekAsmHVqL2_m0QAQKdCgHMDuHjB1e5CyArodz90/edit",
+    "g_FeQh9oYuY": "https://docs.google.com/document/d/1hq8UFnfWuMZtSVEkWkJai1CZb02qJUwIo9FT0N4BNUQ/edit",
+    "kgeLvlCCFRo": "https://docs.google.com/document/d/1H31vA93t08toKWsn9VXpbLSu8dJcx3CIwjAb3Myotzg/edit",
+    "olf-MrpLZCY": "https://docs.google.com/document/d/1q1sMcRo71j9CrwfDMbXR4ggznccjlEL_Q311GYgjfpo/edit",
+}
+
+
+def align_video_to_step(value: str, step_label: str) -> str:
+    """Enforce the spreadsheet's primary and translated video alignment."""
+    if step_label not in STEP_VIDEOS:
+        return value
+    video_id, spanish_id, arabic_id = STEP_VIDEOS[step_label]
+    iframe = re.search(r'<iframe\b[^>]*youtube-nocookie\.com/embed/[^>]+></iframe>', value, flags=re.I)
+    if not iframe:
+        return value
+    replacement = re.sub(r'src="[^"]+"', f'src="https://www.youtube-nocookie.com/embed/{video_id}?cc_load_policy=1"', iframe.group(0), count=1, flags=re.I)
+    if re.search(r'title="[^"]*"', replacement, flags=re.I):
+        replacement = re.sub(r'title="[^"]*"', f'title="{html.escape(VIDEO_TITLES[video_id])}"', replacement, count=1, flags=re.I)
+    else:
+        replacement = replacement.replace("<iframe", f'<iframe title="{html.escape(VIDEO_TITLES[video_id])}"', 1)
+    value = value[:iframe.start()] + replacement + value[iframe.end():]
+
+    # Keep an existing English transcript when it belongs to the aligned video;
+    # otherwise provide the video's captioned English view.
+    after_iframe = iframe.start() + len(replacement)
+    access = re.match(r'(</div>\s*)(<(?:div|p|nav)\b[^>]*>.*?</(?:div|p|nav)>)', value[after_iframe:], flags=re.I | re.S)
+    english = VIDEO_TRANSCRIPTS.get(video_id, f'https://www.youtube.com/watch?v={video_id}&cc_load_policy=1')
+    english_label = "English transcript" if video_id in VIDEO_TRANSCRIPTS else "Watch with English captions"
+    if access:
+        old_access = access.group(2)
+        new_access = (
+            '<div class="video-access">'
+            f'<a href="{html.escape(english)}" target="_blank" rel="noopener">{english_label}</a> | '
+            f'<a href="https://www.youtube.com/watch?v={spanish_id}" target="_blank" rel="noopener">Watch in Spanish</a> | '
+            f'<a href="https://www.youtube.com/watch?v={arabic_id}" target="_blank" rel="noopener">Watch in Arabic</a></div>'
+        )
+        start = after_iframe + len(access.group(1))
+        value = value[:start] + new_access + value[start + len(old_access):]
+    return set_video_focus(value)
+
+
+def set_video_focus(value: str) -> str:
+    """Give every primary lesson video one clear focus in its preceding callout."""
+    # Remove older multi-item focus panels. Their most important idea is folded
+    # into the single, immediately actionable prompt below.
+    value = re.sub(
+        r'<div[^>]*>\s*<h3[^>]*>.*?Viewing Focus</h3>.*?</ol>\s*</div>',
+        "",
+        value,
+        flags=re.I | re.S,
+    )
+    value = re.sub(
+        r'<div[^>]*>\s*<p[^>]*>Viewing Focus:</p>\s*<p[^>]*>.*?</p>\s*</div>',
+        "",
+        value,
+        flags=re.I | re.S,
+    )
+    for video_id, focus in VIDEO_FOCUSES.items():
+        iframe_pattern = re.compile(
+            rf'<iframe\b[^>]*src="[^"]*{re.escape(video_id)}[^"]*"[^>]*>',
+            flags=re.I,
+        )
+        search_from = 0
+        while match := iframe_pattern.search(value, search_from):
+            window_start = max(0, match.start() - 1800)
+            window = value[window_start:match.start()]
+            prompt_markers = list(re.finditer(
+                r"(?:Your next move:</strong>|<h3[^>]*>.*?Your Next Move</h3>)",
+                window,
+                flags=re.I | re.S,
+            ))
+            if not prompt_markers:
+                search_from = match.end()
+                continue
+            marker = prompt_markers[-1]
+            prompt_end = window_start + marker.end()
+            if marker.group(0).lower().startswith("<h3"):
+                paragraph_open = re.search(r"<p[^>]*>", value[prompt_end:match.start()], flags=re.I)
+                if not paragraph_open:
+                    search_from = match.end()
+                    continue
+                prompt_end += paragraph_open.end()
+            paragraph_end = value.find("</p>", prompt_end, match.start())
+            if paragraph_end < 0:
+                search_from = match.end()
+                continue
+            value = value[:prompt_end] + " " + focus + value[paragraph_end:]
+            search_from = match.end() + len(focus)
+    return value
 
 LESSON_TITLES = {
     1: "Humans Behind AI — How People Shape What AI Does",
@@ -532,20 +712,20 @@ def clean_fragment(value: str) -> str:
     value = value.replace("Retrain Improved Model", "Retrain the Improved Model")
     value = value.replace("in Initial Model?", "in the Initial Model?")
     value = value.replace("in Improved Model change", "in the Improved Model change")
-    value = value.replace("https://www.youtube.com/embed/dpRK9y7fuJA", "https://www.youtube-nocookie.com/embed/BQosMFvT0aU?cc_load_policy=1")
+    value = value.replace("https://www.youtube.com/embed/dpRK9y7fuJA", "https://www.youtube-nocookie.com/embed/dpRK9y7fuJA?cc_load_policy=1")
     value = value.replace("https://gisd.instructure.com/courses/2083/files/274996/download?download_frd=1", "https://www.youtube.com/watch?v=BQosMFvT0aU&cc_load_policy=1")
     value = value.replace('href="url?id=43"', 'href="https://www.youtube.com/watch?v=fv2e58rgI9k&cc_load_policy=1"')
     value = value.replace('href="url?id=41"', 'href="https://www.youtube.com/watch?v=fv2e58rgI9k"')
     value = value.replace(
         "https://questions.learnosity.com/v2023.2.LTS/xdomain",
-        "https://www.youtube-nocookie.com/embed/_WpTWizRGys?cc_load_policy=1",
+        "https://www.youtube-nocookie.com/embed/VwAlOUE4K7M?cc_load_policy=1",
     )
     value = value.replace(
         '<p style="margin: 0; font-size: 0.9em; color: #005a70; text-align: center;">English transcript | Watch in Spanish | Watch in Arabic</p>',
         '<p style="margin: 0; font-size: 0.9em; color: #005a70; text-align: center;">'
-        '<a href="https://docs.google.com/document/d/1svKP5hv_xVMULKPtoQN8vv_QsjFOH8gIkoOgGpnD7vA/edit" target="_blank" rel="noopener">English transcript</a> | '
-        '<a href="https://www.youtube-nocookie.com/embed/oLeV1eQWNNU?rel=0" target="_blank" rel="noopener">Watch in Spanish</a> | '
-        '<a href="https://www.youtube-nocookie.com/embed/q9Lkx0h87Aw?rel=0" target="_blank" rel="noopener">Watch in Arabic</a></p>',
+        '<a href="https://www.youtube.com/watch?v=VwAlOUE4K7M&cc_load_policy=1" target="_blank" rel="noopener">Watch with English captions</a> | '
+        '<a href="https://www.youtube-nocookie.com/embed/gXl0ud9talY?rel=0" target="_blank" rel="noopener">Watch in Spanish</a> | '
+        '<a href="https://www.youtube-nocookie.com/embed/detnBXmY0E0?rel=0" target="_blank" rel="noopener">Watch in Arabic</a></p>',
     )
     value = re.sub(r'(href="https://www\.youtube\.com/watch\?v=(?:BQosMFvT0aU|fv2e58rgI9k)&(?:amp;)?cc_load_policy=1"[^>]*>)English transcript(</a>)', r'\1Watch with English captions\2', value)
     value = value.replace("$IMS-CC-FILEBASE$/Uploaded%20Media/", "../assets/media/")
@@ -627,7 +807,19 @@ def clean_fragment(value: str) -> str:
         "Complete all five parts of the worksheet. Use full sentences when the directions ask for them. Missing parts will be marked <strong>Incomplete</strong> and returned for revision.",
         value,
     )
-    return value
+    value = re.sub(
+        r'href="https://www\.youtube-nocookie\.com/embed/([A-Za-z0-9_-]+)[^"]*"',
+        r'href="https://www.youtube.com/watch?v=\1"',
+        value,
+        flags=re.I,
+    )
+    value = re.sub(
+        r'href="https://youtu\.be/([A-Za-z0-9_-]+)[^"]*"',
+        r'href="https://www.youtube.com/watch?v=\1"',
+        value,
+        flags=re.I,
+    )
+    return set_video_focus(value)
 
 
 def body_from_html(path: Path) -> str:
@@ -778,15 +970,80 @@ def human_decisions_simulation() -> str:
     )
 
 
+def media_audit_simulation(questions: list[dict]) -> str:
+    cards = []
+    for index, question in enumerate(questions, 1):
+        choices = "".join(
+            f'<label><input type="radio" name="media-audit-{index}" value="{html.escape(choice["id"])}"> '
+            f'<span>{choice["html"]}</span></label>'
+            for choice in question["choices"]
+        )
+        cards.append(
+            f'<article class="scenario-card media-audit-card" data-bank="{index}" '
+            f'data-correct="{html.escape(json.dumps(question["correct"]))}" hidden>'
+            f'{question["prompt"]}<div class="choices">{choices}</div>'
+            '<button class="scenario-check" type="button">Check decision</button>'
+            f'<div class="feedback" role="status" hidden>{question["feedback"]}</div></article>'
+        )
+    total = len(cards)
+    return (
+        '<section class="scenario-simulation media-audit-simulation" data-feedback-mode="media-audit" '
+        'aria-labelledby="media-audit-title">'
+        '<div class="simulation-header"><div><p class="eyebrow">Interactive image comparison</p>'
+        '<h3 id="media-audit-title">Career Program Media Audit</h3></div>'
+        f'<p class="simulation-count" aria-live="polite">Comparison <span>1</span> of {total}</p></div>'
+        '<p>Compare Image A and Image B. Choose which image is ready and which one needs review. '
+        'Use the feedback to identify the concern and the responsible next step.</p>'
+        f'<div class="scenario-deck">{"".join(cards)}</div>'
+        '<div class="scenario-controls"><button class="step-button secondary scenario-previous" type="button">← Previous comparison</button>'
+        '<button class="step-button scenario-next" type="button" disabled>Next comparison →</button></div>'
+        '</section>'
+    )
+
+
+def add_check_next_move(value: str) -> str:
+    """Place one heading-free next-step box immediately before a question set."""
+    value = re.sub(
+        r'<div[^>]*>(?:(?!<div\b|</div>)[\s\S])*?Your next move:'
+        r'(?:(?!<div\b|</div>)[\s\S])*?Complete (?:the )?(?:checks|questions)'
+        r'(?:(?!<div\b|</div>)[\s\S])*?</div>',
+        "",
+        value,
+        flags=re.I,
+    )
+    def remove_check_heading(match: re.Match) -> str:
+        heading_text = re.sub(r"<[^>]+>", " ", match.group(0))
+        return "" if "check for understanding" in " ".join(heading_text.split()).lower() else match.group(0)
+
+    value = re.sub(r'<h([2-4])\b[^>]*>.*?</h\1>', remove_check_heading, value, flags=re.I | re.S)
+    value = re.sub(
+        r'<p[^>]*>\s*(?:<strong[^>]*>)?\s*(?:✏️\s*)?Check for Understanding:?\s*(?:</strong>)?\s*</p>',
+        "",
+        value,
+        flags=re.I,
+    )
+    box = (
+        '<div class="check-next-move" style="border: 2px solid #2980B9; background-color: #F2F9FD; '
+        'padding: 14px 16px; border-radius: 8px; margin: 18px 0 12px 0;">'
+        '<p style="margin: 0; color: #222222;"><strong style="color: #005A70;">✅ Your next move:</strong> '
+        'Complete the checks for understanding below. Use the feedback to review your answer before continuing.</p></div>'
+    )
+    return value.rstrip() + box
+
+
 def step_html(step: dict, number: int, index: int) -> str:
     title = re.sub(r"^\d+\.\d+\s*[^A-Za-z0-9]*\s*", "", step["title"]).strip()
     step_label = step_number(step, number, index)
+    title = STEP_TITLES.get(step_label, title)
     if step["type"] == "WikiPage":
         return ""
     if step["type"] == "Assignment":
         folder = SOURCE / step["ref"]
         candidates = list(folder.glob("*.html"))
         content = body_from_html(candidates[0]) if candidates else "<p>Complete the applied learning task described by your instructor.</p>"
+        if '<div class="question-set">' in content:
+            before, after = content.split('<div class="question-set">', 1)
+            content = add_check_next_move(before) + '<div class="question-set">' + after
         handoff = "" if step_label in {"2.5", "4.5", "5.5", "6.5", "7.5", "8.5"} else classroom_handoff()
         return f'<section class="lesson-step classroom-activity" id="step-{step_label.replace(".", "-")}" data-step-label="{step_label}" hidden><p class="eyebrow">Step {step_label} · Practical application</p><h2>{html.escape(title)}</h2>{content}{handoff}</section>'
     qti = SOURCE / "non_cc_assessments" / f'{step["ref"]}.xml.qti'
@@ -801,6 +1058,26 @@ def step_html(step: dict, number: int, index: int) -> str:
             flags=re.I | re.S,
         )
         return f'<section class="lesson-step classroom-activity" id="step-1-5" data-step-label="1.5" hidden><p class="eyebrow">Step 1.5 · Practical application</p><h2>{html.escape(title)}</h2>{desc}{human_decisions_simulation()}</section>'
+    if step_label == "3.5" and qti.exists():
+        qti_text = qti.read_text(encoding="utf-8")
+        bank_match = re.search(r"<sourcebank_ref>([^<]+)</sourcebank_ref>", qti_text)
+        bank_questions = []
+        if bank_match:
+            bank_path = SOURCE / "non_cc_assessments" / f"{bank_match.group(1)}.xml.qti"
+            if bank_path.exists():
+                bank_questions = [q for q in extract_questions(bank_path) if re.search(r"<img\b", q["prompt"], flags=re.I)]
+        next_move = (
+            '<div class="check-next-move" style="border: 2px solid #2980B9; background-color: #F2F9FD; '
+            'padding: 14px 16px; border-radius: 8px; margin: 18px 0 12px 0;">'
+            '<p style="margin: 0; color: #222222;"><strong style="color: #005A70;">✅ Your next move:</strong> '
+            'Compare each pair of images and choose the responsible decision. Check the feedback before moving to the next pair.</p></div>'
+        )
+        practice_note = '<p class="save-note">This is a practice activity and does not need to be submitted.</p>'
+        return (
+            f'<section class="lesson-step classroom-activity" id="step-3-5" data-step-label="3.5" hidden>'
+            f'<p class="eyebrow">Step 3.5 · Practical application</p><h2>{html.escape(title)}</h2>'
+            f'{desc}{next_move}{media_audit_simulation(bank_questions)}{practice_note}</section>'
+        )
     if step_label == "2.4":
         desc = desc.replace("IFoEcetEdVQ", "lKsuxtGJSKA")
         desc = desc.replace("AI Literacy: How to Write Good Prompts", "AI Literacy: Refining Chatbot Results")
@@ -860,7 +1137,10 @@ def step_html(step: dict, number: int, index: int) -> str:
     label = "Show what you know" if "Show What You Know" in step["title"] else "Learn and check"
     handoff = classroom_handoff() if re.search(r"\b\d+\.5\b", step["title"]) else ""
     classes = "lesson-step classroom-activity" if handoff else "lesson-step"
-    return f'<section class="{classes}" id="step-{step_label.replace(".", "-")}" data-step-label="{step_label}" hidden><p class="eyebrow">Step {step_label} · {label}</p><h2>{html.escape(title)}</h2>{desc}<div class="question-set">{"".join(question_html)}</div>{handoff}</section>'
+    if questions:
+        desc = add_check_next_move(desc)
+    question_set = f'<div class="question-set">{"".join(question_html)}</div>' if questions else ""
+    return f'<section class="{classes}" id="step-{step_label.replace(".", "-")}" data-step-label="{step_label}" hidden><p class="eyebrow">Step {step_label} · {label}</p><h2>{html.escape(title)}</h2>{desc}{question_set}{handoff}</section>'
 
 
 def classroom_handoff() -> str:
@@ -871,20 +1151,18 @@ def classroom_handoff() -> str:
 def lesson_page(number: int, steps: list[dict]) -> str:
     overview = body_from_html(SOURCE / "wiki_content" / f"{number}-dot-1-lesson-overview.html")
     content_steps = [f'<section class="lesson-step overview" id="step-{number}-1" data-step-label="{number}.1"><p class="eyebrow">Step {number}.1 · Start here</p>{overview}</section>']
-    form_links = json.loads(FORM_LINKS_PATH.read_text(encoding="utf-8")) if FORM_LINKS_PATH.exists() else {}
     for index, step in enumerate(steps, 1):
         if re.search(rf"\b{number}\.6\b", step["title"]):
-            form_url = form_links.get(str(number), "assessment.html")
             label = step_number(step, number, len(content_steps) + 1)
             content_steps.append(
-                f'<section class="lesson-step assessment-callout" id="step-{label.replace(".", "-")}" data-step-label="{label}" hidden><p class="eyebrow">Step {label} · Lesson assessment · Google Form</p>'
+                f'<section class="lesson-step assessment-callout" id="step-{label.replace(".", "-")}" data-step-label="{label}" hidden><p class="eyebrow">Step {label} · Lesson assessment</p>'
                 f'<h2>{html.escape(re.sub(r"^\d+\.\d+\s*[^A-Za-z0-9]*\s*", "", step["title"]).strip())}</h2>'
-                f'<p>Complete the assessment to show what you know from Lesson {number}. Follow your instructor’s directions for the mastery score and attempts.</p>'
-                f'<a class="button" href="{html.escape(form_url)}" target="_blank" rel="noopener">Open Lesson {number} assessment <span aria-hidden="true">↗</span></a></section>'
+                f'<div class="check-next-move"><p><strong>✅ Your next move:</strong> Return to your course and complete the Lesson {number} assessment. Follow your instructor’s directions for attempts and the required score.</p></div></section>'
             )
         else:
             rendered = step_html(step, number, index)
             if rendered:
+                rendered = align_video_to_step(rendered, step_number(step, number, index))
                 content_steps.append(rendered)
     step_count = len(content_steps)
     return f'''<!doctype html>
