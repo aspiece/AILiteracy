@@ -128,6 +128,7 @@ document.querySelectorAll('.scenario-simulation').forEach(simulation => {
   const previousCase = simulation.querySelector('.scenario-previous');
   const nextCase = simulation.querySelector('.scenario-next');
   const caseNumber = simulation.querySelector('.simulation-count span');
+  const feedbackMode = simulation.dataset.feedbackMode || 'human-decisions';
   let currentCase = 0;
   const completed = new Set();
 
@@ -148,6 +149,7 @@ document.querySelectorAll('.scenario-simulation').forEach(simulation => {
   selectedCards.forEach((card, cardIndex) => {
     const check = card.querySelector('.scenario-check');
     const feedback = card.querySelector('.feedback');
+    const correctFeedback = feedback.innerHTML;
     check.addEventListener('click', () => {
       const answer = card.querySelector('input:checked');
       if (!answer) {
@@ -160,10 +162,12 @@ document.querySelectorAll('.scenario-simulation').forEach(simulation => {
       feedback.classList.toggle('incorrect', !correct);
       if (correct) {
         completed.add(cardIndex);
-        feedback.innerHTML = '<strong>Good decision.</strong> ' + feedback.innerHTML.replace(/^<strong>Good decision.<\/strong>\s*/, '');
+        feedback.innerHTML = '<strong>Good decision.</strong> ' + correctFeedback;
         if (cardIndex === currentCase) nextCase.disabled = false;
       } else {
-        feedback.innerHTML = '<strong>Not yet.</strong> Use the Human Decisions Map to identify where a trained person must check or decide.';
+        feedback.innerHTML = feedbackMode === 'media-audit'
+          ? '<strong>Not yet.</strong> Compare the safety, accuracy, permission, and privacy details in both images, then try again.'
+          : '<strong>Not yet.</strong> Use the Human Decisions Map to identify where a trained person must check or decide.';
       }
       feedback.hidden = false;
     });
@@ -174,7 +178,7 @@ document.querySelectorAll('.scenario-simulation').forEach(simulation => {
     if (currentCase === selectedCards.length - 1) {
       nextCase.textContent = 'Simulation complete ✓';
       nextCase.disabled = true;
-      simulation.querySelector('.simulation-count').textContent = '6 of 6 complete';
+      simulation.querySelector('.simulation-count').textContent = `${selectedCards.length} of ${selectedCards.length} complete`;
       return;
     }
     showCase(currentCase + 1, true);
