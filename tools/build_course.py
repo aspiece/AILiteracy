@@ -869,6 +869,19 @@ def clean_fragment(value: str) -> str:
         value,
         flags=re.I,
     )
+    value = re.sub(
+        r'<h2([^>]*)>([^<]*Learning Goals[^<]*)</h2>',
+        lambda match: f'<h2 class="objectives-heading"{match.group(1)}>{match.group(2)}</h2>',
+        value,
+        flags=re.I,
+    )
+    value = re.sub(
+        r'(<h2 class="objectives-heading"[^>]*>.*?</h2>\s*<p[^>]*>.*?</p>\s*)<ul([^>]*)>(.*?)</ul>',
+        r'\1<ul class="objective-cards"\2>\3</ul>',
+        value,
+        count=1,
+        flags=re.I | re.S,
+    )
     value = set_video_focus(value)
     value = accessibility_fragment(value)
     value = make_images_zoomable(value)
@@ -878,7 +891,155 @@ def clean_fragment(value: str) -> str:
         value,
         flags=re.I | re.S,
     )
+    value = re.sub(
+        r'(<div class="routine-intro-visual">.*?</div>)\s*(<p[^>]*>\s*<strong[^>]*>\s*Goal.*?</p>\s*<ul[^>]*>.*?</ul>)',
+        r'<div class="routine-overview-grid">\1<div class="routine-overview-steps">\2</div></div>',
+        value,
+        count=1,
+        flags=re.I | re.S,
+    )
     return value
+
+
+def extract_lesson_vocabulary(overview: str) -> list[tuple[str, str]]:
+    """Read the authoritative term-definition pairs from the lesson overview."""
+    start = re.search(r"Key Words to Know", overview, flags=re.I)
+    if not start:
+        return []
+    section = overview[start.end():]
+    source_start = re.search(r"<(?:details|summary)\b[^>]*>.*?(?:Source|Acknowledgment)", section, flags=re.I | re.S)
+    if source_start:
+        section = section[:source_start.start()]
+    vocabulary = []
+    for match in re.finditer(r"<strong[^>]*>([^<:]+):</strong>\s*(.*?)</div>", section, flags=re.I | re.S):
+        term = re.sub(r"\s+", " ", html.unescape(match.group(1))).strip()
+        definition = re.sub(r"<[^>]+>", " ", match.group(2))
+        definition = re.sub(r"\s+", " ", html.unescape(definition)).strip()
+        if term and definition:
+            vocabulary.append((term, definition))
+    return vocabulary
+
+
+def structure_routine_overview(overview: str) -> str:
+    """Place the overview Routine image and explanation in a bounded grid."""
+    if "routine-overview-grid" in overview:
+        return overview
+    visual = re.search(
+        r'(<figure class="routine-figure">.*?</figure>|<div class="routine-intro-visual">.*?</div>)',
+        overview,
+        flags=re.I | re.S,
+    )
+    if not visual:
+        return overview
+    explanation = re.search(
+        r'(<p[^>]*>\s*(?:<strong[^>]*>)?\s*Goal\s*(?:→|â†’).*?</p>\s*<ul[^>]*>.*?</ul>)',
+        overview[:visual.start()],
+        flags=re.I | re.S,
+    )
+    if explanation:
+        explanation_html = explanation.group(1)
+        overview = overview[:explanation.start()] + overview[explanation.end():]
+        visual = re.search(
+            r'(<figure class="routine-figure">.*?</figure>|<div class="routine-intro-visual">.*?</div>)',
+            overview,
+            flags=re.I | re.S,
+        )
+    else:
+        explanation_html = (
+            '<p><strong>Use these five questions:</strong></p><ul>'
+            '<li><strong>Goal:</strong> What am I trying to do?</li>'
+            '<li><strong>Protect:</strong> What should stay private?</li>'
+            '<li><strong>Use:</strong> How can AI help?</li>'
+            '<li><strong>Check:</strong> Is it accurate and safe?</li>'
+            '<li><strong>Own:</strong> Who is responsible in the end?</li></ul>'
+        )
+    replacement = (
+        f'<div class="routine-overview-grid">{visual.group(1)}'
+        f'<div class="routine-overview-steps">{explanation_html}</div></div>'
+    )
+    return overview[:visual.start()] + replacement + overview[visual.end():]
+
+
+def normalize_source_foundations(value: str) -> str:
+    """Keep source material concise, consistently named, and collapsible."""
+    def normalize(match: re.Match) -> str:
+        block = match.group(0)
+        if not re.search(r"<summary[^>]*>.*?(?:Source|Attribution|Acknowledgment).*?</summary>", block, flags=re.I | re.S):
+            return block
+        block = re.sub(r"<details\b(?![^>]*\bclass=)([^>]*)>", r'<details class="source-foundation"\1>', block, count=1, flags=re.I)
+        block = re.sub(r'<details\b([^>]*?)class="([^"]*)"([^>]*)>', lambda m: f'<details{m.group(1)}class="{m.group(2)} source-foundation"{m.group(3)}>' if "source-foundation" not in m.group(2).split() else m.group(0), block, count=1, flags=re.I)
+        block = re.sub(r"<summary[^>]*>.*?</summary>", "<summary>Source Foundation</summary>", block, count=1, flags=re.I | re.S)
+        block = re.sub(r"<p\b[^>]*>.*?<strong[^>]*>\s*Acknowledgment:.*?</p>", "", block, flags=re.I | re.S)
+        block = re.sub(r"<p\b[^>]*>\s*<strong[^>]*>\s*Source Foundation:.*?</p>", "", block, flags=re.I | re.S)
+        block = re.sub(r"(</a>)\s*(?:&mdash;|—|â€”|-).*?(</li>)", r"\1\2", block, flags=re.I | re.S)
+
+        def concise_paragraph(match: re.Match) -> str:
+            paragraph = match.group(1)
+            link = re.search(r'<a\b[^>]*href="([^"]+)"[^>]*>.*?</a>', paragraph, flags=re.I | re.S)
+            if not link:
+                return match.group(0)
+            prefix = paragraph[:link.start()]
+            label = re.sub(r"<[^>]+>", " ", prefix)
+            label = re.sub(r"\s+", " ", html.unescape(label)).strip()
+            label = re.split(r"\s+(?:—|â€”|-)\s+", label, maxsplit=1)[0].strip(" .,:;")
+            if not label:
+                label = re.sub(r"<[^>]+>", " ", link.group(0))
+                label = re.sub(r"\s+", " ", html.unescape(label)).strip()
+            return f'<li class="source-item"><a href="{html.escape(link.group(1), quote=True)}" target="_blank" rel="noopener">{html.escape(label)}</a></li>'
+
+        block = re.sub(r"<p\b[^>]*>(.*?)</p>", concise_paragraph, block, flags=re.I | re.S)
+        block = re.sub(
+            r'((?:\s*<li class="source-item">.*?</li>)+)',
+            lambda m: f'<ul class="source-list">{m.group(1)}</ul>',
+            block,
+            flags=re.I | re.S,
+        )
+        return block
+
+    return re.sub(r"<details\b[^>]*>.*?</details>", normalize, value, flags=re.I | re.S)
+
+
+def link_lesson_vocabulary(value: str, vocabulary: list[tuple[str, str]]) -> str:
+    """Turn every visible occurrence of this lesson's vocabulary into a dialog trigger."""
+    if not vocabulary:
+        return value
+    terms = sorted(vocabulary, key=lambda item: len(item[0]), reverse=True)
+    definitions = {term.casefold(): definition for term, definition in terms}
+    pattern = re.compile(r"(?<![\w])(" + "|".join(re.escape(term) for term, _ in terms) + r")(?![\w])", re.I)
+    tokens = re.split(r"(<[^>]+>)", value)
+    blocked = 0
+    blocked_tags = {"a", "button", "details", "script", "style", "title"}
+    for index, token in enumerate(tokens):
+        if token.startswith("<"):
+            tag = re.match(r"</?\s*([a-z0-9]+)", token, flags=re.I)
+            if tag and tag.group(1).lower() in blocked_tags:
+                blocked += -1 if token.lstrip().startswith("</") else (0 if token.rstrip().endswith("/>") else 1)
+            continue
+        if blocked or not token.strip():
+            continue
+        tokens[index] = pattern.sub(
+            lambda m: (
+                f'<button class="vocab-link" type="button" data-term="{html.escape(m.group(0), quote=True)}" '
+                f'data-definition="{html.escape(definitions[m.group(0).casefold()], quote=True)}">{m.group(0)}</button>'
+            ),
+            token,
+        )
+    linked = "".join(tokens)
+
+    def unlink_question(match: re.Match) -> str:
+        return re.sub(
+            r'<button class="vocab-link"\b[^>]*>(.*?)</button>',
+            r"\1",
+            match.group(0),
+            flags=re.I | re.S,
+        )
+
+    return re.sub(
+        r'<article class="question"\b[^>]*>.*?</article>',
+        unlink_question,
+        linked,
+        flags=re.I | re.S,
+    )
 
 
 def accessibility_fragment(value: str) -> str:
@@ -1142,7 +1303,7 @@ ROUTINE_ALT = (
     "2 Protect—What should stay private? 3 Use—How can AI help? "
     "4 Check—Is it accurate and safe? 5 Own—Who is responsible in the end?"
 )
-ASSET_VERSION = "20260808-layout-instruction-update"
+ASSET_VERSION = "20260808-vocabulary-overview-update"
 ROUTINE_WEB_URL = "https://drive.google.com/file/d/1ZU5oKUOuZtzy2pleGarrKHy60p8J_RS2/view?usp=drivesdk"
 ROUTINE_PRINT_URL = "https://drive.google.com/file/d/1P82VigGCzn5qVHIDCmn2E0EmWflxOZiR/view?usp=drivesdk"
 
@@ -1220,11 +1381,18 @@ def step_html(step: dict, number: int, index: int) -> str:
         # subsection headings belong at h3 rather than skipping to h4.
         content = re.sub(r"<(/?)h4\b", r"<\1h3", content, flags=re.I)
         assignment_routine_captions = {
-            "6.5": "Use the routine to check permission, accuracy, credit, and responsibility before sharing AI-assisted work.",
             "8.5": "Use the routine to guide your final model decisions and reflection.",
         }
         if step_label in assignment_routine_captions:
             content = routine_figure(assignment_routine_captions[step_label]) + content
+        if step_label == "6.5":
+            content = re.sub(
+                r'<div[^>]*>\s*<strong[^>]*>Responsible AI Routine:</strong>\s*<span>.*?</span>\s*</div>',
+                "",
+                content,
+                count=1,
+                flags=re.I | re.S,
+            )
         if step_label == "5.5":
             content = instructional_figure(
                 "Minimum_Necessary_Data_1600x1000.png",
@@ -1512,6 +1680,7 @@ def classroom_handoff() -> str:
 
 def lesson_page(number: int, steps: list[dict]) -> str:
     overview = body_from_html(SOURCE / "wiki_content" / f"{number}-dot-1-lesson-overview.html")
+    vocabulary = extract_lesson_vocabulary(overview)
     if number == 1:
         overview = overview.replace(
             "../assets/media/M01_ResponsibleAIRoutine_v1.png",
@@ -1528,6 +1697,7 @@ def lesson_page(number: int, steps: list[dict]) -> str:
             count=1,
             flags=re.I,
         )
+    overview = structure_routine_overview(overview)
     content_steps = [f'<section class="lesson-step overview" id="step-{number}-1" data-step-label="{number}.1"><p class="eyebrow">Step {number}.1 · Start here</p>{overview}</section>']
     for index, step in enumerate(steps, 1):
         if re.search(rf"\b{number}\.6\b", step["title"]):
@@ -1548,7 +1718,7 @@ def lesson_page(number: int, steps: list[dict]) -> str:
 <title>Lesson {number}: {html.escape(LESSON_TITLES[number])} | AI Literacy</title><link rel="stylesheet" href="../assets/styles.css?v={ASSET_VERSION}"></head>
 <body data-lesson="{number}"><a class="skip-link" href="#main">Skip to lesson content</a>
 <header class="site-header classroom-header"><span class="brand">AI Literacy</span><span class="classroom-label">Course lesson</span></header>
-<main id="main"><div class="lesson-hero"><p class="lesson-identity">Lesson {number}: {html.escape(LESSON_TITLES[number])}</p><h1>{html.escape(LESSON_TITLES[number])}</h1>
+<main id="main"><div class="lesson-hero"><h1 class="lesson-identity">Lesson {number}: {html.escape(LESSON_TITLES[number])}</h1>
 <div class="step-progress" aria-label="Lesson progress"><div class="progress-text"><span id="step-status">Step {number}.1</span><span id="step-count">1 of {step_count}</span></div><div class="progress" role="progressbar" aria-labelledby="step-status" aria-valuemin="1" aria-valuemax="{step_count}" aria-valuenow="1" aria-valuetext="Step 1 of {step_count}"><span style="width:{100 / step_count:.2f}%"></span></div></div></div>
 <div class="stepper" data-total-steps="{step_count}">{''.join(content_steps)}
 <p class="sr-only" id="step-announcement" aria-live="polite"></p>
@@ -1561,7 +1731,10 @@ def lesson_page(number: int, steps: list[dict]) -> str:
         f'<link rel="preload" as="image" href="{html.escape(source, quote=True)}" fetchpriority="low">'
         for source in image_sources
     )
-    return page.replace("</head>", preloads + "</head>")
+    page = page.replace("</head>", preloads + "</head>")
+    page = normalize_source_foundations(page)
+    page = link_lesson_vocabulary(page, vocabulary)
+    return re.sub(r"[ \t]+\n", "\n", page)
 
 
 def nav_links(active: int | None = None, prefix="lessons/") -> str:

@@ -142,6 +142,34 @@ if (zoomButtons.length) {
   dialog.addEventListener('close', () => returnFocus?.focus());
 }
 
+const vocabularyLinks = [...document.querySelectorAll('.vocab-link')];
+if (vocabularyLinks.length) {
+  const dialog = document.createElement('dialog');
+  dialog.className = 'vocabulary-dialog';
+  dialog.setAttribute('aria-labelledby', 'vocabulary-dialog-term');
+  dialog.innerHTML = '<button class="vocabulary-dialog-close" type="button" aria-label="Close definition">Close</button><h2 id="vocabulary-dialog-term"></h2><p></p>';
+  document.body.append(dialog);
+  const term = dialog.querySelector('h2');
+  const definition = dialog.querySelector('p');
+  const closeButton = dialog.querySelector('.vocabulary-dialog-close');
+  let returnFocus;
+
+  vocabularyLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      term.textContent = link.dataset.term;
+      definition.textContent = link.dataset.definition;
+      returnFocus = link;
+      dialog.showModal();
+      closeButton.focus();
+    });
+  });
+  closeButton.addEventListener('click', () => dialog.close());
+  dialog.addEventListener('click', event => {
+    if (event.target === dialog) dialog.close();
+  });
+  dialog.addEventListener('close', () => returnFocus?.focus());
+}
+
 document.querySelectorAll('.scenario-simulation').forEach(simulation => {
   const allCards = [...simulation.querySelectorAll('.scenario-card')];
   const selectedCards = [];
