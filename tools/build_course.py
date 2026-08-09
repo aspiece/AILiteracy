@@ -1253,31 +1253,97 @@ def human_decisions_simulation() -> str:
 
 def media_audit_simulation(questions: list[dict]) -> str:
     cards = []
+    program_options = []
+    decisions = {
+        'Welding': 'Revise',
+        'Agriscience and Veterinary Medicine': 'Hold for verification',
+        'Public Safety': 'Revise',
+        'Mechatronics': 'Hold for verification',
+        'Marketing and Graphic Design': 'Hold for verification',
+        'U.S. Army JROTC': 'Reject',
+        'Health Science and Medical Careers': 'Hold for verification',
+        'Forensic Science': 'Revise',
+        'Education': 'Revise',
+        'Culinary Arts': 'Hold for verification',
+        'Construction Trades': 'Hold for verification',
+        'Computer Science': 'Hold for verification',
+        'Cosmetology': 'Reject',
+        'Automotive and Medium/Heavy Diesel': 'Reject',
+        'Aviation': 'Reject',
+    }
     for index, question in enumerate(questions, 1):
-        choices = "".join(
-            f'<label><input type="radio" name="media-audit-{index}" value="{html.escape(choice["id"])}"> '
-            f'<span>{choice["html"]}</span></label>'
-            for choice in question["choices"]
+        program_match = re.search(r'<h3>(.*?) Media Audit</h3>', question["prompt"], re.I | re.S)
+        program = html.unescape(re.sub(r'<[^>]+>', '', program_match.group(1))).strip() if program_match else f'Program {index}'
+        feedback_text = html.unescape(re.sub(r'<[^>]+>', '', question["feedback"])).strip()
+        problem_match = re.match(r'\s*Image\s+([AB])\s+needs review', feedback_text, re.I)
+        problem_image = problem_match.group(1).upper() if problem_match else 'A'
+        other_image = 'B' if problem_image == 'A' else 'A'
+        decision = decisions.get(program, 'Hold for verification')
+        concern_match = re.search(r'Main concern:\s*(.*?)\s*Responsible next step:', feedback_text, re.I | re.S)
+        next_step_match = re.search(r'Responsible next step:\s*(.*)$', feedback_text, re.I | re.S)
+        concern = concern_match.group(1).strip() if concern_match else 'The image includes a claim or detail that needs review.'
+        responsible_next_step = next_step_match.group(1).strip() if next_step_match else 'Check the image with a trusted source or qualified expert.'
+        prompt = re.sub(
+            r'<p><strong>Which assessment and next step are most appropriate\?</strong></p>\s*$',
+            '',
+            question["prompt"],
+            flags=re.I,
         )
+        question_name = f'media-audit-{index}'
+
+        def audit_question(number: int, legend: str, correct: str, distractors: list[str]) -> str:
+            answers = [correct, *distractors]
+            choices = ''.join(
+                f'<label><input type="radio" name="{question_name}-{number}" value="{choice_index}"> '
+                f'<span>{html.escape(answer)}</span></label>'
+                for choice_index, answer in enumerate(answers)
+            )
+            return (
+                f'<fieldset class="audit-question" data-correct="0"><legend>{number}. {html.escape(legend)}</legend>'
+                f'<div class="choices">{choices}</div></fieldset>'
+            )
+
+        guided_questions = (
+            audit_question(1, 'Which image has the most obvious concern?', f'Image {problem_image}',
+                           [f'Image {other_image}', 'Both images are ready to approve', 'Neither image can be reviewed'])
+            + audit_question(2, 'What is the main concern?', concern, [
+                'The image uses colors that may not match the program brand.',
+                'The image does not prove whether it was made with AI.',
+                'The two images use different layouts.',
+            ])
+            + audit_question(3, f'What review decision fits Image {problem_image} best?', decision,
+                           [option for option in ['Approve', 'Revise', 'Reject', 'Hold for verification'] if option != decision][:3])
+            + audit_question(4, 'What should the reviewer do next?', responsible_next_step, [
+                'Approve it because it looks polished.',
+                'Use an AI detector score as final proof.',
+                'Share it first and check the evidence later.',
+            ])
+        )
+        program_options.append(f'<option value="{index}">{html.escape(program)}</option>')
         cards.append(
-            f'<article class="scenario-card media-audit-card" data-bank="{index}" '
-            f'data-correct="{html.escape(json.dumps(question["correct"]))}" hidden>'
-            f'{question["prompt"]}<div class="choices">{choices}</div>'
-            '<button class="scenario-check" type="button">Check decision</button>'
-            f'<div class="feedback" role="status" hidden>{question["feedback"]}</div></article>'
+            f'<article class="scenario-card media-audit-card" data-bank="{index}" data-program="{html.escape(program)}" hidden>'
+            f'{prompt}<div class="audit-question-list">{guided_questions}</div>'
+            '<button class="scenario-check" type="button">Check my comparison</button>'
+            f'<div class="feedback" role="status" hidden>{question["feedback"]} '
+            f'Image {other_image} has no obvious visual concern, but appearance alone does not prove that it is ready. '
+            'A reviewer must still check its source, claims, permissions, context, and intended use.</div></article>'
         )
-    total = len(cards)
     return (
         '<section class="scenario-simulation media-audit-simulation" data-feedback-mode="media-audit" '
         'aria-labelledby="media-audit-title">'
         '<div class="simulation-header"><div><p class="eyebrow">Interactive image comparison</p>'
         '<h3 id="media-audit-title">Career Program Media Audit</h3></div>'
-        f'<p class="simulation-count" aria-live="polite">Comparison <span>1</span> of {total}</p></div>'
-        '<p>Compare Image A and Image B. Choose which image is ready and which one needs review. '
-        'Use the feedback to identify the concern and the responsible next step.</p>'
-        f'<div class="scenario-deck">{"".join(cards)}</div>'
-        '<div class="scenario-controls"><button class="step-button secondary scenario-previous" type="button">← Previous comparison</button>'
+        '<p class="simulation-count" aria-live="polite">Choose your program</p></div>'
+        '<p>Study one image pair from your career program. Four questions will guide you through the clues, concern, review decision, and responsible next step.</p>'
+        '<div class="media-program-picker"><label for="media-program-select"><strong>Select your career program</strong></label>'
+        f'<select id="media-program-select" class="media-program-select"><option value="">Choose a program</option>{"".join(program_options)}</select>'
+        '<button class="step-button media-audit-start" type="button" disabled>Start my comparison</button>'
+        '<p class="media-program-help">Finish this comparison before choosing another program for optional practice.</p></div>'
+        f'<div class="scenario-deck" hidden>{"".join(cards)}</div>'
+        '<div class="scenario-controls" hidden><button class="step-button secondary scenario-previous" type="button">← Previous comparison</button>'
         '<button class="step-button scenario-next" type="button" disabled>Next comparison →</button></div>'
+        '<div class="media-audit-actions" hidden><p>You completed your program comparison. You may stop here or practice with another program.</p>'
+        '<button class="step-button secondary media-audit-another" type="button">Choose another program</button></div>'
         '</section>'
     )
 
@@ -1598,6 +1664,13 @@ def step_html(step: dict, number: int, index: int) -> str:
         )
         return f'<section class="lesson-step classroom-activity" id="step-1-5" data-step-label="1.5" hidden><p class="eyebrow">Step 1.5 · Practical application</p><h2>{html.escape(title)}</h2>{desc}{human_decisions_simulation()}</section>'
     if step_label == "3.5" and qti.exists():
+        desc = desc.replace('For each image:', 'For each comparison:')
+        desc = desc.replace('Decide whether it is ready to use.', 'Identify which image has an obvious concern.')
+        desc = desc.replace('Choose the most responsible next step.', 'Choose the strongest review decision and the evidence or expert to check next.')
+        desc = desc.replace(
+            'You are evaluating the image for accuracy, safety, permission, and privacy — not trying to determine whether it was created by AI.',
+            'You are evaluating accuracy, safety, permission, privacy, and context — not trying to determine whether AI created an image. A polished image still needs normal verification before approval.',
+        )
         qti_text = qti.read_text(encoding="utf-8")
         bank_match = re.search(r"<sourcebank_ref>([^<]+)</sourcebank_ref>", qti_text)
         bank_questions = []
@@ -1609,7 +1682,7 @@ def step_html(step: dict, number: int, index: int) -> str:
             '<div class="check-next-move" style="border: 2px solid #2980B9; background-color: #F2F9FD; '
             'padding: 14px 16px; border-radius: 8px; margin: 18px 0 12px 0;">'
             '<p style="margin: 0; color: #222222;"><strong style="color: #005A70;">✅ Your next move:</strong> '
-            'Compare each pair of images and choose the responsible decision. Check the feedback before moving to the next pair.</p></div>'
+            'Select your career program. Use the four guided questions to identify the concern, choose a review decision, and decide what evidence or expert should be checked next.</p></div>'
         )
         fictional_notice = (
             '<div class="fictional-material-notice"><p><strong>Fictional practice materials:</strong> '

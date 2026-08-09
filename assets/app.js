@@ -172,73 +172,170 @@ if (vocabularyLinks.length) {
 
 document.querySelectorAll('.scenario-simulation').forEach(simulation => {
   const allCards = [...simulation.querySelectorAll('.scenario-card')];
+  const previousCase = simulation.querySelector('.scenario-previous');
+  const nextCase = simulation.querySelector('.scenario-next');
+  const feedbackMode = simulation.dataset.feedbackMode || 'human-decisions';
+  const cardLimit = Number(simulation.dataset.cardLimit || 0);
+
+  if (feedbackMode === 'media-audit' && simulation.querySelector('.media-program-select')) {
+    const select = simulation.querySelector('.media-program-select');
+    const start = simulation.querySelector('.media-audit-start');
+    const picker = simulation.querySelector('.media-program-picker');
+    const deck = simulation.querySelector('.scenario-deck');
+    const another = simulation.querySelector('.media-audit-actions');
+    const anotherButton = simulation.querySelector('.media-audit-another');
+    const count = simulation.querySelector('.simulation-count');
+
+    function shuffleChoices(card) {
+      card.querySelectorAll('.audit-question .choices').forEach(group => {
+        const choices = [...group.children];
+        for (let index = choices.length - 1; index > 0; index -= 1) {
+          const swapIndex = Math.floor(Math.random() * (index + 1));
+          [choices[index], choices[swapIndex]] = [choices[swapIndex], choices[index]];
+        }
+        choices.forEach(choice => group.appendChild(choice));
+      });
+    }
+
+    function resetComparison() {
+      allCards.forEach(card => {
+        card.hidden = true;
+        card.querySelectorAll('input').forEach(input => { input.checked = false; });
+        card.querySelectorAll('.audit-question').forEach(question => question.classList.remove('incorrect'));
+        const feedback = card.querySelector('.feedback');
+        feedback.hidden = true;
+        feedback.classList.remove('incorrect');
+        feedback.innerHTML = feedback.dataset.completeFeedback || feedback.innerHTML;
+      });
+      deck.hidden = true;
+      another.hidden = true;
+      count.textContent = 'Choose your program';
+    }
+
+    allCards.forEach(card => {
+      const feedback = card.querySelector('.feedback');
+      feedback.dataset.completeFeedback = feedback.innerHTML;
+      card.querySelector('.scenario-check').addEventListener('click', () => {
+        const questions = [...card.querySelectorAll('.audit-question')];
+        let allCorrect = true;
+        questions.forEach(question => {
+          const answer = question.querySelector('input:checked');
+          const correct = Boolean(answer) && answer.value === question.dataset.correct;
+          question.classList.toggle('incorrect', !correct);
+          allCorrect = allCorrect && correct;
+        });
+        feedback.classList.toggle('incorrect', !allCorrect);
+        if (allCorrect) {
+          feedback.innerHTML = '<strong>Comparison complete.</strong> ' + feedback.dataset.completeFeedback;
+          another.hidden = false;
+          anotherButton.focus();
+        } else {
+          feedback.textContent = 'Review the highlighted questions. Use details in both images and choose the response that calls for appropriate human review.';
+          another.hidden = true;
+        }
+        feedback.hidden = false;
+      });
+    });
+
+    select.addEventListener('change', () => {
+      resetComparison();
+      picker.hidden = false;
+      start.disabled = !select.value;
+    });
+    start.addEventListener('click', () => {
+      resetComparison();
+      const activeCard = allCards.find(card => card.dataset.bank === select.value);
+      if (!activeCard) return;
+      shuffleChoices(activeCard);
+      picker.hidden = true;
+      deck.hidden = false;
+      activeCard.hidden = false;
+      count.textContent = activeCard.dataset.program;
+      const heading = activeCard.querySelector('h3');
+      heading?.setAttribute('tabindex', '-1');
+      heading?.focus();
+    });
+    anotherButton.addEventListener('click', () => {
+      resetComparison();
+      select.value = '';
+      start.disabled = true;
+      picker.hidden = false;
+      select.focus();
+    });
+    return;
+  }
+
+  function beginSimulation(selectedCards) {
+    allCards.forEach(card => {
+      if (!selectedCards.includes(card)) card.remove();
+    });
+    simulation.querySelector('.scenario-deck').hidden = false;
+    simulation.querySelector('.scenario-controls').hidden = false;
+    const count = simulation.querySelector('.simulation-count');
+    count.innerHTML = `${feedbackMode === 'media-audit' ? 'Comparison' : 'Case'} <span>1</span> of ${selectedCards.length}`;
+    const caseNumber = count.querySelector('span');
+    let currentCase = 0;
+    const completed = new Set();
+
+    function showCase(index, moveFocus = false) {
+      currentCase = Math.min(Math.max(index, 0), selectedCards.length - 1);
+      selectedCards.forEach((card, cardIndex) => { card.hidden = cardIndex !== currentCase; });
+      caseNumber.textContent = String(currentCase + 1);
+      previousCase.disabled = currentCase === 0;
+      nextCase.disabled = !completed.has(currentCase);
+      nextCase.textContent = currentCase === selectedCards.length - 1 ? 'Complete simulation ✓' : `Next ${feedbackMode === 'media-audit' ? 'comparison' : 'case'} →`;
+      if (moveFocus) {
+        const heading = selectedCards[currentCase].querySelector('h3, .scenario-category');
+        heading?.setAttribute('tabindex', '-1');
+        heading?.focus();
+      }
+    }
+
+    selectedCards.forEach((card, cardIndex) => {
+      const check = card.querySelector('.scenario-check');
+      const feedback = card.querySelector('.feedback');
+      const correctFeedback = feedback.innerHTML;
+      check.addEventListener('click', () => {
+        const answer = card.querySelector('input:checked');
+        if (!answer) {
+          feedback.textContent = 'Choose a decision before checking your answer.';
+          feedback.classList.add('incorrect');
+          feedback.hidden = false;
+          return;
+        }
+        const correct = JSON.parse(card.dataset.correct || '[]').includes(answer.value);
+        feedback.classList.toggle('incorrect', !correct);
+        if (correct) {
+          completed.add(cardIndex);
+          feedback.innerHTML = '<strong>Good decision.</strong> ' + correctFeedback;
+          if (cardIndex === currentCase) nextCase.disabled = false;
+        } else {
+          feedback.innerHTML = feedbackMode === 'media-audit'
+            ? '<strong>Not yet.</strong> Identify the obvious concern, then remember that a polished appearance never replaces normal source, claim, permission, and context checks.'
+            : '<strong>Not yet.</strong> Use the Human Decisions Map to identify where a trained person must check or decide.';
+        }
+        feedback.hidden = false;
+      });
+    });
+
+    previousCase.addEventListener('click', () => showCase(currentCase - 1, true));
+    nextCase.addEventListener('click', () => {
+      if (currentCase === selectedCards.length - 1) {
+        nextCase.textContent = 'Simulation complete ✓';
+        nextCase.disabled = true;
+        simulation.querySelector('.simulation-count').textContent = `${selectedCards.length} of ${selectedCards.length} complete`;
+        return;
+      }
+      showCase(currentCase + 1, true);
+    });
+    showCase(0);
+  }
+
   const selectedCards = [];
   const bankNumbers = [...new Set(allCards.map(card => card.dataset.bank))];
   bankNumbers.forEach(bank => {
     const bankCards = allCards.filter(card => card.dataset.bank === bank);
     selectedCards.push(bankCards[Math.floor(Math.random() * bankCards.length)]);
   });
-  allCards.forEach(card => {
-    if (!selectedCards.includes(card)) card.remove();
-  });
-
-  const previousCase = simulation.querySelector('.scenario-previous');
-  const nextCase = simulation.querySelector('.scenario-next');
-  const caseNumber = simulation.querySelector('.simulation-count span');
-  const feedbackMode = simulation.dataset.feedbackMode || 'human-decisions';
-  let currentCase = 0;
-  const completed = new Set();
-
-  function showCase(index, moveFocus = false) {
-    currentCase = Math.min(Math.max(index, 0), selectedCards.length - 1);
-    selectedCards.forEach((card, cardIndex) => { card.hidden = cardIndex !== currentCase; });
-    caseNumber.textContent = String(currentCase + 1);
-    previousCase.disabled = currentCase === 0;
-    nextCase.disabled = !completed.has(currentCase);
-    nextCase.textContent = currentCase === selectedCards.length - 1 ? 'Complete simulation ✓' : 'Next case →';
-    if (moveFocus) {
-      const heading = selectedCards[currentCase].querySelector('h3, .scenario-category');
-      heading?.setAttribute('tabindex', '-1');
-      heading?.focus();
-    }
-  }
-
-  selectedCards.forEach((card, cardIndex) => {
-    const check = card.querySelector('.scenario-check');
-    const feedback = card.querySelector('.feedback');
-    const correctFeedback = feedback.innerHTML;
-    check.addEventListener('click', () => {
-      const answer = card.querySelector('input:checked');
-      if (!answer) {
-        feedback.textContent = 'Choose a decision before checking your answer.';
-        feedback.classList.add('incorrect');
-        feedback.hidden = false;
-        return;
-      }
-      const correct = JSON.parse(card.dataset.correct || '[]').includes(answer.value);
-      feedback.classList.toggle('incorrect', !correct);
-      if (correct) {
-        completed.add(cardIndex);
-        feedback.innerHTML = '<strong>Good decision.</strong> ' + correctFeedback;
-        if (cardIndex === currentCase) nextCase.disabled = false;
-      } else {
-        feedback.innerHTML = feedbackMode === 'media-audit'
-          ? '<strong>Not yet.</strong> Compare the safety, accuracy, permission, and privacy details in both images, then try again.'
-          : '<strong>Not yet.</strong> Use the Human Decisions Map to identify where a trained person must check or decide.';
-      }
-      feedback.hidden = false;
-    });
-  });
-
-  previousCase.addEventListener('click', () => showCase(currentCase - 1, true));
-  nextCase.addEventListener('click', () => {
-    if (currentCase === selectedCards.length - 1) {
-      nextCase.textContent = 'Simulation complete ✓';
-      nextCase.disabled = true;
-      simulation.querySelector('.simulation-count').textContent = `${selectedCards.length} of ${selectedCards.length} complete`;
-      return;
-    }
-    showCase(currentCase + 1, true);
-  });
-  showCase(0);
+  beginSimulation(selectedCards.slice(0, cardLimit || selectedCards.length));
 });

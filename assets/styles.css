@@ -136,6 +136,17 @@ textarea { width: 100%; border: 1px solid var(--line); border-radius: 4px; paddi
 .scenario-category { color: var(--teal); font-weight: 800; }
 .scenario-check { min-height: 44px; padding: .65rem 1rem; border: 0; border-radius: 8px; color: #fff; background: var(--teal); font: inherit; font-weight: 800; cursor: pointer; }
 .scenario-controls { display: flex; justify-content: space-between; gap: 1rem; margin-top: 1rem; }
+.media-program-picker { display: grid; gap: .75rem; max-width: 620px; margin: 1.25rem 0; padding: 1.1rem; border: 1px solid var(--line); border-radius: 8px; background: var(--sky); }
+.media-program-select { min-height: 48px; width: 100%; padding: .65rem .75rem; border: 2px solid var(--teal); border-radius: 8px; background: #fff; color: var(--ink); font: inherit; }
+.media-program-help { margin: 0; color: var(--muted); font-size: .95rem; }
+.audit-question-list { display: grid; gap: 1rem; margin: 1.25rem 0; }
+.audit-question { margin: 0; padding: 1rem; border: 2px solid var(--line); border-radius: 8px; background: #fff; }
+.audit-question legend { padding: 0 .35rem; color: var(--teal); font-weight: 800; }
+.audit-question.incorrect { border-color: #b42318; background: #fff5f3; }
+.media-audit-card .choices label, .media-audit-card .choices span { font-weight: 400; }
+.media-audit-actions { margin-top: 1.25rem; padding: 1rem; border: 2px solid var(--teal); border-radius: 8px; background: var(--sky); }
+.media-audit-actions p { margin-top: 0; }
+.media-audit-simulation .scenario-controls { display: none; }
 .classroom-activity { border-top-color: #2980B9; }
 .classroom-handoff { margin-top: 1.5rem; padding: 1.25rem; border: 2px solid #2980B9; border-radius: 8px; background: var(--sky); }
 .classroom-handoff h3 { margin-top: 0; color: #2980B9; }
