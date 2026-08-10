@@ -52,7 +52,14 @@ main { width: min(1120px,calc(100% - 2rem)); margin: auto; }
 .pacing-heading { text-align: center!important; }
 .pacing-heading + div { max-width: 900px; margin-left: auto!important; margin-right: auto!important; }
 .pacing-heading + div caption { text-align: center!important; }
-.lesson-step [style*="background-color: #005a70"] > h2 { color: #ffffff!important; }
+.lesson-step [style*="background-color: #005a70" i] > h2,
+.lesson-step [style*="background-color: #005a70" i] > h3,
+.lesson-step [style*="background-color: #005a70" i] > h4,
+.lesson-step [style*="background-color: #005a70" i] > h5,
+.lesson-step [style*="background-color: #005a70" i] > h6,
+.lesson-step [style*="background-color: #005a70" i] :is(h2, h3, h4, h5, h6) .vocab-link {
+  color: #ffffff!important;
+}
 .overview>div>div:first-child { border-radius: 8px!important; }
 .lesson-step [style*="max-width: 100%"] { max-width: none!important; }
 .table-scroll { max-width: 100%; overflow-x: auto; margin: 1rem 0; }
@@ -74,6 +81,10 @@ main { width: min(1120px,calc(100% - 2rem)); margin: auto; }
 .ordering-row select { min-height: 44px; padding: .55rem; border: 1px solid #777; border-radius: 4px; background: #fff; color: var(--ink); font: inherit; }
 .feedback { padding: .85rem 1rem; margin-top: 1rem; border-radius: 4px; background: var(--green-bg); border-left: 6px solid var(--green); }
 .feedback.incorrect { background: var(--amber-bg); border-left-color: var(--amber); }
+.lesson-feedback { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin-top: 2rem; padding: 1rem 1.15rem; border: 1px solid #a9c8d2; border-left: .4rem solid var(--teal); border-radius: 8px; background: #f4fafb; }
+.lesson-feedback p { margin: 0; color: var(--ink); }
+.lesson-feedback-link { display: inline-flex; flex: 0 0 auto; align-items: center; justify-content: center; min-height: 44px; padding: .65rem .85rem; border: 2px solid var(--teal); border-radius: 8px; background: #fff; color: var(--teal); font-weight: 800; line-height: 1.2; text-align: center; text-decoration: none; }
+.lesson-feedback-link:hover { background: var(--teal); color: #fff; }
 textarea { width: 100%; border: 1px solid var(--line); border-radius: 4px; padding: .8rem; font: inherit; }
 .save-note { font-size: .85rem; color: var(--muted); }
 .video-access { margin: .5rem 0 1.5rem; font-weight: 700; }
@@ -176,6 +187,8 @@ footer { text-align: center; color: var(--muted); padding: 2rem; border-top: 1px
   .simulation-count { display: inline-block; margin-top: .75rem; }
   .scenario-controls .step-button { min-width: 0; }
   .matching-row { grid-template-columns: 1fr; gap: .35rem; }
+  .lesson-feedback { align-items: stretch; flex-direction: column; }
+  .lesson-feedback-link { width: 100%; }
   .lesson-identity { text-align: left; }
   .routine-overview-grid, .objective-cards { grid-template-columns: 1fr; }
   .overview .routine-figure, .overview .routine-intro-visual { width: min(100%, 420px); margin: 0 auto; }

@@ -6,6 +6,7 @@ import re
 import shutil
 import xml.etree.ElementTree as ET
 from pathlib import Path
+from urllib.parse import urlencode
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -13,6 +14,7 @@ SOURCE = ROOT / "_canvas_source"
 LESSONS = ROOT / "lessons"
 ASSETS = ROOT / "assets"
 FORM_LINKS_PATH = ROOT / "form-links.json"
+LESSON_QUESTION_BANK_PATH = ROOT / "lesson-page-questions.json"
 
 VIDEO_TITLES = {
     "DC8Bpa1UWek": "AI Literacy: What is AI?",
@@ -1182,6 +1184,93 @@ def extract_questions(path: Path) -> list[dict]:
     return questions
 
 
+def approved_questions_for_step(step_label: str) -> list[dict]:
+    """Return the reviewed question-bank records in the renderer's QTI-like shape."""
+    if not LESSON_QUESTION_BANK_PATH.exists():
+        return []
+    payload = json.loads(LESSON_QUESTION_BANK_PATH.read_text(encoding="utf-8"))
+    records = [
+        record for record in payload.get("questions", [])
+        if record.get("question_id", "").startswith(f"{step_label}.")
+    ]
+    records.sort(key=lambda record: int(record["question_id"].rsplit(".", 1)[1]))
+
+    rendered = []
+    for record in records:
+        question_id = record["question_id"]
+        question_type = record["question_type"]
+        type_map = {
+            "multiple_choice": "multiple_choice_question",
+            "multiple_answer": "multiple_answers_question",
+            "matching": "matching_question",
+            "categorization": "categorization_question",
+            "ordering": "ordering_question",
+        }
+        answers = [
+            (chr(65 + index), str(record.get(f"answer_{index + 1}", "")).strip())
+            for index in range(6)
+        ]
+        choices = [{"id": letter, "html": text} for letter, text in answers if text]
+        correct = [part.strip() for part in str(record.get("correct_answer", "")).split(",") if part.strip()]
+        matching_rows = []
+
+        raw_pairs = str(record.get("match_pairs", "")).strip()
+        pairs = []
+        if raw_pairs:
+            for part in re.split(r"[;\r\n]+", raw_pairs):
+                if "=>" not in part:
+                    continue
+                left, right = (value.strip() for value in part.split("=>", 1))
+                if left and right:
+                    pairs.append((left, right))
+
+        if question_type == "matching" and pairs:
+            option_values = [(f"option-{index}", right) for index, (_, right) in enumerate(pairs, 1)]
+            matching_rows = [
+                {
+                    "id": f"{question_id}-row-{index}",
+                    "label": html.escape(left),
+                    "choices": [{"id": option_id, "html": text} for option_id, text in option_values],
+                    "correct": option_values[index - 1][0],
+                }
+                for index, (left, _) in enumerate(pairs, 1)
+            ]
+            choices = []
+            correct = []
+        elif question_type == "categorization" and pairs:
+            categories = list(dict.fromkeys(left for left, _ in pairs))
+            option_values = [(f"category-{index}", category) for index, category in enumerate(categories, 1)]
+            category_ids = {category: option_id for option_id, category in option_values}
+            matching_rows = [
+                {
+                    "id": f"{question_id}-row-{index}",
+                    "label": html.escape(item),
+                    "choices": [{"id": option_id, "html": text} for option_id, text in option_values],
+                    "correct": category_ids[category],
+                }
+                for index, (category, item) in enumerate(pairs, 1)
+            ]
+            choices = []
+            correct = []
+
+        correct_feedback = str(record.get("feedback_correct", "")).strip()
+        incorrect_feedback = str(record.get("feedback_incorrect", "")).strip()
+        rendered.append({
+            "id": question_id,
+            "title": record.get("question_title", ""),
+            "type": type_map[question_type],
+            "prompt": f'<p>{html.escape(str(record["question_text"]).strip())}</p>',
+            "choices": choices,
+            "correct": correct,
+            "feedback": f"<p>{html.escape(correct_feedback)}</p>" if correct_feedback else "",
+            "feedback_correct_text": correct_feedback,
+            "feedback_incorrect_text": incorrect_feedback,
+            "matching_rows": matching_rows,
+            "plain_text": True,
+        })
+    return rendered
+
+
 def quiz_description(identifier: str) -> str:
     path = SOURCE / identifier / "assessment_meta.xml"
     if not path.exists():
@@ -1383,9 +1472,44 @@ ROUTINE_ALT = (
     "2 Protect—What should stay private? 3 Use—How can AI help? "
     "4 Check—Is it accurate and safe? 5 Own—Who is responsible in the end?"
 )
-ASSET_VERSION = "20260808-routine-overview-redesign"
+ASSET_VERSION = "20260810-feedback-links"
 ROUTINE_WEB_URL = "https://drive.google.com/file/d/1ZU5oKUOuZtzy2pleGarrKHy60p8J_RS2/view?usp=drivesdk"
 ROUTINE_PRINT_URL = "https://drive.google.com/file/d/1P82VigGCzn5qVHIDCmn2E0EmWflxOZiR/view?usp=drivesdk"
+FEEDBACK_FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSdSzdOE6ONsmktbDhx8tdDnaN6dhNoUTnA3qFYDOVGzdjkrqA/viewform"
+FEEDBACK_LOCATION_PARAM = "entry.1955824508"
+
+
+def feedback_link(number: int, step_label: str, title: str) -> str:
+    """Return a short, prefilled feedback invitation for a lesson step."""
+    location = f"Lesson {number}, Step {step_label}: {title}"
+    query = urlencode({
+        "usp": "pp_url",
+        FEEDBACK_LOCATION_PARAM: location,
+    })
+    url = html.escape(f"{FEEDBACK_FORM_URL}?{query}", quote=True)
+    return (
+        '<aside class="lesson-feedback" aria-label="Feedback for this lesson step">'
+        '<p><strong>Help improve this step.</strong> Did something work well, feel unclear, or need to be fixed?</p>'
+        f'<a class="lesson-feedback-link" href="{url}" target="_blank" rel="noopener">'
+        'Share feedback on this step <span class="sr-only">(opens feedback form in a new tab)</span></a>'
+        '</aside>'
+    )
+
+
+def append_feedback_link(section: str, number: int) -> str:
+    """Add one feedback link immediately before a generated step closes."""
+    label_match = re.search(r'data-step-label="([^"]+)"', section)
+    title_match = re.search(r'<h2[^>]*>(.*?)</h2>', section, flags=re.I | re.S)
+    if not label_match or not section.rstrip().endswith("</section>"):
+        return section
+    step_label = html.unescape(label_match.group(1))
+    title = re.sub(r"<[^>]+>", "", title_match.group(1)).strip() if title_match else "Lesson overview"
+    while True:
+        decoded_title = html.unescape(title)
+        if decoded_title == title:
+            break
+        title = decoded_title
+    return section.rstrip()[:-10] + feedback_link(number, step_label, title) + "</section>"
 
 
 def routine_figure(caption: str) -> str:
@@ -1526,7 +1650,9 @@ def step_html(step: dict, number: int, index: int) -> str:
         handoff = "" if step_label in {"2.5", "4.5", "5.5", "6.5", "7.5", "8.5"} else classroom_handoff()
         return f'<section class="lesson-step classroom-activity" id="step-{step_label.replace(".", "-")}" data-step-label="{step_label}" hidden><p class="eyebrow">Step {step_label} · Practical application</p><h2>{html.escape(title)}</h2>{content}{handoff}</section>'
     qti = SOURCE / "non_cc_assessments" / f'{step["ref"]}.xml.qti'
-    questions = extract_questions(qti) if qti.exists() else []
+    questions = approved_questions_for_step(step_label)
+    if not questions:
+        questions = extract_questions(qti) if qti.exists() else []
     desc = quiz_description(step["ref"])
     if step_label == "7.4":
         desc = lesson_7_4_content()
@@ -1739,7 +1865,8 @@ def step_html(step: dict, number: int, index: int) -> str:
         else:
             input_type = "checkbox" if question["type"] == "multiple_answers_question" else "radio"
             choices = "".join(
-                f'<label><input type="{input_type}" name="{question["id"]}" value="{html.escape(choice["id"])}"> <span>{choice["html"]}</span></label>'
+                f'<label><input type="{input_type}" name="{question["id"]}" value="{html.escape(choice["id"])}"> '
+                f'<span>{html.escape(choice["html"]) if question.get("plain_text") else choice["html"]}</span></label>'
                 for choice in question["choices"]
             )
             correct = html.escape(json.dumps(question["correct"]))
@@ -1747,8 +1874,13 @@ def step_html(step: dict, number: int, index: int) -> str:
             interaction = f'<div class="choices">{choices}</div><button class="check-answer" type="button">Check answer</button>'
         elif question["type"] not in {"matching_question", "categorization_question", "ordering_question"}:
             interaction = '<textarea rows="5" aria-label="Your response" placeholder="Write your response here..."></textarea><p class="save-note">Your response stays in this browser.</p>'
+        correct_feedback = question.get("feedback_correct_text") or re.sub(r"<[^>]+>", "", question.get("feedback", "")).strip()
+        incorrect_feedback = question.get("feedback_incorrect_text") or "Review the idea above and try another answer."
         question_html.append(
-            f'<article class="question" data-question-type="{html.escape(question["type"])}" data-correct="{correct}"><h3>Check {q_index}</h3>{question["prompt"]}{interaction}'
+            f'<article class="question" data-question-id="{html.escape(question["id"], quote=True)}" '
+            f'data-question-type="{html.escape(question["type"])}" data-correct="{correct}" '
+            f'data-feedback-correct="{html.escape(correct_feedback, quote=True)}" '
+            f'data-feedback-incorrect="{html.escape(incorrect_feedback, quote=True)}"><h3>Check {q_index}</h3>{question["prompt"]}{interaction}'
             f'<div class="feedback" role="status" hidden>{question["feedback"] or "Review the lesson content and try again."}</div></article>'
         )
     label = "Show what you know" if "Show What You Know" in step["title"] else "Learn and check"
@@ -1799,6 +1931,7 @@ def lesson_page(number: int, steps: list[dict]) -> str:
             if rendered:
                 rendered = align_video_to_step(rendered, step_number(step, number, index))
                 content_steps.append(rendered)
+    content_steps = [append_feedback_link(step, number) for step in content_steps]
     step_count = len(content_steps)
     page = f'''<!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">

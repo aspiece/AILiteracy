@@ -5,10 +5,21 @@ document.querySelector('.menu-button')?.addEventListener('click', event => {
 });
 
 document.querySelectorAll('.question').forEach(question => {
+  const shuffleOptions = select => {
+    const placeholder = select.querySelector('option[value=""]');
+    const choices = [...select.querySelectorAll('option:not([value=""])')];
+    for (let index = choices.length - 1; index > 0; index -= 1) {
+      const swapIndex = Math.floor(Math.random() * (index + 1));
+      [choices[index], choices[swapIndex]] = [choices[swapIndex], choices[index]];
+    }
+    select.replaceChildren(...(placeholder ? [placeholder] : []), ...choices);
+  };
+  question.querySelectorAll('.matching-row select, .ordering-row select').forEach(shuffleOptions);
   const button = question.querySelector('.check-answer');
   if (!button) return;
+  const feedback = question.querySelector('.feedback');
+  const originalCorrectFeedback = feedback?.textContent.trim() || 'Correct.';
   button.addEventListener('click', () => {
-    const feedback = question.querySelector('.feedback');
     const correct = JSON.parse(question.dataset.correct || '[]');
     let isCorrect = false;
     if (['matching_question', 'categorization_question'].includes(question.dataset.questionType)) {
@@ -18,6 +29,15 @@ document.querySelectorAll('.question').forEach(question => {
         feedback.classList.add('incorrect');
         feedback.hidden = false;
         return;
+      }
+      if (question.dataset.questionType === 'matching_question') {
+        const selectedValues = selects.map(select => select.value);
+        if (new Set(selectedValues).size !== selectedValues.length) {
+          feedback.textContent = 'Use each match only once.';
+          feedback.classList.add('incorrect');
+          feedback.hidden = false;
+          return;
+        }
       }
       isCorrect = selects.every(select => correct[select.dataset.responseId] === select.value);
     } else if (question.dataset.questionType === 'ordering_question') {
@@ -29,6 +49,12 @@ document.querySelectorAll('.question').forEach(question => {
         return;
       }
       const selectedValues = selects.map(select => select.value);
+      if (new Set(selectedValues).size !== selectedValues.length) {
+        feedback.textContent = 'Use each step only once.';
+        feedback.classList.add('incorrect');
+        feedback.hidden = false;
+        return;
+      }
       isCorrect = selectedValues.length === correct.length && selectedValues.every((value, index) => value === correct[index]);
     } else {
       const selected = [...question.querySelectorAll('input:checked')].map(input => input.value);
@@ -41,7 +67,14 @@ document.querySelectorAll('.question').forEach(question => {
       isCorrect = selected.length === correct.length && selected.every(value => correct.includes(value));
     }
     feedback.classList.toggle('incorrect', !isCorrect);
-    if (!isCorrect) feedback.innerHTML = '<strong>Not yet.</strong> Review the idea above and try another answer.';
+    feedback.replaceChildren();
+    if (isCorrect) {
+      feedback.textContent = question.dataset.feedbackCorrect || originalCorrectFeedback;
+    } else {
+      const lead = document.createElement('strong');
+      lead.textContent = 'Not yet. ';
+      feedback.append(lead, question.dataset.feedbackIncorrect || 'Review the idea above and try another answer.');
+    }
     feedback.hidden = false;
   });
 });
