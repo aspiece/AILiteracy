@@ -1303,7 +1303,7 @@ def step_number(step: dict, number: int, fallback: int) -> str:
     return match.group(1) if match else f"{number}.{fallback}"
 
 
-def human_decisions_simulation() -> str:
+def legacy_human_decisions_simulation() -> str:
     banks = [
         ("Care and evidence", "g40021a10c569f3348b9974cc70df02fa"),
         ("Transportation and equipment", "gf52a7636e46a937855d4da46bb020557"),
@@ -1336,6 +1336,78 @@ def human_decisions_simulation() -> str:
         f'<div class="scenario-deck">{"".join(cards)}</div>'
         '<div class="scenario-controls"><button class="step-button secondary scenario-previous" type="button">← Previous case</button>'
         '<button class="step-button scenario-next" type="button" disabled>Next case →</button></div>'
+        '</section>'
+    )
+
+
+def human_decisions_simulation() -> str:
+    """Return one required, career-program-specific responsible-AI decision pathway."""
+    scenarios = [
+        ("Agriscience - Vet Med", "An AI tool flags a dog's symptoms as a possible infection after a student enters notes from a visit.", "The tool could be wrong about the animal's condition.", "The animal owner's name and visit details.", "A qualified veterinary professional who can examine the animal.", "Use the AI result as one clue, then have a qualified veterinary professional examine the animal and review the evidence.", "The tool can identify patterns, but a qualified person must check the animal's condition and make the care decision."),
+        ("Automotive - Medium Heavy Diesel", "A diagnostic tool suggests replacing a truck's fuel injector based on an error code.", "Replacing a part without testing could waste money or fail to fix the problem.", "The customer's identifying information and vehicle records that are not needed.", "A trained technician who can inspect and test the truck.", "Inspect the truck, compare the error code with test results, and have a trained technician decide on the repair.", "An error code can guide an inspection, but it does not replace testing or a trained technician's decision."),
+        ("Aviation", "A planning tool recommends a route change because it predicts better weather conditions.", "A prediction could miss a weather or safety condition that affects the flight.", "Passenger information and any route details that should stay secure.", "A qualified person using approved weather, route, and safety information.", "Check approved weather, route, and safety information before a qualified person decides whether to change the plan.", "A recommendation is not a final flight decision. Approved sources and qualified human review are required."),
+        ("Computer Science", "An AI coding assistant suggests a change that would give users more personalized results.", "The change could expose user information or create an unfair result.", "User data, account details, and private code that are not needed.", "A development team that can test the code and check privacy impacts.", "Review the code, test it with appropriate examples, and check whether it protects user information before using it.", "The team must test the suggestion and protect people's information before adding it to a product."),
+        ("Construction Trades", "A tool predicts that a framing crew can finish a job faster by changing the work sequence.", "Changing the sequence could create a safety problem or conflict with the plans.", "Job-site security details and any private worker information.", "A trained supervisor who can check plans, conditions, and safety rules.", "Compare the suggestion with the plans, job-site conditions, and safety rules before a trained supervisor approves a change.", "Speed predictions cannot replace safety requirements, site conditions, or qualified supervision."),
+        ("Cosmetology", "A scheduling tool recommends adding an extra client appointment to a stylist's day.", "The extra appointment could reduce service quality or ignore a client's needs.", "Client names, contact details, and service notes.", "The stylist who understands the schedule, client needs, and available time.", "Have the stylist review the schedule, client needs, and available time before deciding whether to add the appointment.", "The tool can organize options, but the person responsible for the service must decide what is realistic and appropriate."),
+        ("Culinary", "A menu-planning tool suggests a new dish for an event based on popular online recipes.", "The dish could include an allergen or fail to fit the event's needs.", "Guest names, allergy details, and private event information.", "The chef who can check ingredients, equipment, cost, and event needs.", "Check ingredients, allergies, kitchen equipment, cost, and event needs before the chef decides whether to use the dish.", "A popular recipe may not fit the event. A trained person must check safety, resources, and the full situation."),
+        ("Education", "A writing tool suggests that a student should receive extra reading support after reviewing a short assignment.", "One short sample could give an incomplete or unfair picture of the learner.", "The student's name, work, grades, and other personal information.", "An educator who can consider the student's work, progress, and needs.", "Use the suggestion as one piece of information, then have an educator review the student's work, progress, and needs before deciding on support.", "A short sample cannot show the whole learner. An educator must consider more evidence and make the support decision."),
+        ("Health Science - Medical Careers", "An AI tool highlights a patient note as needing quick follow-up.", "The alert could be incomplete or could miss important details about the patient.", "The patient's name, health details, and other protected information.", "A qualified health professional using the patient record and approved procedures.", "Have a qualified health professional review the patient record, current condition, and approved procedures before deciding what happens next.", "The alert may help prioritize review, but it cannot make a care decision or replace professional judgment."),
+        ("Marketing - Graphic Design", "An image tool creates a campaign graphic that includes a familiar-looking logo and a claim about a product.", "The graphic could use protected material or make an inaccurate claim.", "Client files, campaign plans, and private brand information.", "A person who can verify permissions and check claims with approved sources.", "Check permission to use the visual elements and verify the claim with approved sources before a person approves the graphic.", "A polished graphic still needs permission checks and accurate claims before it is shared."),
+        ("Mechatronics", "A maintenance system predicts that a machine part may fail soon and suggests stopping the line immediately.", "Stopping the line or ignoring a real problem could affect safety and production.", "Private production details and any information not needed for maintenance.", "A trained person who can inspect the machine, sensor data, and safety procedures.", "Inspect the machine, compare the alert with sensor data and safety procedures, and have a trained person decide on the response.", "The prediction can guide maintenance, but qualified people must check the evidence and balance safety with the full work situation."),
+        ("Public Safety", "A dispatch support tool ranks calls by predicted urgency.", "The ranking could miss details that change how quickly people need help.", "Names, addresses, and other sensitive call details.", "Trained staff who can review the details and decide how to respond.", "Use the ranking as one input, then have trained staff review the details and decide how to respond.", "Predictions can miss important context. Trained people must make the response decision and remain accountable."),
+        ("US Army JROTC", "A planning tool suggests who should lead parts of a team exercise based on past performance notes.", "Past notes could be incomplete and lead to an unfair assignment.", "Personal performance notes and private student information.", "The instructor and team members who can consider current skills, goals, and fairness.", "Have the instructor and team review current skills, goals, and fairness before assigning leadership roles.", "Past notes do not tell the full story. People must make fair decisions and take responsibility for team roles."),
+        ("Welding", "A tool recommends welding settings based on the material listed in a work order.", "The listed material or settings may not match the real job conditions.", "Work-order details and any private customer information.", "A trained welder who can check the material, equipment, and safety procedures.", "Check the actual material, equipment condition, job requirements, and safety procedures before a trained welder sets up the work.", "The tool may offer a starting point, but a trained welder must verify the real conditions and follow safety procedures."),
+        ("Forensic Science", "A software tool marks part of a comparison image as a possible match.", "A possible match could be mistaken for proof.", "Case details, identifying information, and evidence not approved for sharing.", "A qualified expert using approved methods and documented review.", "Treat the result as a lead, then use approved methods and qualified expert review before drawing any conclusion.", "A possible match is not proof. Evidence needs careful human review and documented methods."),
+    ]
+
+    def choice_set(name: str, correct_text: str, distractors: list[str]) -> str:
+        choices = [(correct_text, True), *((text, False) for text in distractors)]
+        return ''.join(
+            f'<label><input type="radio" name="{name}" value="{choice_index}"> <span>{html.escape(choice)}</span></label>'
+            for choice_index, (choice, _correct) in enumerate(choices, 1)
+        )
+
+    cards = []
+    for index, (program, situation, risk, protect, reviewer, responsible_action, feedback) in enumerate(scenarios, 1):
+        risk_choices = choice_set(f'program-risk-{index}', risk, [
+            'There is no risk because the tool used data.',
+            'The only concern is whether the screen looks professional.',
+            'The tool should make the final decision as quickly as possible.',
+        ])
+        protect_choices = choice_set(f'program-protect-{index}', protect, [
+            'Nothing; every detail should be entered to get a better answer.',
+            'Only the color of the tool interface.',
+            'Information is private only after a final decision is made.',
+        ])
+        review_choices = choice_set(f'program-review-{index}', reviewer, [
+            'The AI tool, because it created the suggestion.',
+            'Anyone who is available, even if they do not understand the situation.',
+            'No one; the first recommendation should be accepted.',
+        ])
+        cards.append(
+            f'<article class="scenario-card program-scenario-card" data-program="{html.escape(program)}" hidden>'
+            f'<p class="scenario-category">Your selected program: {html.escape(program)}</p>'
+            f'<p><strong>Situation:</strong> {html.escape(situation)}</p>'
+            '<div class="decision-pathway">'
+            f'<section class="decision-pathway-step" data-correct="[&quot;1&quot;]"><p class="pathway-label">1. Spot the risk</p><p>What is the most important concern to check first?</p><div class="choices">{risk_choices}</div><button class="scenario-check" type="button">Check my thinking</button><div class="feedback" role="status" hidden></div></section>'
+            f'<section class="decision-pathway-step" data-correct="[&quot;1&quot;]" hidden><p class="pathway-label">2. Protect information</p><p>What information should stay private or be left out of an AI prompt?</p><div class="choices">{protect_choices}</div><button class="scenario-check" type="button">Check my thinking</button><div class="feedback" role="status" hidden></div></section>'
+            f'<section class="decision-pathway-step" data-correct="[&quot;1&quot;]" hidden><p class="pathway-label">3. Choose the human check</p><p>Who should review the AI suggestion before a decision is made?</p><div class="choices">{review_choices}</div><button class="scenario-check" type="button">Check my thinking</button><div class="feedback" role="status" hidden></div></section>'
+            f'<section class="decision-pathway-step decision-pathway-reflection" hidden><p class="pathway-label">4. Make and explain the decision</p><label for="program-explain-{index}">In one or two sentences, explain how AI could help and what a person must do before the final decision.</label><textarea id="program-explain-{index}" rows="4"></textarea><button class="scenario-exemplar" type="button">Compare with an exemplar</button><div class="feedback exemplar-feedback" role="status" hidden><strong>Compare your response with this exemplar:</strong> {html.escape(responsible_action)} <span>{html.escape(feedback)}</span></div></section>'
+            '</div></article>'
+        )
+    options = "".join(f'<option value="{index}">{html.escape(program)}</option>' for index, (program, *_rest) in enumerate(scenarios, 1))
+    return (
+        '<section class="scenario-simulation program-scenario-simulation" data-feedback-mode="program-scenario" aria-labelledby="program-scenario-title">'
+        '<div class="simulation-header"><div><p class="eyebrow">Interactive practice</p><h3 id="program-scenario-title">Make a Responsible AI Decision</h3></div>'
+        '<p class="simulation-count" aria-live="polite">Choose a program</p></div>'
+        '<p>Select the program that fits you best. Work through a four-part decision pathway, then compare your explanation with an exemplar.</p>'
+        '<div class="media-program-picker program-scenario-picker"><label for="program-scenario-select">Your program</label>'
+        f'<select id="program-scenario-select" class="media-program-select program-scenario-select"><option value="">Choose a program</option>{options}</select>'
+        '<button class="step-button program-scenario-start" type="button" disabled>Start my scenario</button>'
+        '<p class="media-program-help">After you complete your scenario, you may choose another program for optional practice.</p></div>'
+        f'<div class="scenario-deck" hidden>{"".join(cards)}</div>'
+        '<div class="media-audit-actions program-scenario-actions" hidden><p><strong>Your required scenario is complete.</strong> You may stop here or choose another program for optional practice.</p>'
+        '<button class="step-button secondary program-scenario-another" type="button">Choose another program</button></div>'
         '</section>'
     )
 
@@ -1472,7 +1544,7 @@ ROUTINE_ALT = (
     "2 Protect—What should stay private? 3 Use—How can AI help? "
     "4 Check—Is it accurate and safe? 5 Own—Who is responsible in the end?"
 )
-ASSET_VERSION = "20260810-feedback-links"
+ASSET_VERSION = "20260811-program-scenarios"
 ROUTINE_WEB_URL = "https://drive.google.com/file/d/1ZU5oKUOuZtzy2pleGarrKHy60p8J_RS2/view?usp=drivesdk"
 ROUTINE_PRINT_URL = "https://drive.google.com/file/d/1P82VigGCzn5qVHIDCmn2E0EmWflxOZiR/view?usp=drivesdk"
 FEEDBACK_FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSdSzdOE6ONsmktbDhx8tdDnaN6dhNoUTnA3qFYDOVGzdjkrqA/viewform"
@@ -1776,12 +1848,9 @@ def step_html(step: dict, number: int, index: int) -> str:
             'confirm permission and use only the information the task requires.</p></div>'
         )
     if step_label == "1.5":
-        desc = re.sub(
-            r'(<strong[^>]*>How this works:</strong>).*?(</p>)',
-            r'\1 You will complete six workplace cases, one from each career category. Choose the response that keeps trained people involved in checking evidence and making final decisions. You may retry a case after reading the feedback. This is a practice activity and does not need to be submitted.\2',
-            desc,
-            count=1,
-            flags=re.I | re.S,
+        desc = (
+            '<p>In this activity, you will decide how AI can support a workplace task without replacing human judgment.</p>'
+            '<div class="next-move"><p>👀 <strong>Your next move:</strong> Study the map, then use it to guide each part of your decision pathway.</p></div>'
         )
         desc += instructional_figure(
             "Human_Decisions_Map_1600x1000.png",
@@ -1918,13 +1987,20 @@ def lesson_page(number: int, steps: list[dict]) -> str:
         )
     overview = structure_routine_overview(overview)
     content_steps = [f'<section class="lesson-step overview" id="step-{number}-1" data-step-label="{number}.1"><p class="eyebrow">Step {number}.1 · Start here</p>{overview}</section>']
+    assessment_next_move = (
+        "Return to your course and begin with the Reflection on Your Program Scenario section. "
+        "Use your Lesson 1.5 decision pathway to explain your thinking, then complete the Lesson 1 assessment. "
+        "Follow your instructor's directions for attempts and the required score."
+        if number == 1
+        else f"Return to your course and complete the Lesson {number} assessment. Follow your instructor's directions for attempts and the required score."
+    )
     for index, step in enumerate(steps, 1):
         if re.search(rf"\b{number}\.6\b", step["title"]):
             label = step_number(step, number, len(content_steps) + 1)
             content_steps.append(
                 f'<section class="lesson-step assessment-callout" id="step-{label.replace(".", "-")}" data-step-label="{label}" hidden><p class="eyebrow">Step {label} · Lesson assessment</p>'
                 f'<h2>{html.escape(re.sub(r"^\d+\.\d+\s*[^A-Za-z0-9]*\s*", "", step["title"]).strip().replace(" — ", ": "))}</h2>'
-                f'<div class="check-next-move"><p><strong>✅ Your next move:</strong> Return to your course and complete the Lesson {number} assessment. Follow your instructor’s directions for attempts and the required score.</p></div></section>'
+                f'<div class="check-next-move"><p><strong>✅ Your next move:</strong> {assessment_next_move}</p></div></section>'
             )
         else:
             rendered = step_html(step, number, index)

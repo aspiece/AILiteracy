@@ -298,6 +298,118 @@ document.querySelectorAll('.scenario-simulation').forEach(simulation => {
     return;
   }
 
+  if (feedbackMode === 'program-scenario' && simulation.querySelector('.program-scenario-select')) {
+    const select = simulation.querySelector('.program-scenario-select');
+    const start = simulation.querySelector('.program-scenario-start');
+    const picker = simulation.querySelector('.program-scenario-picker');
+    const deck = simulation.querySelector('.scenario-deck');
+    const actions = simulation.querySelector('.program-scenario-actions');
+    const anotherButton = simulation.querySelector('.program-scenario-another');
+    const count = simulation.querySelector('.simulation-count');
+
+    function shuffleChoices(card) {
+      card.querySelectorAll('.choices').forEach(choiceGroup => {
+        const choices = [...choiceGroup.children];
+        for (let index = choices.length - 1; index > 0; index -= 1) {
+          const swapIndex = Math.floor(Math.random() * (index + 1));
+          [choices[index], choices[swapIndex]] = [choices[swapIndex], choices[index]];
+        }
+        choices.forEach(choice => choiceGroup.appendChild(choice));
+      });
+    }
+
+    function resetScenario() {
+      allCards.forEach(card => {
+        card.hidden = true;
+        card.querySelectorAll('input').forEach(input => { input.checked = false; });
+        card.querySelectorAll('textarea').forEach(textarea => { textarea.value = ''; });
+        card.querySelectorAll('.decision-pathway-step').forEach((step, index) => { step.hidden = index !== 0; });
+        card.querySelectorAll('.feedback').forEach(feedback => {
+          feedback.hidden = true;
+          feedback.classList.remove('incorrect');
+        });
+      });
+      deck.hidden = true;
+      actions.hidden = true;
+      count.textContent = 'Choose a program';
+    }
+
+    allCards.forEach(card => {
+      const steps = [...card.querySelectorAll('.decision-pathway-step')];
+      steps.forEach((step, stepIndex) => {
+        const check = step.querySelector('.scenario-check');
+        if (!check) return;
+        const feedback = step.querySelector('.feedback');
+        check.addEventListener('click', () => {
+          const answer = step.querySelector('input:checked');
+        if (!answer) {
+          feedback.textContent = 'Choose a response before checking your decision.';
+          feedback.classList.add('incorrect');
+          feedback.hidden = false;
+          return;
+        }
+        const correct = JSON.parse(step.dataset.correct || '[]').includes(answer.value);
+        feedback.classList.toggle('incorrect', !correct);
+        if (correct) {
+          feedback.innerHTML = '<strong>Good thinking.</strong> You identified an important part of using AI responsibly.';
+          const nextStep = steps[stepIndex + 1];
+          if (nextStep) {
+            nextStep.hidden = false;
+            const nextControl = nextStep.querySelector('input, textarea');
+            nextControl?.focus();
+          }
+        } else {
+          feedback.innerHTML = '<strong>Try again.</strong> Look for the choice that protects people and keeps a trained person responsible for the final decision.';
+        }
+        feedback.hidden = false;
+      });
+      });
+      const exemplarButton = card.querySelector('.scenario-exemplar');
+      const exemplarFeedback = card.querySelector('.exemplar-feedback');
+      const reflection = card.querySelector('textarea');
+      exemplarButton.addEventListener('click', () => {
+        const response = reflection.value.trim();
+        if (!response) {
+          exemplarFeedback.innerHTML = '<strong>Write your explanation first.</strong> Then compare it with the exemplar to see which ideas you included.';
+          exemplarFeedback.classList.add('incorrect');
+          exemplarFeedback.hidden = false;
+          return;
+        }
+        exemplarFeedback.classList.remove('incorrect');
+        exemplarFeedback.hidden = false;
+        actions.hidden = false;
+        anotherButton.focus();
+      });
+    });
+
+    select.addEventListener('change', () => {
+      resetScenario();
+      picker.hidden = false;
+      start.disabled = !select.value;
+    });
+    start.addEventListener('click', () => {
+      resetScenario();
+      const activeCard = allCards[Number(select.value) - 1];
+      if (!activeCard) return;
+      shuffleChoices(activeCard);
+      picker.hidden = true;
+      deck.hidden = false;
+      activeCard.hidden = false;
+      count.textContent = activeCard.dataset.program;
+      const heading = activeCard.querySelector('.scenario-category');
+      heading?.setAttribute('tabindex', '-1');
+      heading?.focus();
+    });
+    anotherButton.addEventListener('click', () => {
+      resetScenario();
+      select.value = '';
+      start.disabled = true;
+      picker.hidden = false;
+      select.focus();
+    });
+    return;
+  }
+
   function beginSimulation(selectedCards) {
     allCards.forEach(card => {
       if (!selectedCards.includes(card)) card.remove();
