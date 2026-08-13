@@ -126,7 +126,7 @@ if (stepper) {
   previous.addEventListener('click', () => showStep(current - 1, true));
   next.addEventListener('click', () => {
     if (current === steps.length - 1) {
-      announcement.textContent = 'Lesson complete. Submit any required work in your course.';
+      announcement.textContent = 'Lesson complete. Submit any required work using your instructor’s directions.';
       next.textContent = 'Lesson complete ✓';
       next.disabled = true;
       return;
