@@ -1544,7 +1544,7 @@ ROUTINE_ALT = (
     "2 Protect—What should stay private? 3 Use—How can AI help? "
     "4 Check—Is it accurate and safe? 5 Own—Who is responsible in the end?"
 )
-ASSET_VERSION = "20260811-program-scenarios"
+ASSET_VERSION = "20260814-link-contrast"
 ROUTINE_WEB_URL = "https://drive.google.com/file/d/1ZU5oKUOuZtzy2pleGarrKHy60p8J_RS2/view?usp=drivesdk"
 ROUTINE_PRINT_URL = "https://drive.google.com/file/d/1P82VigGCzn5qVHIDCmn2E0EmWflxOZiR/view?usp=drivesdk"
 FEEDBACK_FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSdSzdOE6ONsmktbDhx8tdDnaN6dhNoUTnA3qFYDOVGzdjkrqA/viewform"
