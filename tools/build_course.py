@@ -671,7 +671,7 @@ def clean_fragment(value: str) -> str:
     )
     value = value.replace(
         "In this lesson, students select their exact GCI program and enter one of six equivalent fictional workplace scenarios. They build, test, and improve a simple classification model using machine learning, diagnose model errors, recommend safeguards, and complete the final certification exam.",
-        "In this lesson, you will choose your GCI program and work with one of six made-up workplace examples. You will build, test, and improve a simple AI model. You will find errors, suggest safety steps, and complete the final assessment.",
+        "In this lesson, you will choose a program area that interests you and work with one of six made-up workplace examples. You will build, test, and improve a simple AI model. You will find errors, suggest safety steps, and complete the final assessment.",
     )
     value = value.replace(
         "Answer these 5 questions in the text box below:",
@@ -693,7 +693,7 @@ def clean_fragment(value: str) -> str:
     )
     value = value.replace(
         "After completing the simulation, you will reflect on what you learned and connect it to your GCI program area by submitting a short text entry.",
-        "After completing the simulation, you will reflect on what you learned and connect it to your GCI program area in a short document.",
+        "After completing the simulation, you will reflect on what you learned and connect it to a program area that interests you in a short document.",
     )
     value = value.replace(
         "Click <strong>Submit Assignment</strong> at the top of this page and type your answers to the following 4 reflection questions in the Text Entry box:",
@@ -2020,7 +2020,7 @@ def lesson_page(number: int, steps: list[dict]) -> str:
 <p class="sr-only" id="step-announcement" aria-live="polite"></p>
 <nav class="step-controls" aria-label="Lesson step navigation"><button class="step-button secondary" id="previous-step" type="button">← Previous step</button><button class="step-button" id="next-step" type="button">Next step →</button></nav>
 <p class="step-help">Your place in this lesson is saved automatically on this device.</p></div></main>
-<footer><p>Artificial Intelligence Literacy · Genesee Career Institute</p></footer><script src="../assets/app.js?v={ASSET_VERSION}"></script></body></html>'''
+<footer><p>Artificial Intelligence Literacy</p></footer><script src="../assets/app.js?v={ASSET_VERSION}"></script></body></html>'''
     page = page.replace('loading="lazy"', 'loading="eager" decoding="async"')
     image_sources = list(dict.fromkeys(re.findall(r'<img[^>]+src="([^"]+)"', page, flags=re.I)))
     preloads = "".join(
@@ -2049,7 +2049,7 @@ def index_page() -> str:
 <meta name="description" content="Eight student-facing lessons for responsible, practical AI literacy."><title>AI Literacy | Student Course</title><link rel="stylesheet" href="assets/styles.css?v={ASSET_VERSION}"></head>
 <body><a class="skip-link" href="#main">Skip to course</a><header class="site-header"><a class="brand" href="index.html">AI Literacy</a><button class="menu-button" aria-expanded="false" aria-controls="course-nav">Lessons</button><nav id="course-nav">{nav_links()}</nav></header>
 <main id="main"><section class="home-hero"><div><p class="eyebrow">Career-ready learning</p><h1>Use AI with skill, judgment, and responsibility.</h1><p class="lede">Eight practical lessons help you understand how AI works, improve its output, protect people and information, and keep humans accountable.</p><a class="button" href="lessons/lesson-1.html">Start lesson 1</a></div><div class="routine" aria-label="Responsible AI Routine"><span>Goal</span><span>Protect</span><span>Use</span><span>Check</span><span>Own</span></div></section>
-<section class="course-map"><p class="eyebrow">Course map</p><h2>Eight lessons. One responsible routine.</h2><div class="lesson-grid">{cards}</div></section></main><footer><p>Artificial Intelligence Literacy · Genesee Career Institute</p></footer><script src="assets/app.js?v={ASSET_VERSION}"></script></body></html>'''
+<section class="course-map"><p class="eyebrow">Course map</p><h2>Eight lessons. One responsible routine.</h2><div class="lesson-grid">{cards}</div></section></main><footer><p>Artificial Intelligence Literacy</p></footer><script src="assets/app.js?v={ASSET_VERSION}"></script></body></html>'''
 
 
 def assessment_export():
