@@ -70,7 +70,7 @@ main { width: min(1120px,calc(100% - 2rem)); margin: auto; }
   [style*="background: #27ae60" i],
   [style*="background-color: #c0392b" i],
   [style*="background: #c0392b" i]
-) a {
+) :is(a, .vocab-link) {
   color: var(--link-on-dark) !important;
   text-decoration-color: currentColor;
 }
