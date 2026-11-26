@@ -12,7 +12,13 @@ python -m http.server 8000
 
 Then open `http://localhost:8000`.
 
+## Pilot release validation
+
+See [the student experience validation checklist](docs/pilot-validation-checklist.md). The revised published lesson HTML and worksheet text are the current source of truth. Test the deployed course on authorized student devices before closing pilot feedback items.
+
 ## Rebuild from the source course archive
+
+**Important:** The original archive does not contain the November 2026 pilot revisions. The generator stops when it detects the revised lesson pages. Reconcile the archived source and question bank in a separate review branch before generating replacement pages. Do not overwrite the revised pages or assessment banks from the old archive.
 
 The extracted package is intentionally ignored by Git. Run:
 
