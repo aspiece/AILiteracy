@@ -1,0 +1,39 @@
+Lesson 8.5 Model Rescue Challenge
+
+Student Name: [Enter your response here...]
+
+Date: [Enter your response here...]
+
+Course: Career Essentials
+
+Activity: Lesson 8.5 Model Rescue Challenge
+
+Responsible AI Routine: Goal → Protect → Use → Check → Own
+
+Estimated time: 25–30 minutes (including the simulation)
+
+Directions
+
+Open the Model Rescue Challenge from Lesson 8.5. Complete one career mission using only the fictional training and test data. Do not enter real private information. Keep this worksheet open.
+
+Steps 1–6: Choose, test and improve
+
+Choose your mission, study the training data, label and test Version 1, identify its weak spot, choose three rescue records and compare Version 1 and Version 2. Check the actual scores out of six. These six practice records guide improvements (validation data), not a final independent test. Do not copy comparison records into training. Scores and record IDs are included automatically.
+
+Steps 7–8: Decide and complete the mission
+
+Finish the checks and short evidence notes. Explain the weak spot, why the rescue records help, what the comparison means and why qualified human review remains necessary. A score of 6 out of 6 does not prove real-world safety. A fresh set of unseen test records and qualified human review are needed.
+
+Select Complete Mission and paste the final report below. If copying is unavailable, copy it manually from the report preview. Check that it includes your mission, both model scores and three rescue record IDs. If anything is missing, return to the simulation; do not invent results.
+
+Final report: [Paste here]
+
+Career connection
+
+Name your career. In one or two sentences, explain a realistic risk of trusting an untested model in this field and who should review its results.
+
+[Type here]
+
+Before submitting
+
+Your report must include actual scores and selected record IDs, and explain the weak spot, changes, results, limits and human review. Include your career connection. Revise missing evidence or unsupported reasoning before submitting the worksheet in your course.
