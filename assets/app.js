@@ -107,6 +107,26 @@ document.querySelector('.menu-button')?.addEventListener('click', event => {
   event.currentTarget.setAttribute('aria-expanded', String(open));
 });
 
+// Formative feedback only; never used to grade the external certification assessment.
+function evaluatePracticeOrder(selected, canonical, alternatives = []) {
+  const valid = [canonical, ...alternatives].filter(order =>
+    Array.isArray(order) && order.length === canonical.length &&
+    new Set(order).size === canonical.length && order.every(value => canonical.includes(value)));
+  const counts = valid.map(order => order.reduce((sum, value, index) => sum + Number(selected[index] === value), 0));
+  const best = Math.max(0, ...counts);
+  const nearest = valid.filter((_, index) => counts[index] === best);
+  return {
+    correct: selected.length === canonical.length && best === canonical.length,
+    best,
+    review: selected.map((value, index) => nearest.every(order => order[index] !== value) ? index + 1 : null).filter(Boolean)
+  };
+}
+function practiceSelectionFeedback(selected, correct) {
+  return { hits: selected.filter(value => correct.includes(value)).length,
+    extra: selected.filter(value => !correct.includes(value)),
+    missing: correct.filter(value => !selected.includes(value)).length };
+}
+
 document.querySelectorAll('.question').forEach(question => {
   const shuffleOptions = select => {
     const placeholder = select.querySelector('option[value=""]');
@@ -122,9 +142,14 @@ document.querySelectorAll('.question').forEach(question => {
   if (!button) return;
   const feedback = question.querySelector('.feedback');
   const originalCorrectFeedback = feedback?.textContent.trim() || 'Correct.';
+  if (!feedback) return;
+  let attempts = 0;
+  question.addEventListener('change', () => { feedback.hidden = true; });
   button.addEventListener('click', () => {
     const correct = JSON.parse(question.dataset.correct || '[]');
     let isCorrect = false;
+    let diagnostic = '';
+    let nextHint = '';
     if (['matching_question', 'categorization_question'].includes(question.dataset.questionType)) {
       const selects = [...question.querySelectorAll('.matching-row select')];
       if (selects.some(select => !select.value)) {
@@ -142,7 +167,11 @@ document.querySelectorAll('.question').forEach(question => {
           return;
         }
       }
-      isCorrect = selects.every(select => correct[select.dataset.responseId] === select.value);
+      const mismatches = selects.map((select, index) => correct[select.dataset.responseId] !== select.value ? index + 1 : null).filter(Boolean);
+      isCorrect = mismatches.length === 0;
+      diagnostic = (selects.length - mismatches.length) + ' of ' + selects.length + ' matches are correct. Review row' + (mismatches.length === 1 ? ' ' : 's ') + mismatches.join(', ') + '.';
+      nextHint = 'Read the label for each row again; compare what the situation describes with the responsibility or concept.';
+
     } else if (question.dataset.questionType === 'ordering_question') {
       const selects = [...question.querySelectorAll('.ordering-row select')];
       if (selects.some(select => !select.value)) {
@@ -158,7 +187,15 @@ document.querySelectorAll('.question').forEach(question => {
         feedback.hidden = false;
         return;
       }
-      isCorrect = selectedValues.length === correct.length && selectedValues.every((value, index) => value === correct[index]);
+      let alternatives = [];
+      try { alternatives = JSON.parse(question.dataset.acceptedOrders || '[]'); } catch (_) { /* use canonical */ }
+      if (!Array.isArray(alternatives)) alternatives = [];
+      const result = evaluatePracticeOrder(selectedValues, correct, alternatives);
+      isCorrect = result.correct;
+      diagnostic = result.best + ' of ' + correct.length + ' positions match a valid order.' +
+        (result.review.length ? ' Review position' + (result.review.length === 1 ? ' ' : 's ') + result.review.join(', ') + '.' : '');
+      nextHint = 'Think about which actions must happen before another action can safely begin.';
+
     } else {
       const selected = [...question.querySelectorAll('input:checked')].map(input => input.value);
       if (!selected.length) {
@@ -167,7 +204,20 @@ document.querySelectorAll('.question').forEach(question => {
         feedback.hidden = false;
         return;
       }
-      isCorrect = selected.length === correct.length && selected.every(value => correct.includes(value));
+      const result = practiceSelectionFeedback(selected, correct);
+      isCorrect = result.extra.length === 0 && result.missing === 0;
+      if (question.dataset.questionType === 'multiple_answers_question') {
+        diagnostic = result.hits + ' correct choice' + (result.hits === 1 ? '' : 's') + ' selected; ' +
+          result.extra.length + ' selected choice' + (result.extra.length === 1 ? ' needs' : 's need') + ' review. ' +
+          (result.missing ? 'Some correct choices are still missing.' : 'Review your extra selections.');
+        let hints = {};
+        try { hints = JSON.parse(question.dataset.choiceHints || '{}'); } catch (_) { /* use general hint */ }
+        nextHint = result.extra.map(value => typeof hints?.[value] === 'string' ? hints[value] : '').filter(Boolean).join(' ') ||
+          'Read each option separately. Decide whether it meets the question’s goal before moving to the next.';
+      } else {
+        nextHint = 'Read the question again and explain why your chosen option fits the idea above.';
+      }
+
     }
     feedback.classList.toggle('incorrect', !isCorrect);
     feedback.replaceChildren();
@@ -176,7 +226,18 @@ document.querySelectorAll('.question').forEach(question => {
     } else {
       const lead = document.createElement('strong');
       lead.textContent = 'Not yet. ';
+      attempts += 1;
       feedback.append(lead, question.dataset.feedbackIncorrect || 'Review the idea above and try another answer.');
+      if (diagnostic) {
+        const detail = document.createElement('p');
+        detail.textContent = diagnostic;
+        feedback.append(detail);
+      }
+      if (attempts >= 2 && nextHint) {
+        const hint = document.createElement('p');
+        hint.textContent = 'Try this: ' + nextHint;
+        feedback.append(hint);
+      }
     }
     feedback.hidden = false;
   });
