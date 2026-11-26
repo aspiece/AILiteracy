@@ -209,6 +209,7 @@ if (stepper) {
     Number.isInteger(legacyStep) && legacyStep >= 0 && legacyStep < steps.length ? legacyStep : 0;
   let current = Number.isInteger(requested) && requested >= 0 && requested < steps.length ? requested : savedStep;
   const priorStep = savedStep;
+  const hadSavedStep = localProgress.get(progressKey) !== null || localProgress.get(storageKey) !== null;
 
   function showStep(index, moveFocus = false) {
     current = Math.min(Math.max(index, 0), steps.length - 1);
@@ -251,13 +252,14 @@ if (stepper) {
   const panel = document.createElement('details');
   panel.className = 'practice-resume';
   panel.style.cssText = 'margin-top:1rem;border:1px solid #767676;border-radius:8px;padding:.75rem;background:#fff;color:#222';
-  panel.innerHTML = '<summary style="cursor:pointer;font-weight:700">Save and resume practice</summary><p>Practice choices and written reflections are saved in this browser on this device when storage is available. These are not grades or submitted assignments.</p><p>Switching devices? Keep required writing in your school worksheet or LMS. Download a resume file for your step and practice selections, save it in your school-managed storage if allowed, then open this same lesson on the other device and load it. The file does not include written reflections, names, grades or work in other tools. Do not share it with classmates.</p><p>On a shared device, save required work first, then clear this lesson’s local practice before leaving.</p><div style="display:flex;flex-wrap:wrap;gap:.5rem"><button class="step-button secondary" type="button" data-resume="download">Download resume file</button><button class="step-button secondary" type="button" data-resume="load">Load resume file</button><button class="step-button secondary" type="button" data-resume="clear">Clear this lesson’s local practice</button></div><input type="file" accept=".json,application/json" hidden><p role="status" aria-live="polite" data-resume-status></p>';
+  panel.innerHTML = '<summary style="cursor:pointer;font-weight:700">Save and resume practice (this device only)</summary><p>Practice choices and written reflections are saved in this browser on this device when storage is available. These are not grades or submitted assignments.</p><p>Switching devices? Keep required writing in your school worksheet or LMS. Download a resume file for your step and practice selections, save it in your school-managed storage if allowed, then open this same lesson on the other device and load it. The file does not include written reflections, names, grades or work in other tools. Do not share it with classmates.</p><p>On a shared device, save required work first, then clear this lesson’s local practice before leaving.</p><div style="display:flex;flex-wrap:wrap;gap:.5rem"><button class="step-button secondary" type="button" data-resume="download">Download resume file</button><button class="step-button secondary" type="button" data-resume="load">Load resume file</button><button class="step-button secondary" type="button" data-resume="clear">Clear this lesson’s local practice</button></div><input type="file" accept=".json,application/json" hidden><p role="status" aria-live="polite" data-resume-status></p>';
   document.querySelector('.step-progress').append(panel);
   const message = panel.querySelector('[data-resume-status]');
-  const say = text => { message.textContent = text; };
+  const say = text => { if (message.textContent !== text) message.textContent = text; };
   announceSave = ok => { say(ok ? 'Practice saved on this device.' : 'Browser storage unavailable. Download a resume file before leaving; keep writing in your school worksheet.'); };
   announceSave(localProgress.available);
-  if (priorStep !== current) {
+  if (!localProgress.available) panel.open = true;
+  if (hadSavedStep && priorStep !== current) {
     const resume = document.createElement('button');
     resume.type = 'button';
     resume.className = 'step-button secondary';
@@ -293,9 +295,8 @@ if (stepper) {
       }
       const url = new URL(location.href);
       url.searchParams.set('step', String(restored.step + 1));
-      location.assign(url.href);
-      // Reload even when the selected step is unchanged.
       if (url.href === location.href) location.reload();
+      else location.assign(url.href);
     } catch (_) { say('This resume file could not be loaded. Choose a valid file from this same lesson. Your current work was not changed.'); }
   });
   panel.querySelector('[data-resume="clear"]').addEventListener('click', () => {
@@ -304,8 +305,8 @@ if (stepper) {
     if (!removed) { say('Some local data could not be cleared. Check your browser storage settings before leaving a shared device.'); return; }
     const url = new URL(location.href);
     url.searchParams.set('step', '1');
-    location.assign(url.href);
     if (url.href === location.href) location.reload();
+    else location.assign(url.href);
   });
 }
 
