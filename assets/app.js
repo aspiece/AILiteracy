@@ -1,3 +1,106 @@
+// Practice-only progress. No account, server, grade, or external-service state.
+const lessonId = document.body.dataset.lesson;
+const localProgress = (() => {
+  let available = true;
+  try {
+    const probe = 'ai-literacy-storage-probe';
+    localStorage.setItem(probe, '1');
+    localStorage.removeItem(probe);
+  } catch (_) { available = false; }
+  return {
+    get available() { return available; },
+    get(key) { try { return localStorage.getItem(key); } catch (_) { available = false; return null; } },
+    set(key, value) { try { localStorage.setItem(key, value); return true; } catch (_) { available = false; return false; } },
+    remove(key) { try { localStorage.removeItem(key); return true; } catch (_) { available = false; return false; } }
+  };
+})();
+const progressKey = 'ai-literacy-practice-v1-' + lessonId;
+const emptyPractice = () => ({ version: 1, lesson: lessonId, step: 0, choices: {}, scenarios: {} });
+function readPractice() {
+  try {
+    const value = JSON.parse(localProgress.get(progressKey) || 'null');
+    return value && value.version === 1 && value.lesson === lessonId ? value : emptyPractice();
+  } catch (_) { return emptyPractice(); }
+}
+const practiceControls = new Map();
+function registerPracticeControls() {
+  document.querySelectorAll('.question, .scenario-card').forEach(group => {
+    const card = group.closest('.scenario-card');
+    const groupId = group.dataset.questionId || (card && 'scenario:' + (card.dataset.program || card.dataset.bank));
+    if (!groupId) return;
+    const controls = [...group.querySelectorAll('input[type="radio"], input[type="checkbox"], select')];
+    controls.forEach((control, i) => {
+      const key = groupId + ':' + (control.dataset.responseId || control.name || 'select-' + i);
+      if (!practiceControls.has(key)) practiceControls.set(key, []);
+      practiceControls.get(key).push(control);
+    });
+  });
+}
+registerPracticeControls();
+const scenarioOptions = new Map();
+document.querySelectorAll('.scenario-simulation').forEach(sim => {
+  const mode = sim.dataset.feedbackMode;
+  if (!['media-audit', 'program-scenario'].includes(mode)) return;
+  scenarioOptions.set(mode, new Set([...sim.querySelectorAll('.scenario-card')].map(card => card.dataset.program).filter(Boolean)));
+});
+function sanitizePractice(value) {
+  if (!value || value.version !== 1 || value.lesson !== lessonId ||
+      !Number.isInteger(value.step) || value.step < 0 ||
+      value.step >= document.querySelectorAll('.lesson-step').length) return null;
+  const result = emptyPractice();
+  result.step = value.step;
+  if (!value.choices || typeof value.choices !== 'object' || Array.isArray(value.choices) ||
+      !value.scenarios || typeof value.scenarios !== 'object' || Array.isArray(value.scenarios)) return null;
+  for (const [key, controls] of practiceControls) {
+    const values = Object.prototype.hasOwnProperty.call(value.choices, key) ? value.choices[key] : undefined;
+    if (values === undefined) continue;
+    if (!Array.isArray(values) || values.some(v => typeof v !== 'string')) return null;
+    const allowed = new Set(controls.flatMap(c => c.tagName === 'SELECT' ? [...c.options].map(o => o.value) : [c.value]));
+    if (values.some(v => !allowed.has(v)) || new Set(values).size !== values.length) return null;
+    if (controls[0].type !== 'checkbox' && values.length > 1) return null;
+    result.choices[key] = values;
+  }
+  for (const [mode, names] of scenarioOptions) {
+    if (!Object.prototype.hasOwnProperty.call(value.scenarios, mode)) continue;
+    const name = value.scenarios[mode];
+    if (typeof name !== 'string' || !names.has(name)) return null;
+    result.scenarios[mode] = name;
+  }
+  return result;
+}
+const savedPractice = readPractice();
+const practice = sanitizePractice(savedPractice) || emptyPractice();
+let announceSave = () => {};
+function savePractice() {
+  if (!lessonId) return false;
+  const ok = localProgress.set(progressKey, JSON.stringify(practice));
+  announceSave(ok);
+  return ok;
+}
+function restoreChoices(root = document) {
+  for (const [key, controls] of practiceControls) {
+    const values = practice.choices[key] || [];
+    controls.filter(c => root.contains(c)).forEach(c => {
+      if (c.tagName === 'SELECT') c.value = values[0] || '';
+      else c.checked = values.includes(c.value);
+    });
+  }
+}
+document.addEventListener('change', event => {
+  for (const [key, controls] of practiceControls) {
+    if (!controls.includes(event.target)) continue;
+    practice.choices[key] = controls[0].tagName === 'SELECT' ? [event.target.value] :
+      controls.filter(c => c.checked).map(c => c.value);
+    savePractice();
+    break;
+  }
+});
+function rememberScenario(mode, card) {
+  if (card && card.dataset.program) practice.scenarios[mode] = card.dataset.program;
+  else delete practice.scenarios[mode];
+  savePractice();
+}
+
 document.querySelector('.menu-button')?.addEventListener('click', event => {
   const nav = document.querySelector('#course-nav');
   const open = nav.classList.toggle('open');
@@ -79,10 +182,13 @@ document.querySelectorAll('.question').forEach(question => {
   });
 });
 
+const reflectionKeys = [];
 document.querySelectorAll('textarea').forEach((field, index) => {
-  const key = `ai-literacy-${document.body.dataset.lesson || 'home'}-${index}`;
-  field.value = localStorage.getItem(key) || '';
-  field.addEventListener('input', () => localStorage.setItem(key, field.value));
+  const legacyKey = 'ai-literacy-' + (lessonId || 'home') + '-' + index;
+  const key = field.id ? 'ai-literacy-reflection-' + lessonId + '-' + field.id : legacyKey;
+  reflectionKeys.push(key, legacyKey);
+  field.value = localProgress.get(key) ?? localProgress.get(legacyKey) ?? '';
+  field.addEventListener('input', () => announceSave(localProgress.set(key, field.value)));
 });
 
 const stepper = document.querySelector('.stepper');
@@ -96,9 +202,13 @@ if (stepper) {
   const count = document.querySelector('#step-count');
   const announcement = document.querySelector('#step-announcement');
   const storageKey = `ai-literacy-lesson-${document.body.dataset.lesson}-step`;
-  const requested = Number(new URLSearchParams(location.search).get('step')) - 1;
-  let current = Number.isInteger(requested) && requested >= 0 ? requested : Number(localStorage.getItem(storageKey) || 0);
-  current = Math.min(Math.max(current, 0), steps.length - 1);
+  const requestedParam = new URLSearchParams(location.search).get('step');
+  const requested = requestedParam === null ? -1 : Number(requestedParam) - 1;
+  const legacyStep = Number(localProgress.get(storageKey) || 0);
+  const savedStep = savedPractice.version === 1 && localProgress.get(progressKey) !== null ? practice.step :
+    Number.isInteger(legacyStep) && legacyStep >= 0 && legacyStep < steps.length ? legacyStep : 0;
+  let current = Number.isInteger(requested) && requested >= 0 && requested < steps.length ? requested : savedStep;
+  const priorStep = savedStep;
 
   function showStep(index, moveFocus = false) {
     current = Math.min(Math.max(index, 0), steps.length - 1);
@@ -113,8 +223,11 @@ if (stepper) {
     previous.disabled = current === 0;
     next.disabled = false;
     next.textContent = current === steps.length - 1 ? 'Finish lesson ✓' : 'Next step →';
-    localStorage.setItem(storageKey, String(current));
-    history.replaceState(null, '', `${location.pathname}?step=${current + 1}`);
+    practice.step = current;
+    savePractice();
+    const url = new URL(location.href);
+    url.searchParams.set('step', String(current + 1));
+    history.replaceState(null, '', url.href);
     announcement.textContent = `Now showing step ${label}, ${current + 1} of ${steps.length}.`;
     if (moveFocus) {
       const heading = steps[current].querySelector('h2, h1');
@@ -133,7 +246,67 @@ if (stepper) {
     }
     showStep(current + 1, true);
   });
+  // Keep explicit step links meaningful while offering a return to the previous saved step.
   showStep(current);
+  const panel = document.createElement('details');
+  panel.className = 'practice-resume';
+  panel.style.cssText = 'margin-top:1rem;border:1px solid #767676;border-radius:8px;padding:.75rem;background:#fff;color:#222';
+  panel.innerHTML = '<summary style="cursor:pointer;font-weight:700">Save and resume practice</summary><p>Practice choices and written reflections are saved in this browser on this device when storage is available. These are not grades or submitted assignments.</p><p>Switching devices? Keep required writing in your school worksheet or LMS. Download a resume file for your step and practice selections, save it in your school-managed storage if allowed, then open this same lesson on the other device and load it. The file does not include written reflections, names, grades or work in other tools. Do not share it with classmates.</p><p>On a shared device, save required work first, then clear this lesson’s local practice before leaving.</p><div style="display:flex;flex-wrap:wrap;gap:.5rem"><button class="step-button secondary" type="button" data-resume="download">Download resume file</button><button class="step-button secondary" type="button" data-resume="load">Load resume file</button><button class="step-button secondary" type="button" data-resume="clear">Clear this lesson’s local practice</button></div><input type="file" accept=".json,application/json" hidden><p role="status" aria-live="polite" data-resume-status></p>';
+  document.querySelector('.step-progress').append(panel);
+  const message = panel.querySelector('[data-resume-status]');
+  const say = text => { message.textContent = text; };
+  announceSave = ok => { say(ok ? 'Practice saved on this device.' : 'Browser storage unavailable. Download a resume file before leaving; keep writing in your school worksheet.'); };
+  announceSave(localProgress.available);
+  if (priorStep !== current) {
+    const resume = document.createElement('button');
+    resume.type = 'button';
+    resume.className = 'step-button secondary';
+    resume.textContent = 'Return to previously saved step ' + (priorStep + 1);
+    panel.querySelector('div').prepend(resume);
+    panel.open = true;
+    resume.addEventListener('click', () => { showStep(priorStep, true); resume.remove(); });
+  }
+  const fileInput = panel.querySelector('input[type="file"]');
+  panel.querySelector('[data-resume="download"]').addEventListener('click', () => {
+    const blob = new Blob([JSON.stringify(practice, null, 2)], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = 'ai-practice-lesson-' + lessonId + '.json';
+    document.body.append(link); link.click(); link.remove();
+    setTimeout(() => URL.revokeObjectURL(url), 1000);
+    say('Resume file requested. Save it in school-managed storage if allowed. Written reflections are not included.');
+  });
+  panel.querySelector('[data-resume="load"]').addEventListener('click', () => fileInput.click());
+  fileInput.addEventListener('change', async () => {
+    const file = fileInput.files[0];
+    fileInput.value = '';
+    if (!file) return;
+    try {
+      if (file.size > 65536) throw new Error('File too large.');
+      const restored = sanitizePractice(JSON.parse(await file.text()));
+      if (!restored) throw new Error('Invalid or different lesson.');
+      if (!confirm('Replace this lesson’s saved practice selections and step with the resume file? Written reflections on this device will stay.')) return;
+      if (!localProgress.set(progressKey, JSON.stringify(restored))) {
+        say('Cannot load the file while browser storage is unavailable. Keep the file and use a browser with storage enabled.');
+        return;
+      }
+      const url = new URL(location.href);
+      url.searchParams.set('step', String(restored.step + 1));
+      location.assign(url.href);
+      // Reload even when the selected step is unchanged.
+      if (url.href === location.href) location.reload();
+    } catch (_) { say('This resume file could not be loaded. Choose a valid file from this same lesson. Your current work was not changed.'); }
+  });
+  panel.querySelector('[data-resume="clear"]').addEventListener('click', () => {
+    if (!confirm('Clear practice choices and written reflections for this lesson on this device? Save any required work first. This does not change submitted work.')) return;
+    const removed = [...new Set([progressKey, storageKey, ...reflectionKeys])].map(key => localProgress.remove(key)).every(Boolean);
+    if (!removed) { say('Some local data could not be cleared. Check your browser storage settings before leaving a shared device.'); return; }
+    const url = new URL(location.href);
+    url.searchParams.set('step', '1');
+    location.assign(url.href);
+    if (url.href === location.href) location.reload();
+  });
 }
 
 document.querySelectorAll('a[href^="http"]').forEach(link => {
@@ -272,10 +445,11 @@ document.querySelectorAll('.scenario-simulation').forEach(simulation => {
 
     select.addEventListener('change', () => {
       resetComparison();
+      rememberScenario(feedbackMode, null);
       picker.hidden = false;
       start.disabled = !select.value;
     });
-    start.addEventListener('click', () => {
+    function openComparison(moveFocus = true) {
       resetComparison();
       const activeCard = allCards.find(card => card.dataset.bank === select.value);
       if (!activeCard) return;
@@ -286,10 +460,20 @@ document.querySelectorAll('.scenario-simulation').forEach(simulation => {
       count.textContent = activeCard.dataset.program;
       const heading = activeCard.querySelector('h3');
       heading?.setAttribute('tabindex', '-1');
-      heading?.focus();
-    });
+      restoreChoices(activeCard);
+      rememberScenario(feedbackMode, activeCard);
+      if (moveFocus) heading?.focus();
+    }
+    start.addEventListener('click', () => openComparison());
+    const savedCard = allCards.find(card => card.dataset.program === practice.scenarios[feedbackMode]);
+    if (savedCard) {
+      select.value = savedCard.dataset.bank;
+      start.disabled = false;
+      openComparison(false);
+    }
     anotherButton.addEventListener('click', () => {
       resetComparison();
+      rememberScenario(feedbackMode, null);
       select.value = '';
       start.disabled = true;
       picker.hidden = false;
@@ -322,7 +506,7 @@ document.querySelectorAll('.scenario-simulation').forEach(simulation => {
       allCards.forEach(card => {
         card.hidden = true;
         card.querySelectorAll('input').forEach(input => { input.checked = false; });
-        card.querySelectorAll('textarea').forEach(textarea => { textarea.value = ''; });
+        // Written reflections remain saved for their own career scenario.
         card.querySelectorAll('.decision-pathway-step').forEach((step, index) => { step.hidden = index !== 0; });
         card.querySelectorAll('.feedback').forEach(feedback => {
           feedback.hidden = true;
@@ -384,10 +568,11 @@ document.querySelectorAll('.scenario-simulation').forEach(simulation => {
 
     select.addEventListener('change', () => {
       resetScenario();
+      rememberScenario(feedbackMode, null);
       picker.hidden = false;
       start.disabled = !select.value;
     });
-    start.addEventListener('click', () => {
+    function openScenario(moveFocus = true) {
       resetScenario();
       const activeCard = allCards[Number(select.value) - 1];
       if (!activeCard) return;
@@ -398,10 +583,21 @@ document.querySelectorAll('.scenario-simulation').forEach(simulation => {
       count.textContent = activeCard.dataset.program;
       const heading = activeCard.querySelector('.scenario-category');
       heading?.setAttribute('tabindex', '-1');
-      heading?.focus();
-    });
+      restoreChoices(activeCard);
+      rememberScenario(feedbackMode, activeCard);
+      // Recheck saved selections to reveal each successive step; no completion is assumed.
+      if (moveFocus) heading?.focus();
+    }
+    start.addEventListener('click', () => openScenario());
+    const savedCardIndex = allCards.findIndex(card => card.dataset.program === practice.scenarios[feedbackMode]);
+    if (savedCardIndex >= 0) {
+      select.value = String(savedCardIndex + 1);
+      start.disabled = false;
+      openScenario(false);
+    }
     anotherButton.addEventListener('click', () => {
       resetScenario();
+      rememberScenario(feedbackMode, null);
       select.value = '';
       start.disabled = true;
       picker.hidden = false;
@@ -484,3 +680,6 @@ document.querySelectorAll('.scenario-simulation').forEach(simulation => {
   });
   beginSimulation(selectedCards.slice(0, cardLimit || selectedCards.length));
 });
+
+// Restore choices after matching/ordering options and scenario choices have been shuffled.
+restoreChoices();
