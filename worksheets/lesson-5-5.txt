@@ -1,0 +1,49 @@
+Student Name:
+
+Date:
+
+Course: AI Literacy
+
+Activity: Lesson 5.5 AI Privacy Scanner
+
+Privacy Routine: Scan → Rate → Check → Plan → Safe Use
+
+Estimated time: 15 minutes
+
+Choose ONE fictional workplace scenario from Lesson 5.5. Do not enter actual private information or use an outside AI tool. Write a short response for each step.
+
+1. Scan and rate
+
+Career and scenario: [Type here]
+
+Choose CLEAR, WARNING or STOP. Identify two details that could cause harm and explain your rating.
+
+[Type here]
+
+2. Check permission
+
+Who controls the information? What permission or approved tool would you need? If unknown, say what you must check.
+
+[Type here]
+
+3. Identify the risk
+
+Explain one specific risk if the information is stored, reviewed, shared or reused.
+
+[Type here]
+
+4. Plan a safer approach
+
+What would you remove, replace with fictional details, or do without AI? Explain why.
+
+[Type here]
+
+5. Safe use and human review
+
+Write a safer prompt using only fictional or permitted information, or describe a safer non-AI method. Name the qualified role that should check the result.
+
+[Type here]
+
+Before submitting
+
+Check that all five steps include your reasoning, no real private information appears, and your safer approach addresses the risk. Revise missing or unsupported responses. Submit the worksheet in your course.
