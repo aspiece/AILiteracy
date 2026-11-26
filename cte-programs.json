@@ -1,0 +1,148 @@
+{
+  "status": "working master list; confirm subprogram naming and current offerings with GCI before module-wide rollout",
+  "lastReviewed": "2026-11-26",
+  "sources": [
+    "https://gci.geneseeisd.org/programs",
+    "https://gci.geneseeisd.org/programs/construction-trades"
+  ],
+  "programs": [
+    {
+      "id": "agriscience-vet-med",
+      "label": "Agriscience - Vet Med",
+      "aliases": [
+        "Agri-Science",
+        "Vet Tech"
+      ]
+    },
+    {
+      "id": "automotive-heavy-industrial",
+      "label": "Automotive - Heavy Industrial",
+      "aliases": [
+        "Automotive Technology",
+        "Medium/Heavy Diesel",
+        "Medium Heavy Truck"
+      ]
+    },
+    {
+      "id": "aviation",
+      "label": "Aviation",
+      "aliases": [
+        "Aviation / Avionics"
+      ]
+    },
+    {
+      "id": "computer-science",
+      "label": "Computer Science",
+      "aliases": [
+        "IT",
+        "Cybersecurity",
+        "Software Development"
+      ]
+    },
+    {
+      "id": "construction-trades",
+      "label": "Construction Trades",
+      "aliases": []
+    },
+    {
+      "id": "electrical-wiring",
+      "label": "Electrical Wiring",
+      "aliases": [
+        "Electrical"
+      ]
+    },
+    {
+      "id": "hvac",
+      "label": "HVAC (Heating, Ventilation and Air Conditioning)",
+      "aliases": [
+        "HVAC/R",
+        "HVACR",
+        "Heating, Ventilation, Air Conditioning and Refrigeration"
+      ]
+    },
+    {
+      "id": "cosmetology",
+      "label": "Cosmetology",
+      "aliases": []
+    },
+    {
+      "id": "culinary",
+      "label": "Culinary",
+      "aliases": [
+        "Culinary Arts",
+        "Hospitality"
+      ]
+    },
+    {
+      "id": "education",
+      "label": "Education",
+      "aliases": [
+        "Early Childhood Education"
+      ]
+    },
+    {
+      "id": "forensic-science",
+      "label": "Forensic Science",
+      "aliases": []
+    },
+    {
+      "id": "health-science",
+      "label": "Health Science - Medical Careers",
+      "aliases": [
+        "Health Sciences",
+        "Nursing"
+      ]
+    },
+    {
+      "id": "marketing",
+      "label": "Marketing",
+      "aliases": [
+        "Marketing & Entrepreneurship",
+        "Graphic Design / Digital Media"
+      ]
+    },
+    {
+      "id": "mechatronics",
+      "label": "Mechatronics",
+      "aliases": [
+        "Manufacturing & Robotics"
+      ]
+    },
+    {
+      "id": "public-safety",
+      "label": "Public Safety",
+      "aliases": [
+        "Law Enforcement",
+        "Criminal Justice",
+        "Emergency Medical Services",
+        "Fire Academy"
+      ]
+    },
+    {
+      "id": "us-army-jrotc",
+      "label": "US Army JROTC",
+      "aliases": [
+        "U.S. Army JROTC"
+      ]
+    },
+    {
+      "id": "welding",
+      "label": "Welding",
+      "aliases": [
+        "Welding Technology"
+      ]
+    },
+    {
+      "id": "other",
+      "label": "Other career program",
+      "aliases": []
+    }
+  ],
+  "notes": [
+    "HVAC and Electrical Wiring are listed on the official Construction Trades page; represent as separate options in the module.",
+    "Aliases are curriculum mappings for review, not an assertion that all are current standalone GCI programs.",
+    "Other is a curriculum fallback, not a GCI program.",
+    "Each lesson must provide an appropriate career connection for every listed program, with no extra required work.",
+    "Keep existing program-specific scenarios during migration; check the official list and instructors before deleting or merging any choices."
+  ]
+}
