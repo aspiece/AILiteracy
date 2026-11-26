@@ -266,7 +266,7 @@ if (stepper) {
   const requestedParam = new URLSearchParams(location.search).get('step');
   const requested = requestedParam === null ? -1 : Number(requestedParam) - 1;
   const legacyStep = Number(localProgress.get(storageKey) || 0);
-  const savedStep = savedPractice.version === 1 && localProgress.get(progressKey) !== null ? practice.step :
+  const savedStep = sanitizePractice(savedPractice) && localProgress.get(progressKey) !== null ? practice.step :
     Number.isInteger(legacyStep) && legacyStep >= 0 && legacyStep < steps.length ? legacyStep : 0;
   let current = Number.isInteger(requested) && requested >= 0 && requested < steps.length ? requested : savedStep;
   const priorStep = savedStep;
@@ -314,7 +314,7 @@ if (stepper) {
   panel.className = 'practice-resume';
   panel.style.cssText = 'margin-top:1rem;border:1px solid #767676;border-radius:8px;padding:.75rem;background:#fff;color:#222';
   panel.innerHTML = '<summary style="cursor:pointer;font-weight:700">Save and resume practice (this device only)</summary><p>Practice choices and written reflections are saved in this browser on this device when storage is available. These are not grades or submitted assignments.</p><p>Switching devices? Keep required writing in your school worksheet or LMS. Download a resume file for your step and practice selections, save it in your school-managed storage if allowed, then open this same lesson on the other device and load it. The file does not include written reflections, names, grades or work in other tools. Do not share it with classmates.</p><p>On a shared device, save required work first, then clear this lesson’s local practice before leaving.</p><div style="display:flex;flex-wrap:wrap;gap:.5rem"><button class="step-button secondary" type="button" data-resume="download">Download resume file</button><button class="step-button secondary" type="button" data-resume="load">Load resume file</button><button class="step-button secondary" type="button" data-resume="clear">Clear this lesson’s local practice</button></div><input type="file" accept=".json,application/json" hidden><p role="status" aria-live="polite" data-resume-status></p>';
-  document.querySelector('.step-progress').append(panel);
+  (document.querySelector('.step-progress') || stepper).append(panel);
   const message = panel.querySelector('[data-resume-status]');
   const say = text => { if (message.textContent !== text) message.textContent = text; };
   announceSave = ok => { say(ok ? 'Practice saved on this device.' : 'Browser storage unavailable. Download a resume file before leaving; keep writing in your school worksheet.'); };
@@ -483,6 +483,7 @@ document.querySelectorAll('.scenario-simulation').forEach(simulation => {
     allCards.forEach(card => {
       const feedback = card.querySelector('.feedback');
       feedback.dataset.completeFeedback = feedback.innerHTML;
+      card.addEventListener('change', () => { feedback.hidden = true; another.hidden = true; });
       card.querySelector('.scenario-check').addEventListener('click', () => {
         const questions = [...card.querySelectorAll('.audit-question')];
         let allCorrect = true;
@@ -586,6 +587,11 @@ document.querySelectorAll('.scenario-simulation').forEach(simulation => {
         const check = step.querySelector('.scenario-check');
         if (!check) return;
         const feedback = step.querySelector('.feedback');
+        step.addEventListener('change', () => {
+          feedback.hidden = true;
+          steps.slice(stepIndex + 1).forEach(later => { later.hidden = true; });
+          actions.hidden = true;
+        });
         check.addEventListener('click', () => {
           const answer = step.querySelector('input:checked');
         if (!answer) {
@@ -613,6 +619,8 @@ document.querySelectorAll('.scenario-simulation').forEach(simulation => {
       const exemplarButton = card.querySelector('.scenario-exemplar');
       const exemplarFeedback = card.querySelector('.exemplar-feedback');
       const reflection = card.querySelector('textarea');
+      reflection.addEventListener('input', () => { exemplarFeedback.hidden = true; actions.hidden = true; });
+      const originalExemplar = exemplarFeedback.innerHTML;
       exemplarButton.addEventListener('click', () => {
         const response = reflection.value.trim();
         if (!response) {
@@ -621,6 +629,7 @@ document.querySelectorAll('.scenario-simulation').forEach(simulation => {
           exemplarFeedback.hidden = false;
           return;
         }
+        exemplarFeedback.innerHTML = originalExemplar;
         exemplarFeedback.classList.remove('incorrect');
         exemplarFeedback.hidden = false;
         actions.hidden = false;
