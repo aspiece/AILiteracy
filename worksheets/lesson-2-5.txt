@@ -1,0 +1,295 @@
+📄 AI Editor Challenge Worksheet
+
+Student Name: 
+
+Date: 
+
+Selected Career Pathway / Program: 
+
+Career Scenario Goal: 
+
+Instructions
+
+Pick one career from the practice bank at the end of this worksheet. Write the career and task at the top. Only complete ONE scenario.
+
+Write your own prompt first. Then audit the sample for your chosen career and write a follow-up prompt. The sample is a practice response, not an answer generated from your own prompt.
+
+Check your work using the Self-Check list at the end.
+
+⚠️ Safety Reminder
+
+Only use made-up names and facts. Do not put real names, medical info, or personal secrets into the AI.
+
+[ ] I have double-checked that my scenario uses ONLY fictional information and does not contain real data.
+
+Step 1: Get Ready to Prompt
+
+Use the 5-Tip Formula to write your first prompt for your career choice.
+
+💡 5-Tip Formula Reference
+
+Be Specific: Tell the chatbot exactly what you want to know.
+
+Give the chatbot a role: Give it a job (e.g., "You are a mechanic").
+
+Define the output: Tell the AI exactly what you need (e.g., a list or a story).
+
+Ask the chatbot to ask questions: Tell the AI to ask you questions to learn more about what you need.
+
+Have a conversation: Talk to the AI like you are talking to a friend. Be direct and clear.
+
+Stage 1: PROMPT — Write a Better Prompt
+
+What is the goal?What do you want the AI to do?
+
+Response:
+
+The AI should help me...
+
+Rules and Tools:Think of a rule, a tool, or a process you already know. Use this to check the AI's work.
+
+Response:
+
+I will check the work using:...
+
+Your Best Prompt:Write a prompt using at least three tips from the 5-Tip Formula.
+
+Response:
+
+My prompt is:...
+
+Step 2: Fact-Check the AI
+
+Find your career in the practice bank at the end. Read its fictional AI draft. Identify one unsupported claim or missing detail. The drafts contain intentional problems; do not use them as real instructions.
+
+Stage 2: AUDIT — Find Mistakes and Gaps
+
+1. Check the Facts: (My Verification Source: Name the manual, standard, or professional who can confirm this):Quote or describe one claim from the sample. Name a specific source or qualified person you would use to check it. Explain what you would check and why. If you cannot verify it, say so.
+
+
+
+Response:
+
+I will check [fact] by looking at [source] because...
+
+Find the Risk:What did the AI miss? Is any part of the answer unsafe or confusing?
+
+Response:
+
+One problem with the AI's answer is...
+
+Step 3: Fix and Finish
+
+Write a follow-up prompt that addresses the problem you found. You do not need to run it in an AI tool. A qualified person must review the result before use.
+
+Stage 3: IMPROVE — Fix the Gaps
+
+Follow-Up Prompt:Write a new prompt to fix the problem you found in Stage 2.
+
+Response:
+
+My follow-up prompt is:...
+
+Human Responsibility:What must a real person still check or do before using this work?
+
+Response:
+
+Because I am the human in charge, I will take responsibility by: ____________________.
+
+Final Choice:
+
+[ ] USE (Only after verification and approval)
+
+[ ] REVISE (Needs human edits/adjustments)
+
+[ ] REJECT (Unsafe, incorrect, or unusable)
+
+Explain why you chose this rating:
+
+Response:
+
+I chose this because...
+
+✅ Self-Check
+
+Check these boxes before you turn in your work:
+
+[ ] 1. I picked a goal and used career facts I know.
+
+[ ] 2. I used at least three tips in my prompt.
+
+[ ] 3. I identified an unsupported claim or gap and named a reliable source to check it.
+
+[ ] 4. I wrote a follow-up prompt that fixes the specific gap.
+
+[ ] 5. I explained who must approve the work, what they must check, and why my final choice is justified.
+
+To be marked Complete, demonstrate all five skills above. If a response is missing or does not explain your thinking, revise it before submitting.
+
+Practice Bank: Choose ONE career
+
+These fictional AI drafts are intentionally incomplete or unsupported. They are for learning, not actual workplace use. Read only your chosen case. The possible sources are starting points; explain what you would verify.
+
+Worked example (different task)
+
+Task: Create a class event announcement. Draft: “The event starts at 3 p.m.” No schedule was provided. Audit: I would check the approved event schedule because the time is unsupported. Follow-up prompt: “Use only the approved schedule. If the start time is missing, leave it blank and ask me.” Human responsibility: The event organizer checks the time before sharing. Decision: Revise.
+
+Agriscience / Vet Med
+
+Task: Pet-care guide after surgery.
+
+Fictional AI draft: The pet should return to its usual routine the next day. The same guide works for every pet.
+
+Possible verification source: Veterinary discharge instructions; qualified veterinarian.
+
+Automotive / Heavy Industrial
+
+Task: Engine power-loss checklist.
+
+Fictional AI draft: The service note says the engine lost power. The cause is definitely a failed part, even though no diagnostic code was recorded.
+
+Possible verification source: Manufacturer service information; trained technician.
+
+Aviation
+
+Task: Fluid-leak inspection form.
+
+Fictional AI draft: The inspection is complete. The fluid is harmless and the aircraft is ready, even though its source is unknown.
+
+Possible verification source: Approved aircraft maintenance manual; qualified mechanic.
+
+Computer Science / IT
+
+Task: 404 error guide.
+
+Fictional AI draft: A 404 means the server is broken. The guide does not need the page address or browser details.
+
+Possible verification source: Server logs; official web-server documentation.
+
+Construction Trades
+
+Task: Kitchen remodel estimate form.
+
+Fictional AI draft: The entire remodel will cost $3,000. This estimate applies to any kitchen regardless of size.
+
+Possible verification source: Project measurements; supplier quotes.
+
+Cosmetology
+
+Task: Hair-color service consultation form.
+
+Fictional AI draft: The same service is suitable for every client. The form does not need a hair history or consultation notes.
+
+Possible verification source: Salon consultation policy; product instructions.
+
+Culinary / Hospitality
+
+Task: Dinner prep and ingredient list.
+
+Fictional AI draft: Prepare 20 servings. All guests can eat the meal; no allergy or guest-count information is needed.
+
+Possible verification source: Recipe and ingredient labels; food safety procedures.
+
+Education
+
+Task: Preschool daily schedule.
+
+Fictional AI draft: This schedule suits every age group and learning goal. No changes are needed.
+
+Possible verification source: Age-appropriate curriculum; teacher guidance.
+
+Electrical Wiring
+
+Task: Job-site safety inspection checklist.
+
+Fictional AI draft: The site passed inspection because it looks clean. The checklist does not need equipment or site-specific safety requirements.
+
+Possible verification source: Shop safety checklist; instructor or qualified professional.
+
+Welding
+
+Task: Weld inspection record.
+
+Fictional AI draft: The weld passed inspection because it looks smooth. No inspection criteria were checked.
+
+Possible verification source: Approved inspection criteria; qualified instructor.
+
+Emergency Medical Services / Fire Academy
+
+Task: Training drill response outline.
+
+Fictional AI draft: The drill report says the scene was assessed, but no location or scene details were provided.
+
+Possible verification source: Approved training protocol; instructor.
+
+Forensic Science
+
+Task: Evidence tracking form.
+
+Fictional AI draft: The evidence form lists the item name. The time and people who handled it are not recorded.
+
+Possible verification source: Chain-of-custody procedure; instructor.
+
+Graphic Design / Digital Media
+
+Task: Brochure planning checklist.
+
+Fictional AI draft: The brochure is ready for printing. Any paper size will work and no proof is needed.
+
+Possible verification source: Print specifications; client-approved proof.
+
+Health Science / Nursing
+
+Task: Fictional health measurement chart.
+
+Fictional AI draft: The chart contains a made-up reading of 98 with no unit or time. It labels the reading normal.
+
+Possible verification source: Instructor-approved reference; measurement chart standards.
+
+Law Enforcement / Public Safety
+
+Task: Training patrol report layout.
+
+Fictional AI draft: The report says a person caused an incident, even though the fictional notes only say they were nearby.
+
+Possible verification source: Training report policy; recorded observations.
+
+Marketing / Entrepreneurship
+
+Task: Social media campaign plan.
+
+Fictional AI draft: The campaign will definitely reach 10,000 people. It needs no audience information or budget.
+
+Possible verification source: Platform analytics; campaign requirements.
+
+HVAC (Heating, Ventilation and Air Conditioning)
+
+Task: Summarize fictional service notes for technician review.
+
+Fictional AI draft: The customer reports weak cooling. The draft says the unit needs a new compressor, even though no model number or inspection results were provided.
+
+Possible verification source: Manufacturer service documentation; qualified HVAC technician.
+
+Mechatronics
+
+Task: Machine inspection summary.
+
+Fictional AI draft: The machine is ready to return to service. No sensor readings or inspection results are listed.
+
+Possible verification source: Approved machine documentation; technician.
+
+US Army JROTC
+
+Task: Practice event planning checklist.
+
+Fictional AI draft: The checklist says all cadets are available. No attendance or event requirements were checked.
+
+Possible verification source: Instructor-approved event plan; attendance information.
+
+Other career program
+
+Task: Draft a workplace task checklist.
+
+Fictional AI draft: The draft says the work is ready to use, but it does not identify the workplace rules or the person who checked it.
+
+Possible verification source: Relevant workplace procedure; instructor or qualified professional.
