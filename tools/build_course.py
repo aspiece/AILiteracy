@@ -2082,6 +2082,15 @@ def lesson_assessments_export(modules):
 
 
 def main():
+    # The published lessons contain pilot revisions not represented in the old
+    # extracted Canvas archive. Fail before writing any generated output.
+    if any("20261126-pilot-feedback" in page.read_text(encoding="utf-8")
+           for page in LESSONS.glob("lesson-*.html")):
+        raise SystemExit(
+            "Rebuild stopped: pilot-revised lesson pages are the current source of truth. "
+            "Reconcile the Canvas source and question bank with the published lessons "
+            "in a separate review branch before replacing generated files."
+        )
     LESSONS.mkdir(exist_ok=True)
     (ASSETS / "media").mkdir(parents=True, exist_ok=True)
     for image in (SOURCE / "web_resources" / "Uploaded Media").iterdir():
